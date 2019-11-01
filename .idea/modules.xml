@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dart/web/livetraintimes/android/app/src/debug/debug.iml" filepath="$PROJECT_DIR$/dart/web/livetraintimes/android/app/src/debug/debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/12_error/task_12_error/android/app/src/main/main.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/12_error/task_12_error/android/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/11_api/solution_11_api/android/app/src/main/main1.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/11_api/solution_11_api/android/app/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/05_stateful_widgets/solution_05_stateful_widgets/android/app/src/main/main10.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/05_stateful_widgets/solution_05_stateful_widgets/android/app/src/main/main10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/01_hello_rectangle/solution_01_hello_rectangle/android/app/src/main/main11.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/01_hello_rectangle/solution_01_hello_rectangle/android/app/src/main/main11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/07_backdrop/solution_07_backdrop/android/app/src/main/main12.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/07_backdrop/solution_07_backdrop/android/app/src/main/main12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/08_responsive/task_08_responsive/android/app/src/main/main13.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/08_responsive/task_08_responsive/android/app/src/main/main13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/10_icons_fonts/solution_10_icons_fonts/android/app/src/main/main14.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/10_icons_fonts/solution_10_icons_fonts/android/app/src/main/main14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/03_category_route/task_03_category_route/android/app/src/main/main15.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/03_category_route/task_03_category_route/android/app/src/main/main15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/05_stateful_widgets/task_05_stateful_widgets/android/app/src/main/main16.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/05_stateful_widgets/task_05_stateful_widgets/android/app/src/main/main16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/web/livetraintimes/android/app/src/main/main17.iml" filepath="$PROJECT_DIR$/dart/web/livetraintimes/android/app/src/main/main17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/unit_converter/unit_converter/android/app/src/main/main18.iml" filepath="$PROJECT_DIR$/dart/udacity-course/unit_converter/unit_converter/android/app/src/main/main18.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/06_input/task_06_input/android/app/src/main/main19.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/06_input/task_06_input/android/app/src/main/main19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/03_category_route/solution_03_category_route/android/app/src/main/main2.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/03_category_route/solution_03_category_route/android/app/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/02_category_widget/solution_02_category_widget/android/app/src/main/main20.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/02_category_widget/solution_02_category_widget/android/app/src/main/main20.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/06_input/solution_06_input/android/app/src/main/main21.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/06_input/solution_06_input/android/app/src/main/main21.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/02_category_widget/task_02_category_widget/android/app/src/main/main22.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/02_category_widget/task_02_category_widget/android/app/src/main/main22.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/11_api/task_11_api/android/app/src/main/main23.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/11_api/task_11_api/android/app/src/main/main23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/08_responsive/solution_08_responsive/android/app/src/main/main24.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/08_responsive/solution_08_responsive/android/app/src/main/main24.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/09_units/task_09_units/android/app/src/main/main3.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/09_units/task_09_units/android/app/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/09_units/solution_09_units/android/app/src/main/main4.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/09_units/solution_09_units/android/app/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/12_error/solution_12_error/android/app/src/main/main5.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/12_error/solution_12_error/android/app/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/07_backdrop/task_07_backdrop/android/app/src/main/main6.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/07_backdrop/task_07_backdrop/android/app/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/10_icons_fonts/task_10_icons_fonts/android/app/src/main/main7.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/10_icons_fonts/task_10_icons_fonts/android/app/src/main/main7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/04_navigation/solution_04_navigation/android/app/src/main/main8.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/04_navigation/solution_04_navigation/android/app/src/main/main8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/udacity-course/course/04_navigation/task_04_navigation/android/app/src/main/main9.iml" filepath="$PROJECT_DIR$/dart/udacity-course/course/04_navigation/task_04_navigation/android/app/src/main/main9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dart/web/livetraintimes/android/app/src/profile/profile.iml" filepath="$PROJECT_DIR$/dart/web/livetraintimes/android/app/src/profile/profile.iml" />
+    </modules>
+  </component>
+</project>
