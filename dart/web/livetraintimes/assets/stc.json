@@ -1,0 +1,5002 @@
+[
+	{
+		"code" : "ABE",
+		"name" : "Aber",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "ACY",
+		"name" : "Abercynon",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "ABA",
+		"name" : "Aberdare",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "AVY",
+		"name" : "Aberdovey",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "ABH",
+		"name" : "Abererch",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "AGV",
+		"name" : "Abergavenny",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "AGL",
+		"name" : "Abergele & Pensarn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "AYW",
+		"name" : "Aberystwyth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "AMF",
+		"name" : "Ammanford",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BAJ",
+		"name" : "Baglan",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BNG",
+		"name" : "Bangor (Gwynedd)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BGD",
+		"name" : "Bargoed",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BRM",
+		"name" : "Barmouth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BRY",
+		"name" : "Barry",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BYD",
+		"name" : "Barry Docks",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BYI",
+		"name" : "Barry Island",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BYC",
+		"name" : "Betws-y-Coed",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BCG",
+		"name" : "Birchgrove",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BFF",
+		"name" : "Blaenau Ffestiniog",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BOR",
+		"name" : "Bodorgan",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BRH",
+		"name" : "Borth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BGN",
+		"name" : "Bridgend",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BHD",
+		"name" : "Brithdir",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BNF",
+		"name" : "Briton Ferry",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BME",
+		"name" : "Broome",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BCK",
+		"name" : "Buckley",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BUK",
+		"name" : "Bucknell",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BHR",
+		"name" : "Builth Road",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BYE",
+		"name" : "Bynea",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CAD",
+		"name" : "Cadoxton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CGW",
+		"name" : "Caergwrle",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CPH",
+		"name" : "Caerphilly",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CWS",
+		"name" : "Caersws",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CDT",
+		"name" : "Caldicot",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CDB",
+		"name" : "Cardiff Bay",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CDF",
+		"name" : "Cardiff Central",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CDQ",
+		"name" : "Cardiff Queen Street",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CMN",
+		"name" : "Carmarthen",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CYS",
+		"name" : "Cathays",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CYB",
+		"name" : "Cefn-y-Bedd",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CPW",
+		"name" : "Chepstow",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CTR",
+		"name" : "Chester",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CRK",
+		"name" : "Chirk",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CTT",
+		"name" : "Church Stretton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CIM",
+		"name" : "Cilmeri",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CLR",
+		"name" : "Clarbeston Road",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CUW",
+		"name" : "Clunderwen",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CGN",
+		"name" : "Cogan",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CWB",
+		"name" : "Colwyn Bay",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CNW",
+		"name" : "Conwy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "COY",
+		"name" : "Coryton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CRV",
+		"name" : "Craven Arms",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CCC",
+		"name" : "Criccieth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CKY",
+		"name" : "Crosskeys",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CMH",
+		"name" : "Cwmbach",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CWM",
+		"name" : "Cwmbran",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "CYN",
+		"name" : "Cynghordy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DCT",
+		"name" : "Danescourt",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DGY",
+		"name" : "Deganwy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DMG",
+		"name" : "Dinas (Rhondda)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DNS",
+		"name" : "Dinas Powys",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DGL",
+		"name" : "Dingle Road",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DOL",
+		"name" : "Dolau",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DLG",
+		"name" : "Dolgarrog",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DWD",
+		"name" : "Dolwyddelan",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DVY",
+		"name" : "Dovey Junction",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DFP",
+		"name" : "Dublin Ferryport",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DPS",
+		"name" : "Dublin Port - Stena",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "DYF",
+		"name" : "Dyffryn Ardudwy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "EBK",
+		"name" : "Eastbrook",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "EBV",
+		"name" : "Ebbw Vale Parkway",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "EBB",
+		"name" : "Ebbw Vale Town",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "ECP",
+		"name" : "Energlyn & Churchill Park",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FRB",
+		"name" : "Fairbourne",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FRW",
+		"name" : "Fairwater",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FER",
+		"name" : "Fernhill",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FYS",
+		"name" : "Ferryside",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FFA",
+		"name" : "Ffairfach",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FGW",
+		"name" : "Fishguard & Goodwick",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FGH",
+		"name" : "Fishguard Harbour",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FLN",
+		"name" : "Flint",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "FRD",
+		"name" : "Frodsham",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GMG",
+		"name" : "Garth (Bridgend County)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GTH",
+		"name" : "Garth (Powys)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GFF",
+		"name" : "Gilfach Fargoed",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GCW",
+		"name" : "Glan Conwy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GOB",
+		"name" : "Gobowen",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GWN",
+		"name" : "Gowerton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GTN",
+		"name" : "Grangetown (Cardiff)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "GWE",
+		"name" : "Gwersyllt",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HRL",
+		"name" : "Harlech",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HVF",
+		"name" : "Haverfordwest",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HWD",
+		"name" : "Hawarden",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HWB",
+		"name" : "Hawarden Bridge",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HHL",
+		"name" : "Heath High Level",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HLL",
+		"name" : "Heath Low Level",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HSB",
+		"name" : "Helsby",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HNG",
+		"name" : "Hengoed",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HFD",
+		"name" : "Hereford",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HSW",
+		"name" : "Heswall",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HHD",
+		"name" : "Holyhead",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HPE",
+		"name" : "Hope (Flintshire)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "HPT",
+		"name" : "Hopton Heath",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "JOH",
+		"name" : "Johnston (Pembs)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "KWL",
+		"name" : "Kidwelly",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "KGT",
+		"name" : "Kilgetty",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "KNI",
+		"name" : "Knighton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "KNU",
+		"name" : "Knucklas",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LAM",
+		"name" : "Lamphey",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LEO",
+		"name" : "Leominster",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LVT",
+		"name" : "Lisvane & Thornhill",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLA",
+		"name" : "Llanaber",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LBR",
+		"name" : "Llanbedr",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLT",
+		"name" : "Llanbister Road",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LNB",
+		"name" : "Llanbradach",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLN",
+		"name" : "Llandaf",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LDN",
+		"name" : "Llandanwg",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLC",
+		"name" : "Llandecwyn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLL",
+		"name" : "Llandeilo",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLV",
+		"name" : "Llandovery",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLO",
+		"name" : "Llandrindod",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLD",
+		"name" : "Llandudno",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLJ",
+		"name" : "Llandudno Junction",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLI",
+		"name" : "Llandybie",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLE",
+		"name" : "Llanelli",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLF",
+		"name" : "Llanfairfechan",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LPG",
+		"name" : "Llanfairpwll",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLG",
+		"name" : "Llangadog",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLM",
+		"name" : "Llangammarch",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLH",
+		"name" : "Llangennech",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LGO",
+		"name" : "Llangynllo",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLR",
+		"name" : "Llanharan",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LTH",
+		"name" : "Llanhilleth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLS",
+		"name" : "Llanishen",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LWR",
+		"name" : "Llanrwst",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LAS",
+		"name" : "Llansamlet",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LWM",
+		"name" : "Llantwit Major",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LNR",
+		"name" : "Llanwrda",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LNW",
+		"name" : "Llanwrtyd",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLW",
+		"name" : "Llwyngwril",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LLY",
+		"name" : "Llwynypia",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LUD",
+		"name" : "Ludlow",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "LYD",
+		"name" : "Lydney",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MCN",
+		"name" : "Machynlleth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MST",
+		"name" : "Maesteg",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MEW",
+		"name" : "Maesteg (Ewenny Road)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MRB",
+		"name" : "Manorbier",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MER",
+		"name" : "Merthyr Tydfil",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MEV",
+		"name" : "Merthyr Vale",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MFH",
+		"name" : "Milford Haven",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MFF",
+		"name" : "Minffordd",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MFA",
+		"name" : "Morfa Mawddach",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "MTA",
+		"name" : "Mountain Ash",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NAN",
+		"name" : "Nantwich",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NAR",
+		"name" : "Narberth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NTH",
+		"name" : "Neath",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NES",
+		"name" : "Neston",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NBE",
+		"name" : "Newbridge",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NWP",
+		"name" : "Newport (South Wales)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NWT",
+		"name" : "Newtown (Powys)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NNP",
+		"name" : "Ninian Park",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "NLR",
+		"name" : "North Llanrwst",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PTF",
+		"name" : "Pantyffynnon",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PBY",
+		"name" : "Pembrey & Burry Port",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PMB",
+		"name" : "Pembroke",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PMD",
+		"name" : "Pembroke Dock",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PNA",
+		"name" : "Penally",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PEN",
+		"name" : "Penarth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PCD",
+		"name" : "Pencoed",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PGM",
+		"name" : "Pengam",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PHG",
+		"name" : "Penhelig",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PMW",
+		"name" : "Penmaenmawr",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PER",
+		"name" : "Penrhiwceiber",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PRH",
+		"name" : "Penrhyndeudraeth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PES",
+		"name" : "Pensarn (Gwynedd)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PTB",
+		"name" : "Pentre-Bach",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PNY",
+		"name" : "Pen-y-Bont (Mid Wales)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PNC",
+		"name" : "Penychain",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PNF",
+		"name" : "Penyffordd",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PTD",
+		"name" : "Pontarddulais",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PLT",
+		"name" : "Pontlottyn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PYC",
+		"name" : "Pontyclun",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PYP",
+		"name" : "Pont-y-Pant",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PPL",
+		"name" : "Pontypool & New Inn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PPD",
+		"name" : "Pontypridd",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PTA",
+		"name" : "Port Talbot Parkway",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "POR",
+		"name" : "Porth",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PTM",
+		"name" : "Porthmadog",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PRS",
+		"name" : "Prees",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PRT",
+		"name" : "Prestatyn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PWL",
+		"name" : "Pwllheli",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PYE",
+		"name" : "Pye Corner",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "PYL",
+		"name" : "Pyle",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "QYD",
+		"name" : "Quakers Yard",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RDR",
+		"name" : "Radyr",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RHI",
+		"name" : "Rhiwbina",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RIA",
+		"name" : "Rhoose Cardiff International Airport",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RHO",
+		"name" : "Rhosneigr",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RHL",
+		"name" : "Rhyl",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RHY",
+		"name" : "Rhymney",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RCA",
+		"name" : "Risca & Pontymister",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "ROR",
+		"name" : "Rogerstone",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RMB",
+		"name" : "Roman Bridge",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RUA",
+		"name" : "Ruabon",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "RUE",
+		"name" : "Runcorn East",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SRR",
+		"name" : "Sarn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SDF",
+		"name" : "Saundersfoot",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "STJ",
+		"name" : "Severn Tunnel Junction",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SHT",
+		"name" : "Shotton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SHR",
+		"name" : "Shrewsbury",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SKE",
+		"name" : "Skewen",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SUG",
+		"name" : "Sugar Loaf",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "SWA",
+		"name" : "Swansea",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TAF",
+		"name" : "Taffs Well",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TAL",
+		"name" : "Talsarnau",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TLB",
+		"name" : "Talybont",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TLC",
+		"name" : "Tal-y-Cafn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TEN",
+		"name" : "Tenby",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TIR",
+		"name" : "Tir-Phil",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TPN",
+		"name" : "Ton Pentre",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TDU",
+		"name" : "Tondu",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TNF",
+		"name" : "Tonfanau",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TNP",
+		"name" : "Tonypandy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TRF",
+		"name" : "Trefforest",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TRE",
+		"name" : "Trefforest Estate",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TRH",
+		"name" : "Trehafod",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TRB",
+		"name" : "Treherbert",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TRY",
+		"name" : "Treorchy",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TRD",
+		"name" : "Troed-y-rhiw",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TYC",
+		"name" : "Ty Croes",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TGS",
+		"name" : "Ty Glas",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TYG",
+		"name" : "Tygwyn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "TYW",
+		"name" : "Tywyn",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "UPT",
+		"name" : "Upton (Merseyside)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "VAL",
+		"name" : "Valley",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WNG",
+		"name" : "Waun-Gron Park",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WLP",
+		"name" : "Welshpool",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WEM",
+		"name" : "Wem",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WHT",
+		"name" : "Whitchurch (Cardiff)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WTC",
+		"name" : "Whitchurch (Shropshire)",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WTL",
+		"name" : "Whitland",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WMI",
+		"name" : "Wildmill",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WRE",
+		"name" : "Wrenbury",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WXC",
+		"name" : "Wrexham Central",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "WRX",
+		"name" : "Wrexham General",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "YNW",
+		"name" : "Ynyswen",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "YRT",
+		"name" : "Yorton",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "YSM",
+		"name" : "Ystrad Mynach",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "YSR",
+		"name" : "Ystrad Rhondda",
+		"toc_code" : "AW"
+	},
+	{
+		"code" : "BKG",
+		"name" : "Barking",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "BSO",
+		"name" : "Basildon",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "BEF",
+		"name" : "Benfleet",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "CFH",
+		"name" : "Chafford Hundred Lakeside",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "CHW",
+		"name" : "Chalkwell",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "DDK",
+		"name" : "Dagenham Dock",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "ETL",
+		"name" : "East Tilbury",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "GRY",
+		"name" : "Grays",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "LAI",
+		"name" : "Laindon",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "LES",
+		"name" : "Leigh-on-Sea",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "LHS",
+		"name" : "Limehouse",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "FST",
+		"name" : "London Fenchurch Street",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "OCK",
+		"name" : "Ockendon",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "PSE",
+		"name" : "Pitsea",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "PFL",
+		"name" : "Purfleet",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "RNM",
+		"name" : "Rainham (Essex)",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "SRY",
+		"name" : "Shoeburyness",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "SOC",
+		"name" : "Southend Central",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "SOE",
+		"name" : "Southend East",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "SFO",
+		"name" : "Stanford-le-Hope",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "TPB",
+		"name" : "Thorpe Bay",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "TIL",
+		"name" : "Tilbury Town",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "UPM",
+		"name" : "Upminster",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "WHR",
+		"name" : "West Horndon",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "WCF",
+		"name" : "Westcliff",
+		"toc_code" : "CC"
+	},
+	{
+		"code" : "AYS",
+		"name" : "Aylesbury",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "AVP",
+		"name" : "Aylesbury Vale Parkway",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "BAN",
+		"name" : "Banbury",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "BCF",
+		"name" : "Beaconsfield",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "BCS",
+		"name" : "Bicester North",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "BIT",
+		"name" : "Bicester Village",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "BMO",
+		"name" : "Birmingham Moor Street",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "DNM",
+		"name" : "Denham",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "DGC",
+		"name" : "Denham Golf Club",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "DDG",
+		"name" : "Dorridge",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "GER",
+		"name" : "Gerrards Cross",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "GMN",
+		"name" : "Great Missenden",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "HDM",
+		"name" : "Haddenham & Thame Parkway",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "HTN",
+		"name" : "Hatton",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "HWY",
+		"name" : "High Wycombe",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "ISP",
+		"name" : "Islip",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "KGS",
+		"name" : "Kings Sutton",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "LPW",
+		"name" : "Lapworth",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "LMS",
+		"name" : "Leamington Spa",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "LTK",
+		"name" : "Little Kimble",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "MYB",
+		"name" : "London Marylebone",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "MRS",
+		"name" : "Monks Risborough",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "NLT",
+		"name" : "Northolt Park",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "OXP",
+		"name" : "Oxford Parkway",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "PRR",
+		"name" : "Princes Risborough",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "SDR",
+		"name" : "Saunderton",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "SRG",
+		"name" : "Seer Green",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "SOL",
+		"name" : "Solihull",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "SKM",
+		"name" : "Stoke Mandeville",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "SUD",
+		"name" : "Sudbury & Harrow Road",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "SDH",
+		"name" : "Sudbury Hill Harrow",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "WRW",
+		"name" : "Warwick",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "WRP",
+		"name" : "Warwick Parkway",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "WCX",
+		"name" : "Wembley Stadium",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "WND",
+		"name" : "Wendover",
+		"toc_code" : "CH"
+	},
+	{
+		"code" : "ALF",
+		"name" : "Alfreton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ASG",
+		"name" : "Alsager",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "AMB",
+		"name" : "Ambergate",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ANC",
+		"name" : "Ancaster",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ALK",
+		"name" : "Aslockton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ATB",
+		"name" : "Attenborough",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BWS",
+		"name" : "Barrow-upon-Soar",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BEE",
+		"name" : "Beeston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BLP",
+		"name" : "Belper",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BIN",
+		"name" : "Bingham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BSB",
+		"name" : "Bleasby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BYB",
+		"name" : "Blythe Bridge",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BSN",
+		"name" : "Boston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BTF",
+		"name" : "Bottesford",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BLW",
+		"name" : "Bulwell",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BUJ",
+		"name" : "Burton Joyce",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "BUT",
+		"name" : "Burton-on-Trent",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "CTO",
+		"name" : "Carlton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "CHD",
+		"name" : "Chesterfield",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "CLM",
+		"name" : "Collingham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "COR",
+		"name" : "Corby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "CWD",
+		"name" : "Creswell",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "CMF",
+		"name" : "Cromford",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "DBY",
+		"name" : "Derby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "DFI",
+		"name" : "Duffield",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "EMD",
+		"name" : "East Midlands Parkway",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ELO",
+		"name" : "Elton & Orston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "FSK",
+		"name" : "Fiskerton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "GBL",
+		"name" : "Gainsborough Lea Road",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "HVN",
+		"name" : "Havenhouse",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "HEC",
+		"name" : "Heckington",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "HNK",
+		"name" : "Hinckley (Leics)",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "HBB",
+		"name" : "Hubberts Bridge",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "HKN",
+		"name" : "Hucknall",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "HKM",
+		"name" : "Hykeham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ILN",
+		"name" : "Ilkeston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "KET",
+		"name" : "Kettering",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "KDG",
+		"name" : "Kidsgrove",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "KKB",
+		"name" : "Kirkby-in-Ashfield",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LGM",
+		"name" : "Langley Mill",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LAG",
+		"name" : "Langwith-Whaley Thorns",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LEI",
+		"name" : "Leicester",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LCN",
+		"name" : "Lincoln",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LGE",
+		"name" : "Long Eaton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LPT",
+		"name" : "Longport",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LGN",
+		"name" : "Longton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LBO",
+		"name" : "Loughborough",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "LOW",
+		"name" : "Lowdham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MFT",
+		"name" : "Mansfield",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MSW",
+		"name" : "Mansfield Woodhouse",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MHR",
+		"name" : "Market Harborough",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MKR",
+		"name" : "Market Rasen",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MAT",
+		"name" : "Matlock",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MTB",
+		"name" : "Matlock Bath",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MMO",
+		"name" : "Melton Mowbray",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "MGM",
+		"name" : "Metheringham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "NBR",
+		"name" : "Narborough",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "NET",
+		"name" : "Netherfield",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "NCT",
+		"name" : "Newark Castle",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "NSD",
+		"name" : "Newstead",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "NOT",
+		"name" : "Nottingham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "OKM",
+		"name" : "Oakham",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "PEA",
+		"name" : "Peartree",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "RDF",
+		"name" : "Radcliffe (Nottinghamshire)",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "RAU",
+		"name" : "Rauceby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ROL",
+		"name" : "Rolleston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "RKT",
+		"name" : "Ruskington",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SXY",
+		"name" : "Saxilby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SHF",
+		"name" : "Sheffield",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SHB",
+		"name" : "Shirebrook",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SIL",
+		"name" : "Sileby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SKG",
+		"name" : "Skegness",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SLR",
+		"name" : "Sleaford",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SWS",
+		"name" : "South Wigston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SPA",
+		"name" : "Spalding",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SPO",
+		"name" : "Spondon",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SMD",
+		"name" : "Stamford (Lincs)",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SPK",
+		"name" : "Sutton Parkway",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SWD",
+		"name" : "Swinderby",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SWE",
+		"name" : "Swineshead",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "SYS",
+		"name" : "Syston",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "TPC",
+		"name" : "Thorpe Culvert",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "THU",
+		"name" : "Thurgarton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "TUT",
+		"name" : "Tutbury & Hatton",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "UTT",
+		"name" : "Uttoxeter",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "WFL",
+		"name" : "Wainfleet",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "WEL",
+		"name" : "Wellingborough",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "WTS",
+		"name" : "Whatstandwell",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "WWL",
+		"name" : "Whitwell (Derbyshire)",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "WIL",
+		"name" : "Willington",
+		"toc_code" : "EM"
+	},
+	{
+		"code" : "ASI",
+		"name" : "Ashford International (Eurostar)",
+		"toc_code" : "ES"
+	},
+	{
+		"code" : "SPX",
+		"name" : "London St Pancras (Intl)",
+		"toc_code" : "ES"
+	},
+	{
+		"code" : "AAP",
+		"name" : "Alexandra Palace",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "ARL",
+		"name" : "Arlesey",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "AWM",
+		"name" : "Ashwell & Morden",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "BDK",
+		"name" : "Baldock",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "BAY",
+		"name" : "Bayford",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "BIW",
+		"name" : "Biggleswade",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "BOP",
+		"name" : "Bowes Park",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "BPK",
+		"name" : "Brookmans Park",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "CWH",
+		"name" : "Crews Hill",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "CUF",
+		"name" : "Cuffley",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "DOW",
+		"name" : "Downham Market",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "DYP",
+		"name" : "Drayton Park",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "ENC",
+		"name" : "Enfield Chase",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "EXR",
+		"name" : "Essex Road",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "FPK",
+		"name" : "Finsbury Park",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "FXN",
+		"name" : "Foxton",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "GDH",
+		"name" : "Gordon Hill",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "GPK",
+		"name" : "Grange Park",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HDW",
+		"name" : "Hadley Wood",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HGY",
+		"name" : "Harringay",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HAT",
+		"name" : "Hatfield (Herts)",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HFN",
+		"name" : "Hertford North",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HIT",
+		"name" : "Hitchin",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HRN",
+		"name" : "Hornsey",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "HUN",
+		"name" : "Huntingdon",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "KLN",
+		"name" : "Kings Lynn",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "KBW",
+		"name" : "Knebworth",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "LET",
+		"name" : "Letchworth Garden City",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "LTP",
+		"name" : "Littleport",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "MEL",
+		"name" : "Meldreth",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "NBA",
+		"name" : "New Barnet",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "NSG",
+		"name" : "New Southgate",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "OKL",
+		"name" : "Oakleigh Park",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "PAL",
+		"name" : "Palmers Green",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "PBR",
+		"name" : "Potters Bar",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "RYS",
+		"name" : "Royston",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "SDY",
+		"name" : "Sandy",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "STH",
+		"name" : "Shepreth",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "SNO",
+		"name" : "St Neots",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "SVG",
+		"name" : "Stevenage",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WBC",
+		"name" : "Waterbeach",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WTG",
+		"name" : "Watlington",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WAS",
+		"name" : "Watton-at-Stone",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WMG",
+		"name" : "Welham Green",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WGC",
+		"name" : "Welwyn Garden City",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WLW",
+		"name" : "Welwyn North",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "WIH",
+		"name" : "Winchmore Hill",
+		"toc_code" : "GN"
+	},
+	{
+		"code" : "BWK",
+		"name" : "Berwick-upon-Tweed",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "DAR",
+		"name" : "Darlington",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "DON",
+		"name" : "Doncaster",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "DHM",
+		"name" : "Durham",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "GRA",
+		"name" : "Grantham",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "NNG",
+		"name" : "Newark North Gate",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "NCL",
+		"name" : "Newcastle",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "PBO",
+		"name" : "Peterborough",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "RET",
+		"name" : "Retford",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "WKF",
+		"name" : "Wakefield Westgate",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "YRK",
+		"name" : "York",
+		"toc_code" : "GR"
+	},
+	{
+		"code" : "AMT",
+		"name" : "Aldermaston",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "APF",
+		"name" : "Appleford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "AUW",
+		"name" : "Ascott-under-Wychwood",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "ASC",
+		"name" : "Ashchurch for Tewkesbury",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "AVF",
+		"name" : "Avoncliff",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "AVN",
+		"name" : "Avonmouth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BNP",
+		"name" : "Barnstaple",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BTH",
+		"name" : "Bath Spa",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BMT",
+		"name" : "Bedminster",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BDW",
+		"name" : "Bedwyn",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BAS",
+		"name" : "Bere Alston",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BFE",
+		"name" : "Bere Ferrers",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BTO",
+		"name" : "Betchworth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BAW",
+		"name" : "Blackwater",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BOD",
+		"name" : "Bodmin Parkway",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BNE",
+		"name" : "Bourne End",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BOA",
+		"name" : "Bradford-on-Avon",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BMY",
+		"name" : "Bramley (Hampshire)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BWT",
+		"name" : "Bridgwater",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BPW",
+		"name" : "Bristol Parkway",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BRU",
+		"name" : "Bruton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BGL",
+		"name" : "Bugle",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CSK",
+		"name" : "Calstock",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CDU",
+		"name" : "Cam & Dursley",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CBN",
+		"name" : "Camborne",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CBB",
+		"name" : "Carbis Bay",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CBP",
+		"name" : "Castle Bar Park",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CLC",
+		"name" : "Castle Cary",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CAU",
+		"name" : "Causeland",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CPN",
+		"name" : "Chapelton (Devon)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CBY",
+		"name" : "Charlbury",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CNM",
+		"name" : "Cheltenham Spa",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CNO",
+		"name" : "Chetnole",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CHL",
+		"name" : "Chilworth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CPM",
+		"name" : "Chippenham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CHO",
+		"name" : "Cholsey",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CFN",
+		"name" : "Clifton Down",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CME",
+		"name" : "Combe (Oxon)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "COO",
+		"name" : "Cookham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "COE",
+		"name" : "Coombe Junction Halt",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "COP",
+		"name" : "Copplestone",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CDI",
+		"name" : "Crediton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CRN",
+		"name" : "Crowthorne",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "CUM",
+		"name" : "Culham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DWL",
+		"name" : "Dawlish",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DWW",
+		"name" : "Dawlish Warren",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DEN",
+		"name" : "Dean (Wilts)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DPT",
+		"name" : "Devonport",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DID",
+		"name" : "Didcot Parkway",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DIG",
+		"name" : "Digby & Sowton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DMH",
+		"name" : "Dilton Marsh",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DOC",
+		"name" : "Dockyard (Devonport)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DCW",
+		"name" : "Dorchester West",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DPD",
+		"name" : "Dorking (Deepdene)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DKT",
+		"name" : "Dorking West",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DRG",
+		"name" : "Drayton Green",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EGG",
+		"name" : "Eggesford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EVE",
+		"name" : "Evesham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EXC",
+		"name" : "Exeter Central",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EXD",
+		"name" : "Exeter St David's",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EXT",
+		"name" : "Exeter St Thomas",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EXM",
+		"name" : "Exmouth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "EXN",
+		"name" : "Exton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FAL",
+		"name" : "Falmouth Docks",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FMT",
+		"name" : "Falmouth Town",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FNN",
+		"name" : "Farnborough North",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FIT",
+		"name" : "Filton Abbey Wood",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FIN",
+		"name" : "Finstock",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FFD",
+		"name" : "Freshford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FRO",
+		"name" : "Frome",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "FZP",
+		"name" : "Furze Platt",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "GCR",
+		"name" : "Gloucester",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "GOM",
+		"name" : "Gomshall",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "GOR",
+		"name" : "Goring & Streatley",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "GSL",
+		"name" : "Gunnislake",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HND",
+		"name" : "Hanborough",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HYL",
+		"name" : "Hayle",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HOT",
+		"name" : "Henley-on-Thames",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HYD",
+		"name" : "Heyford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HIG",
+		"name" : "Highbridge & Burnham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HYB",
+		"name" : "Honeybourne",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "HGD",
+		"name" : "Hungerford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "IVY",
+		"name" : "Ivybridge",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "KEM",
+		"name" : "Kemble",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "KEY",
+		"name" : "Keyham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "KYN",
+		"name" : "Keynsham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "KGM",
+		"name" : "Kingham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "KGN",
+		"name" : "Kings Nympton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "KIT",
+		"name" : "Kintbury",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LAP",
+		"name" : "Lapford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LWH",
+		"name" : "Lawrence Hill",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LEL",
+		"name" : "Lelant",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LTS",
+		"name" : "Lelant Saltings",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LSK",
+		"name" : "Liskeard",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LOO",
+		"name" : "Looe",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LOS",
+		"name" : "Lostwithiel",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LUX",
+		"name" : "Luxulyan",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LYC",
+		"name" : "Lympstone Commando",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "LYM",
+		"name" : "Lympstone Village",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MDN",
+		"name" : "Maiden Newton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MAI",
+		"name" : "Maidenhead",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MLW",
+		"name" : "Marlow",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MKM",
+		"name" : "Melksham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MEN",
+		"name" : "Menheniot",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MDG",
+		"name" : "Midgham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MTP",
+		"name" : "Montpelier",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MRD",
+		"name" : "Morchard Road",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MIM",
+		"name" : "Moreton-in-Marsh",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "MOR",
+		"name" : "Mortimer",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "DBG",
+		"name" : "Mottisfont & Dunbridge",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NLS",
+		"name" : "Nailsea & Backwell",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NBY",
+		"name" : "Newbury",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NRC",
+		"name" : "Newbury Racecourse",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NCO",
+		"name" : "Newcourt",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NQY",
+		"name" : "Newquay",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NTA",
+		"name" : "Newton Abbot",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NTC",
+		"name" : "Newton St Cyres",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "NCM",
+		"name" : "North Camp",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "OKE",
+		"name" : "Okehampton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "OLF",
+		"name" : "Oldfield Park",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "OXF",
+		"name" : "Oxford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PGN",
+		"name" : "Paignton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PAN",
+		"name" : "Pangbourne",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PAR",
+		"name" : "Par",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PSN",
+		"name" : "Parson Street",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PWY",
+		"name" : "Patchway",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PNM",
+		"name" : "Penmere",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PYN",
+		"name" : "Penryn (Cornwall)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PNZ",
+		"name" : "Penzance",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PRW",
+		"name" : "Perranwell",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PSH",
+		"name" : "Pershore",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PEW",
+		"name" : "Pewsey",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PIL",
+		"name" : "Pilning",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PLY",
+		"name" : "Plymouth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "POL",
+		"name" : "Polsloe Bridge",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "PMA",
+		"name" : "Portsmouth Arms",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "QUI",
+		"name" : "Quintrell Downs",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "RAD",
+		"name" : "Radley",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "RDW",
+		"name" : "Reading West",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "RDA",
+		"name" : "Redland",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "RED",
+		"name" : "Redruth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "ROC",
+		"name" : "Roche",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "ROM",
+		"name" : "Romsey",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "STS",
+		"name" : "Saltash",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SMC",
+		"name" : "Sampford Courtenay",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SND",
+		"name" : "Sandhurst (Berks)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SDP",
+		"name" : "Sandplace",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SML",
+		"name" : "Sea Mills",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SVB",
+		"name" : "Severn Beach",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SFR",
+		"name" : "Shalford (Surrey)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SHI",
+		"name" : "Shiplake",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SIP",
+		"name" : "Shipton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SHH",
+		"name" : "Shirehampton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SLO",
+		"name" : "Slough",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SGN",
+		"name" : "South Greenford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SAR",
+		"name" : "St Andrews Road",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SAU",
+		"name" : "St Austell",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SBF",
+		"name" : "St Budeaux Ferry Road",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SBV",
+		"name" : "St Budeaux Victoria Road",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SCR",
+		"name" : "St Columb Road",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SER",
+		"name" : "St Erth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SGM",
+		"name" : "St Germans",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SIV",
+		"name" : "St Ives (Cornwall)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SJP",
+		"name" : "St James Park (Exeter)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SKN",
+		"name" : "St Keyne Wishing Well Halt",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SRD",
+		"name" : "Stapleton Road",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SCS",
+		"name" : "Starcross",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SHU",
+		"name" : "Stonehouse",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "STD",
+		"name" : "Stroud (Gloucs)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "SWI",
+		"name" : "Swindon (Wilts)",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TAC",
+		"name" : "Tackley",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TAU",
+		"name" : "Taunton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TGM",
+		"name" : "Teignmouth",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "THA",
+		"name" : "Thatcham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "THE",
+		"name" : "Theale",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "THO",
+		"name" : "Thornford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TLH",
+		"name" : "Tilehurst",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TVP",
+		"name" : "Tiverton Parkway",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TOP",
+		"name" : "Topsham",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TQY",
+		"name" : "Torquay",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TRR",
+		"name" : "Torre",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TOT",
+		"name" : "Totnes",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TRO",
+		"name" : "Trowbridge",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TRU",
+		"name" : "Truro",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "TWY",
+		"name" : "Twyford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "UMB",
+		"name" : "Umberleigh",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WGV",
+		"name" : "Wargrave",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WMN",
+		"name" : "Warminster",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WSB",
+		"name" : "Westbury",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WNM",
+		"name" : "Weston Milton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WSM",
+		"name" : "Weston-super-Mare",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WNC",
+		"name" : "Windsor & Eton Central",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "WOR",
+		"name" : "Worle",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "YAE",
+		"name" : "Yate",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "YAT",
+		"name" : "Yatton",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "YEO",
+		"name" : "Yeoford",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "YVP",
+		"name" : "Yeovil Pen Mill",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "YET",
+		"name" : "Yetminster",
+		"toc_code" : "GW"
+	},
+	{
+		"code" : "BDN",
+		"name" : "Brading",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "LKE",
+		"name" : "Lake",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "RYD",
+		"name" : "Ryde Esplanade",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "RYP",
+		"name" : "Ryde Pier Head",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "RYR",
+		"name" : "Ryde St Johns Road",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "SAN",
+		"name" : "Sandown",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "SHN",
+		"name" : "Shanklin",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "SAB",
+		"name" : "Smallbrook Junction",
+		"toc_code" : "IL"
+	},
+	{
+		"code" : "ACL",
+		"name" : "Acle",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ALR",
+		"name" : "Alresford (Essex)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ALN",
+		"name" : "Althorne (Essex)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "AGR",
+		"name" : "Angel Road",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ATL",
+		"name" : "Attleborough",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "AUD",
+		"name" : "Audley End",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BLB",
+		"name" : "Battlesbridge",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BCC",
+		"name" : "Beccles",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BYA",
+		"name" : "Berney Arms",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BIC",
+		"name" : "Billericay",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BIS",
+		"name" : "Bishops Stortford",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BTR",
+		"name" : "Braintree",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BTP",
+		"name" : "Braintree Freeport",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BRP",
+		"name" : "Brampton (Suffolk)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BND",
+		"name" : "Brandon",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BMD",
+		"name" : "Brimsdown",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BXB",
+		"name" : "Broxbourne",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BDA",
+		"name" : "Brundall",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BGA",
+		"name" : "Brundall Gardens",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BUC",
+		"name" : "Buckenham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BUE",
+		"name" : "Bures",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BUU",
+		"name" : "Burnham-on-Crouch",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "BSE",
+		"name" : "Bury St Edmunds",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CBG",
+		"name" : "Cambridge",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CMB",
+		"name" : "Cambridge North",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CNY",
+		"name" : "Cantley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CWC",
+		"name" : "Chappel & Wakes Colne",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CHM",
+		"name" : "Chelmsford",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CHN",
+		"name" : "Cheshunt",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CLT",
+		"name" : "Clacton-on-Sea",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "COL",
+		"name" : "Colchester",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CET",
+		"name" : "Colchester Town",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CES",
+		"name" : "Cressing (Essex)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "CMR",
+		"name" : "Cromer",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "DSM",
+		"name" : "Darsham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "DBR",
+		"name" : "Derby Road (Ipswich)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "DIS",
+		"name" : "Diss",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "DVC",
+		"name" : "Dovercourt",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "DUL",
+		"name" : "Dullingham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ECS",
+		"name" : "Eccles Road",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ESW",
+		"name" : "Elmswell",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ESM",
+		"name" : "Elsenham (Essex)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ELY",
+		"name" : "Ely",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ENL",
+		"name" : "Enfield Lock",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "FLX",
+		"name" : "Felixstowe",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "FRI",
+		"name" : "Frinton-on-Sea",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "GRB",
+		"name" : "Great Bentley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "GRC",
+		"name" : "Great Chesterford",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "GYM",
+		"name" : "Great Yarmouth",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "GNT",
+		"name" : "Gunton",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HAD",
+		"name" : "Haddiscoe",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HAS",
+		"name" : "Halesworth",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HRD",
+		"name" : "Harling Road",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HWM",
+		"name" : "Harlow Mill",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HWN",
+		"name" : "Harlow Town",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HPQ",
+		"name" : "Harwich International",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HWC",
+		"name" : "Harwich Town",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HAP",
+		"name" : "Hatfield Peverel",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HFE",
+		"name" : "Hertford East",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HOC",
+		"name" : "Hockley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HXM",
+		"name" : "Hoveton & Wroxham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "HYH",
+		"name" : "Hythe (Essex)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "INT",
+		"name" : "Ingatestone",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "IPS",
+		"name" : "Ipswich",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "KEL",
+		"name" : "Kelvedon",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "KNE",
+		"name" : "Kennett",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "KBX",
+		"name" : "Kirby Cross",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "LAK",
+		"name" : "Lakenheath",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "LEB",
+		"name" : "Lea Bridge",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "LGD",
+		"name" : "Lingwood",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "LWT",
+		"name" : "Lowestoft",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "MNE",
+		"name" : "Manea",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "MNG",
+		"name" : "Manningtree",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "MCH",
+		"name" : "March",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "MKT",
+		"name" : "Marks Tey",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "MES",
+		"name" : "Melton (Suffolk)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "MIS",
+		"name" : "Mistley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NMT",
+		"name" : "Needham Market",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NMK",
+		"name" : "Newmarket",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NWE",
+		"name" : "Newport (Essex)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NFA",
+		"name" : "North Fambridge",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NWA",
+		"name" : "North Walsham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NUM",
+		"name" : "Northumberland Park",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "NRW",
+		"name" : "Norwich",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "OUN",
+		"name" : "Oulton Broad North",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "OUS",
+		"name" : "Oulton Broad South",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "PON",
+		"name" : "Ponders End",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "PRL",
+		"name" : "Prittlewell",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "RLG",
+		"name" : "Rayleigh",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "REE",
+		"name" : "Reedham (Norfolk)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "RFD",
+		"name" : "Rochford",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "RNR",
+		"name" : "Roughton Road",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "RYN",
+		"name" : "Roydon",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "RYH",
+		"name" : "Rye House",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SAH",
+		"name" : "Salhouse",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SAW",
+		"name" : "Sawbridgeworth",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SAX",
+		"name" : "Saxmundham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SED",
+		"name" : "Shelford (Cambs)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SNF",
+		"name" : "Shenfield",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SHM",
+		"name" : "Sheringham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SPP",
+		"name" : "Shippea Hill",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SYT",
+		"name" : "Somerleyton",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SOF",
+		"name" : "South Woodham Ferrers",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SOV",
+		"name" : "Southend Victoria",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SMN",
+		"name" : "Southminster",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SPN",
+		"name" : "Spooner Row",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SMT",
+		"name" : "St Margarets (Herts)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SSD",
+		"name" : "Stansted Airport",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SST",
+		"name" : "Stansted Mountfitchet",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SMK",
+		"name" : "Stowmarket",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "SUY",
+		"name" : "Sudbury (Suffolk)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "TTF",
+		"name" : "Thetford",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "TLS",
+		"name" : "Thorpe-le-Soken",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "TRS",
+		"name" : "Thurston",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "TOM",
+		"name" : "Tottenham Hale",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "TRM",
+		"name" : "Trimley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WLC",
+		"name" : "Waltham Cross",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WON",
+		"name" : "Walton-on-the-Naze",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WAR",
+		"name" : "Ware (Herts)",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WEE",
+		"name" : "Weeley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WRN",
+		"name" : "West Runton",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WFI",
+		"name" : "Westerfield",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WNY",
+		"name" : "White Notley",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WLE",
+		"name" : "Whittlesea",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WLF",
+		"name" : "Whittlesford Parkway",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WIC",
+		"name" : "Wickford",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WCM",
+		"name" : "Wickham Market",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WTM",
+		"name" : "Witham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WIV",
+		"name" : "Wivenhoe",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WDB",
+		"name" : "Woodbridge",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WRT",
+		"name" : "Worstead",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WRB",
+		"name" : "Wrabness",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "WMD",
+		"name" : "Wymondham",
+		"toc_code" : "LE"
+	},
+	{
+		"code" : "ACG",
+		"name" : "Acocks Green",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "ACB",
+		"name" : "Acton Bridge (Cheshire)",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "ADD",
+		"name" : "Adderley Park",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "ALB",
+		"name" : "Albrighton",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "ALV",
+		"name" : "Alvechurch",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "APS",
+		"name" : "Apsley",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "APG",
+		"name" : "Aspley Guise",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "AST",
+		"name" : "Aston",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "ATH",
+		"name" : "Atherstone",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "BRT",
+		"name" : "Barlaston",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BTG",
+		"name" : "Barnt Green",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BER",
+		"name" : "Bearley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BSJ",
+		"name" : "Bedford St Johns",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "BEH",
+		"name" : "Bedworth",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BKM",
+		"name" : "Berkhamsted",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "BKW",
+		"name" : "Berkswell",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BEP",
+		"name" : "Bermuda Park",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BSC",
+		"name" : "Bescot Stadium",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BBK",
+		"name" : "Bilbrook",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BSW",
+		"name" : "Birmingham Snow Hill",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BKT",
+		"name" : "Blake Street",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BKD",
+		"name" : "Blakedown",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BLY",
+		"name" : "Bletchley",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "BLX",
+		"name" : "Bloxwich",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BWN",
+		"name" : "Bloxwich North",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BBS",
+		"name" : "Bordesley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BRV",
+		"name" : "Bournville",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BWB",
+		"name" : "Bow Brickhill",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "BWO",
+		"name" : "Bricket Wood",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "BMV",
+		"name" : "Bromsgrove",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "BUL",
+		"name" : "Butlers Lane",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CNL",
+		"name" : "Canley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CAO",
+		"name" : "Cannock",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CED",
+		"name" : "Cheddington",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "CRD",
+		"name" : "Chester Road",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CLV",
+		"name" : "Claverdon",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CSL",
+		"name" : "Codsall",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CEH",
+		"name" : "Coleshill Parkway",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CWL",
+		"name" : "Colwall",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CSY",
+		"name" : "Coseley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "COS",
+		"name" : "Cosford",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CAA",
+		"name" : "Coventry Arena",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "CRA",
+		"name" : "Cradley Heath",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "DZY",
+		"name" : "Danzey",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "DTW",
+		"name" : "Droitwich Spa",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "DUD",
+		"name" : "Duddeston",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "DDP",
+		"name" : "Dudley Port",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "EWD",
+		"name" : "Earlswood (West Midlands)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "ERD",
+		"name" : "Erdington",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "FEN",
+		"name" : "Fenny Stratford",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "FWY",
+		"name" : "Five Ways",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "FOK",
+		"name" : "Four Oaks",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "GSN",
+		"name" : "Garston (Hertfordshire)",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "GVH",
+		"name" : "Gravelly Hill",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "GMV",
+		"name" : "Great Malvern",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HAG",
+		"name" : "Hagley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HLG",
+		"name" : "Hall Green",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HIA",
+		"name" : "Hampton-in-Arden",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HSD",
+		"name" : "Hamstead (Birmingham)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HTF",
+		"name" : "Hartford (Cheshire)",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "HBY",
+		"name" : "Hartlebury",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HNF",
+		"name" : "Hednesford",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HML",
+		"name" : "Hemel Hempstead",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "HNL",
+		"name" : "Henley-in-Arden",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "HWW",
+		"name" : "How Wood (Hertfordshire)",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "JEQ",
+		"name" : "Jewellery Quarter",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "KMH",
+		"name" : "Kempston Hardwick",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "KNW",
+		"name" : "Kenilworth",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "KID",
+		"name" : "Kidderminster",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "KGL",
+		"name" : "Kings Langley",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "KNN",
+		"name" : "Kings Norton",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LAW",
+		"name" : "Landywood",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LGG",
+		"name" : "Langley Green",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LEH",
+		"name" : "Lea Hall",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LED",
+		"name" : "Ledbury",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LBZ",
+		"name" : "Leighton Buzzard",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "LIC",
+		"name" : "Lichfield City",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LTV",
+		"name" : "Lichfield Trent Valley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LID",
+		"name" : "Lidlington",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "LBK",
+		"name" : "Long Buckby",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "LOB",
+		"name" : "Longbridge",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "LYE",
+		"name" : "Lye (West Midlands)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "MVL",
+		"name" : "Malvern Link",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "MGN",
+		"name" : "Marston Green",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "MLB",
+		"name" : "Millbrook (Bedfordshire)",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "MKC",
+		"name" : "Milton Keynes Central",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "NMP",
+		"name" : "Northampton",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "NFD",
+		"name" : "Northfield",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "NTB",
+		"name" : "Norton Bridge",
+		"toc_code" : "LM"
+	},
+	{
+		"code" : "NUN",
+		"name" : "Nuneaton",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "OKN",
+		"name" : "Oakengates",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "OHL",
+		"name" : "Old Hill",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "OLT",
+		"name" : "Olton",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "PKT",
+		"name" : "Park Street",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "PKG",
+		"name" : "Penkridge",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "PRY",
+		"name" : "Perry Barr",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "PSW",
+		"name" : "Polesworth",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "RDC",
+		"name" : "Redditch",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "RID",
+		"name" : "Ridgmont",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "ROW",
+		"name" : "Rowley Regis",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "RGT",
+		"name" : "Rugeley Town",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "RGL",
+		"name" : "Rugeley Trent Valley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SAD",
+		"name" : "Sandwell & Dudley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SLY",
+		"name" : "Selly Oak",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SEN",
+		"name" : "Shenstone",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SFN",
+		"name" : "Shifnal",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SRL",
+		"name" : "Shirley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SMA",
+		"name" : "Small Heath",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SGB",
+		"name" : "Smethwick Galton Bridge",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SMR",
+		"name" : "Smethwick Rolfe Street",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SRI",
+		"name" : "Spring Road",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SAA",
+		"name" : "St Albans Abbey",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "SCF",
+		"name" : "Stechford",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SWR",
+		"name" : "Stewartby",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "SNE",
+		"name" : "Stone (Staffs)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SBJ",
+		"name" : "Stourbridge Junction",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SBT",
+		"name" : "Stourbridge Town",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SAV",
+		"name" : "Stratford-upon-Avon",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "STY",
+		"name" : "Stratford-upon-Avon Parkway",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "SUT",
+		"name" : "Sutton Coldfield",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "TAB",
+		"name" : "Tame Bridge Parkway",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "TAM",
+		"name" : "Tamworth",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "TFC",
+		"name" : "Telford Central",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "THW",
+		"name" : "The Hawthorns",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "TLK",
+		"name" : "The Lakes (Warks)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "THL",
+		"name" : "Tile Hill",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "TIP",
+		"name" : "Tipton",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "TRI",
+		"name" : "Tring",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "TYS",
+		"name" : "Tyseley",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "UNI",
+		"name" : "University (Birmingham)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WSL",
+		"name" : "Walsall",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WTO",
+		"name" : "Water Orton",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WFJ",
+		"name" : "Watford Junction",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "WFN",
+		"name" : "Watford North",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "WED",
+		"name" : "Wedgwood",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "WLN",
+		"name" : "Wellington (Shropshire)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WTE",
+		"name" : "Whitlocks End",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WMR",
+		"name" : "Widney Manor",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WMC",
+		"name" : "Wilmcote",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WNE",
+		"name" : "Wilnecote (Staffs)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WSF",
+		"name" : "Winsford",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "WTT",
+		"name" : "Witton (West Midlands)",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WOB",
+		"name" : "Woburn Sands",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "WVH",
+		"name" : "Wolverhampton",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WOL",
+		"name" : "Wolverton",
+		"toc_code" : "LN"
+	},
+	{
+		"code" : "WDE",
+		"name" : "Wood End",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WWW",
+		"name" : "Wootton Wawen",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WOF",
+		"name" : "Worcester Foregate Street",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WOS",
+		"name" : "Worcester Shrub Hill",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WYL",
+		"name" : "Wylde Green",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "WYT",
+		"name" : "Wythall",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "YRD",
+		"name" : "Yardley Wood",
+		"toc_code" : "WM"
+	},
+	{
+		"code" : "ACC",
+		"name" : "Acton Central",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "ANZ",
+		"name" : "Anerley",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BET",
+		"name" : "Bethnal Green",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BCY",
+		"name" : "Brockley",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BSY",
+		"name" : "Brondesbury",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BSP",
+		"name" : "Brondesbury Park",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BCV",
+		"name" : "Bruce Grove",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BHK",
+		"name" : "Bush Hill Park",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "BSH",
+		"name" : "Bushey",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CIR",
+		"name" : "Caledonian Road & Barnsbury",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CBH",
+		"name" : "Cambridge Heath",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CMD",
+		"name" : "Camden Road",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CNN",
+		"name" : "Canonbury",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CPK",
+		"name" : "Carpenders Park",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CHI",
+		"name" : "Chingford",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CLP",
+		"name" : "Clapham High Street",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CPT",
+		"name" : "Clapton",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CRH",
+		"name" : "Crouch Hill",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "CYP",
+		"name" : "Crystal Palace",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "DLJ",
+		"name" : "Dalston Junction",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "DLK",
+		"name" : "Dalston Kingsland",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "EDR",
+		"name" : "Edmonton Green",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "EMP",
+		"name" : "Emerson Park",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "ENF",
+		"name" : "Enfield Town",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "FNY",
+		"name" : "Finchley Road & Frognal",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "FOH",
+		"name" : "Forest Hill",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "GPO",
+		"name" : "Gospel Oak",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HKC",
+		"name" : "Hackney Central",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HAC",
+		"name" : "Hackney Downs",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HKW",
+		"name" : "Hackney Wick",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HGG",
+		"name" : "Haggerston",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HDH",
+		"name" : "Hampstead Heath",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HRY",
+		"name" : "Harringay Green Lanes",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HTE",
+		"name" : "Hatch End",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HDL",
+		"name" : "Headstone Lane",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HIP",
+		"name" : "Highams Park",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HMN",
+		"name" : "Homerton",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HPA",
+		"name" : "Honor Oak Park",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "HOX",
+		"name" : "Hoxton",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "IMW",
+		"name" : "Imperial Wharf",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "KNR",
+		"name" : "Kensal Rise",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "KPA",
+		"name" : "Kensington Olympia",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "KTW",
+		"name" : "Kentish Town West",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "KBN",
+		"name" : "Kilburn High Road",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "LEM",
+		"name" : "Leyton Midland Road",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "LER",
+		"name" : "Leytonstone High Road",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "LOF",
+		"name" : "London Fields",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "NXG",
+		"name" : "New Cross Gate",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "NWD",
+		"name" : "Norwood Junction",
+		"toc_code" : "LO"
+	},
+	{
+		"code" : "PNW",
+		"name" : "Penge West",
+		"toc_code" : "LO"
+	}
+]

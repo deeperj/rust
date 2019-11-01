@@ -1,0 +1,1001 @@
+code,name,toc_code
+ABE,Aber,AW
+ACY,Abercynon,AW
+ABA,Aberdare,AW
+AVY,Aberdovey,AW
+ABH,Abererch,AW
+AGV,Abergavenny,AW
+AGL,"Abergele & Pensarn",AW
+AYW,Aberystwyth,AW
+AMF,Ammanford,AW
+BAJ,Baglan,AW
+BNG,"Bangor (Gwynedd)",AW
+BGD,Bargoed,AW
+BRM,Barmouth,AW
+BRY,Barry,AW
+BYD,"Barry Docks",AW
+BYI,"Barry Island",AW
+BYC,Betws-y-Coed,AW
+BCG,Birchgrove,AW
+BFF,"Blaenau Ffestiniog",AW
+BOR,Bodorgan,AW
+BRH,Borth,AW
+BGN,Bridgend,AW
+BHD,Brithdir,AW
+BNF,"Briton Ferry",AW
+BME,Broome,AW
+BCK,Buckley,AW
+BUK,Bucknell,AW
+BHR,"Builth Road",AW
+BYE,Bynea,AW
+CAD,Cadoxton,AW
+CGW,Caergwrle,AW
+CPH,Caerphilly,AW
+CWS,Caersws,AW
+CDT,Caldicot,AW
+CDB,"Cardiff Bay",AW
+CDF,"Cardiff Central",AW
+CDQ,"Cardiff Queen Street",AW
+CMN,Carmarthen,AW
+CYS,Cathays,AW
+CYB,Cefn-y-Bedd,AW
+CPW,Chepstow,AW
+CTR,Chester,AW
+CRK,Chirk,AW
+CTT,"Church Stretton",AW
+CIM,Cilmeri,AW
+CLR,"Clarbeston Road",AW
+CUW,Clunderwen,AW
+CGN,Cogan,AW
+CWB,"Colwyn Bay",AW
+CNW,Conwy,AW
+COY,Coryton,AW
+CRV,"Craven Arms",AW
+CCC,Criccieth,AW
+CKY,Crosskeys,AW
+CMH,Cwmbach,AW
+CWM,Cwmbran,AW
+CYN,Cynghordy,AW
+DCT,Danescourt,AW
+DGY,Deganwy,AW
+DMG,"Dinas (Rhondda)",AW
+DNS,"Dinas Powys",AW
+DGL,"Dingle Road",AW
+DOL,Dolau,AW
+DLG,Dolgarrog,AW
+DWD,Dolwyddelan,AW
+DVY,"Dovey Junction",AW
+DFP,"Dublin Ferryport",AW
+DPS,"Dublin Port - Stena",AW
+DYF,"Dyffryn Ardudwy",AW
+EBK,Eastbrook,AW
+EBV,"Ebbw Vale Parkway",AW
+EBB,"Ebbw Vale Town",AW
+ECP,"Energlyn & Churchill Park",AW
+FRB,Fairbourne,AW
+FRW,Fairwater,AW
+FER,Fernhill,AW
+FYS,Ferryside,AW
+FFA,Ffairfach,AW
+FGW,"Fishguard & Goodwick",AW
+FGH,"Fishguard Harbour",AW
+FLN,Flint,AW
+FRD,Frodsham,AW
+GMG,"Garth (Bridgend County)",AW
+GTH,"Garth (Powys)",AW
+GFF,"Gilfach Fargoed",AW
+GCW,"Glan Conwy",AW
+GOB,Gobowen,AW
+GWN,Gowerton,AW
+GTN,"Grangetown (Cardiff)",AW
+GWE,Gwersyllt,AW
+HRL,Harlech,AW
+HVF,Haverfordwest,AW
+HWD,Hawarden,AW
+HWB,"Hawarden Bridge",AW
+HHL,"Heath High Level",AW
+HLL,"Heath Low Level",AW
+HSB,Helsby,AW
+HNG,Hengoed,AW
+HFD,Hereford,AW
+HSW,Heswall,AW
+HHD,Holyhead,AW
+HPE,"Hope (Flintshire)",AW
+HPT,"Hopton Heath",AW
+JOH,"Johnston (Pembs)",AW
+KWL,Kidwelly,AW
+KGT,Kilgetty,AW
+KNI,Knighton,AW
+KNU,Knucklas,AW
+LAM,Lamphey,AW
+LEO,Leominster,AW
+LVT,"Lisvane & Thornhill",AW
+LLA,Llanaber,AW
+LBR,Llanbedr,AW
+LLT,"Llanbister Road",AW
+LNB,Llanbradach,AW
+LLN,Llandaf,AW
+LDN,Llandanwg,AW
+LLC,Llandecwyn,AW
+LLL,Llandeilo,AW
+LLV,Llandovery,AW
+LLO,Llandrindod,AW
+LLD,Llandudno,AW
+LLJ,"Llandudno Junction",AW
+LLI,Llandybie,AW
+LLE,Llanelli,AW
+LLF,Llanfairfechan,AW
+LPG,Llanfairpwll,AW
+LLG,Llangadog,AW
+LLM,Llangammarch,AW
+LLH,Llangennech,AW
+LGO,Llangynllo,AW
+LLR,Llanharan,AW
+LTH,Llanhilleth,AW
+LLS,Llanishen,AW
+LWR,Llanrwst,AW
+LAS,Llansamlet,AW
+LWM,"Llantwit Major",AW
+LNR,Llanwrda,AW
+LNW,Llanwrtyd,AW
+LLW,Llwyngwril,AW
+LLY,Llwynypia,AW
+LUD,Ludlow,AW
+LYD,Lydney,AW
+MCN,Machynlleth,AW
+MST,Maesteg,AW
+MEW,"Maesteg (Ewenny Road)",AW
+MRB,Manorbier,AW
+MER,"Merthyr Tydfil",AW
+MEV,"Merthyr Vale",AW
+MFH,"Milford Haven",AW
+MFF,Minffordd,AW
+MFA,"Morfa Mawddach",AW
+MTA,"Mountain Ash",AW
+NAN,Nantwich,AW
+NAR,Narberth,AW
+NTH,Neath,AW
+NES,Neston,AW
+NBE,Newbridge,AW
+NWP,"Newport (South Wales)",AW
+NWT,"Newtown (Powys)",AW
+NNP,"Ninian Park",AW
+NLR,"North Llanrwst",AW
+PTF,Pantyffynnon,AW
+PBY,"Pembrey & Burry Port",AW
+PMB,Pembroke,AW
+PMD,"Pembroke Dock",AW
+PNA,Penally,AW
+PEN,Penarth,AW
+PCD,Pencoed,AW
+PGM,Pengam,AW
+PHG,Penhelig,AW
+PMW,Penmaenmawr,AW
+PER,Penrhiwceiber,AW
+PRH,Penrhyndeudraeth,AW
+PES,"Pensarn (Gwynedd)",AW
+PTB,Pentre-Bach,AW
+PNY,"Pen-y-Bont (Mid Wales)",AW
+PNC,Penychain,AW
+PNF,Penyffordd,AW
+PTD,Pontarddulais,AW
+PLT,Pontlottyn,AW
+PYC,Pontyclun,AW
+PYP,Pont-y-Pant,AW
+PPL,"Pontypool & New Inn",AW
+PPD,Pontypridd,AW
+PTA,"Port Talbot Parkway",AW
+POR,Porth,AW
+PTM,Porthmadog,AW
+PRS,Prees,AW
+PRT,Prestatyn,AW
+PWL,Pwllheli,AW
+PYE,"Pye Corner",AW
+PYL,Pyle,AW
+QYD,"Quakers Yard",AW
+RDR,Radyr,AW
+RHI,Rhiwbina,AW
+RIA,"Rhoose Cardiff International Airport",AW
+RHO,Rhosneigr,AW
+RHL,Rhyl,AW
+RHY,Rhymney,AW
+RCA,"Risca & Pontymister",AW
+ROR,Rogerstone,AW
+RMB,"Roman Bridge",AW
+RUA,Ruabon,AW
+RUE,"Runcorn East",AW
+SRR,Sarn,AW
+SDF,Saundersfoot,AW
+STJ,"Severn Tunnel Junction",AW
+SHT,Shotton,AW
+SHR,Shrewsbury,AW
+SKE,Skewen,AW
+SUG,"Sugar Loaf",AW
+SWA,Swansea,AW
+TAF,"Taffs Well",AW
+TAL,Talsarnau,AW
+TLB,Talybont,AW
+TLC,Tal-y-Cafn,AW
+TEN,Tenby,AW
+TIR,Tir-Phil,AW
+TPN,"Ton Pentre",AW
+TDU,Tondu,AW
+TNF,Tonfanau,AW
+TNP,Tonypandy,AW
+TRF,Trefforest,AW
+TRE,"Trefforest Estate",AW
+TRH,Trehafod,AW
+TRB,Treherbert,AW
+TRY,Treorchy,AW
+TRD,Troed-y-rhiw,AW
+TYC,"Ty Croes",AW
+TGS,"Ty Glas",AW
+TYG,Tygwyn,AW
+TYW,Tywyn,AW
+UPT,"Upton (Merseyside)",AW
+VAL,Valley,AW
+WNG,"Waun-Gron Park",AW
+WLP,Welshpool,AW
+WEM,Wem,AW
+WHT,"Whitchurch (Cardiff)",AW
+WTC,"Whitchurch (Shropshire)",AW
+WTL,Whitland,AW
+WMI,Wildmill,AW
+WRE,Wrenbury,AW
+WXC,"Wrexham Central",AW
+WRX,"Wrexham General",AW
+YNW,Ynyswen,AW
+YRT,Yorton,AW
+YSM,"Ystrad Mynach",AW
+YSR,"Ystrad Rhondda",AW
+BKG,Barking,CC
+BSO,Basildon,CC
+BEF,Benfleet,CC
+CFH,"Chafford Hundred Lakeside",CC
+CHW,Chalkwell,CC
+DDK,"Dagenham Dock",CC
+ETL,"East Tilbury",CC
+GRY,Grays,CC
+LAI,Laindon,CC
+LES,Leigh-on-Sea,CC
+LHS,Limehouse,CC
+FST,"London Fenchurch Street",CC
+OCK,Ockendon,CC
+PSE,Pitsea,CC
+PFL,Purfleet,CC
+RNM,"Rainham (Essex)",CC
+SRY,Shoeburyness,CC
+SOC,"Southend Central",CC
+SOE,"Southend East",CC
+SFO,Stanford-le-Hope,CC
+TPB,"Thorpe Bay",CC
+TIL,"Tilbury Town",CC
+UPM,Upminster,CC
+WHR,"West Horndon",CC
+WCF,Westcliff,CC
+AYS,Aylesbury,CH
+AVP,"Aylesbury Vale Parkway",CH
+BAN,Banbury,CH
+BCF,Beaconsfield,CH
+BCS,"Bicester North",CH
+BIT,"Bicester Village",CH
+BMO,"Birmingham Moor Street",CH
+DNM,Denham,CH
+DGC,"Denham Golf Club",CH
+DDG,Dorridge,CH
+GER,"Gerrards Cross",CH
+GMN,"Great Missenden",CH
+HDM,"Haddenham & Thame Parkway",CH
+HTN,Hatton,CH
+HWY,"High Wycombe",CH
+ISP,Islip,CH
+KGS,"Kings Sutton",CH
+LPW,Lapworth,CH
+LMS,"Leamington Spa",CH
+LTK,"Little Kimble",CH
+MYB,"London Marylebone",CH
+MRS,"Monks Risborough",CH
+NLT,"Northolt Park",CH
+OXP,"Oxford Parkway",CH
+PRR,"Princes Risborough",CH
+SDR,Saunderton,CH
+SRG,"Seer Green",CH
+SOL,Solihull,CH
+SKM,"Stoke Mandeville",CH
+SUD,"Sudbury & Harrow Road",CH
+SDH,"Sudbury Hill Harrow",CH
+WRW,Warwick,CH
+WRP,"Warwick Parkway",CH
+WCX,"Wembley Stadium",CH
+WND,Wendover,CH
+ALF,Alfreton,EM
+ASG,Alsager,EM
+AMB,Ambergate,EM
+ANC,Ancaster,EM
+ALK,Aslockton,EM
+ATB,Attenborough,EM
+BWS,Barrow-upon-Soar,EM
+BEE,Beeston,EM
+BLP,Belper,EM
+BIN,Bingham,EM
+BSB,Bleasby,EM
+BYB,"Blythe Bridge",EM
+BSN,Boston,EM
+BTF,Bottesford,EM
+BLW,Bulwell,EM
+BUJ,"Burton Joyce",EM
+BUT,Burton-on-Trent,EM
+CTO,Carlton,EM
+CHD,Chesterfield,EM
+CLM,Collingham,EM
+COR,Corby,EM
+CWD,Creswell,EM
+CMF,Cromford,EM
+DBY,Derby,EM
+DFI,Duffield,EM
+EMD,"East Midlands Parkway",EM
+ELO,"Elton & Orston",EM
+FSK,Fiskerton,EM
+GBL,"Gainsborough Lea Road",EM
+HVN,Havenhouse,EM
+HEC,Heckington,EM
+HNK,"Hinckley (Leics)",EM
+HBB,"Hubberts Bridge",EM
+HKN,Hucknall,EM
+HKM,Hykeham,EM
+ILN,Ilkeston,EM
+KET,Kettering,EM
+KDG,Kidsgrove,EM
+KKB,Kirkby-in-Ashfield,EM
+LGM,"Langley Mill",EM
+LAG,"Langwith-Whaley Thorns",EM
+LEI,Leicester,EM
+LCN,Lincoln,EM
+LGE,"Long Eaton",EM
+LPT,Longport,EM
+LGN,Longton,EM
+LBO,Loughborough,EM
+LOW,Lowdham,EM
+MFT,Mansfield,EM
+MSW,"Mansfield Woodhouse",EM
+MHR,"Market Harborough",EM
+MKR,"Market Rasen",EM
+MAT,Matlock,EM
+MTB,"Matlock Bath",EM
+MMO,"Melton Mowbray",EM
+MGM,Metheringham,EM
+NBR,Narborough,EM
+NET,Netherfield,EM
+NCT,"Newark Castle",EM
+NSD,Newstead,EM
+NOT,Nottingham,EM
+OKM,Oakham,EM
+PEA,Peartree,EM
+RDF,"Radcliffe (Nottinghamshire)",EM
+RAU,Rauceby,EM
+ROL,Rolleston,EM
+RKT,Ruskington,EM
+SXY,Saxilby,EM
+SHF,Sheffield,EM
+SHB,Shirebrook,EM
+SIL,Sileby,EM
+SKG,Skegness,EM
+SLR,Sleaford,EM
+SWS,"South Wigston",EM
+SPA,Spalding,EM
+SPO,Spondon,EM
+SMD,"Stamford (Lincs)",EM
+SPK,"Sutton Parkway",EM
+SWD,Swinderby,EM
+SWE,Swineshead,EM
+SYS,Syston,EM
+TPC,"Thorpe Culvert",EM
+THU,Thurgarton,EM
+TUT,"Tutbury & Hatton",EM
+UTT,Uttoxeter,EM
+WFL,Wainfleet,EM
+WEL,Wellingborough,EM
+WTS,Whatstandwell,EM
+WWL,"Whitwell (Derbyshire)",EM
+WIL,Willington,EM
+ASI,"Ashford International (Eurostar)",ES
+SPX,"London St Pancras (Intl)",ES
+AAP,"Alexandra Palace",GN
+ARL,Arlesey,GN
+AWM,"Ashwell & Morden",GN
+BDK,Baldock,GN
+BAY,Bayford,GN
+BIW,Biggleswade,GN
+BOP,"Bowes Park",GN
+BPK,"Brookmans Park",GN
+CWH,"Crews Hill",GN
+CUF,Cuffley,GN
+DOW,"Downham Market",GN
+DYP,"Drayton Park",GN
+ENC,"Enfield Chase",GN
+EXR,"Essex Road",GN
+FPK,"Finsbury Park",GN
+FXN,Foxton,GN
+GDH,"Gordon Hill",GN
+GPK,"Grange Park",GN
+HDW,"Hadley Wood",GN
+HGY,Harringay,GN
+HAT,"Hatfield (Herts)",GN
+HFN,"Hertford North",GN
+HIT,Hitchin,GN
+HRN,Hornsey,GN
+HUN,Huntingdon,GN
+KLN,"Kings Lynn",GN
+KBW,Knebworth,GN
+LET,"Letchworth Garden City",GN
+LTP,Littleport,GN
+MEL,Meldreth,GN
+NBA,"New Barnet",GN
+NSG,"New Southgate",GN
+OKL,"Oakleigh Park",GN
+PAL,"Palmers Green",GN
+PBR,"Potters Bar",GN
+RYS,Royston,GN
+SDY,Sandy,GN
+STH,Shepreth,GN
+SNO,"St Neots",GN
+SVG,Stevenage,GN
+WBC,Waterbeach,GN
+WTG,Watlington,GN
+WAS,Watton-at-Stone,GN
+WMG,"Welham Green",GN
+WGC,"Welwyn Garden City",GN
+WLW,"Welwyn North",GN
+WIH,"Winchmore Hill",GN
+BWK,Berwick-upon-Tweed,GR
+DAR,Darlington,GR
+DON,Doncaster,GR
+DHM,Durham,GR
+GRA,Grantham,GR
+NNG,"Newark North Gate",GR
+NCL,Newcastle,GR
+PBO,Peterborough,GR
+RET,Retford,GR
+WKF,"Wakefield Westgate",GR
+YRK,York,GR
+AMT,Aldermaston,GW
+APF,Appleford,GW
+AUW,Ascott-under-Wychwood,GW
+ASC,"Ashchurch for Tewkesbury",GW
+AVF,Avoncliff,GW
+AVN,Avonmouth,GW
+BNP,Barnstaple,GW
+BTH,"Bath Spa",GW
+BMT,Bedminster,GW
+BDW,Bedwyn,GW
+BAS,"Bere Alston",GW
+BFE,"Bere Ferrers",GW
+BTO,Betchworth,GW
+BAW,Blackwater,GW
+BOD,"Bodmin Parkway",GW
+BNE,"Bourne End",GW
+BOA,Bradford-on-Avon,GW
+BMY,"Bramley (Hampshire)",GW
+BWT,Bridgwater,GW
+BPW,"Bristol Parkway",GW
+BRU,Bruton,GW
+BGL,Bugle,GW
+CSK,Calstock,GW
+CDU,"Cam & Dursley",GW
+CBN,Camborne,GW
+CBB,"Carbis Bay",GW
+CBP,"Castle Bar Park",GW
+CLC,"Castle Cary",GW
+CAU,Causeland,GW
+CPN,"Chapelton (Devon)",GW
+CBY,Charlbury,GW
+CNM,"Cheltenham Spa",GW
+CNO,Chetnole,GW
+CHL,Chilworth,GW
+CPM,Chippenham,GW
+CHO,Cholsey,GW
+CFN,"Clifton Down",GW
+CME,"Combe (Oxon)",GW
+COO,Cookham,GW
+COE,"Coombe Junction Halt",GW
+COP,Copplestone,GW
+CDI,Crediton,GW
+CRN,Crowthorne,GW
+CUM,Culham,GW
+DWL,Dawlish,GW
+DWW,"Dawlish Warren",GW
+DEN,"Dean (Wilts)",GW
+DPT,Devonport,GW
+DID,"Didcot Parkway",GW
+DIG,"Digby & Sowton",GW
+DMH,"Dilton Marsh",GW
+DOC,"Dockyard (Devonport)",GW
+DCW,"Dorchester West",GW
+DPD,"Dorking (Deepdene)",GW
+DKT,"Dorking West",GW
+DRG,"Drayton Green",GW
+EGG,Eggesford,GW
+EVE,Evesham,GW
+EXC,"Exeter Central",GW
+EXD,"Exeter St David's",GW
+EXT,"Exeter St Thomas",GW
+EXM,Exmouth,GW
+EXN,Exton,GW
+FAL,"Falmouth Docks",GW
+FMT,"Falmouth Town",GW
+FNN,"Farnborough North",GW
+FIT,"Filton Abbey Wood",GW
+FIN,Finstock,GW
+FFD,Freshford,GW
+FRO,Frome,GW
+FZP,"Furze Platt",GW
+GCR,Gloucester,GW
+GOM,Gomshall,GW
+GOR,"Goring & Streatley",GW
+GSL,Gunnislake,GW
+HND,Hanborough,GW
+HYL,Hayle,GW
+HOT,Henley-on-Thames,GW
+HYD,Heyford,GW
+HIG,"Highbridge & Burnham",GW
+HYB,Honeybourne,GW
+HGD,Hungerford,GW
+IVY,Ivybridge,GW
+KEM,Kemble,GW
+KEY,Keyham,GW
+KYN,Keynsham,GW
+KGM,Kingham,GW
+KGN,"Kings Nympton",GW
+KIT,Kintbury,GW
+LAP,Lapford,GW
+LWH,"Lawrence Hill",GW
+LEL,Lelant,GW
+LTS,"Lelant Saltings",GW
+LSK,Liskeard,GW
+LOO,Looe,GW
+LOS,Lostwithiel,GW
+LUX,Luxulyan,GW
+LYC,"Lympstone Commando",GW
+LYM,"Lympstone Village",GW
+MDN,"Maiden Newton",GW
+MAI,Maidenhead,GW
+MLW,Marlow,GW
+MKM,Melksham,GW
+MEN,Menheniot,GW
+MDG,Midgham,GW
+MTP,Montpelier,GW
+MRD,"Morchard Road",GW
+MIM,Moreton-in-Marsh,GW
+MOR,Mortimer,GW
+DBG,"Mottisfont & Dunbridge",GW
+NLS,"Nailsea & Backwell",GW
+NBY,Newbury,GW
+NRC,"Newbury Racecourse",GW
+NCO,Newcourt,GW
+NQY,Newquay,GW
+NTA,"Newton Abbot",GW
+NTC,"Newton St Cyres",GW
+NCM,"North Camp",GW
+OKE,Okehampton,GW
+OLF,"Oldfield Park",GW
+OXF,Oxford,GW
+PGN,Paignton,GW
+PAN,Pangbourne,GW
+PAR,Par,GW
+PSN,"Parson Street",GW
+PWY,Patchway,GW
+PNM,Penmere,GW
+PYN,"Penryn (Cornwall)",GW
+PNZ,Penzance,GW
+PRW,Perranwell,GW
+PSH,Pershore,GW
+PEW,Pewsey,GW
+PIL,Pilning,GW
+PLY,Plymouth,GW
+POL,"Polsloe Bridge",GW
+PMA,"Portsmouth Arms",GW
+QUI,"Quintrell Downs",GW
+RAD,Radley,GW
+RDW,"Reading West",GW
+RDA,Redland,GW
+RED,Redruth,GW
+ROC,Roche,GW
+ROM,Romsey,GW
+STS,Saltash,GW
+SMC,"Sampford Courtenay",GW
+SND,"Sandhurst (Berks)",GW
+SDP,Sandplace,GW
+SML,"Sea Mills",GW
+SVB,"Severn Beach",GW
+SFR,"Shalford (Surrey)",GW
+SHI,Shiplake,GW
+SIP,Shipton,GW
+SHH,Shirehampton,GW
+SLO,Slough,GW
+SGN,"South Greenford",GW
+SAR,"St Andrews Road",GW
+SAU,"St Austell",GW
+SBF,"St Budeaux Ferry Road",GW
+SBV,"St Budeaux Victoria Road",GW
+SCR,"St Columb Road",GW
+SER,"St Erth",GW
+SGM,"St Germans",GW
+SIV,"St Ives (Cornwall)",GW
+SJP,"St James Park (Exeter)",GW
+SKN,"St Keyne Wishing Well Halt",GW
+SRD,"Stapleton Road",GW
+SCS,Starcross,GW
+SHU,Stonehouse,GW
+STD,"Stroud (Gloucs)",GW
+SWI,"Swindon (Wilts)",GW
+TAC,Tackley,GW
+TAU,Taunton,GW
+TGM,Teignmouth,GW
+THA,Thatcham,GW
+THE,Theale,GW
+THO,Thornford,GW
+TLH,Tilehurst,GW
+TVP,"Tiverton Parkway",GW
+TOP,Topsham,GW
+TQY,Torquay,GW
+TRR,Torre,GW
+TOT,Totnes,GW
+TRO,Trowbridge,GW
+TRU,Truro,GW
+TWY,Twyford,GW
+UMB,Umberleigh,GW
+WGV,Wargrave,GW
+WMN,Warminster,GW
+WSB,Westbury,GW
+WNM,"Weston Milton",GW
+WSM,Weston-super-Mare,GW
+WNC,"Windsor & Eton Central",GW
+WOR,Worle,GW
+YAE,Yate,GW
+YAT,Yatton,GW
+YEO,Yeoford,GW
+YVP,"Yeovil Pen Mill",GW
+YET,Yetminster,GW
+BDN,Brading,IL
+LKE,Lake,IL
+RYD,"Ryde Esplanade",IL
+RYP,"Ryde Pier Head",IL
+RYR,"Ryde St Johns Road",IL
+SAN,Sandown,IL
+SHN,Shanklin,IL
+SAB,"Smallbrook Junction",IL
+ACL,Acle,LE
+ALR,"Alresford (Essex)",LE
+ALN,"Althorne (Essex)",LE
+AGR,"Angel Road",LE
+ATL,Attleborough,LE
+AUD,"Audley End",LE
+BLB,Battlesbridge,LE
+BCC,Beccles,LE
+BYA,"Berney Arms",LE
+BIC,Billericay,LE
+BIS,"Bishops Stortford",LE
+BTR,Braintree,LE
+BTP,"Braintree Freeport",LE
+BRP,"Brampton (Suffolk)",LE
+BND,Brandon,LE
+BMD,Brimsdown,LE
+BXB,Broxbourne,LE
+BDA,Brundall,LE
+BGA,"Brundall Gardens",LE
+BUC,Buckenham,LE
+BUE,Bures,LE
+BUU,Burnham-on-Crouch,LE
+BSE,"Bury St Edmunds",LE
+CBG,Cambridge,LE
+CMB,"Cambridge North",LE
+CNY,Cantley,LE
+CWC,"Chappel & Wakes Colne",LE
+CHM,Chelmsford,LE
+CHN,Cheshunt,LE
+CLT,Clacton-on-Sea,LE
+COL,Colchester,LE
+CET,"Colchester Town",LE
+CES,"Cressing (Essex)",LE
+CMR,Cromer,LE
+DSM,Darsham,LE
+DBR,"Derby Road (Ipswich)",LE
+DIS,Diss,LE
+DVC,Dovercourt,LE
+DUL,Dullingham,LE
+ECS,"Eccles Road",LE
+ESW,Elmswell,LE
+ESM,"Elsenham (Essex)",LE
+ELY,Ely,LE
+ENL,"Enfield Lock",LE
+FLX,Felixstowe,LE
+FRI,Frinton-on-Sea,LE
+GRB,"Great Bentley",LE
+GRC,"Great Chesterford",LE
+GYM,"Great Yarmouth",LE
+GNT,Gunton,LE
+HAD,Haddiscoe,LE
+HAS,Halesworth,LE
+HRD,"Harling Road",LE
+HWM,"Harlow Mill",LE
+HWN,"Harlow Town",LE
+HPQ,"Harwich International",LE
+HWC,"Harwich Town",LE
+HAP,"Hatfield Peverel",LE
+HFE,"Hertford East",LE
+HOC,Hockley,LE
+HXM,"Hoveton & Wroxham",LE
+HYH,"Hythe (Essex)",LE
+INT,Ingatestone,LE
+IPS,Ipswich,LE
+KEL,Kelvedon,LE
+KNE,Kennett,LE
+KBX,"Kirby Cross",LE
+LAK,Lakenheath,LE
+LEB,"Lea Bridge",LE
+LGD,Lingwood,LE
+LWT,Lowestoft,LE
+MNE,Manea,LE
+MNG,Manningtree,LE
+MCH,March,LE
+MKT,"Marks Tey",LE
+MES,"Melton (Suffolk)",LE
+MIS,Mistley,LE
+NMT,"Needham Market",LE
+NMK,Newmarket,LE
+NWE,"Newport (Essex)",LE
+NFA,"North Fambridge",LE
+NWA,"North Walsham",LE
+NUM,"Northumberland Park",LE
+NRW,Norwich,LE
+OUN,"Oulton Broad North",LE
+OUS,"Oulton Broad South",LE
+PON,"Ponders End",LE
+PRL,Prittlewell,LE
+RLG,Rayleigh,LE
+REE,"Reedham (Norfolk)",LE
+RFD,Rochford,LE
+RNR,"Roughton Road",LE
+RYN,Roydon,LE
+RYH,"Rye House",LE
+SAH,Salhouse,LE
+SAW,Sawbridgeworth,LE
+SAX,Saxmundham,LE
+SED,"Shelford (Cambs)",LE
+SNF,Shenfield,LE
+SHM,Sheringham,LE
+SPP,"Shippea Hill",LE
+SYT,Somerleyton,LE
+SOF,"South Woodham Ferrers",LE
+SOV,"Southend Victoria",LE
+SMN,Southminster,LE
+SPN,"Spooner Row",LE
+SMT,"St Margarets (Herts)",LE
+SSD,"Stansted Airport",LE
+SST,"Stansted Mountfitchet",LE
+SMK,Stowmarket,LE
+SUY,"Sudbury (Suffolk)",LE
+TTF,Thetford,LE
+TLS,Thorpe-le-Soken,LE
+TRS,Thurston,LE
+TOM,"Tottenham Hale",LE
+TRM,Trimley,LE
+WLC,"Waltham Cross",LE
+WON,Walton-on-the-Naze,LE
+WAR,"Ware (Herts)",LE
+WEE,Weeley,LE
+WRN,"West Runton",LE
+WFI,Westerfield,LE
+WNY,"White Notley",LE
+WLE,Whittlesea,LE
+WLF,"Whittlesford Parkway",LE
+WIC,Wickford,LE
+WCM,"Wickham Market",LE
+WTM,Witham,LE
+WIV,Wivenhoe,LE
+WDB,Woodbridge,LE
+WRT,Worstead,LE
+WRB,Wrabness,LE
+WMD,Wymondham,LE
+ACG,"Acocks Green",WM
+ACB,"Acton Bridge (Cheshire)",LN
+ADD,"Adderley Park",WM
+ALB,Albrighton,WM
+ALV,Alvechurch,WM
+APS,Apsley,LN
+APG,"Aspley Guise",LN
+AST,Aston,WM
+ATH,Atherstone,LN
+BRT,Barlaston,WM
+BTG,"Barnt Green",WM
+BER,Bearley,WM
+BSJ,"Bedford St Johns",LN
+BEH,Bedworth,WM
+BKM,Berkhamsted,LN
+BKW,Berkswell,WM
+BEP,"Bermuda Park",WM
+BSC,"Bescot Stadium",WM
+BBK,Bilbrook,WM
+BSW,"Birmingham Snow Hill",WM
+BKT,"Blake Street",WM
+BKD,Blakedown,WM
+BLY,Bletchley,LN
+BLX,Bloxwich,WM
+BWN,"Bloxwich North",WM
+BBS,Bordesley,WM
+BRV,Bournville,WM
+BWB,"Bow Brickhill",LN
+BWO,"Bricket Wood",LN
+BMV,Bromsgrove,WM
+BUL,"Butlers Lane",WM
+CNL,Canley,WM
+CAO,Cannock,WM
+CED,Cheddington,LN
+CRD,"Chester Road",WM
+CLV,Claverdon,WM
+CSL,Codsall,WM
+CEH,"Coleshill Parkway",WM
+CWL,Colwall,WM
+CSY,Coseley,WM
+COS,Cosford,WM
+CAA,"Coventry Arena",WM
+CRA,"Cradley Heath",WM
+DZY,Danzey,WM
+DTW,"Droitwich Spa",WM
+DUD,Duddeston,WM
+DDP,"Dudley Port",WM
+EWD,"Earlswood (West Midlands)",WM
+ERD,Erdington,WM
+FEN,"Fenny Stratford",LN
+FWY,"Five Ways",WM
+FOK,"Four Oaks",WM
+GSN,"Garston (Hertfordshire)",LN
+GVH,"Gravelly Hill",WM
+GMV,"Great Malvern",WM
+HAG,Hagley,WM
+HLG,"Hall Green",WM
+HIA,Hampton-in-Arden,WM
+HSD,"Hamstead (Birmingham)",WM
+HTF,"Hartford (Cheshire)",LN
+HBY,Hartlebury,WM
+HNF,Hednesford,WM
+HML,"Hemel Hempstead",LN
+HNL,Henley-in-Arden,WM
+HWW,"How Wood (Hertfordshire)",LN
+JEQ,"Jewellery Quarter",WM
+KMH,"Kempston Hardwick",LN
+KNW,Kenilworth,WM
+KID,Kidderminster,WM
+KGL,"Kings Langley",LN
+KNN,"Kings Norton",WM
+LAW,Landywood,WM
+LGG,"Langley Green",WM
+LEH,"Lea Hall",WM
+LED,Ledbury,WM
+LBZ,"Leighton Buzzard",LN
+LIC,"Lichfield City",WM
+LTV,"Lichfield Trent Valley",WM
+LID,Lidlington,LN
+LBK,"Long Buckby",LN
+LOB,Longbridge,WM
+LYE,"Lye (West Midlands)",WM
+MVL,"Malvern Link",WM
+MGN,"Marston Green",WM
+MLB,"Millbrook (Bedfordshire)",LN
+MKC,"Milton Keynes Central",LN
+NMP,Northampton,LN
+NFD,Northfield,WM
+NTB,"Norton Bridge",LM
+NUN,Nuneaton,LN
+OKN,Oakengates,WM
+OHL,"Old Hill",WM
+OLT,Olton,WM
+PKT,"Park Street",LN
+PKG,Penkridge,WM
+PRY,"Perry Barr",WM
+PSW,Polesworth,LN
+RDC,Redditch,WM
+RID,Ridgmont,LN
+ROW,"Rowley Regis",WM
+RGT,"Rugeley Town",WM
+RGL,"Rugeley Trent Valley",WM
+SAD,"Sandwell & Dudley",WM
+SLY,"Selly Oak",WM
+SEN,Shenstone,WM
+SFN,Shifnal,WM
+SRL,Shirley,WM
+SMA,"Small Heath",WM
+SGB,"Smethwick Galton Bridge",WM
+SMR,"Smethwick Rolfe Street",WM
+SRI,"Spring Road",WM
+SAA,"St Albans Abbey",LN
+SCF,Stechford,WM
+SWR,Stewartby,LN
+SNE,"Stone (Staffs)",WM
+SBJ,"Stourbridge Junction",WM
+SBT,"Stourbridge Town",WM
+SAV,Stratford-upon-Avon,WM
+STY,"Stratford-upon-Avon Parkway",WM
+SUT,"Sutton Coldfield",WM
+TAB,"Tame Bridge Parkway",WM
+TAM,Tamworth,LN
+TFC,"Telford Central",WM
+THW,"The Hawthorns",WM
+TLK,"The Lakes (Warks)",WM
+THL,"Tile Hill",WM
+TIP,Tipton,WM
+TRI,Tring,LN
+TYS,Tyseley,WM
+UNI,"University (Birmingham)",WM
+WSL,Walsall,WM
+WTO,"Water Orton",WM
+WFJ,"Watford Junction",LN
+WFN,"Watford North",LN
+WED,Wedgwood,LN
+WLN,"Wellington (Shropshire)",WM
+WTE,"Whitlocks End",WM
+WMR,"Widney Manor",WM
+WMC,Wilmcote,WM
+WNE,"Wilnecote (Staffs)",WM
+WSF,Winsford,LN
+WTT,"Witton (West Midlands)",WM
+WOB,"Woburn Sands",LN
+WVH,Wolverhampton,WM
+WOL,Wolverton,LN
+WDE,"Wood End",WM
+WWW,"Wootton Wawen",WM
+WOF,"Worcester Foregate Street",WM
+WOS,"Worcester Shrub Hill",WM
+WYL,"Wylde Green",WM
+WYT,Wythall,WM
+YRD,"Yardley Wood",WM
+ACC,"Acton Central",LO
+ANZ,Anerley,LO
+BET,"Bethnal Green",LO
+BCY,Brockley,LO
+BSY,Brondesbury,LO
+BSP,"Brondesbury Park",LO
+BCV,"Bruce Grove",LO
+BHK,"Bush Hill Park",LO
+BSH,Bushey,LO
+CIR,"Caledonian Road & Barnsbury",LO
+CBH,"Cambridge Heath",LO
+CMD,"Camden Road",LO
+CNN,Canonbury,LO
+CPK,"Carpenders Park",LO
+CHI,Chingford,LO
+CLP,"Clapham High Street",LO
+CPT,Clapton,LO
+CRH,"Crouch Hill",LO
+CYP,"Crystal Palace",LO
+DLJ,"Dalston Junction",LO
+DLK,"Dalston Kingsland",LO
+EDR,"Edmonton Green",LO
+EMP,"Emerson Park",LO
+ENF,"Enfield Town",LO
+FNY,"Finchley Road & Frognal",LO
+FOH,"Forest Hill",LO
+GPO,"Gospel Oak",LO
+HKC,"Hackney Central",LO
+HAC,"Hackney Downs",LO
+HKW,"Hackney Wick",LO
+HGG,Haggerston,LO
+HDH,"Hampstead Heath",LO
+HRY,"Harringay Green Lanes",LO
+HTE,"Hatch End",LO
+HDL,"Headstone Lane",LO
+HIP,"Highams Park",LO
+HMN,Homerton,LO
+HPA,"Honor Oak Park",LO
+HOX,Hoxton,LO
+IMW,"Imperial Wharf",LO
+KNR,"Kensal Rise",LO
+KPA,"Kensington Olympia",LO
+KTW,"Kentish Town West",LO
+KBN,"Kilburn High Road",LO
+LEM,"Leyton Midland Road",LO
+LER,"Leytonstone High Road",LO
+LOF,"London Fields",LO
+NXG,"New Cross Gate",LO
+NWD,"Norwood Junction",LO
+PNW,"Penge West",LO

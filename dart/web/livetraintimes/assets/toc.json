@@ -1,0 +1,197 @@
+[
+	{
+		"code" : "AW",
+		"name" : "Transport for Wales",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TfW%20Logo%20Sm2.jpg"
+	},
+	{
+		"code" : "CC",
+		"name" : "c2c",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/C2C.jpg"
+	},
+	{
+		"code" : "CS",
+		"name" : "Caledonian Sleeper",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/Sleeper2.jpg"
+	},
+	{
+		"code" : "CH",
+		"name" : "Chiltern Railways",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/ChilternRailways.jpg"
+	},
+	{
+		"code" : "XC",
+		"name" : "CrossCountry",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/CROSSCOUNTRY.jpg"
+	},
+	{
+		"code" : "EM",
+		"name" : "East Midlands Trains",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/EMT.jpg"
+	},
+	{
+		"code" : "ES",
+		"name" : "Eurostar",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/eurostar.jpg"
+	},
+	{
+		"code" : "GX",
+		"name" : "Gatwick Express",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/Gat_Ex_Logo2.jpg"
+	},
+	{
+		"code" : "XP",
+		"name" : "Glasgow Prestwick Airport Ltd",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/Glasgow%20Prestwick%20Airport%20logo.jpg"
+	},
+	{
+		"code" : "GC",
+		"name" : "Grand Central",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/grand_central.jpg"
+	},
+	{
+		"code" : "GN",
+		"name" : "Great Northern",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/GREATNORTHERN.jpg"
+	},
+	{
+		"code" : "GW",
+		"name" : "Great Western Railway",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/GWR.png"
+	},
+	{
+		"code" : "LE",
+		"name" : "Greater Anglia",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/greater%20anglia.jpg"
+	},
+	{
+		"code" : "HC",
+		"name" : "Heathrow Connect",
+		"logo_url" : "http://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/HEC.jpg"
+	},
+	{
+		"code" : "HX",
+		"name" : "Heathrow Express",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/HEATHROW%20EXPRESS.gif"
+	},
+	{
+		"code" : "HT",
+		"name" : "Hull Trains",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/HULL.jpg"
+	},
+	{
+		"code" : "IL",
+		"name" : "Island Line",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/islandline.jpg"
+	},
+	{
+		"code" : "LN",
+		"name" : "London Northwestern Railway",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/LNR_SM.jpg"
+	},
+	{
+		"code" : "LO",
+		"name" : "London Overground",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/lorol2.jpg"
+	},
+	{
+		"code" : "LT",
+		"name" : "London Underground",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/London-Underground-logo-1024x768.jpg"
+	},
+	{
+		"code" : "ME",
+		"name" : "Merseyrail",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/MERSEYRAIL.jpg"
+	},
+	{
+		"code" : "ZN",
+		"name" : "National Rail",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/nationalrailenquiries.gif"
+	},
+	{
+		"code" : "NR",
+		"name" : "Network Rail",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/Tocs/NR-logo.gif"
+	},
+	{
+		"code" : "NT",
+		"name" : "Northern",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/Northern2.jpg"
+	},
+	{
+		"code" : "SR",
+		"name" : "ScotRail",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/SCOTRAIL.jpg"
+	},
+	{
+		"code" : "SW",
+		"name" : "South Western Railway",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/swr3.jpg"
+	},
+	{
+		"code" : "SE",
+		"name" : "Southeastern",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/SET.jpg"
+	},
+	{
+		"code" : "SN",
+		"name" : "Southern",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/southern20logo20-20aug2009.jpg"
+	},
+	{
+		"code" : "SX",
+		"name" : "Stansted Express",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/STANSTEAD.jpg"
+	},
+	{
+		"code" : "XS",
+		"name" : "Stobart Rail",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/Stobart%20rail%20logo_small.jpg"
+	},
+	{
+		"code" : "XR",
+		"name" : "TfL Rail",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/TFL.jpg"
+	},
+	{
+		"code" : "TL",
+		"name" : "Thameslink",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/THAMESLINK.jpg"
+	},
+	{
+		"code" : "TP",
+		"name" : "TransPennine Express",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/TPE.jpg"
+	},
+	{
+		"code" : "VT",
+		"name" : "Virgin Trains",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/VTWC.jpg"
+	},
+	{
+		"code" : "GR",
+		"name" : "LNER",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/lner2.png"
+	},
+	{
+		"code" : "WM",
+		"name" : "West Midlands Railway",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/WMR_SM.jpg"
+	},
+	{
+		"code" : "LM",
+		"name" : "West Midlands Trains",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TOC%20Logo/Combined%20Logo%20-%20WMT2.jpg"
+	},
+	{
+		"code" : "AW",
+		"name" : "Arriva Trains Wales",
+		"logo_url" : "https://www.nationalrail.co.uk/static/images/structure/TfW%20Logo%20Sm2.jpg"
+	},
+	{
+		"code" : "GR",
+		"name" : "London North Eastern Railway",
+		"logo_url" : null
+	}
+]
