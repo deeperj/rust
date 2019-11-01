@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["John Alamina <john.alamina@netsells.co.uk>"]
 edition = "2018"
 
-default-run = "cursive"
+# default-run = "cursive"
 
 [dependencies]
 cursive = "0.13"
