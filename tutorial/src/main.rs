@@ -10,7 +10,7 @@ fn main() {
 
   if command == "datatypes" {
     datatypes::run();
-  } else if command == "status" {
+  } else if command == "output" {
     output::run();
   } else {
     println!("That is not a valid command");
