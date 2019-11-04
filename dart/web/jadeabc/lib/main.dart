@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Jade''s ABCs'),
+      home: MyHomePage(title: "Jade's ABCs"),
     );
   }
 }
@@ -56,13 +56,13 @@ class _MyHomePageState extends State<MyHomePage>
   int _max_height;
   int _top;
   int _left;
-  Point _old_values;
-  int _stop_char=0;
+  Offset _old_values;
+  int _stop_char=1;
   double _width = 200;
   double _height = 200;
   static AudioCache _player = new AudioCache();
   AudioElement _audio;
-  Animation<Point<double>> _animation;
+  Animation<Offset> _animation;
   AnimationController _animationController;
 
   /**
@@ -72,7 +72,10 @@ class _MyHomePageState extends State<MyHomePage>
   int _next(int min, int max) => min + _random.nextInt(max - min);
 
   void _setup(double value) {
-    _stop_char=value.toInt();
+    setState((){
+      _stop_char=value.toInt();
+      print("value has been changed to $_stop_char");
+    });
   }
 void _incrementCounter() {
     setState(() {
@@ -85,32 +88,37 @@ void _incrementCounter() {
       _audio=AudioElement("assets/assets/"+_abc[_counter].toLowerCase()+".mp3");
       _audio.muted=false;
       _audio.play();
-      _counter = (_counter + 1) % _stop_char+1;
-      _old_values=Point<double>(_left.toDouble(),_top.toDouble());
-      _top = _random.nextInt((_max_height - _height).floor());
+      _counter = (_counter + 1) % (_stop_char+1);
+      _old_values=Offset(_left.toDouble(),_top.toDouble());
+      _top = _next(50,(_max_height - _height).floor());
       _left = _random.nextInt((_max_width - _width).floor());
-      _animation=Tween<Point<double>>(
+      _animation=Tween<Offset>(
         begin:_old_values,
-        end:Point<double>(_left.toDouble(), _top.toDouble())
+        end:Offset(_left.toDouble(), _top.toDouble())
       ).animate(_animationController);
-      print("top=$_top left=$_left max_height=$_max_height");
+    _animationController.forward();
+      print("_counter=$_counter scha=$_stop_char max_height=$_max_height");
     });
   }
 
   @override
   initState() {
     super.initState();
-    _top = 10;
+    _top = 50;
     _left = 10;
-    _old_values=Point<double>(_left.toDouble(),_top.toDouble());
+    _old_values=Offset(_left.toDouble(),_top.toDouble());
     _animationController=AnimationController(
         vsync: this,
-        duration: Duration(seconds: 5000),
+        duration: Duration(seconds: 1000),
     );
-    _animation=Tween<Point<double>>(
+    _animation=Tween<Offset>(
       begin:_old_values,
-      end:Point<double>(_left.toDouble(), _top.toDouble())
+      end:Offset(
+        _left.toDouble(),//_random.nextInt((_max_width - _width).floor()).toDouble(),
+        _top.toDouble(), //_random.nextInt((_max_height - _height).floor()).toDouble()
+      )
     ).animate(_animationController);
+    _animationController.forward();
   }
 
   @override
@@ -157,28 +165,30 @@ void _incrementCounter() {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Slider(
-                value:0,
+                value:26,
                 onChanged: _setup,
-                max: 25,
+                max: 26,
+                min: 1,
                 //divisions: ,
               ),
               Text(
-                '',
+                'Stops at ${_abc[_stop_char]}',
                 style: Theme
                     .of(context)
                     .textTheme
                     .display1,
+                textAlign: TextAlign.center,
               ),
             ],
           ),
           new Positioned(
-            left: _animation.value.x,
-            top: _animation.value.y,
+            left: _animation.value.dx,
+            top: _animation.value.dy,
             child: GestureDetector(
               child: Container(
                 width: _width.toDouble(),
