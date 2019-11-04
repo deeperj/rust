@@ -92,17 +92,18 @@ void _incrementCounter() {
       _old_values=Offset(_left.toDouble(),_top.toDouble());
       _top = _next(80,(_max_height - _height).floor());
       _left = _random.nextInt((_max_width - _width).floor());
+      print("_counter=$_counter scha=$_stop_char max_height=$_max_height");
+      _animationController.reset();
       _animation=Tween<Offset>(
         begin:_old_values,
         end:Offset(_left.toDouble(), _top.toDouble())
       ).animate(_animationController)..addListener(() {
         // #enddocregion addListener
         setState(() {
-          print("animation value is ${_animation.value}");
+          //print("animation value is ${_animation.value}");
         });
       });
-    _animationController.forward();
-      print("_counter=$_counter scha=$_stop_char max_height=$_max_height");
+      _animationController.forward();
     });
   }
 
@@ -114,22 +115,12 @@ void _incrementCounter() {
     _old_values=Offset(_left.toDouble(),_top.toDouble());
     _animationController=AnimationController(
         vsync: this,
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
     );
     _animation=Tween<Offset>(
       begin:_old_values,
-      end:Offset(
-        _left.toDouble(),//_random.nextInt((_max_width - _width).floor()).toDouble(),
-        _top.toDouble(), //_random.nextInt((_max_height - _height).floor()).toDouble()
-      )
-    ).animate(_animationController)..addListener(() {
-      // #enddocregion addListener
-      setState(() {
-        // The state that has changed here is the animation object’s value.
-      });
-      // #docregion addListener
-    });
-    _animationController.forward();
+      end:Offset(_left.toDouble(), _top.toDouble())
+    ).animate(_animationController);
   }
 
   @override
@@ -216,6 +207,8 @@ void _incrementCounter() {
                 ),
               ),
               onTap: _incrementCounter,
+              onLongPress: _incrementCounter,
+              //onLongPressEnd: _incrementCounter,
             ),
           )],
           ),
