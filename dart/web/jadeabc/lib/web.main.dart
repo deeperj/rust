@@ -1,11 +1,15 @@
-import 'package:flutter/material.dart';
-import 'dart:math';
 import 'dart:html';
+import 'package:flutter_web/material.dart';
+import 'package:flutter_web_ui/ui.dart' as ui;
+import 'dart:math';
 import 'package:audioplayers/audio_cache.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  await ui.webOnlyInitializePlatform();
+  runApp(_MyApp());
+}
 
-class MyApp extends StatelessWidget {
+class _MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,13 +28,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Jade''s ABCs'),
+      home: _MyHomePage(title: 'Jade''s ABCs'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class _MyHomePage extends StatefulWidget {
+  _MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -47,7 +51,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
+class _MyHomePageState extends State<_MyHomePage>
   with SingleTickerProviderStateMixin {
   int _counter = 0;
   String _abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -57,11 +61,9 @@ class _MyHomePageState extends State<MyHomePage>
   int _top;
   int _left;
   Point _old_values;
-  int _stop_char=0;
   double _width = 200;
   double _height = 200;
   static AudioCache _player = new AudioCache();
-  AudioElement _audio;
   Animation<Point<double>> _animation;
   AnimationController _animationController;
 
@@ -71,21 +73,16 @@ class _MyHomePageState extends State<MyHomePage>
    */
   int _next(int min, int max) => min + _random.nextInt(max - min);
 
-  void _setup(double value) {
-    _stop_char=value.toInt();
-  }
-void _incrementCounter() {
-    setState(() {
+  void _incrementCounter() {
+    setState(() async{
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      // _player.play(_abc[_counter].toLowerCase()+".mp3");
-      _audio=AudioElement("assets/assets/"+_abc[_counter].toLowerCase()+".mp3");
-      _audio.muted=false;
-      _audio.play();
-      _counter = (_counter + 1) % _stop_char+1;
+      //_player.play(_abc[_counter].toLowerCase()+".mp3");
+      await AudioElement(_abc[_counter].toLowerCase()+".mp3").play();
+      _counter = (_counter + 1) % 26;
       _old_values=Point<double>(_left.toDouble(),_top.toDouble());
       _top = _random.nextInt((_max_height - _height).floor());
       _left = _random.nextInt((_max_width - _width).floor());
@@ -161,12 +158,9 @@ void _incrementCounter() {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              Slider(
-                value:0,
-                onChanged: _setup,
-                max: 25,
-                //divisions: ,
-              ),
+              // Text(
+              //   'You have pushed the button this many times:',
+              // ),
               Text(
                 '',
                 style: Theme
