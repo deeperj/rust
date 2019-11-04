@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,7 +46,8 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+  with SingleTickerProviderStateMixin {
   int _counter = 0;
   String _abc = "ABCDE";
   final _random = new Random();
@@ -53,8 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
   int _max_height;
   int _top;
   int _left;
-  double _width = 80;
-  double _height = 50;
+  Point _old_values;
+  double _width = 120;
+  double _height = 120;
+  static AudioCache _player = new AudioCache();
+  Animation<Point<double>> _animation;
+  AnimationController _animationController;
 
   /**
    * Generates a positive random integer uniformly distributed on the range
@@ -69,9 +75,15 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
+      _player.play(_abc[_counter].toLowerCase()+".mp3");
       _counter = (_counter + 1) % 5;
+      _old_values=Point<double>(_left.toDouble(),_top.toDouble());
       _top = _random.nextInt((_max_height - _height).floor());
       _left = _random.nextInt((_max_width - _width).floor());
+      _animation=Tween<Point<double>>(
+        begin:_old_values,
+        end:Point<double>(_left.toDouble(), _top.toDouble())
+      ).animate(_animationController);
       print("top=$_top left=$_left max_height=$_max_height");
     });
   }
@@ -81,6 +93,15 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _top = 10;
     _left = 10;
+    _old_values=Point<double>(_left.toDouble(),_top.toDouble());
+    _animationController=AnimationController(
+        vsync: this,
+        duration: Duration(seconds: 5000),
+    );
+    _animation=Tween<Point<double>>(
+      begin:_old_values,
+      end:Point<double>(_left.toDouble(), _top.toDouble())
+    ).animate(_animationController);
   }
 
   @override
@@ -131,11 +152,11 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
+              // Text(
+              //   'You have pushed the button this many times:',
+              // ),
               Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
+                '',
                 style: Theme
                     .of(context)
                     .textTheme
@@ -144,19 +165,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           new Positioned(
-            left: _left.toDouble(),
-            top: _top.toDouble(),
+            left: _animation.value.x,
+            top: _animation.value.y,
             child: GestureDetector(
               child: Container(
                 width: _width.toDouble(),
                 height: _height.toDouble(),
                 decoration: new BoxDecoration(color: Colors.red),
                 child: Text(
-                  '$_abc',
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .display1,
+                  '${_abc[_counter]}',
+//                  style: Theme
+//                      .of(context)
+//                      .textTheme
+//                      .display1,
+                  style: TextStyle(fontSize: 72),
+                  textAlign: TextAlign.center,
                 ),
               ),
               onTap: _incrementCounter,
