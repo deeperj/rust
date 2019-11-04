@@ -49,15 +49,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
   with SingleTickerProviderStateMixin {
   int _counter = 0;
-  String _abc = "ABCDE";
+  String _abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   final _random = new Random();
   int _max_width;
   int _max_height;
   int _top;
   int _left;
   Point _old_values;
-  double _width = 120;
-  double _height = 120;
+  double _width = 200;
+  double _height = 200;
   static AudioCache _player = new AudioCache();
   Animation<Point<double>> _animation;
   AnimationController _animationController;
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage>
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _player.play(_abc[_counter].toLowerCase()+".mp3");
-      _counter = (_counter + 1) % 5;
+      _counter = (_counter + 1) % 26;
       _old_values=Point<double>(_left.toDouble(),_top.toDouble());
       _top = _random.nextInt((_max_height - _height).floor());
       _left = _random.nextInt((_max_width - _width).floor());
@@ -178,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage>
 //                      .of(context)
 //                      .textTheme
 //                      .display1,
-                  style: TextStyle(fontSize: 72),
+                  style: TextStyle(fontSize: 120),
                   textAlign: TextAlign.center,
                 ),
               ),
