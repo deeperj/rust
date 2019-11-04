@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage>
   void _setup(double value) {
     setState((){
       _stop_char=value.toInt();
-      print("value has been changed to $_stop_char");
+      // print("value has been changed to $_stop_char");
     });
   }
 void _incrementCounter() {
@@ -84,18 +84,23 @@ void _incrementCounter() {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      // _player.play(_abc[_counter].toLowerCase()+".mp3");
+      //  _player.play(_abc[_counter].toLowerCase()+".mp3");
       _audio=AudioElement("assets/assets/"+_abc[_counter].toLowerCase()+".mp3");
       _audio.muted=false;
       _audio.play();
       _counter = (_counter + 1) % (_stop_char+1);
       _old_values=Offset(_left.toDouble(),_top.toDouble());
-      _top = _next(50,(_max_height - _height).floor());
+      _top = _next(80,(_max_height - _height).floor());
       _left = _random.nextInt((_max_width - _width).floor());
       _animation=Tween<Offset>(
         begin:_old_values,
         end:Offset(_left.toDouble(), _top.toDouble())
-      ).animate(_animationController);
+      ).animate(_animationController)..addListener(() {
+        // #enddocregion addListener
+        setState(() {
+          print("animation value is ${_animation.value}");
+        });
+      });
     _animationController.forward();
       print("_counter=$_counter scha=$_stop_char max_height=$_max_height");
     });
@@ -104,12 +109,12 @@ void _incrementCounter() {
   @override
   initState() {
     super.initState();
-    _top = 50;
+    _top = 80;
     _left = 10;
     _old_values=Offset(_left.toDouble(),_top.toDouble());
     _animationController=AnimationController(
         vsync: this,
-        duration: Duration(seconds: 1000),
+        duration: Duration(milliseconds: 100),
     );
     _animation=Tween<Offset>(
       begin:_old_values,
@@ -117,7 +122,13 @@ void _incrementCounter() {
         _left.toDouble(),//_random.nextInt((_max_width - _width).floor()).toDouble(),
         _top.toDouble(), //_random.nextInt((_max_height - _height).floor()).toDouble()
       )
-    ).animate(_animationController);
+    ).animate(_animationController)..addListener(() {
+      // #enddocregion addListener
+      setState(() {
+        // The state that has changed here is the animation object’s value.
+      });
+      // #docregion addListener
+    });
     _animationController.forward();
   }
 
@@ -170,11 +181,11 @@ void _incrementCounter() {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Slider(
-                value:26,
+                value:_stop_char.toDouble(),
                 onChanged: _setup,
                 max: 26,
                 min: 1,
-                //divisions: ,
+                divisions: 25,
               ),
               Text(
                 'Stops at ${_abc[_stop_char]}',
