@@ -80,6 +80,9 @@ class _MyHomePageState extends State<MyHomePage>
   void _handle(LongPressEndDetails details) {
     _incrementCounter();
   }
+  void _handleDrag(DragStartDetails details) {
+    _incrementCounter();
+  }
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -210,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage>
               ),
             ),
             onTap: _incrementCounter,
-            //onLongPress: _incrementCounter,
+            onPanStart: _handleDrag,
             onLongPressEnd: _handle,
           ),
         )],
