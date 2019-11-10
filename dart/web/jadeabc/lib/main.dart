@@ -110,10 +110,11 @@ class _MyHomePageState extends State<MyHomePage>
         });
       })
       ..addStatusListener((AnimationStatus status) {
-        // #enddocregion addListener
-        if(status==AnimationStatus.completed){
-          _counter = (_counter + 1) % (_stop_char+1);
-        }
+        setState(() {
+          if(status==AnimationStatus.completed){
+            _counter = (_counter + 1) % (_stop_char+1);
+          }
+        });
       });
       _animationController.forward();
     });
