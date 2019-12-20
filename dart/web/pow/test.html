@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="app">
+    <el-button @click=""><el-link href="https://maker.ifttt.com/trigger/rpow_on/with/key/iE5_LwBNknNWmbnRKU0Rl">power on</el-link></el-button>
+    <el-button @click=""><el-link href="https://maker.ifttt.com/trigger/rpow_off/with/key/iE5_LwBNknNWmbnRKU0Rl">power off</el-link></el-button>
+    <el-button @click="reset3">reset</el-button>
+    <el-dialog :visible.sync="visible" title="Response">
+      <p>{{data}}</p>
+    </el-dialog>
+  <div>
+    <el-link href="https://element.eleme.io" target="_blank">default</el-link>
+    <el-link type="primary">primary</el-link>
+    <el-link type="success">success</el-link>
+    <el-link type="warning">warning</el-link>
+    <el-link type="danger">danger</el-link>
+    <el-link type="info">info</el-link>
+  </div>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          visible: false,
+          data:'hello world'
+        }
+      },
+      methods: {
+        reset: function () {
+        axios.get('https://maker.ifttt.com/trigger/rpow_off/with/key/iE5_LwBNknNWmbnRKU0Rl')
+          .then(function (response) {
+            // handle success
+            console.log(response);
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .finally(function () {
+            // always executed
+          });
+        },
+        reset2: function(v){
+            var head = document.head;
+            script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://maker.ifttt.com/trigger/rpow_'+v+'/with/key/iE5_LwBNknNWmbnRKU0Rl';
+            head.appendChild(script);
+            head.removeChild(script);
+        },
+        reset3: function(){
+          this.reset2('off');
+          setTimeout(() => this.reset2('on'), 1000);
+        }
+      }
+   })
+
+   function requestServerCall(url) {
+      var head = document.head;
+      var script = document.createElement("script");
+
+      script.setAttribute("src", url);
+      head.appendChild(script);
+      head.removeChild(script);
+    }
+
+    //Predefined callback function    
+    function jsonpCallback(data) {
+      alert(data.message); // Response data from the server
+    }
+
+    //Reference to the input field
+    var username = document.getElementById("username");
+
+    //Send Request to Server
+    function sendRequest() {
+      // Edit with your Web Service URL
+      requestServerCall("http://localhost/PHP_Series/CORS/myService.php?callback=jsonpCallback&message="+username.value+"");
+    }  
+  </script>
+</html>

@@ -1,0 +1,8 @@
+
+
+{
+    "folders":[{
+        "uri":"s3://apps.softtouchsolutions.net/?acl=public-read",
+        "name":"My s3 bucket"
+        }]
+}
