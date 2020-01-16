@@ -58,6 +58,7 @@
             script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = 'https://maker.ifttt.com/trigger/rpow_'+v+'/with/key/iE5_LwBNknNWmbnRKU0Rl';
+            script.src = 'https://maker.ifttt.com/trigger/rpow_'+v+'/with/key/iE5_LwBNknNWmbnRKU0Rl';
             head.appendChild(script);
             head.removeChild(script);
         },
@@ -79,7 +80,7 @@
 
     //Predefined callback function    
     function jsonpCallback(data) {
-      alert(data.message); // Response data from the server
+      alert(data); // Response data from the server
     }
 
     //Reference to the input field

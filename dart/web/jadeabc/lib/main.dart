@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage>
   int _top;
   int _left;
   Offset _old_values;
-  int _stop_char=1;
+  int _stop_char=9;
   double _width = 200;
   double _height = 200;
   static AudioCache _player = new AudioCache();
@@ -187,9 +187,9 @@ class _MyHomePageState extends State<MyHomePage>
             Slider(
               value:_stop_char.toDouble(),
               onChanged: _setup,
-              max: 26,
-              min: 1,
-              divisions: 25,
+              max: 25,
+              min: 0,
+              divisions: 24,
             ),
             Text(
               'Stops at ${_abc[_stop_char]}',
