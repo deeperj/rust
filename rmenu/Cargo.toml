@@ -6,11 +6,17 @@ edition = "2018"
 
 default-run = "cursive"
 
-[dependencies]
-cursive = "0.13"
+# [dependencies]
+# cursive = "0.15"
+[dependencies.cursive]
+version = "0.12"
+default-features = false
+features = ["crossterm-backend"]
+# features = ["pancurses-backend"]
 
 # Here's an example of a TOML "array of tables" section, in this case specifying
 # a binary target name and path.
 [[bin]]
 name = "cursive"
 path = "src/edit.rs"
+#cargo run -v --no-default-features --features crossterm-backend --example select
