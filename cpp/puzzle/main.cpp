@@ -12,6 +12,14 @@ int main() {
   const int MAXV=5; //maximum number of moves + 1 for length
 
   int board[BSZ2]={-1,-1,-1,-1,-1,-1,-1,-1,-1};
+  int validMoves[BSZ2][MAXV]=
+  {
+    2,1,3,-1,-1,
+    3,0,2,4,-1,
+    2,1,5,-1,-1,
+    3,0,4,6,-1,
+    
+  }
   // for(int i=0;i<9;i++)cout << board[i] << endl;
   // return 0;
   //seed random generator
