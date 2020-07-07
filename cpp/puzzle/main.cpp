@@ -71,15 +71,29 @@ int main() {
     //swap index of 0 with index of value
     board[id0]=board[v];
     board[v]=0;
-    //check for winner
+    //check for winner step 1 check first and last board space
+    if(
+        !((board[0]==0 ||board[0]==1)
+        &&(board[8]==0 ||board[8]==8))
+      )
+    {
+      wehaveawinner=false;
+      continue;
+    }
+    //check for winner step 2 check remaining board spaces
     for(int i=0;i<BSZ2;i++){
-      if(i>0 && i<BSZ2-1 && board[i]!=0 
-          && 
-          board[i]<board[i-1])
-      {
-        wehaveawinner=false;
-        break;
-      }wehaveawinner=true;
+      if(i>0 && i<BSZ2-1){
+        if( (board[i]!=0 
+            && ((i>1 && board[i-1])==0?
+            board[i]<board[i-2]:
+            board[i]<board[i-1]))
+          )
+        {
+          wehaveawinner=false;
+          break;
+        }
+      }
+      wehaveawinner=true;
     }
     if(wehaveawinner){
       //printboard one last time
