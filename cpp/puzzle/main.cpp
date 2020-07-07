@@ -66,13 +66,17 @@ int main() {
     }
     //cin >> v;
     v=validMoves[id0][1+(rand()%validMoves[id0][0])];
+    cout << v << endl;
     movecount++;
     //swap index of 0 with index of value
     board[id0]=board[v];
     board[v]=0;
     //check for winner
     for(int i=0;i<BSZ2;i++){
-      if(i>0 && i<BSZ2-1 && board[i]!=0 && board[i]<board[i-1]){
+      if(i>0 && i<BSZ2-1 && board[i]!=0 
+          && 
+          board[i]<board[i-1])
+      {
         wehaveawinner=false;
         break;
       }wehaveawinner=true;
