@@ -10,7 +10,7 @@ int main() {
   const int BSZ=3;
   const int BSZ2=BSZ*BSZ;
   const int MAXV=5; //maximum number of moves + 1 for length
-
+  int movecount=0;
   int board[BSZ2]={-1,-1,-1,-1,-1,-1,-1,-1,-1};
   int validMoves[BSZ2][MAXV]=
   {
@@ -18,8 +18,12 @@ int main() {
     3,0,2,4,-1,
     2,1,5,-1,-1,
     3,0,4,6,-1,
-    
-  }
+    4,1,3,5,7,
+    3,2,4,8,-1,
+    2,3,7,-1,-1,
+    3,6,8,4,-1,
+    2,5,7,-1,-1
+  };
   // for(int i=0;i<9;i++)cout << board[i] << endl;
   // return 0;
   //seed random generator
@@ -50,7 +54,6 @@ int main() {
     // ask user to enter value from 0 to 8
     cout << "enter value between 0 and 8: ";
     int v;
-    cin >> v;
     //find the index of 0
     int id0=-1;
     for(int i=0;i<BSZ2;i++){
@@ -61,12 +64,15 @@ int main() {
     }if(id0==-1){
       cout << "error finding 0 index";
     }
+    //cin >> v;
+    v=validMoves[id0][1+(rand()%validMoves[id0][0])];
+    movecount++;
     //swap index of 0 with index of value
     board[id0]=board[v];
     board[v]=0;
     //check for winner
     for(int i=0;i<BSZ2;i++){
-      if(board[i]!=i){
+      if(i>0 && i<BSZ2-1 && board[i]!=0 && board[i]<board[i-1]){
         wehaveawinner=false;
         break;
       }wehaveawinner=true;
@@ -81,5 +87,5 @@ int main() {
     }
   }
   //
-  cout << "we have a winner";
+  cout << "we have a winner after " << movecount << " moves.";
 }
