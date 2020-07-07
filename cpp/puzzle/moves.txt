@@ -1,0 +1,787 @@
+428
+736
+015
+enter value between 0 and 8: 7
+428
+736
+105
+enter value between 0 and 8: 6
+428
+736
+015
+enter value between 0 and 8: 3
+428
+036
+715
+enter value between 0 and 8: 6
+428
+736
+015
+enter value between 0 and 8: 3
+428
+036
+715
+enter value between 0 and 8: 0
+028
+436
+715
+enter value between 0 and 8: 1
+208
+436
+715
+enter value between 0 and 8: 4
+238
+406
+715
+enter value between 0 and 8: 5
+238
+460
+715
+enter value between 0 and 8: 2
+230
+468
+715
+enter value between 0 and 8: 1
+203
+468
+715
+enter value between 0 and 8: 2
+230
+468
+715
+enter value between 0 and 8: 5
+238
+460
+715
+enter value between 0 and 8: 4
+238
+406
+715
+enter value between 0 and 8: 7
+238
+416
+705
+enter value between 0 and 8: 4
+238
+406
+715
+enter value between 0 and 8: 3
+238
+046
+715
+enter value between 0 and 8: 6
+238
+746
+015
+enter value between 0 and 8: 7
+238
+746
+105
+enter value between 0 and 8: 4
+238
+706
+145
+enter value between 0 and 8: 3
+238
+076
+145
+enter value between 0 and 8: 4
+238
+706
+145
+enter value between 0 and 8: 3
+238
+076
+145
+enter value between 0 and 8: 6
+238
+176
+045
+enter value between 0 and 8: 3
+238
+076
+145
+enter value between 0 and 8: 0
+038
+276
+145
+enter value between 0 and 8: 1
+308
+276
+145
+enter value between 0 and 8: 4
+378
+206
+145
+enter value between 0 and 8: 3
+378
+026
+145
+enter value between 0 and 8: 4
+378
+206
+145
+enter value between 0 and 8: 3
+378
+026
+145
+enter value between 0 and 8: 0
+078
+326
+145
+enter value between 0 and 8: 1
+708
+326
+145
+enter value between 0 and 8: 2
+780
+326
+145
+enter value between 0 and 8: 5
+786
+320
+145
+enter value between 0 and 8: 4
+786
+302
+145
+enter value between 0 and 8: 1
+706
+382
+145
+enter value between 0 and 8: 4
+786
+302
+145
+enter value between 0 and 8: 3
+786
+032
+145
+enter value between 0 and 8: 0
+086
+732
+145
+enter value between 0 and 8: 3
+786
+032
+145
+enter value between 0 and 8: 0
+086
+732
+145
+enter value between 0 and 8: 3
+786
+032
+145
+enter value between 0 and 8: 6
+786
+132
+045
+enter value between 0 and 8: 3
+786
+032
+145
+enter value between 0 and 8: 6
+786
+132
+045
+enter value between 0 and 8: 3
+786
+032
+145
+enter value between 0 and 8: 6
+786
+132
+045
+enter value between 0 and 8: 7
+786
+132
+405
+enter value between 0 and 8: 8
+786
+132
+450
+enter value between 0 and 8: 5
+786
+130
+452
+enter value between 0 and 8: 8
+786
+132
+450
+enter value between 0 and 8: 5
+786
+130
+452
+enter value between 0 and 8: 2
+780
+136
+452
+enter value between 0 and 8: 1
+708
+136
+452
+enter value between 0 and 8: 0
+078
+136
+452
+enter value between 0 and 8: 1
+708
+136
+452
+enter value between 0 and 8: 4
+738
+106
+452
+enter value between 0 and 8: 3
+738
+016
+452
+enter value between 0 and 8: 4
+738
+106
+452
+enter value between 0 and 8: 7
+738
+156
+402
+enter value between 0 and 8: 8
+738
+156
+420
+enter value between 0 and 8: 7
+738
+156
+402
+enter value between 0 and 8: 8
+738
+156
+420
+enter value between 0 and 8: 7
+738
+156
+402
+enter value between 0 and 8: 4
+738
+106
+452
+enter value between 0 and 8: 7
+738
+156
+402
+enter value between 0 and 8: 8
+738
+156
+420
+enter value between 0 and 8: 5
+738
+150
+426
+enter value between 0 and 8: 4
+738
+105
+426
+enter value between 0 and 8: 7
+738
+125
+406
+enter value between 0 and 8: 6
+738
+125
+046
+enter value between 0 and 8: 3
+738
+025
+146
+enter value between 0 and 8: 6
+738
+125
+046
+enter value between 0 and 8: 3
+738
+025
+146
+enter value between 0 and 8: 4
+738
+205
+146
+enter value between 0 and 8: 3
+738
+025
+146
+enter value between 0 and 8: 4
+738
+205
+146
+enter value between 0 and 8: 1
+708
+235
+146
+enter value between 0 and 8: 4
+738
+205
+146
+enter value between 0 and 8: 5
+738
+250
+146
+enter value between 0 and 8: 2
+730
+258
+146
+enter value between 0 and 8: 5
+738
+250
+146
+enter value between 0 and 8: 2
+730
+258
+146
+enter value between 0 and 8: 1
+703
+258
+146
+enter value between 0 and 8: 2
+730
+258
+146
+enter value between 0 and 8: 1
+703
+258
+146
+enter value between 0 and 8: 4
+753
+208
+146
+enter value between 0 and 8: 5
+753
+280
+146
+enter value between 0 and 8: 2
+750
+283
+146
+enter value between 0 and 8: 5
+753
+280
+146
+enter value between 0 and 8: 2
+750
+283
+146
+enter value between 0 and 8: 1
+705
+283
+146
+enter value between 0 and 8: 0
+075
+283
+146
+enter value between 0 and 8: 3
+275
+083
+146
+enter value between 0 and 8: 0
+075
+283
+146
+enter value between 0 and 8: 1
+705
+283
+146
+enter value between 0 and 8: 0
+075
+283
+146
+enter value between 0 and 8: 3
+275
+083
+146
+enter value between 0 and 8: 4
+275
+803
+146
+enter value between 0 and 8: 5
+275
+830
+146
+enter value between 0 and 8: 8
+275
+836
+140
+enter value between 0 and 8: 7
+275
+836
+104
+enter value between 0 and 8: 4
+275
+806
+134
+enter value between 0 and 8: 7
+275
+836
+104
+enter value between 0 and 8: 4
+275
+806
+134
+enter value between 0 and 8: 7
+275
+836
+104
+enter value between 0 and 8: 4
+275
+806
+134
+enter value between 0 and 8: 7
+275
+836
+104
+enter value between 0 and 8: 4
+275
+806
+134
+enter value between 0 and 8: 3
+275
+086
+134
+enter value between 0 and 8: 0
+075
+286
+134
+enter value between 0 and 8: 3
+275
+086
+134
+enter value between 0 and 8: 6
+275
+186
+034
+enter value between 0 and 8: 3
+275
+086
+134
+enter value between 0 and 8: 6
+275
+186
+034
+enter value between 0 and 8: 7
+275
+186
+304
+enter value between 0 and 8: 4
+275
+106
+384
+enter value between 0 and 8: 1
+205
+176
+384
+enter value between 0 and 8: 4
+275
+106
+384
+enter value between 0 and 8: 3
+275
+016
+384
+enter value between 0 and 8: 4
+275
+106
+384
+enter value between 0 and 8: 5
+275
+160
+384
+enter value between 0 and 8: 8
+275
+164
+380
+enter value between 0 and 8: 5
+275
+160
+384
+enter value between 0 and 8: 2
+270
+165
+384
+enter value between 0 and 8: 5
+275
+160
+384
+enter value between 0 and 8: 8
+275
+164
+380
+enter value between 0 and 8: 7
+275
+164
+308
+enter value between 0 and 8: 4
+275
+104
+368
+enter value between 0 and 8: 1
+205
+174
+368
+enter value between 0 and 8: 0
+025
+174
+368
+enter value between 0 and 8: 3
+125
+074
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 1
+105
+724
+368
+enter value between 0 and 8: 2
+150
+724
+368
+enter value between 0 and 8: 5
+154
+720
+368
+enter value between 0 and 8: 2
+150
+724
+368
+enter value between 0 and 8: 5
+154
+720
+368
+enter value between 0 and 8: 2
+150
+724
+368
+enter value between 0 and 8: 1
+105
+724
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 5
+125
+740
+368
+enter value between 0 and 8: 8
+125
+748
+360
+enter value between 0 and 8: 5
+125
+740
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 1
+105
+724
+368
+enter value between 0 and 8: 0
+015
+724
+368
+enter value between 0 and 8: 1
+105
+724
+368
+enter value between 0 and 8: 0
+015
+724
+368
+enter value between 0 and 8: 1
+105
+724
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 3
+125
+074
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 5
+125
+740
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 5
+125
+740
+368
+enter value between 0 and 8: 4
+125
+704
+368
+enter value between 0 and 8: 7
+125
+764
+308
+enter value between 0 and 8: 6
+125
+764
+038
+enter value between 0 and 8: 3
+125
+064
+738
+enter value between 0 and 8: 0
+025
+164
+738
+enter value between 0 and 8: 3
+125
+064
+738
+enter value between 0 and 8: 4
+125
+604
+738
+enter value between 0 and 8: 7
+125
+634
+708
+enter value between 0 and 8: 4
+125
+604
+738
+enter value between 0 and 8: 5
+125
+640
+738
+enter value between 0 and 8: 2
+120
+645
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 0
+012
+645
+738
+enter value between 0 and 8: 3
+612
+045
+738
+enter value between 0 and 8: 0
+012
+645
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 0
+012
+645
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 2
+120
+645
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 2
+120
+645
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 4
+142
+605
+738
+enter value between 0 and 8: 3
+142
+065
+738
+enter value between 0 and 8: 6
+142
+765
+038
+enter value between 0 and 8: 3
+142
+065
+738
+enter value between 0 and 8: 4
+142
+605
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 2
+120
+645
+738
+enter value between 0 and 8: 1
+102
+645
+738
+enter value between 0 and 8: 2
+120
+645
+738
+enter value between 0 and 8: 5
+125
+640
+738
+enter value between 0 and 8: 4
+125
+604
+738
+enter value between 0 and 8: 7
+125
+634
+708
+enter value between 0 and 8: 6
+125
+634
+078
+enter value between 0 and 8: 3
+125
+034
+678
+enter value between 0 and 8: 4
+125
+304
+678
+enter value between 0 and 8: 5
+125
+340
+678
+enter value between 0 and 8: 2
+120
+345
+678
