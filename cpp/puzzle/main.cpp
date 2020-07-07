@@ -9,6 +9,7 @@ int main() {
   //declare board array
   const int BSZ=3;
   const int BSZ2=BSZ*BSZ;
+  const int MAXV=5; //maximum number of moves + 1 for length
 
   int board[BSZ2]={-1,-1,-1,-1,-1,-1,-1,-1,-1};
   // for(int i=0;i<9;i++)cout << board[i] << endl;
