@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:tictactoe/TicTacToeGame.dart';
-import 'package:tictactoe/design_patterns/abstract_factory/BoardLine/ITicTacToeBoardLine.dart';
+import 'package:puzzle/TicTacToeGame.dart';
+import 'package:puzzle/design_patterns/abstract_factory/BoardLine/ITicTacToeBoardLine.dart';
 
 
 class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{

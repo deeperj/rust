@@ -1,19 +1,20 @@
 import 'dart:math';
 
-class PuzzleGame {
+class TicTacToeGame {
 
   final _random = new Random();
-  final List winstates = const [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
+  final List validMoves = const [
+    [2,1,3,-1,-1],
+    [3,0,2,4,-1],
+    [2,1,5,-1,-1],
+    [3,0,4,6,-1],
+    [4,1,3,5,7],
+    [3,2,4,8,-1],
+    [2,3,7,-1,-1],
+    [3,6,8,4,-1],
+    [2,5,7,-1,-1]
   ];
-  List gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
+  // List gameState = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
   bool XTurnToPlay = true;
   String winner="";
   int windex=-1;

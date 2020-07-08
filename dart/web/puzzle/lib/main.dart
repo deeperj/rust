@@ -1,6 +1,6 @@
-import 'package:tictactoe/Puzzle.dart';
+import 'package:puzzle/TicTacToeGame.dart';
 import 'package:flutter/material.dart';
-import 'package:tictactoe/design_patterns/abstract_factory/FlutterTicTacToeUI.dart';
+import 'package:puzzle/design_patterns/abstract_factory/FlutterTicTacToeUI.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Number Puzzle Demo',
+      title: 'Number TicTacToe Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -46,7 +46,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _puzzle=PuzzleGame();
+  var _tictactoe=TicTacToeGame();
 
   void _playGame() {
     setState(() {
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _puzzle.gamePlay();
+      _tictactoe.gamePlay();
     });
   }
 
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: FlutterTicTacToeUI().getBoard(_puzzle,true).render()
+        child: FlutterTicTacToeUI().getBoard(_tictactoe,true).render()
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _playGame,
