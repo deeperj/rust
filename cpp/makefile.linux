@@ -1,0 +1,3 @@
+run: puzzle/main.cpp
+	g++ puzzle/main.cpp -o run -std=c++11
+	./run

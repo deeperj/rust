@@ -10,6 +10,6 @@ edition = "2018"
 
 # Here's an example of a TOML "array of tables" section, in this case specifying
 # a binary target name and path.
-# [[bin]]
-# name = "datatypes"
-# path = "src/datatypes.rs"
+[[bin]]
+name = "main"
+path = "src/main.rs"
