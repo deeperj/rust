@@ -6,7 +6,6 @@ import 'package:puzzle/design_patterns/abstract_factory/BoardSpace/FlutterTicTac
 import 'package:puzzle/design_patterns/abstract_factory/BoardLine/FlutterTicTacToeBoardLine.dart';
 import 'package:puzzle/design_patterns/abstract_factory/BoardLine/ITicTacToeBoardLine.dart';
 import 'package:puzzle/TicTacToeGame.dart';
-import 'dart:math';
 
 
 class FlutterTicTacToeBoard implements ITicTacToeBoard{

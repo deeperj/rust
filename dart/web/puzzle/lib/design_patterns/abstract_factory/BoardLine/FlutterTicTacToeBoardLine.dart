@@ -49,7 +49,7 @@ class MyPainter extends CustomPainter { //         <-- CustomPainter class
     final paint = Paint()
       ..color = Colors.red
       ..strokeWidth = 4;
-    switch (this._tictactoe.windex) {
+    switch (this._tictactoe.zdx) {
       case 0:
         canvas.drawLine(w0p1, w0p2, paint);  
         break;
@@ -80,6 +80,6 @@ class MyPainter extends CustomPainter { //         <-- CustomPainter class
 
   @override
   bool shouldRepaint(CustomPainter old) {
-    return (this._tictactoe.windex!=-1);
+    return (this._tictactoe.zdx!=-1);
   }
 }
