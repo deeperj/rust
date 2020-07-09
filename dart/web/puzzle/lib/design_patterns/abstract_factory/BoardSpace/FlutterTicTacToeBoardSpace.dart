@@ -27,7 +27,7 @@ class FlutterTicTacToeBoardSpace implements ITicTacToeBoardSpace{
       margin: const EdgeInsets.all(3),
       width: 50,
       height:50,
-      child: Center(child: Text('${_tictactoe.gameState[idx]}',
+      child: Center(child: Text('${_tictactoe.board[idx]}',
         style: TextStyle(fontSize: 45),
         textAlign: TextAlign.center,
       ),)
