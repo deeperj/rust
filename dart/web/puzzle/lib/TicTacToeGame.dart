@@ -20,7 +20,7 @@ class TicTacToeGame {
   // List gameState = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
   final int _bsz=3;
   final int _bsz2=9;
-  int _vdx,_zdx,_c;
+  int vdx,zdx,_c;
   List board = [1,4,2,6,0,5,7,3,8];
   
   void drawBoard(){
@@ -43,9 +43,9 @@ class TicTacToeGame {
     while(!winner){
       drawBoard();
       _c= getChoice();
-      _zdx=find(board,0);
-      _vdx=find(board,_c);
-//      print(validMoves[_zdx]);
+      zdx=find(board,0);
+      vdx=find(board,_c);
+//      print(validMoves[zdx]);
       if(_c==-1 || !validChoice()){
         print("invalid choice");
         continue;
@@ -59,11 +59,11 @@ class TicTacToeGame {
     }
   }
   void swapPieces(){
-    board[_zdx]=board[_vdx];
-    board[_vdx]=0;
+    board[zdx]=board[vdx];
+    board[vdx]=0;
   }
   bool validChoice(){
-    return validMoves[_zdx].contains(_vdx);
+    return validMoves[zdx].contains(vdx);
   }
   int getChoice(){
     stdout.write("select a value: ");
@@ -80,6 +80,9 @@ class TicTacToeGame {
         return i;
     }
     return -1;
+  }
+  void gamePlay(){
+    
   }
   bool checkWinner(){
     if (
