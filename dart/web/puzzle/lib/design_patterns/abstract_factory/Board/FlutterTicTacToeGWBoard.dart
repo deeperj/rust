@@ -9,6 +9,8 @@ import 'package:puzzle/design_patterns/abstract_factory/BoardLine/ITicTacToeBoar
 import 'package:puzzle/TicTacToeGame.dart';
 import 'dart:math';
 
+import '../../../TicTacToeGame.dart';
+
 
 class FlutterTicTacToeGWBoard implements ITicTacToeBoard{
   TicTacToeGame _tictactoe;
@@ -49,11 +51,11 @@ class FlutterTicTacToeGWBoard implements ITicTacToeBoard{
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children:<Widget>[
-              for (var x in [0,1,2])
+              for (var x in new List<int>.generate(TicTacToeGame.BSZ, (i) => i + 1))
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    for(var y in [0,1,2])
+                    for(var y in new List<int>.generate(TicTacToeGame.BSZ, (i) => i + 1))
                     //new List<int>.generate(3, (int index) => index * index); // [0, 1, 4]
                       this._space.render(x*3+y)
                   ],

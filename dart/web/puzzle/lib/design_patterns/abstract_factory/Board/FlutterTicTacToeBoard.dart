@@ -47,11 +47,11 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children:<Widget>[
-              for (var x in [0,1,2])
+              for (var x in new List<int>.generate(TicTacToeGame.BSZ, (i) => i + 1))
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    for(var y in [0,1,2])
+                    for(var y in new List<int>.generate(TicTacToeGame.BSZ, (i) => i + 1))
                       this._space.render(x*3+y)
                   ],
                 )
