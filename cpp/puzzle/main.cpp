@@ -83,10 +83,10 @@ int main() {
     //check for winner step 2 check remaining board spaces
     for(int i=0;i<BSZ2;i++){
       if(i>0 && i<BSZ2-1){
-        if( (board[i]!=0 
-            && ((i>1 && board[i-1])==0?
+        if( board[i]!=0 
+            && i>1 && (board[i-1]==0?
             board[i]<board[i-2]:
-            board[i]<board[i-1]))
+            board[i]<board[i-1])
           )
         {
           wehaveawinner=false;
