@@ -38,7 +38,7 @@ class FlutterTicTacToeGWBoard implements ITicTacToeBoard{
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          child: Center(child: Text('${this._tictactoe.winner}',
+          child: Center(child: Text('${this._tictactoe.wtext}',
             style: TextStyle(fontSize: 45),
             textAlign: TextAlign.center,
           ),)
@@ -54,6 +54,7 @@ class FlutterTicTacToeGWBoard implements ITicTacToeBoard{
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     for(var y in [0,1,2])
+                    //new List<int>.generate(3, (int index) => index * index); // [0, 1, 4]
                       this._space.render(x*3+y)
                   ],
                 )

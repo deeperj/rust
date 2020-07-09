@@ -36,7 +36,7 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          child: Center(child: Text('${this._tictactoe.winner}',
+          child: Center(child: Text('${this._tictactoe.wtext}',
             style: TextStyle(fontSize: 45),
             textAlign: TextAlign.center,
           ),)

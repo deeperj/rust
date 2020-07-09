@@ -6,6 +6,7 @@ class TicTacToeGame {
 
   final _random = new Random();
   bool winner=false;
+  var wtext="we have a winner!";
   final List validMoves = const [
     [1,3],
     [0,2,4],
@@ -17,20 +18,20 @@ class TicTacToeGame {
     [6,8,4],
     [5,7]
   ];
-  // List gameState = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
-  final int _bsz=3;
-  final int _bsz2=9;
+  // List board = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
+  static const int BSZ=3;
+  static const int BSZ2=9;
   int vdx,zdx,_c;
   List board = [1,4,2,6,0,5,7,3,8];
   
   void drawBoard(){
     var sb=new StringBuffer();
-    for(var i=0;i<_bsz;i++){
-      for(var j=0;j<_bsz;j++)
-        if (board[i * _bsz + j] == 0)
+    for(var i=0;i<BSZ;i++){
+      for(var j=0;j<BSZ;j++)
+        if (board[i * BSZ + j] == 0)
           sb.write("X");
         else
-          sb.write(board[i * _bsz + j]);
+          sb.write(board[i * BSZ + j]);
       print(sb);
       sb.clear();
     }
@@ -86,14 +87,14 @@ class TicTacToeGame {
   }
   bool checkWinner(){
     if (
-      !((board[0] == 0 || board[0] == 1) && (board[_bsz2-1] == 0 || board[_bsz2-1] == 8)))
+      !((board[0] == 0 || board[0] == 1) && (board[BSZ2-1] == 0 || board[BSZ2-1] == 8)))
     {
       return false;
     }
     //check for winner step 2 check remaining board spaces
-    for (int i = 0; i < _bsz2; i++)
+    for (int i = 0; i < BSZ2; i++)
     {
-      if (i > 0 && i < _bsz2 - 1)
+      if (i > 0 && i < BSZ2 - 1)
       {
         if ((board[i] != 0 && i > 1 && (board[i - 1] == 0 ? board[i] < board[i - 2] : board[i] < board[i - 1])))
         {
