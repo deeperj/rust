@@ -1,110 +1,116 @@
 import 'dart:math';
+import 'dart:io';
+import 'dart:convert';
 
 class TicTacToeGame {
 
   final _random = new Random();
+  bool winner=false;
   final List validMoves = const [
-    [2,1,3,-1,-1],
-    [3,0,2,4,-1],
-    [2,1,5,-1,-1],
-    [3,0,4,6,-1],
-    [4,1,3,5,7],
-    [3,2,4,8,-1],
-    [2,3,7,-1,-1],
-    [3,6,8,4,-1],
-    [2,5,7,-1,-1]
+    [1,3],
+    [0,2,4],
+    [1,5],
+    [0,4,6],
+    [1,3,5,7],
+    [2,4,8],
+    [3,7],
+    [6,8,4],
+    [5,7]
   ];
   // List gameState = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
-  bool XTurnToPlay = true;
-  String winner="";
-  int windex=-1;
-
-  static void gameLoop() {
-    var tictactoe = new TicTacToeGame();
-    tictactoe.getNextState();
-    while (!tictactoe.isBoardFilled()) {
-      tictactoe.getNextState();
-      if (tictactoe.isWinState())break;
-    }
-    if(tictactoe.isWinState())
-      print((tictactoe.XTurnToPlay ? 'O' : 'X') + ' wins');
-    else 
-      print('game was a draw');
-    tictactoe.printState();
-  }
-  void reset(){
-    this.gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
-    this.XTurnToPlay = true;
-    this.winner="";
-    this.windex=-1;
-  }
-  void gamePlay(){
-    if(this.isWinState()||this.isBoardFilled())this.reset();
-      this.getNextState();
-  }
-  void getNextState() {
-    int v = _next(0, 9);
-    while (this.gameState[v] != '-') {
-      v = _next(0, 9);
-    }
-    this.gameState[v] = this.XTurnToPlay ? 'X' : 'O';
-    this.XTurnToPlay = !this.XTurnToPlay;
-    this.winner=this.isWinState()?(this.XTurnToPlay?'O':'X')+' wins':(this.isBoardFilled()?'game was a draw':'');
-    //print('this.windex=${this.windex}');
-    // this.testWinState();
-  }
-
-  bool isWinState() {
-    var winstate=false;
-    for(var i=0;i<this.winstates.length;i++){
-      if(gameState[winstates[i][0]]!='-' && gameState[winstates[i][0]]==gameState[winstates[i][1]] && gameState[winstates[i][1]]==gameState[winstates[i][2]]){
-        this.windex=i;
-        winstate=true;
-        break;
-      }
-    }
-    return winstate;
-  }
-
-  bool isBoardFilled() {
-    return !this.gameState.contains('-');
-  }
+  final int _bsz=3;
+  final int _bsz2=9;
+  int _vdx,_zdx,_c;
+  List board = [1,4,2,6,0,5,7,3,8];
   
-  void printState(){
-    var sb=StringBuffer();
-    for(var i=0;i<3;i++){
-      for(var j=0;j<3;j++)
-        sb.write(this.gameState[i*3+j]);
+  void drawBoard(){
+    var sb=new StringBuffer();
+    for(var i=0;i<_bsz;i++){
+      for(var j=0;j<_bsz;j++)
+        if (board[i * _bsz + j] == 0)
+          sb.write("X");
+        else
+          sb.write(board[i * _bsz + j]);
       print(sb);
       sb.clear();
     }
   }
 
-  /**
-   * Generates a positive random integer uniformly distributed on the      range
-   * from [min], inclusive, to [max], exclusive.
-   */
-  int _next(int min, int max) => min + _random.nextInt(max - min);
-  void testWinState(){
-    for(var i=0;i<this.winstates.length;i++){
-      print("${this.winstates[i][0]}=${this.gameState[this.winstates[i][0]]}:${this.gameState[this.winstates[i][0]]!='-'}");
-      print("${this.winstates[i][1]}=${this.gameState[this.winstates[i][1]]}:${this.gameState[this.winstates[i][1]]!='-'}");
-      print("${this.winstates[i][2]}=${this.gameState[this.winstates[i][2]]}:${this.gameState[this.winstates[i][2]]!='-'}");
+  static void gameLoop(){
+    new TicTacToeGame().loop();
+  }
+  void loop(){
+    while(!winner){
+      drawBoard();
+      _c= getChoice();
+      _zdx=find(board,0);
+      _vdx=find(board,_c);
+//      print(validMoves[_zdx]);
+      if(_c==-1 || !validChoice()){
+        print("invalid choice");
+        continue;
+      }
+      swapPieces();
+      winner=checkWinner();
+      if(winner){
+        drawBoard();
+        print("we have a winner!");
+      }
     }
+  }
+  void swapPieces(){
+    board[_zdx]=board[_vdx];
+    board[_vdx]=0;
+  }
+  bool validChoice(){
+    return validMoves[_zdx].contains(_vdx);
+  }
+  int getChoice(){
+    stdout.write("select a value: ");
+    var line =stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
+    try{
+       return int.parse(line.trim());    
+    } on Exception{
+      return -1;
+    }
+  }
+  int find(List a,int search){
+    for(var i=0;i<a.length;i++){
+      if(a[i]==search)
+        return i;
+    }
+    return -1;
+  }
+  bool checkWinner(){
+    if (
+      !((board[0] == 0 || board[0] == 1) && (board[_bsz2-1] == 0 || board[_bsz2-1] == 8)))
+    {
+      return false;
+    }
+    //check for winner step 2 check remaining board spaces
+    for (int i = 0; i < _bsz2; i++)
+    {
+      if (i > 0 && i < _bsz2 - 1)
+      {
+        if ((board[i] != 0 && i > 1 && (board[i - 1] == 0 ? board[i] < board[i - 2] : board[i] < board[i - 1])))
+        {
+          // cout << "here" << i << endl;
+          return false;
+        }
+      }
+    }
+    return true;
   }
 }
 
 void main() {
 
-//   var ttt=new TicTacToe();
-//   ttt.gameState = ['O', '-', 'X', 'X', 'O', 'X', '-', 'X', 'O'];
-//   ttt.printState();
-//   print(ttt.isBoardFilled());
-//   ttt.getNextState();
-//   ttt.printState();
-//   print(ttt.isBoardFilled());
-//   ttt.getNextState();
-//   ttt.printState();
-//   print(ttt.isBoardFilled());
+//   1. gameLoop();
+//   2. drawBoard(); done
+//   3. getChoice();
+//   4. validChoice();
+//   5. checkWinner();
+//   6. randomizeBoard(); done
+//   7. swapPiece();
  TicTacToeGame.gameLoop();
 }
