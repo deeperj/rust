@@ -13,6 +13,6 @@ pub fn run() {
   } else if command == "status" {
     println!("Status is {}", status);
   } else {
-    println!("That is not a valid command");
+    println!("valid commands: hello, status");
   }
 }
