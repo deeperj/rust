@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Number TicTacToe Demo',
+      title: 'Number Puzzle Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -48,14 +48,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var _tictactoe=TicTacToeGame();
 
-  void _playGame() {
+  void _playGame(int idx) {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _tictactoe.gamePlay();
+      _tictactoe.gamePlay(idx);
     });
   }
 
@@ -76,13 +76,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: FlutterTicTacToeUI().getBoard(_tictactoe,true).render()
+        child: FlutterTicTacToeUI().getBoard(_tictactoe,true,_playGame).render()
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _playGame,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:puzzle/design_patterns/abstract_factory/Board/ITicTacToeBoard.dart';
 import 'package:puzzle/design_patterns/abstract_factory/BoardSpace/ITicTacToeBoardSpace.dart';
@@ -7,61 +6,56 @@ import 'package:puzzle/design_patterns/abstract_factory/BoardLine/FlutterTicTacT
 import 'package:puzzle/design_patterns/abstract_factory/BoardLine/ITicTacToeBoardLine.dart';
 import 'package:puzzle/TicTacToeGame.dart';
 
-
-class FlutterTicTacToeBoard implements ITicTacToeBoard{
+class FlutterTicTacToeBoard implements ITicTacToeBoard {
   TicTacToeGame _tictactoe;
-  FlutterTicTacToeBoardSpace _space;
   FlutterTicTacToeBoardLine _lines;
+  final ValueChanged<int> onChanged;
 
-  FlutterTicTacToeBoard(TicTacToeGame tictactoe) { 
-    this._tictactoe=tictactoe;
-    this._space=this.getBoardSpace(); 
-    this._lines=this.buildLines();
+  FlutterTicTacToeBoard(TicTacToeGame tictactoe, @required this.onChanged) {
+    this._tictactoe = tictactoe;
+    this._lines = this.buildLines();
   }
 
-  @override
-  ITicTacToeBoardSpace getBoardSpace(){
-    return new FlutterTicTacToeBoardSpace(this._tictactoe);
-  }
 
   @override
-  ITicTacToeBoardLine buildLines(){
+  ITicTacToeBoardLine buildLines() {
     return new FlutterTicTacToeBoardLine(this._tictactoe);
   }
 
   @override
-  Widget render(){
+  Widget render() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          child: Center(child: Text('${this._tictactoe.wtext}',
-            style: TextStyle(fontSize: 45),
-            textAlign: TextAlign.center,
-          ),)
-        ),
-        Stack(
-          children:<Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children:<Widget>[
-              for (var x in new List<int>.generate(TicTacToeGame.BSZ, (i) => i + 1))
-                Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+              child: Center(
+            child: Text(
+              '${this._tictactoe.getText()}',
+              style: TextStyle(fontSize: 45),
+              textAlign: TextAlign.center,
+            ),
+          )),
+          Stack(
+            children: <Widget>[
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    for(var y in new List<int>.generate(TicTacToeGame.BSZ, (i) => i + 1))
-                      this._space.render(x*3+y)
-                  ],
-                )
-              ]
-            ),
-            this._lines.render(),            
-          ],
-        ),
-      ]
-    );
-    
+                    for (var x
+                        in new List<int>.generate(TicTacToeGame.BSZ, (i) => i))
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          for (var y in new List<int>.generate(
+                              TicTacToeGame.BSZ, (i) => i))
+                            new FlutterTicTacToeBoardSpace(this._tictactoe).render(x * 3 + y)
+                        ],
+                      )
+                  ]),
+              this._lines.render(),
+            ],
+          ),
+        ]);
   }
 }

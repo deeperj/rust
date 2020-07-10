@@ -5,17 +5,16 @@ import 'dart:convert';
 class TicTacToeGame {
   final _random = new Random();
   bool winner = false;
-  var wtext = "we have a winner!";
   final List validMoves = const [
-    [1, 3],
-    [0, 2, 4],
-    [1, 5],
-    [0, 4, 6],
-    [1, 3, 5, 7],
-    [2, 4, 8],
-    [3, 7],
-    [6, 8, 4],
-    [5, 7]
+    [0, 1, 3],
+    [1, 0, 2, 4],
+    [2, 1, 5],
+    [3, 0, 4, 6],
+    [4, 1, 3, 5, 7],
+    [5, 2, 4, 8],
+    [6, 3, 7],
+    [7, 6, 8, 4],
+    [8, 5, 7]
   ];
   // List board = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
   static const int BSZ = 3;
@@ -23,8 +22,10 @@ class TicTacToeGame {
   int vdx, zdx, _c;
   List board = [1, 4, 2, 6, 0, 5, 7, 3, 8];
 
-  void drawBoard() {
+  TicTacToeGame() {
     vdx = zdx = find(board, 0);
+  }
+  void drawBoard() {
     var sb = new StringBuffer();
     for (var i = 0; i < BSZ; i++) {
       for (var j = 0; j < BSZ; j++)
@@ -35,6 +36,15 @@ class TicTacToeGame {
       print(sb);
       sb.clear();
     }
+  }
+
+  String getText() {
+    if (winner)
+      return "we have a winner!";
+    else if (!validChoice())
+      return "invalid choice";
+    else
+      return "";
   }
 
   static void gameLoop() {
@@ -87,7 +97,10 @@ class TicTacToeGame {
     return -1;
   }
 
-  void gamePlay() {}
+  void gamePlay(int idx) {
+    print("here ${idx}");
+  }
+
   bool checkWinner() {
     if (!((board[0] == 0 || board[0] == 1) &&
         (board[BSZ2 - 1] == 0 || board[BSZ2 - 1] == 8))) {
