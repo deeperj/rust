@@ -23,14 +23,18 @@ class FlutterTicTacToeGWBoardSpace implements ITicTacToeBoardSpace {
         onTap: _handleTap,
         child: Container(
             decoration: BoxDecoration(
-                color: this._tictactoe.winner
+                color: 
+                    idx==_tictactoe.vdx 
+                    && !_tictactoe.validChoice()
+                    ? Colors.red[200]
+                    : _tictactoe.winner && idx!=_tictactoe.vdx
                     ? Colors.lightGreen[200]
                     : (this._tictactoe.board[idx] == 0
-                        ? Colors.white
+                        ? Colors.transparent
                         : Colors.yellow),
                 border: Border.all(
                   color: this._tictactoe.board[idx] == 0?
-                          Colors.white:Colors.black,
+                          Colors.transparent:Colors.black,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(6)),

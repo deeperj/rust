@@ -78,10 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
         // in the middle of the parent.
         child: FlutterTicTacToeUI().getBoard(_tictactoe,true,_playGame).render()
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

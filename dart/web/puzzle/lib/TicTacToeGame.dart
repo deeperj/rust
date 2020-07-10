@@ -25,6 +25,26 @@ class TicTacToeGame {
   TicTacToeGame() {
     vdx = zdx = find(board, 0);
   }
+  void randomizeBoard() {
+    board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+    for (int i = 0; i < BSZ2; i++) {
+      bool fixed = false;
+      while (!fixed) {
+        int fix = _next(0, BSZ2);
+        if (board[fix] == -1) {
+          board[fix] = i;
+          fixed = true;
+        }
+      }
+    }
+  }
+
+  int _next(int min, int max) => min + _random.nextInt(max - min);
+  void reset() {
+    winner = false;
+    randomizeBoard();
+  }
+
   void drawBoard() {
     var sb = new StringBuffer();
     for (var i = 0; i < BSZ; i++) {
@@ -98,7 +118,19 @@ class TicTacToeGame {
   }
 
   void gamePlay(int idx) {
-    print("here ${idx}");
+    if (winner) {
+      reset();
+      return;
+    }
+    zdx = find(board, 0);
+    vdx = idx;
+//      print(validMoves[zdx]);
+    if (!validChoice()) {
+      print("invalid choice ${idx}");
+      return;
+    }
+    swapPieces();
+    winner = checkWinner();
   }
 
   bool checkWinner() {
