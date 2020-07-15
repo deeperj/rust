@@ -106,6 +106,7 @@ class TicTacToeGame {
     try {
       return int.parse(line.trim());
     } on Exception {
+      print("invalid input");
       return -1;
     }
   }
