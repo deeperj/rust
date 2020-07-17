@@ -125,7 +125,6 @@ class TicTacToeGame {
     }
     zdx = find(board, 0);
     vdx = idx;
-//      print(validMoves[zdx]);
     if (!validChoice()) {
       print("invalid choice ${idx}");
       return;
