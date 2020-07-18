@@ -1,7 +1,7 @@
 // design1.cpp : Defines the entry point for the console application.
 //
 
-//#include "stdafx.h"
+#include "PuzzleGame.hpp"
 #include <iostream>
 #include <curses.h>
 
@@ -13,7 +13,7 @@ int main() {
 	// setup memory and clear screen
 	initscr();
 
-	
+	PuzzleGame start;
 
 	getch();
 

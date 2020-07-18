@@ -55,8 +55,11 @@ int PuzzleGame::swap() {
     return 0;
 }
 PuzzleGame::PuzzleGame() {
-	brd = &PuzzleBoard(this);
+	brd = new PuzzleBoard(this);
     startUI();
+}
+PuzzleGame::~PuzzleGame() {
+	delete brd;
 }
 
 int PuzzleGame::find(int searchfor) {
