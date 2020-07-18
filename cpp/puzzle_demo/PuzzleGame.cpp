@@ -47,7 +47,6 @@ void PuzzleGame::randomizeBoard() {
 int PuzzleGame::swap() {
     idv = find(choice);
     id0 = find(0);
-    //cout << choice << " " << idv << " " << id0 << endl;
     if (idv == -1 || id0 == -1 ) {
         return -1;
     }
@@ -56,7 +55,7 @@ int PuzzleGame::swap() {
     return 0;
 }
 PuzzleGame::PuzzleGame() {
-	brd = new PuzzleBoard(this);
+	brd = &PuzzleBoard(this);
     startUI();
 }
 
