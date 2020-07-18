@@ -32,10 +32,10 @@ private:
 	void startGame();
 	void startUI();
 	int find(int);
+	bool winner = false;
 public:
 	int id0 = -1, idv = -1;
 	int swap();
-	bool winner = false;
 	PuzzleBoard *brd;
 	int board[BSZ2] = { 1, 4, 2, 6, 0, 5, 7, 3, 8 };
 	PuzzleGame();
