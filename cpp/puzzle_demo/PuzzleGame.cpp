@@ -84,3 +84,14 @@ void PuzzleGame::startGame() {
     }
 }
 
+PuzzlePiece::PuzzlePiece(int p,int v){
+    poscode=p;
+    number=v;
+}
+
+PuzzleBoard::PuzzleBoard(){
+    int board[BSZ2] = { 1, 4, 2, 6, 0, 5, 7, 3, 8 };
+    for(int i=0;i<BSZ2; i++){
+        pieces[i]={i,board[i]};
+    }
+}

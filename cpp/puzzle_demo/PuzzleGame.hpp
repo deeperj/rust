@@ -28,10 +28,22 @@ public:
 	PuzzleGame();
 };
 
-class PuzzleBoard {
+
+class PuzzlePiece {
+private:
+	int number;
+	int poscode;
+public:
+	PuzzlePiece(){};
+	PuzzlePiece(int v, int p);
+	int val();
+	int pos();
 
 };
 
-class PuzzlePiece {
-
+class PuzzleBoard {
+private:
+public:
+	PuzzlePiece pieces[BSZ2];
+	PuzzleBoard();
 };
