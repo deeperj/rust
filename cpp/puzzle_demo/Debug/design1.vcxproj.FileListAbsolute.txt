@@ -1,0 +1,4 @@
+C:\Users\User\source\repos\design1\Debug\design1.exe
+C:\Users\User\source\repos\design1\Debug\design1.pdb
+C:\Users\User\Dropbox\rtmp\src\rust\cpp\puzzle_demo\Debug\design1.exe
+C:\Users\User\Dropbox\rtmp\src\rust\cpp\puzzle_demo\Debug\design1.pdb
