@@ -19,6 +19,8 @@ private:
 	void randomizeBoard();
 	bool choiceOK();
 	int getChoice();
+	bool checkWinner();
+	int swap();
 	void startGame();
 	int find(int);
 public:
