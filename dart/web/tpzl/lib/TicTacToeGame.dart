@@ -16,7 +16,6 @@ class TicTacToeGame {
     [7, 6, 8, 4],
     [8, 5, 7]
   ];
-  // List board = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
   static const int BSZ = 3;
   static const int BSZ2 = 9;
   int vdx, zdx, _c;

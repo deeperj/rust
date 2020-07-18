@@ -1,29 +1,5 @@
-﻿ncurses.lib(pdcclip.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdcclip.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pdcdisp.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdcdisp.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pdcgetsc.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdcgetsc.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pdckbd.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdckbd.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pdcscrn.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdcscrn.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pdcsetsc.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdcsetsc.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pdcutil.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pdcutil.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(addch.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(addch.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(addstr.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(addstr.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(attr.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(attr.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(border.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(border.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(clear.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(clear.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(color.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(color.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(getch.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(getch.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(initscr.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(initscr.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(inopts.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(inopts.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(kernel.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(kernel.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(move.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(move.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(outopts.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(outopts.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(overlay.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(overlay.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(pad.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(pad.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(printw.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(printw.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(refresh.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(refresh.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(scroll.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(scroll.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(slk.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(slk.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(touch.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(touch.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(util.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(util.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-ncurses.lib(window.obj) : warning LNK4099: PDB 'wingui_pdcursesstatic.pdb' was not found with 'ncurses.lib(window.obj)' or at 'C:\Users\User\source\repos\design1\Debug\wingui_pdcursesstatic.pdb'; linking object as if no debug info
-  design1.vcxproj -> C:\Users\User\source\repos\design1\Debug\design1.exe
+﻿  PuzzleGame.cpp
+  design0.cpp
+  Generating Code...
+PuzzleGame.obj : error LNK2019: unresolved external symbol "private: void __thiscall PuzzleGame::startGame(void)" (?startGame@PuzzleGame@@AAEXXZ) referenced in function "public: __thiscall PuzzleGame::PuzzleGame(void)" (??0PuzzleGame@@QAE@XZ)
+C:\Users\User\Dropbox\rtmp\src\rust\cpp\puzzle_demo\Debug\design1.exe : fatal error LNK1120: 1 unresolved externals

@@ -141,10 +141,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="design1.cpp" />
+    <ClCompile Include="design0.cpp" />
+    <ClCompile Include="PuzzleGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ncurwin\curses.h" />
+    <ClInclude Include="PuzzleGame.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
