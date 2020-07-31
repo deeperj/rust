@@ -1,5 +1,5 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (design1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿  design0.cpp
   PuzzleGame.cpp
-C:\Users\inscia\Downloads\PuzzleGame\PuzzleGame.hpp(17,16): warning C4200: nonstandard extension used: zero-sized array in struct/union
-C:\Users\inscia\Downloads\PuzzleGame\PuzzleGame.hpp(17,16): message : This member will be ignored by a defaulted constructor or copy/move assignment operator
-  design1.vcxproj -> C:\Users\inscia\Downloads\PuzzleGame\Debug\PuzzleGame.exe
+  Test.cpp
+  Generating Code...
+  design1.vcxproj -> C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe
