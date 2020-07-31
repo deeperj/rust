@@ -6,6 +6,8 @@ bool PuzzleGame::choiceValid(){
     //choice can be number or letter
     //since we used getch
     choice = choice - '0';
+    idc = find(choice);
+    id0 = find(0);
     if (!(choice >= 0 && choice <= 8)) {
         return false;
     }

@@ -1,5 +1,6 @@
-﻿  design0.cpp
-  PuzzleGame.cpp
+﻿  PuzzleGame.cpp
   Test.cpp
+  design0.cpp
   Generating Code...
+  LINK : C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe not found or not built by the last incremental link; performing full link
   design1.vcxproj -> C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe

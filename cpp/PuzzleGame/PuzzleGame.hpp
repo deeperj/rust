@@ -11,7 +11,7 @@ const int BSZ2 = BSZ * BSZ;
 class PuzzleGame {
 private:
     bool winner;
-    int choice,id0,idc;
+    int choice,id0=-1,idc=-1;
     bool choiceValid();
     void swapPiece();
     void drawBoard();
