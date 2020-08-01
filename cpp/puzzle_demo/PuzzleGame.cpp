@@ -1,3 +1,6 @@
+// PuzzleGame.cpp : Defines the entry point for the console application.
+//
+
 #include "PuzzleGame.hpp"
 
 void PuzzleGame::drawBoard(){

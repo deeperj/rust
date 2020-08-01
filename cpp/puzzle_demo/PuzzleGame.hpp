@@ -1,3 +1,6 @@
+// PuzzleGame.hpp : Defines the entry point for the console application.
+//
+
 #pragma once
 #include <iostream>
 #include <string>

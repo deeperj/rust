@@ -1,4 +1,5 @@
 **/target
 **/build
+**/Debug
 **/.DS_Store
 **/*.lock
