@@ -148,7 +148,7 @@
     <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="design0.cpp" />
+    <ClCompile Include="design.cpp" />
     <ClCompile Include="PuzzleGame.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>

@@ -29,13 +29,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="design0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PuzzleGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="design.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
