@@ -1,11 +1,2 @@
-<<<<<<< HEAD
-C:\Users\User\source\repos\design1\Debug\design1.exe
-C:\Users\User\source\repos\design1\Debug\design1.pdb
-C:\Users\inscia\Downloads\PuzzleGame\Debug\PuzzleGame.exe
-C:\Users\inscia\Downloads\PuzzleGame\Debug\PuzzleGame.pdb
 C:\Users\User\Dropbox\rtmp\src\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe
 C:\Users\User\Dropbox\rtmp\src\rust\cpp\PuzzleGame\Debug\PuzzleGame.pdb
-=======
-C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe
-C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.pdb
->>>>>>> d8545a3774173e78d72e773d4c053d590530a686

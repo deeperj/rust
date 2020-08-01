@@ -1,4 +1,2 @@
 ﻿  Test.cpp
-Test.obj : error LNK2019: unresolved external symbol "private: bool __thiscall PuzzleGame::choiceValid(void)" (?choiceValid@PuzzleGame@@AAE_NXZ) referenced in function "public: bool __thiscall Test::TestChoiceValid(int)" (?TestChoiceValid@Test@@QAE_NH@Z)
-Test.obj : error LNK2019: unresolved external symbol "private: int __thiscall PuzzleGame::find(int)" (?find@PuzzleGame@@AAEHH@Z) referenced in function "public: int __thiscall Test::TestFind(int)" (?TestFind@Test@@QAEHH@Z)
-C:\Users\User\Dropbox\rtmp\src\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe : fatal error LNK1120: 2 unresolved externals
+  design1.vcxproj -> C:\Users\User\Dropbox\rtmp\src\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe

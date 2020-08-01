@@ -37,7 +37,7 @@ void Test::testall() {
         });
         describe("2. PuzzleGame::choiceValid() returns bool based on if choice is valid", [] {
             it("should return true", [] {
-                expect(test_choiceValid(4)).toBe(true);
+                expect(test_choiceValid('4')).toBe(true);
             });
             it("should return false ", [] {
                 expect(test_choiceValid('d')).toBe(false);
