@@ -28,18 +28,18 @@ bool Test::TestChoiceValid(int c) {
 void Test::testall() {
     describe("PuzzleGame Tests**", [] {
         describe("1. PuzzleGame::find() takes search value returns an index or -1", [] {
-            it("should return the index of value", [] {
+            it("find() should return the index of 4", [] {
                 expect(test_find(0)).toBe(4);
             });
-            it("should return -1 ", [] {
+            it("find() should return -1 for 'c'", [] {
                 expect(test_find('c')).toBe(-1);
             });
         });
         describe("2. PuzzleGame::choiceValid() returns bool based on if choice is valid", [] {
-            it("should return true", [] {
+            it("choiceValid() should return true for choice='4'", [] {
                 expect(test_choiceValid('4')).toBe(true);
             });
-            it("should return false ", [] {
+            it("choiceValid() should return false for choice='d'", [] {
                 expect(test_choiceValid('d')).toBe(false);
             });
         });
