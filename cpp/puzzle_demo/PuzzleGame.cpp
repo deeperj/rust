@@ -75,6 +75,7 @@ int PuzzleGame::find(int searchfor) {
 }
 void PuzzleGame::startUI() {
 	noecho();
+	cbreak();
 	while (!winner) {
 		brd->render();
 		choice = getch()-'0';
