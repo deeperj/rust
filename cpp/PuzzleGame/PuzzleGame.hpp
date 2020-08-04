@@ -11,10 +11,9 @@ const int BSZ2 = BSZ * BSZ;
 
 class PuzzleGame {
 private:
-    bool winner;
+    bool winner=false;
     int choice=-1,id0=-1,idc=-1;
     bool choiceValid();
-    void swapPiece();
     void drawBoard();
     void randomizeBoard();
     bool checkWin();
@@ -26,5 +25,23 @@ public:
                        6,0,5,
                        7,3,8};
     PuzzleGame();
+    void swapPiece();
     void startGame();
+};
+
+class BoardPiece {
+private:
+    int number;
+    int poscode;
+public:
+    BoardPiece() {};
+    BoardPiece(int,int);
+    void render();
+};
+
+class Board {
+    BoardPiece pieces[];
+public:
+    Board();
+    void render();
 };

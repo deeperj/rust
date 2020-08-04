@@ -5,7 +5,7 @@ PuzzleGame::PuzzleGame(){}
 bool PuzzleGame::choiceValid(){
     //choice can be number or letter
     //since we used getch
-    choice = choice - '0';
+    choice = choice - '0';//convert back to number/int
     idc = find(choice);
     id0 = find(0);
     if (!(choice >= 0 && choice <= 8)) {
@@ -18,13 +18,41 @@ bool PuzzleGame::choiceValid(){
     return true;
 }
 bool PuzzleGame::checkWin(){
-    return false;//dummy implementation
+    //check for winner step 2 check remaining board spaces
+    if (!((board[0] == 0 || board[0] == 1) &&
+        (board[BSZ2 - 1] == 0 || board[BSZ2 - 1] == BSZ2 - 1))) {
+        return false;
+    }
+    //check for winner step 2 check remaining board spaces
+    for (int i = 2; i < BSZ2 - 1; i++) {
+        if (board[i] == 0)continue;
+        if (board[i - 1] == 0
+            ? board[i] < board[i - 2]
+            : board[i] < board[i - 1]) {
+            return false;
+        }
+    }
+    return true;
 }
-void PuzzleGame::swapPiece(){}
-void PuzzleGame::drawBoard(){}
+void PuzzleGame::swapPiece(){
+    board[id0] = choice;
+    board[idc] = 0;
+}
+void PuzzleGame::drawBoard(){
+    for (int i = 0; i < BSZ; i++) {
+        for (int j = 0; j < BSZ; j++) {
+            cout << board[i * BSZ + j];
+        }cout << endl;
+    }
+}
+
 void PuzzleGame::randomizeBoard(){}
+
 int PuzzleGame::getChoice(){
-    return -1;
+    cout << "enter value between 0 and 8: ";
+    int v; cin >> v;//converts char to int
+    return v +'0'; //convert back to char
+    return v;
 }
 
 int PuzzleGame::find(int sval) {
@@ -41,6 +69,7 @@ void PuzzleGame::startGame() {
         drawBoard();
         choice = getChoice();
         while (!choiceValid()) {
+            cout << "invalid choice, try again.. " << endl;
             choice = getChoice();
         }
         swapPiece();
@@ -87,3 +116,37 @@ public:
   //out of the while loop
 
 */
+
+BoardPiece::BoardPiece(int no,int pos) {
+    number = no;
+    poscode = pos;
+}
+
+void BoardPiece::render() {
+    int hoffset = 10;
+    int voffset = 5;
+    int h = 3,w=5;
+    WINDOW* obox = newwin(h, w, voffset+h*(poscode/BSZ), hoffset+w*(poscode%BSZ));
+    refresh();
+    box(obox, 0, 0);
+    mvwprintw(obox, 1, 1, " %d",number);
+    wrefresh(obox);
+}
+
+Board::Board() {
+    int board[BSZ2] = { 1,4,2,
+                       6,0,5,
+                       7,3,8 };//from game
+    //game->brd
+    for (int i = 0; i < BSZ2; i++) {
+        pieces[i] = BoardPiece(board[i], i);
+        //pieces[i] = BoardPiece(game->board[i], i);
+    }
+    render();
+}
+
+void Board::render() {
+    for (int i = 0; i < BSZ2; i++) {
+        pieces[i].render();
+    }
+}
