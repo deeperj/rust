@@ -10,7 +10,7 @@ const int BSZ = 3;
 const int BSZ2 = BSZ * BSZ;
 
 class PuzzleGame {
-private:
+protected:
     bool winner=false;
     int choice=-1,id0=-1,idc=-1;
     bool choiceValid();
@@ -36,12 +36,15 @@ private:
 public:
     BoardPiece() {};
     BoardPiece(int,int);
+    void setVal(int);
     void render();
 };
 
-class Board {
+class Board :public PuzzleGame{
     BoardPiece pieces[];
 public:
     Board();
+    void startGame();
     void render();
+    void swapPiece();
 };

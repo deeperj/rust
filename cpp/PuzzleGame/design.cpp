@@ -3,10 +3,10 @@
 
 int main()
 {
-  cout << "PuzzleGame files added!" << endl;
-  cout << "Puzzle dummy implementation in progress!" << endl;
+  cout << "PuzzleGame starting.." << endl;
   initscr();
   Board b;
+  b.startGame();
   getch();
   endwin();
   //Test t;

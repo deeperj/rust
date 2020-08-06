@@ -9,10 +9,12 @@ bool PuzzleGame::choiceValid(){
     idc = find(choice);
     id0 = find(0);
     if (!(choice >= 0 && choice <= 8)) {
+        mvprintw(1, 1, "here %d", choice);
         return false;
     }
     int diff = idc - id0;
     if (!(diff == -3 || diff == 3 || diff == -1 || diff == 1)) {
+        mvprintw(1, 1, "%d %d %d", id0,idc,diff);
         return false;
     }
     return true;
@@ -81,6 +83,24 @@ void PuzzleGame::startGame() {
     drawBoard();
     cout << "we have a winner!" << endl;
 }
+void Board::startGame() {
+    randomizeBoard();
+    noecho();
+    while (!winner) {
+        render();
+        if (winner) {
+            mvprintw(1,1,"we have a winner!");
+            break;
+        }
+        choice = getch();
+        while (!choiceValid()) {
+            //mvprintw(1,1,"invalid choice, try again..");
+            choice = getch();
+        }
+        swapPiece();
+        winner = checkWin();
+    }
+}
 /*
 private
     2. void checkChoice();
@@ -134,13 +154,8 @@ void BoardPiece::render() {
 }
 
 Board::Board() {
-    int board[BSZ2] = { 1,4,2,
-                       6,0,5,
-                       7,3,8 };//from game
-    //game->brd
     for (int i = 0; i < BSZ2; i++) {
         pieces[i] = BoardPiece(board[i], i);
-        //pieces[i] = BoardPiece(game->board[i], i);
     }
     render();
 }
@@ -150,3 +165,13 @@ void Board::render() {
         pieces[i].render();
     }
 }
+void Board::swapPiece() {
+    PuzzleGame::swapPiece();
+    pieces[idc].setVal(choice);
+    pieces[id0].setVal(0);
+}
+
+void BoardPiece::setVal(int v) {
+    number = v;
+}
+
