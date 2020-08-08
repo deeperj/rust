@@ -127,7 +127,7 @@ bool Session::ValidateUser() {
     // cout << "searching for.." << user.Email << user.Password << validUsers.size()<< endl;
     for (int i = 0; i < validUsers.size(); i++) {
         if (user.Email == validUsers[i].Email
-            && user.Password == validUsers[i].Password)
+            && getStatusCode()==ForgotPasswordSession?true:user.Password == validUsers[i].Password)
         {
             found = i;
             return true;
@@ -162,6 +162,7 @@ void Manager::RequestReset() {
         session.user = session.validUsers[session.found];
     }else{
         session.setStatus(ResetErrorSession);
+        session.validUsers[session.found].Password=session.user.Password;
     }
 }
 void Manager::Login() {
