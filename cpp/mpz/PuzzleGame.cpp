@@ -142,8 +142,5 @@ void PuzzleGame::playGame() {
     }
 
 
-
-
-
     getch();
 }
