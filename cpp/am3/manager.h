@@ -79,6 +79,7 @@ public:
     Session();
     Status getStatus();
     void setStatus(StatusCode status);
+    void reset();
     StatusCode getStatusCode();
     string toString();
     bool ValidateEmail();

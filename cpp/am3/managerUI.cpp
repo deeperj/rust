@@ -91,8 +91,7 @@ void Amtui::configure(Point2D t1[], tab_cycler t2[], int size) {
 	if(session.getStatus().errors.size()>0){
 		uitext(win,sln,session.toString());
 	}
-	session.user.clear();
-	session.getStatus().errors.clear();
+	session.reset();
 	for(int i=0;i<size;i++){
 		tab.push_back(t1[i]);
 		idx.push_back(t2[i]);
@@ -241,7 +240,8 @@ void Amtui::displayHome() {
 	drawBorder();
 	banner();
 	//create window for input
-	string choices[] = { "Login","Register","Reset Password","Exit" };
+	string choices[] = { 
+		"Login","Register","Reset Password","Exit" };
 	int mc = sizeof(choices) / sizeof(choices[0]);
 	WINDOW* menuwin = newwin(mc + 2, wsz.mx - (12), wsz.my - 8, mc);
 	box(menuwin, 0, 0);
