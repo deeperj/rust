@@ -28,7 +28,7 @@ string Error::message() {
         return "Please check the password matches or not a registered user!";
         break;
     default:
-        return "Error in manager. Contact developers";
+        return "Error code not defined. Contact developers";
         break;
     }
 }
