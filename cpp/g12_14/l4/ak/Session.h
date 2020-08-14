@@ -2,8 +2,8 @@
 #ifndef SESSION_H
 #define SESSION_H
 #include <string>   // using string
-#include "Status.cpp"
-#include "Error.cpp"
+#include "Status.h"
+#include "Error.h"
 #include "Details.h"
 using namespace std;
 const int MAX=20;
