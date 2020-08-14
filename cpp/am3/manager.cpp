@@ -25,7 +25,7 @@ string Error::message() {
         return "Check Password";// meets minimum lengthand password matches verify password!";
         break;
     case ResetError:
-        return "Please check the password matches or not a registered user!";
+        return "Maiden name is invalid!";
         break;
     default:
         return "Error code not defined. Contact developers";
@@ -64,6 +64,11 @@ Session::Session() {
     d1.Maiden = "ok";
     validUsers.push_back(d1);
 }
+void Session::reset(void) {
+    user.clear();
+    status.errors.clear();
+}
+
 Status Session::getStatus() {
     return status;
 }
@@ -159,10 +164,9 @@ void Manager::RequestReset() {
         && session.ValidateMaiden()
         ) {
         session.setStatus(UserSession);
-        session.user = session.validUsers[session.found];
+        session.validUsers[session.found].Password=session.user.Password;
     }else{
         session.setStatus(ResetErrorSession);
-        session.validUsers[session.found].Password=session.user.Password;
     }
 }
 void Manager::Login() {

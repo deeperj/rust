@@ -11,6 +11,4 @@ int main()
   endwin();
   //Test t;
   //t.testall();
-  //PuzzleGame g;
-  //g.startGame();
 }
