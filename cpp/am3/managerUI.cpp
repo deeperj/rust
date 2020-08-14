@@ -1,6 +1,6 @@
 #include "manager.h"
 #include "managerUI.h"
-#include "test.h"
+#include "Test.h"
 
 int Amtui::wc = 0;
 bool Amtui::initialised = false;

@@ -1,6 +1,5 @@
 #include "Test.h"
 #include <assert.h>
-#include "test.h"
 #include "expect.h"
 int Test::id(int t) { return ui.id((Amtui::tab_cycler)t); }
 int testid(int v) {
