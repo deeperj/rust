@@ -4,12 +4,13 @@ PuzzleGame::PuzzleGame(){}
 
 bool PuzzleGame::choiceValid(){
     //choice can be number or letter
-    //since we used getch
+    //since we used getc
+    int x=choice;
     choice = choice - '0';//convert back to number/int
     idc = find(choice);
     id0 = find(0);
     if (!(choice >= 0 && choice <= 8)) {
-        mvprintw(1, 1, "here %d", choice);
+        mvprintw(1, 1, "here %d %d1",x, choice);
         return false;
     }
     int diff = idc - id0;
@@ -167,6 +168,9 @@ void Board::render() {
 }
 void Board::swapPiece() {
     PuzzleGame::swapPiece();
+    string st;
+    for(int i=0:i<BSZ2;i++)st+=str::to_string(i);
+    mvprintw(2,1,"%s",st.c_str());
     pieces[idc].setVal(choice);
     pieces[id0].setVal(0);
 }
