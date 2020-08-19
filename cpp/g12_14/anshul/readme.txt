@@ -1,0 +1,2 @@
+- PuzzleGame.cpp is the program file contains all the classes and their implementation. 
+- Directory name docs contains the documentation of the system

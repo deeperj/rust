@@ -1,0 +1,154 @@
+PUZZLE GAME PROJECT 
+
+MyplanfortheSoftwaredesignprojectistocreatea gameanddiagrams .This 
+gamewillbea Puzzle .Thisisthesimplegamethat createdinc++anda setof 
+numbersfrom1 to8 addedinrandomsequence andtheaimofthegames isto 
+movethenumbersandputtheminthesequencefrom1 to8 .Thenumberwill 
+bemovedbyWA SDkeys wheretheA keyisusedtomovethenumberLEFTand 
+DkeyisusedtomovethenumbertotheRIGHTandWforUPandSforDOWN. BY 
+using thesekeytherandomnumberwill beputinthesequenceandintheendit 
+will show wehavea winnerattheend. Ontheotherhandthediagramsand 
+flowchartwill alsobeshownintheprojectforexample,usecasediagram, class, 
+diagram, activitydiagramandsequencediagram. 
+
+CLASSIFICATIONOFTHEPROJECT: 
+
+1:FUNCTIONS&OBJECTIVESEXPLAINATION 
+2 :HEADERFILE 
+3 :FINALRESULTS 
+4:DIAGRAMS 
+1: AIMS ANDOBJECTIVES: 
+Ourfirstaimis tomakethedifferentaspects ofthegame separatelyofthegameandthekeys 
+ofthegamewhich willcontrolthenumbers and thesteps ofthegametorandomizethe 
+position ofthenumbers which willbesequenced bytheuserandafterallthecheckwin 
+function willbedeclared in itwhen thenumberwillbesequenced Itwillshowthe “wehavea 
+winner& congratulations “ onthescreen andtheseallwillcontain theirown partlikefor 
+initializetheboard wewilldeclareallthedataInthe void PuzzleGame::Initialize ()and 
+declareitin themain function samefortheothers wewilldeclareallthe void 
+PuzzleGame::Move()forthekeys andalsoalltheotherfunctionswillbedescribelikethat 
+separatelyand givethemcommandsand in theend wewilldeclare thesein theheaderfile. 
+
+
+Wewillinputthefunctionswhichwillbeusedinthegamefortherandomizethe 
+numbersandinitializetheboardforthegameandhow theboardisdraw bythe 
+function . 
+
+
+Theboardwillbeassignedintheinitialize functionandthenumberwill bedisplay 
+likethisintheboardandforloopwill beusedforthenumber1 to3 andarray 
+alsousedforit . 
+
+
+Inthedraw boardfunctionthenumberwillbedrawnwiththehelpofthefor 
+loopsandshowninarrayanddisplayedonthescreen . 
+
+
+Intherandomboardthefunctionwill beusedtogivetherandomdifferentplaces 
+tothenumbersfromtheretheywillbemovedwiththehelpofkeysandgive 
+thema sequence. 
+
+
+Inthemovefunctionthemoving keyswillbeassignedforthegamewhichkeys 
+will beusedtomovethenumbersindifferentdirectionforwhichweassignedthe 
+Up =W, Down =S,Right =DandLeft =A . 
+
+
+Inthecheckwinfunctiontheprogramwill checkthesequenceofthenumbers 
+andwhenthenumberswillbecompletelyinthesequenceitwill show thethe 
+winning wordsforexample “wehavea winner “. 
+
+2 : HEADER FILE : 
+Intheheaderfileweused the libraries Inputand outputstreamand The C++ <ctime> header 
+file declares asetoffunctions, macros and types toworkwith date and time. Forexample, the 
+time()function is used togetthecurrenttime. And alsoused thekeys declaration andthe 
+classes and putall thefunctions in theclass programand declarethem . 
+
+
+3 : Final Result : 
+Afterwriting yourprogramwewillrunitwiththeshortkeyF5 
+andcanselectthroughthetool barclick RUN whenyoupressthebuttonyour 
+programwill beshow like 
+
+
+Ihavealsoputtheinstructionskeysintheprogramsoplayercanseeitwhile 
+playing . 
+
+Afterthatwhenenterthekeythenumberwill movelikeinthescreennumber7 
+willmovetotheleftwhen Iwill pressA key .asyoucanseeinphoto 
+
+
+Thiswaywewill keepmoving thenumbersandputtheminthesequencefrom1 
+to8 andintheendthiswillshowthewinnerlike “wehavea winner “and 
+
+
+“congratulations “seeinthescreenshot . 
+
+
+Asyoucanseethenumbersarefullyinthesequenceandprogramshowstheline 
+wehavewinnerandcongratulationsandtheend . 
+
+4 :DIAGRAMS: 
+Inthisprojectwewillusethe5 differentdiagramswhicharethefollowing 
+
+ 
+FLOWCHART 
+ 
+USE-CASEDIAGRAM 
+ 
+CLASSDIAGRAM 
+ 
+ACTIVITYDIAGRAM 
+ 
+SEQUENCEDIAGRAM 
+1:FLOWCHART : 
+A flowchartisa kindofdiagram thatshowsa workprocess .Aflowchartcanalso 
+becharacterizedasadiagrammaticrepresentationofalgorithm. Theflowchart 
+showsthemeansasboxesofdifferentsorts, andtheirrequestbyassociating the 
+
+
+caseswithbolts. Forthisgamewealsousedtheflowchartdiagramtoshow the 
+
+
+process . 
+
+2 :USECASEDIAGRAM: 
+AnUSECASEDIAGRAM isthe easiestrepresentation ofa usercooperationwith 
+theframeworkthatshowstheconnectionbetweentheuser andthediverseuse 
+casesinwhichtheclientisincluded 
+
+Wealsousedtheusecasediagramforthepuzzlegamebywhichwecanseethe 
+differencebetweenuserandothercase 
+
+
+3 :Classdiagram: 
+The classdiagramisthemainbuilding blockofobject-orientedmodeling.Itisused 
+forgeneral conceptualmodeling ofthestructureoftheapplication, andfor 
+detailedmodeling translating themodelsintoprogramming code. Class 
+diagramscanalsobeusedfordata modeling. 
+
+Wealsousedclassdiagramforthepuzzlegamebywhichwecanseethe 
+differencebetweenthemainblocksandothers. 
+
+
+4 :ACTIVITYDIAGRAM: 
+
+Activitydiagramsaregraphicalrepresentationsofworkflowsofstepwiseactivities 
+andactionswithsupportforchoice, iterationandconcurrency. 
+
+WealsousedACTIVITY diagramforthepuzzlegamebywhichwecanseethe 
+differencebetweentheactionsandchoices . 
+
+
+5 :SEQUENCEDIAGRAM: 
+Sequencediagramistheitemsandclassesengagedwiththesituationandthe 
+grouping ofmessagestradedbetweenthearticlesexpectedtodotheusefulness 
+ofthesituation. 
+
+
+Wealsousedsequence diagramforthepuzzlegamebywhichwecanseethe 
+differencebetweenthetradersandsituations . 
+
+
+THE END 
+
+
