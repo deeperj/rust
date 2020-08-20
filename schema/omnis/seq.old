@@ -1,0 +1,60 @@
+@startuml
+
+title "DACSX Layered Architecture"
+
+actor User
+boundary "AMGUI" as GUI
+control "AuthMgr" as Mgr
+entity Session
+
+group Configuration
+loop while error
+    User -> GUI : EnterDetails
+    GUI -> Mgr : Login(Details)
+    Mgr -> Session : Verify(Details)
+    Session-->Mgr : ErrorSession
+    Mgr->GUI : Display(ErrorSession)
+end
+Session-->Mgr : NewSession
+Mgr->GUI : Display(NewSession)
+end
+
+group Register
+loop while error
+    User -> GUI : EnterDetails
+    GUI -> Mgr : Register(Details)
+    Mgr->Session : Verify(Details)
+    Session-->Mgr:ErrorSession
+    Mgr->GUI : Display(ErrorSession)
+end
+Session -> Utility : CreateHash(Details)
+Utility-->Session : NewHash
+Session->Session : CreateUser(Details)
+Session->GUI : Display(LoginSession)
+end
+
+group RefreshPassword
+loop while error
+    User -> GUI : EnterDetails
+    GUI -> Mgr : ResetRequest(Details)
+    Mgr -> Session : Verify(Details)
+    Session --> Mgr : ErrorSession
+    Mgr->GUI : Display(ErrorSession)
+end
+Session->Utility:ResetEmail(Details)
+Utility-->Session:Email
+Session-->Mgr:ResetSession
+Mgr-->GUI : Display(ResetSession)
+loop while error
+    User -> GUI : EnterDetails
+    GUI -> Mgr : ResetPassword(Details)
+    Mgr -> Session : VerifyPassword(Details)
+    Session --> Mgr : ErrorSession
+    Mgr->GUI : Display(ErrorSession)
+end
+Session->Utility : CheckHash(Details)
+Utility-->Session : Hash(Ok)
+Session->GUI : Display(LoginSession)
+end
+
+@enduml

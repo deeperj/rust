@@ -1,39 +1,63 @@
 @startuml
 
-title DACSx - Entity Classes
+title DACSx Top level Architecture
 
+actor Engineer
+boundary "DACSx.UI.Cockpit" as GUI
+entity "DACSx.UI.ViewModels" as vmod
+control "DACSx.Domain.Configuration" as config
+control "DACSx.Domain.Acquisition" as acq
+database Repository as repo
 
-class DACSxConfiguration {
-  -axisConfig:AxisConfig
-  -homeScreenConfig:HomeScreenConfig
-  -chartConfig:ChartConfig
-  +setup():void
-}
-class DACSAxis
-{
-  -name:string
-}
+group Configuration
+    Engineer->GUI : getConfig(config)
+    activate GUI
+group Initialize
+    GUI->config : getDefaults(config);
+    activate config
+    config->repo : getDefaults(config);
+    activate repo
+    alt config exists
+    return configDTO:ConfigDTO;
+    config ->vmod: new(configDTO)
+    activate vmod
+    else empty config
+    config->vmod: new()
+    end
+    deactivate config
+    vmod -->GUI: guiModel:ViewModel
+end
+group Configure
+    Engineer->GUI : configure(guiModel:ViewModel);
+    GUI->vmod : validate(guiModel);
+    alt guiModel valid
+        vmod->config : setup(configDTO);
+        activate config
+        config ->repo: save(configDTO)
+        activate repo
+        return
+        return
+    end
+    vmod -->GUI: guiModel:ViewModel
+    deactivate vmod
+    deactivate GUI
+end
+end
 
-class DACSChannel{
-  +id:long
-  +axis:DACSAxis
-  +chDataType:<enum>int
-  +chName:string
-}
-class DACSxData{
-  -chan:DACSChannel
-  -timeStamp:DateTime
-  -value:double
-}
-class DACSAcquisition{
-  +buffer: IOBuffer<DACSxData[]>
-  +IChan: IOReader
-  +IChSink:IOWriter
-  +acquireData():void
-}
+group Acquisition
+    GUI->vmod : acquireData();
+    activate vmod
+    vmod->acq : dataReady();
+    activate acq
+    return bool
+    alt DataReady()
+        vmod->acq : getData();
+        activate acq
+        return :DACxDataEntity
+        end
+    vmod-->GUI : :DACxDataViewModel
+    deactivate vmod
+end
 
-
-DACSxData *-left-> DACSChannel: Composition
-DACSAxis *-right-> DACSChannel: Composition
 
 @enduml
