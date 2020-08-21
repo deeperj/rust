@@ -1,0 +1,49 @@
+@startuml
+
+title DACSx - Acquisition Classes
+
+class AcquireViewModel {
+  -acquire:IAcquisition
+  -axes:DACSxAxis[]
+  -dataReady:bool
+  +acquireData():DACSxData
+}
+
+class DACSxAxis
+{
+  -name:string
+  -channels:DACSxChannel[]
+}
+
+class DACSxChannel{
+  +id:long
+  +axis:DACSAxis
+  +chDataType:<enum>int
+  +chName:string
+}
+class DACSxData{
+  -chan:DACSChannel
+  -timeStamp:DateTime
+  -value:double
+}
+
+interface IAcquisition{
+  +getData():Object[]
+  +isDataReady():bool 
+}
+
+class DACSxAcquisition{
+  +buffer: IOBuffer<DACSxData>
+  +IChan: IOStreamReader<DACSxData>
+  +IChSink:IOStreamWriter<DACSxData>
+  +getData():DACSxData[]
+  +isDataReady():bool 
+}
+
+IAcquisition <|.. DACSxAcquisition
+DACSxData o-left-> DACSxChannel: associated with
+DACSxAcquisition o-left-> DACSxData: has
+DACSxAxis o-right-> DACSxChannel: has
+DACSxAcquisition <.left. AcquireViewModel:injected with
+
+@enduml

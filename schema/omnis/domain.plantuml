@@ -9,12 +9,14 @@ class DACSxConfiguration {
   -chartConfig:ChartConfig
   +setup():void
 }
-class DACSAxis
+
+class DACSxAxis
 {
   -name:string
+  -channels:DACSChannel[]
 }
 
-class DACSChannel{
+class DACSxChannel{
   +id:long
   +axis:DACSAxis
   +chDataType:<enum>int
@@ -25,11 +27,11 @@ class DACSxData{
   -timeStamp:DateTime
   -value:double
 }
-class DACSAcquisition{
-  +buffer: IOBuffer<DACSxData[]>
-  +IChan: IOReader
-  +IChSink:IOWriter
-  +acquireData():void
+class DACSxAcquisition{
+  +buffer: IOBuffer<DACSxData>
+  +IChan: IOStreamReader<DACSxData>
+  +IChSink:IOStreamWriter<DACSxData>
+  +acquireData():DACSxData[]
 }
 
 
