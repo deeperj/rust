@@ -1,0 +1,41 @@
+@startuml
+
+title DACSx - Entity Classes
+
+
+class DACSxConfiguration {
+  -axisConfig:AxisConfig
+  -homeScreenConfig:HomeScreenConfig
+  -chartConfig:ChartConfig
+  +setup():void
+}
+
+class DACSxAxis
+{
+  -name:string
+  -channels:DACSChannel[]
+}
+
+class DACSxChannel{
+  +id:long
+  +axis:DACSAxis
+  +chDataType:<enum>int
+  +chName:string
+}
+class DACSxData{
+  -chan:DACSChannel
+  -timeStamp:DateTime
+  -value:double
+}
+class DACSxAcquisition{
+  +buffer: IOBuffer<DACSxData>
+  +IChan: IOStreamReader<DACSxData>
+  +IChSink:IOStreamWriter<DACSxData>
+  +acquireData():DACSxData[]
+}
+
+
+DACSxData *-left-> DACSChannel: Composition
+DACSAxis *-right-> DACSChannel: Composition
+
+@enduml
