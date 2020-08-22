@@ -1,20 +1,49 @@
 @startuml
 
-title Activity Diagram \n
+title DACSx - Acquisition Classes
 
-start
+class AcquireViewModel {
+  -acquire:IAcquisition
+  -axes:DACSxAxis[]
+  -dataReady:bool
+  +acquireData():DACSxData
+}
 
-:Eat Hot Wings;
+class DACSxAxis
+{
+  -name:string
+  -channels:DACSxChannel[]
+}
 
-note left
-    This is a Note...
-    * Activity diagrams can begin with a Start
-    * An activity is colon, some words, and a semicolon
-    * Activity diagrams can end with a stop
-end note
+class DACSxChannel{
+  +id:long
+  +axis:DACSAxis
+  +chDataType:<enum>int
+  +chName:string
+}
+class DACSxData{
+  -chan:DACSChannel
+  -timeStamp:DateTime
+  -value:double
+}
 
-:Drink Homebrew;
+interface IAcquisition{
+  +getData():Object[]
+  +isDataReady():bool 
+}
 
-stop
+class DACSxAcquisition{
+  +buffer: IOBuffer<DACSxData>
+  +IChan: IOStreamReader<DACSxData>
+  +IChSink:IOStreamWriter<DACSxData>
+  +getData():DACSxData[]
+  +isDataReady():bool 
+}
+
+IAcquisition <|.. DACSxAcquisition
+DACSxData o-left-> DACSxChannel: associated with
+DACSxAcquisition o-left-> DACSxData: has
+DACSxAxis o-right-> DACSxChannel: has
+DACSxAcquisition <.left. AcquireViewModel:injected with
 
 @enduml
