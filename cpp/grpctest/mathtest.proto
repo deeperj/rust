@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 option java_package = "ex.grpc";
 
@@ -12,11 +12,11 @@ service MathTest {
 
 // The request message containing requested numbers
 message MathRequest {
-    required int32 a = 1;
-    required int32 b = 2;
+    int32 a = 1;
+    int32 b = 2;
 }
 
 // The response message containing response
 message MathReply {
-    required int32 result = 1;
+    int32 result = 1;
 }

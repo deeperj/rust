@@ -57,26 +57,23 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_mathtest_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_mathtest_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  PROTOBUF_FIELD_OFFSET(::mathtest::MathRequest, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mathtest::MathRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::mathtest::MathRequest, a_),
   PROTOBUF_FIELD_OFFSET(::mathtest::MathRequest, b_),
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::mathtest::MathReply, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mathtest::MathReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::mathtest::MathReply, result_),
-  0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 7, sizeof(::mathtest::MathRequest)},
-  { 9, 15, sizeof(::mathtest::MathReply)},
+  { 0, -1, sizeof(::mathtest::MathRequest)},
+  { 7, -1, sizeof(::mathtest::MathReply)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -86,10 +83,10 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_mathtest_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\016mathtest.proto\022\010mathtest\"#\n\013MathReques"
-  "t\022\t\n\001a\030\001 \002(\005\022\t\n\001b\030\002 \002(\005\"\033\n\tMathReply\022\016\n\006"
-  "result\030\001 \002(\0052G\n\010MathTest\022;\n\013sendRequest\022"
+  "t\022\t\n\001a\030\001 \001(\005\022\t\n\001b\030\002 \001(\005\"\033\n\tMathReply\022\016\n\006"
+  "result\030\001 \001(\0052G\n\010MathTest\022;\n\013sendRequest\022"
   "\025.mathtest.MathRequest\032\023.mathtest.MathRe"
-  "ply\"\000B\t\n\007ex.grpc"
+  "ply\"\000B\t\n\007ex.grpcb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_mathtest_2eproto_deps[1] = {
 };
@@ -99,7 +96,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mat
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_mathtest_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_mathtest_2eproto = {
-  false, false, descriptor_table_protodef_mathtest_2eproto, "mathtest.proto", 176,
+  false, false, descriptor_table_protodef_mathtest_2eproto, "mathtest.proto", 184,
   &descriptor_table_mathtest_2eproto_once, descriptor_table_mathtest_2eproto_sccs, descriptor_table_mathtest_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_mathtest_2eproto::offsets,
   file_level_metadata_mathtest_2eproto, 2, file_level_enum_descriptors_mathtest_2eproto, file_level_service_descriptors_mathtest_2eproto,
@@ -115,16 +112,6 @@ void MathRequest::InitAsDefaultInstance() {
 }
 class MathRequest::_Internal {
  public:
-  using HasBits = decltype(std::declval<MathRequest>()._has_bits_);
-  static void set_has_a(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_b(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000003) ^ 0x00000003) != 0;
-  }
 };
 
 MathRequest::MathRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -134,8 +121,7 @@ MathRequest::MathRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   // @@protoc_insertion_point(arena_constructor:mathtest.MathRequest)
 }
 MathRequest::MathRequest(const MathRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&a_, &from.a_,
     static_cast<size_t>(reinterpret_cast<char*>(&b_) -
@@ -180,37 +166,30 @@ void MathRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    ::memset(&a_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&b_) -
-        reinterpret_cast<char*>(&a_)) + sizeof(b_));
-  }
-  _has_bits_.Clear();
+  ::memset(&a_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&b_) -
+      reinterpret_cast<char*>(&a_)) + sizeof(b_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* MathRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // required int32 a = 1;
+      // int32 a = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_a(&has_bits);
           a_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // required int32 b = 2;
+      // int32 b = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_b(&has_bits);
           b_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -230,7 +209,6 @@ const char* MathRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     }  // switch
   }  // while
 success:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -244,15 +222,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required int32 a = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // int32 a = 1;
+  if (this->a() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_a(), target);
   }
 
-  // required int32 b = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // int32 b = 2;
+  if (this->b() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_b(), target);
   }
@@ -265,47 +242,27 @@ failure:
   return target;
 }
 
-size_t MathRequest::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:mathtest.MathRequest)
-  size_t total_size = 0;
-
-  if (_internal_has_a()) {
-    // required int32 a = 1;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_a());
-  }
-
-  if (_internal_has_b()) {
-    // required int32 b = 2;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_b());
-  }
-
-  return total_size;
-}
 size_t MathRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:mathtest.MathRequest)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required int32 a = 1;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_a());
-
-    // required int32 b = 2;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_b());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // int32 a = 1;
+  if (this->a() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_a());
+  }
+
+  // int32 b = 2;
+  if (this->b() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_b());
+  }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -338,15 +295,11 @@ void MathRequest::MergeFrom(const MathRequest& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      a_ = from.a_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      b_ = from.b_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+  if (from.a() != 0) {
+    _internal_set_a(from._internal_a());
+  }
+  if (from.b() != 0) {
+    _internal_set_b(from._internal_b());
   }
 }
 
@@ -365,14 +318,12 @@ void MathRequest::CopyFrom(const MathRequest& from) {
 }
 
 bool MathRequest::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
   return true;
 }
 
 void MathRequest::InternalSwap(MathRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(MathRequest, b_)
       + sizeof(MathRequest::b_)
@@ -392,13 +343,6 @@ void MathReply::InitAsDefaultInstance() {
 }
 class MathReply::_Internal {
  public:
-  using HasBits = decltype(std::declval<MathReply>()._has_bits_);
-  static void set_has_result(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
-  }
 };
 
 MathReply::MathReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -408,8 +352,7 @@ MathReply::MathReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   // @@protoc_insertion_point(arena_constructor:mathtest.MathReply)
 }
 MathReply::MathReply(const MathReply& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   result_ = from.result_;
   // @@protoc_insertion_point(copy_constructor:mathtest.MathReply)
@@ -451,23 +394,20 @@ void MathReply::Clear() {
   (void) cached_has_bits;
 
   result_ = 0;
-  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* MathReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // required int32 result = 1;
+      // int32 result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_result(&has_bits);
           result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -487,7 +427,6 @@ const char* MathReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
     }  // switch
   }  // while
 success:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -501,9 +440,8 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required int32 result = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // int32 result = 1;
+  if (this->result() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_result(), target);
   }
@@ -520,15 +458,16 @@ size_t MathReply::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:mathtest.MathReply)
   size_t total_size = 0;
 
-  // required int32 result = 1;
-  if (_internal_has_result()) {
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 result = 1;
+  if (this->result() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_result());
   }
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -561,7 +500,7 @@ void MathReply::MergeFrom(const MathReply& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_result()) {
+  if (from.result() != 0) {
     _internal_set_result(from._internal_result());
   }
 }
@@ -581,14 +520,12 @@ void MathReply::CopyFrom(const MathReply& from) {
 }
 
 bool MathReply::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
   return true;
 }
 
 void MathReply::InternalSwap(MathReply* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   swap(result_, other->result_);
 }
 

@@ -95,13 +95,6 @@ class MathRequest PROTOBUF_FINAL :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
   static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
     return GetDescriptor();
   }
@@ -193,11 +186,7 @@ class MathRequest PROTOBUF_FINAL :
     kAFieldNumber = 1,
     kBFieldNumber = 2,
   };
-  // required int32 a = 1;
-  bool has_a() const;
-  private:
-  bool _internal_has_a() const;
-  public:
+  // int32 a = 1;
   void clear_a();
   ::PROTOBUF_NAMESPACE_ID::int32 a() const;
   void set_a(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -206,11 +195,7 @@ class MathRequest PROTOBUF_FINAL :
   void _internal_set_a(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // required int32 b = 2;
-  bool has_b() const;
-  private:
-  bool _internal_has_b() const;
-  public:
+  // int32 b = 2;
   void clear_b();
   ::PROTOBUF_NAMESPACE_ID::int32 b() const;
   void set_b(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -223,16 +208,12 @@ class MathRequest PROTOBUF_FINAL :
  private:
   class _Internal;
 
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::int32 a_;
   ::PROTOBUF_NAMESPACE_ID::int32 b_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_mathtest_2eproto;
 };
 // -------------------------------------------------------------------
@@ -260,13 +241,6 @@ class MathReply PROTOBUF_FINAL :
       CopyFrom(from);
     }
     return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
   static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
@@ -359,11 +333,7 @@ class MathReply PROTOBUF_FINAL :
   enum : int {
     kResultFieldNumber = 1,
   };
-  // required int32 result = 1;
-  bool has_result() const;
-  private:
-  bool _internal_has_result() const;
-  public:
+  // int32 result = 1;
   void clear_result();
   ::PROTOBUF_NAMESPACE_ID::int32 result() const;
   void set_result(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -379,9 +349,8 @@ class MathReply PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::int32 result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_mathtest_2eproto;
 };
 // ===================================================================
@@ -395,17 +364,9 @@ class MathReply PROTOBUF_FINAL :
 #endif  // __GNUC__
 // MathRequest
 
-// required int32 a = 1;
-inline bool MathRequest::_internal_has_a() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool MathRequest::has_a() const {
-  return _internal_has_a();
-}
+// int32 a = 1;
 inline void MathRequest::clear_a() {
   a_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 MathRequest::_internal_a() const {
   return a_;
@@ -415,7 +376,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 MathRequest::a() const {
   return _internal_a();
 }
 inline void MathRequest::_internal_set_a(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   a_ = value;
 }
 inline void MathRequest::set_a(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -423,17 +384,9 @@ inline void MathRequest::set_a(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:mathtest.MathRequest.a)
 }
 
-// required int32 b = 2;
-inline bool MathRequest::_internal_has_b() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool MathRequest::has_b() const {
-  return _internal_has_b();
-}
+// int32 b = 2;
 inline void MathRequest::clear_b() {
   b_ = 0;
-  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 MathRequest::_internal_b() const {
   return b_;
@@ -443,7 +396,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 MathRequest::b() const {
   return _internal_b();
 }
 inline void MathRequest::_internal_set_b(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000002u;
+  
   b_ = value;
 }
 inline void MathRequest::set_b(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -455,17 +408,9 @@ inline void MathRequest::set_b(::PROTOBUF_NAMESPACE_ID::int32 value) {
 
 // MathReply
 
-// required int32 result = 1;
-inline bool MathReply::_internal_has_result() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool MathReply::has_result() const {
-  return _internal_has_result();
-}
+// int32 result = 1;
 inline void MathReply::clear_result() {
   result_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 MathReply::_internal_result() const {
   return result_;
@@ -475,7 +420,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 MathReply::result() const {
   return _internal_result();
 }
 inline void MathReply::_internal_set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   result_ = value;
 }
 inline void MathReply::set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
