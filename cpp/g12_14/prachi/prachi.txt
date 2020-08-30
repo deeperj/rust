@@ -1,0 +1,132 @@
+                                                              TIC TAC TOE
+
+
+INTRODUCTION:
+You will definitely know how to play Tic-Tac-Toe. It is a very easy game, isn't it? This is what the majority of people believe (Pranjal Chowdhury, 2018). Yet if you put your head around it, you can find that the Tic-Tac-Toe isn't as easy as you thought!
+Tic-Tac -Toe (along with several other games) includes looking ahead and attempting to find out what the player could do next (Pranjal Chowdhury, 2018).
+Tic Tac Toe is a really common game, we always play Classrooms and Hostel in this game when we are in the student life. Now I'm going step by step for Tic Tac Toe Game to
+understand deeper I split the Tic Tac Toe Game into three pieces (H.M.Deitel and P.J.Deital).
+Our name for the project is game Tic-Tac-Toe. This game is very popular and is by itself relatively basic. Basically it is a game of two teams. There's a board with nxn squares at this level. Within our game, the squares are 3 x 3. Tic-Tac-Toe 's target is to be one of the players on a 3 x 3 grid to get three same symbols in a row-horizontally, vertically or diagonally (H.M.Deitel and P.J.Deital).
+
+OVERVIEW:
+This game is available in a Grid 3x3. Two players will play the game. Players have two options:
+(a) Human (b) Computers
+
+
+All the players are human for the human alternative and the first player is human for the choice machine, while the second player is computer (H.M.Deitel and P.J.Deital).
+A player with his opponent can choose between two symbols, normal games use "X"and" O. If the first player plays "X" then the second player will choose "O" and vice versa (H.M.Deitel and P.J.Deital).
+A player marks each of the 3x3 squares with his sign (may be "X" or "O") and his goal is to create a straight line of two intentions, horizontally or vertically or diagonally:
+
+?  Build a straight line to win the game before the rival.
+?  Restrict his opponent to first create a straight line.
+In case theoretically no one with his own symbol will build a straight line, the game ends in a tie.
+Therefore there are only three possible outcomes – a player wins, his opponent wins (human or computer) or it's a tie (Ghanendra Yadav, 2016).
+
+RULES:
+? The game is played on a 3 square x 3 square grid.
+? You are X, your buddy (or in this case, the computer) is O. Players take turns to place their marks in vacant places.
+? The winner is the first player to have 3 of her points in one direction (up , down, around, or diagonally).
+? The game is over, until all 9 squares are complete. When no one has 3 marks in a
+row, otherwise the game must end in a tie.
+
+
+HOW TO WIN THE GAME:
+? You ought to make use of a little bit of technique to defeat the machine (or at least tie). Strategy is about finding out what to do to succeed  (Ghanendra Yadav, 2016)..
+
+? Part of the plan is to try and work out how you can get three Xs in a line. The other aspect is trying to work out how the machine can't produce three Os in a row.
+? You continue looking forward after you have put an X in a rectangle.
+? Where's the next X perfect place to be? You look at the empty squares and you determine which ones are good choices — which ones will help you to make three Xs in a row.
+? You will also watch where your machine puts its O. Anything you do next could change that  (Ghanendra Yadav, 2016)..
+? When the machine gets two Os in a row, so you have to put the next X in that row in the last empty square, or the machine will win. You are required to play in a
+? particular square, otherwise you forfeit the game.
+
+You will never lose a game of Tic-Tac - Toe if you just pay attention and look ahead. You may not win but you should tie at least  (Ghanendra Yadav, 2016).
+
+
+PSEUDO CODE OF TIC TAC TOE:
+This is a matrix of 3 * 3 where you'd like to treat various instances.
+
+? Is that a winner?
+? The next move may be a winning move?
+? Will you win in the next two moves?
+? Can you block the user's winning move?
+
+Your next step depends on the value of:
+
+Point 4-Take this first out
+
+Step 2-Click it if you will win
+
+Point 3-When you have 2 moves that you will take the following:
+
+3a-Anything easy: mark some
+
+3b-Complex Something: find out if there are multiple
+such 2 steps and mark the common element.
+Alternatively, mark such an aspect that will build a
+scenario if there are more 2-step-win cases in you.
+
+FLOW CHART:
+
+
+
+
+
+CLASS DIAGRAMS FOR TIC TAC TOE:
+
+
+
+
+SEQUENCE DIAGRAMS:
+
+
+
+
+TIC TAC TOE OUTPUT
+Now we ar ]e going to discuss the output of that game.
+
+
+Here two players are playing the game, player 1 represents X and player 2 represents 0 as we have discussed before and there are a total of 9 boxes.
+
+Now player 1 will play its turn and enter any number from 1 to 9 and that numbered box will be filled with X.
+
+
+
+Now see that player 1 has entered 1 and X will be placed at location 1 and its player 2 turn.
+
+
+
+Now player 2 has entered number 5 and 0 is placed at number 5 box. Now it's again player 1's turn
+
+In the same way the game will goes on and in the end the player will win which have three same notations either in a row, column or diagonal.
+
+
+.
+In the end we can see that player 2 has won according to the rules of that game.
+
+
+
+
+
+
+REFERENCES:
+
+
+Pranjal Chowdhury. (2018). Tic-tac-toe game: C++ Project Report. Institute of Engineering & Management.
+
+H.M.Deitel and P.J.Deital, How to program: Sixth Edition Herbert Schildt, The Complete Reference: Fifth edition.
+
+Ghanendra Yadav. (2016). C++ Tic Tac Toe Game Project. 
+
+shirisha kambham. (2017). Project Report Tic Tac Toe. 
+
+
+
+
+
+
+
+
+
+
+
