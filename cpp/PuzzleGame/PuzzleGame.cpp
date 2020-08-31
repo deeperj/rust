@@ -169,7 +169,7 @@ void Board::render() {
 void Board::swapPiece() {
     PuzzleGame::swapPiece();
     string st;
-    for(int i=0;i<BSZ2;i++)st+=std::to_string(i);
+    for(int i=0;i<BSZ2;i++)st+=std::to_string(board[i]);
     mvprintw(2,1,"%s",st.c_str());
     pieces[idc].setVal(choice);
     pieces[id0].setVal(0);
