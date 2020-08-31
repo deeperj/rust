@@ -1,0 +1,146 @@
+TIC TAC TOE 
+
+Introduction: 
+
+In the present era, we as an individual prefer the smart phones for all our daily activities. Starting 
+from the majors to the minors as technology has brought a draconian change, every manual thing 
+now can be seen on the mobile phones, android etc. 
+
+Games- Which is the desire of every teenager, massive of the mobile games once played 
+manually now can be seen on the play store such as Ludo star, Tic Tac Toe etc. Highlighting the 
+game “Tic Tac Toe” which is not anymore unique to us and is massively approached by the 
+individuals in their free time. 
+
+It is defined as a positional game played in between the two parties, which holds the alternates in 
+claiming a given arrangement of components, with the objective of shaping a triumphant setup of 
+components; for example, in spasm tac toe the workings are the squares of a network, and the 
+triumphant designs are outlines of squares. 
+
+This report consists of the Tic Tac Toe game concept and how it is played on the computer as the 
+game is computerized and holds some difference from actual. 
+
+Description of the game (Tic Tac Toe): 
+
+The game which is designed is named as Tic Tac Toe. As we are familiar with it and because of 
+its simplicity it is considered as a priority base game. 
+
+The Tic-tac-toe, or can also be referred as noughts and crosses, also can be termed as X’s and 
+O’s is a game for two participants, X and O, who swap denoting the spaces in a 3×3 matrix. The 
+player who prevails with regards to setting three of their imprints in an even, vertical, or slanting 
+line is the champ. 
+
+Diagram of Tic Tac Toe for clear vision of the game: 
+
+
+
+Figure: Demonstrating the structure of the game which is 3*3 matrix. 
+
+Options delivered by the computerized game: 
+
+This game can be played among the two: 
+
+1) Pc 
+2) Creatures 
+While playing on paper only the humans are involved while playing on computer gives you 
+opportunity that if you are alone then your opponent is computer itself, no worries. Enjoy your 
+time and start. 
+
+As there are two players, similarly there is a requirement of the two symbols. The symbols which 
+are normally preferred are the X and O. In the event that the primary player mark "X" at that 
+point the subsequent player is obliged to check "O" and the other way around. 
+
+A player indicates all of the 3x3 squares with his sign (may be "X" or "O") and his goal is to 
+make a straight line of two objectives, evenly(horizontally) or vertically or awry (askew). 
+
+It is compulsory to draw a line on the off chance that one winds up with three comparative 
+images to get the prize and if both of the players neglected to check the three images either 
+evenly, vertically or slantingly then the game winds up in a tie between the two players. 
+
+Key aspects to be remembered: 
+
+1) The primary player, who will be assigned "X", has 3 potential deliberately unmistakable 
+situations to check during the principal turn. 
+2) Hastily, it may happen to be that there are 9 potential locations, equating to the 9 squares 
+in the matrix. 
+3) Nonetheless, by pivoting the panel, in the main turn it is found that each corner mark is 
+deliberately proportional to each other corner mark. 
+4) The equivalent is valid for each edge (side center) mark. 
+5) From a strategical perspective, there are consequently just three potential first stamps: 
+corner, edge, or focus. 
+6) From any of these beginning imprints notwithstanding, playing the corner gives the rival 
+the littlest selection of squares which must be played to dodge losing, Player X can win 
+or power a draw. 
+7) This may recommend that the corner is the best opening move for X, an initial move in 
+the inside is best for ,anyway another study shows that if the players are not great. 
+Tips for winning the match: 
+
+1) Try to initialize the game as the first player as he is having more opportunities than the second 
+player and more chances for winning. 
+
+2) You ought to use a bit of technique to pound the machine. Strategy is connected to 
+finding what to do to succeed. 
+3)Part of the game plan is to endeavor to end up being the methods by which you can get three 
+Xs in a line. The other point of view is endeavoring to end up being the methods by which the 
+machine can't convey three O's in progression. 
+
+4)You continue looking forward after you have set a X in a square shape. 
+
+5)Where is the accompanying X ideal spot to be? You look at the unfilled squares and you make 
+sense of which ones are satisfactory choices which ones will help you with making three Xs in 
+progression. 
+
+6)You will moreover watch where your machine puts its O. Focus what is demanded by the 
+current situation. Take the moves. 
+
+7When the machine gets two O's in progression, so you have to put the accompanying X in that 
+section in the last unfilled square, or the machine will win. 
+
+8)Particular square, else you surrender the game. 
+
+Here comes the Pseudo code: 
+
+1) Who will win? 
+2) What are the consequences you are facing from the opponent? 
+3) Are you taking the right moves? 
+4) Can you take away the match or will end up with a draw? 
+5) What will be the outcome? 
+Your whole advances are relying upon the main move you took: 
+Remove this opening endlessly 
+Simply press submit in the event that you win. 
+At the point when you have 2 moves that you will take the going with: 
+3a-Anything straightforward: mark a couple 
+3b-Dense Something: see whether there are various such 2 phases and engraving the ordinary 
+part, then once more, engraving such a viewpoint, that will gather a circumstance if there are 
+more 2-advance win cases in you. 
+The game will be yours, no compromise, Focus on what make you win no matter how hard it is. 
+
+
+Sequence Diagram: 
+
+
+Usecase Diagram: 
+
+
+Activity Diagram: 
+
+
+Output: 
+
+
+
+References: 
+
+Chandra, K. and Chandra, S.S., 2019. Teaching Programming Concepts by Developing 
+Games.arXiv preprint arXiv:1903.05207. 
+
+Schäfer, U., 2019, April. Teaching Modern C++ with Flipped Classroom and Enjoyable IoT 
+Hardware. In2019 IEEE Global Engineering Education Conference (EDUCON) (pp. 
+910-919). IEEE. 
+
+
+Bae, S., 2019.Data Structure And Algorithm Fundamentals. Apress. 
+
+Strickland, J.R., 2018. Meet C++. InRaspberry Pi for Arduino Users (pp. 123-177). Apress, 
+Berkeley, CA. 
+
+
