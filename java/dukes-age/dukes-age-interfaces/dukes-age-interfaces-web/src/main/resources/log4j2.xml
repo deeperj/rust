@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<!-- value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" -->
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%logger] %msg%n" />
+		</Console>
+	</Appenders>
+
+    <!-- http://www.thoughts-on-java.org/hibernate-logging-guide/ -->
+	<Loggers>
+        <Logger name="firstcup.dukesage.resource" level="all" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+	</Loggers>
+</Configuration>
