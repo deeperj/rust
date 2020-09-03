@@ -30,14 +30,14 @@ import geb.navigator.factory.*
 // browser.$("input", name: "q").value("query") 
 
 Browser.drive {
-    go "http://gebish.org"
+    go "http://www.google.com"
 
-    assert title == "Geb - Very Groovy Browser Automation" 
+    // assert title == "Geb - Very Groovy Browser Automation" 
 
-    $("div.menu a.manuals").click() 
-    waitFor { !$("#manuals-menu").hasClass("animating") } 
+    // $("div.menu a.manuals").click() 
+    // waitFor { !$("#manuals-menu").hasClass("animating") } 
 
-    $("#manuals-menu a")[0].click() 
+    // $("#manuals-menu a")[0].click() 
 
-    assert title.startsWith("The Book Of Geb") 
+    // assert title.startsWith("The Book Of Geb") 
 }
