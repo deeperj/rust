@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="persistenceUnit" transaction-type="JTA">
+		<!-- For a Datasource created on the Application Server use: -->
+		<!-- <jta-data-source>java:jboss/datasources/helloworld</jta-data-source> -->
+        
+		<properties>
+		    <!-- Use only for in memory database -->
+ 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:helloworld;create=true" />
+			<property name="javax.persistence.jdbc.user" value="APP" />
+			<property name="javax.persistence.jdbc.password" value="APP" />
+			<!--  -->
+			
+			<!--
+                Values:
+                "none" No schema creation or deletion will take place
+                "create" The provider will create the database artifacts on application deployment. The artifacts
+                    will remain unchanged after application redeployment
+                "drop-and-create" Any artifacts in the database will be deleted, and the provider will create the
+                    database artifacts on deployment
+                "drop" Any artifacts in the database will be deleted on application deployment
+            -->
+			<property name="javax.persistence.schema-generation.database.action"
+                  value="drop-and-create"/>
+		
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+            
+            <!-- https://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#configurations-logging -->
+		</properties>
+	</persistence-unit>
+</persistence>

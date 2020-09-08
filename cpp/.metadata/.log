@@ -1,0 +1,18 @@
+!SESSION 2020-09-01 08:43:17.103 -----------------------------------------------
+eclipse.buildId=Version 1.4.0
+java.version=1.8.0_252
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-09-01 08:44:11.357
+!MESSAGE Log4j initialized with config file C:\Users\User\Dropbox\rtmp\src\rust\cpp\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-09-01 08:44:19.104
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-09-01 08:44:19.837
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-09-01 08:44:35.588
+!MESSAGE No repository found at jar:file:/C:/Users/User/Downloads/software/en.x-cube-touchgfx-4-14-0.zip!/.
