@@ -1,5 +1,0 @@
-﻿  PuzzleGame.cpp
-  design1.cpp
-  Generating Code...
-h:\downloads\src\rust\cpp\puzzle_demo\puzzlegame.cpp(131): warning C4715: 'PuzzleBoard::swap': not all control paths return a value
-  design1.vcxproj -> H:\Downloads\src\rust\cpp\puzzle_demo\Debug\design1.exe
