@@ -1,0 +1,84 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Components": [
+          {
+            "RelativeFilename": "background.png",
+            "Alpha": 255,
+            "Name": "image1",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [],
+        "Name": "Main",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "GraphApplication",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Main",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "touchgfx",
+    "UIPath": ".",
+    "ApplicationTemplateName": "STM32F746G-DISCO",
+    "BoardName": "STM32F746G-DISCO",
+    "BoardVendor": "ST",
+    "ApplicationTemplateVersion": "1.0.0",
+    "ApplicationTemplateDescription": "",
+    "AvailableColorDepths": [
+      16,
+      24
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp",
+      "24": "LCD24bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j10",
+    "PostGenerateCommand": "touchgfx update_project --project-file=target\\ST\\STM32F746G-DISCO\\IAR\\application.ewp && touchgfx update_project --project-file=target\\ST\\STM32F746G-DISCO\\Keil\\application.uvprojx && touchgfx update_project --project-file=Simulator\\msvs\\Application.vcxproj",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j10",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f target/ST/STM32F746G-DISCO/gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f target/ST/STM32F746G-DISCO/gcc/Makefile -j8 flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape"
+  },
+  "Version": "4.14.0",
+  "CreatedBy": "4.9.0"
+}
