@@ -1,0 +1,10 @@
+01:26:28 **** Incremental Build of configuration Debug for project usb303hid ****
+make -j4 all 
+arm-none-eabi-size   usb303hid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30404	    364	   3692	  34460	   869c	usb303hid.elf
+Finished building: default.size.stdout
+ 
+
+01:26:30 Build Finished. 0 errors, 0 warnings. (took 1s.920ms)
+
