@@ -1,0 +1,6 @@
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.layout.AreaChart" xmlns:fx="http://javafx.com/fxml">
+</fx:root>

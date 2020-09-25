@@ -23,6 +23,8 @@ namespace wpftest
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "BillTech Data Acquisition and Control Explorer";
+            this.WindowStartupLocation=WindowStartupLocation.CenterScreen;
         }
     }
 }

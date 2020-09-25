@@ -26,7 +26,8 @@ import static groovyx.javafx.GroovyFX.start
 
 start {
     stage(title: "Digital Acquisition and Control Explorer", visible: true) {
-        scene(fill: GROOVYBLUE, width: 640, height: 500) {
+        // scene(fill: GROOVYBLUE, width: 640, height: 500) {
+        scene(fill: GROOVYBLUE) {
             fxml(new File('dacsxrad.fxml').text)
         }
     }
