@@ -19,17 +19,14 @@
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
-
-import javafx.event.ActionEvent
-import javafx.fxml.FXML
-import javafx.fxml.Initializable
-import javafx.scene.control.Label
+import javafx.fxml.FXML;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
-import javafx.scene.chart.AreaChart
-import javafx.scene.chart.NumberAxis
-import javafx.scene.chart.XYChart
+import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import java.io.IOException;
 
 /**
  *
@@ -38,6 +35,7 @@ import javafx.scene.chart.XYChart
 public class MyAreaChart extends AreaChart {
 
     public MyAreaChart() {
+        super(new NumberAxis(1, 31, 1),new NumberAxis());
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mar.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -47,8 +45,6 @@ public class MyAreaChart extends AreaChart {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        final NumberAxis xAxis = new NumberAxis(1, 31, 1);
-        final NumberAxis yAxis = new NumberAxis();
         this.setTitle("Temperature Monitoring (in Degrees C)");
  
         XYChart.Series seriesApril= new XYChart.Series();

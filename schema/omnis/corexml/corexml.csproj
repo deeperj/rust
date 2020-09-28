@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="Orchestra.Core" Version="6.0.4" />
+    <PackageReference Include="Orchestra.Shell.Ribbon.Fluent" Version="6.0.4" />
+  </ItemGroup>
+
 </Project>

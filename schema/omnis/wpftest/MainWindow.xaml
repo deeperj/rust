@@ -4,7 +4,17 @@
     Whether it automatically resizes for content, whether
     it stays on top, whether it starts minimized or maximized,
     and an icon -->
-<Window x:Class="wpftest.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:wpftest" mc:Ignorable="d" Title="BillTech Data Acquisition and Control Explorer 1.0" Height="350" Width="525" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal">
+<Window x:Class="wpftest.MainWindow" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  xmlns:local="clr-namespace:wpftest" 
+  mc:Ignorable="d" 
+  Title="BillTech Data Acquisition and Control Explorer 1.0" 
+  Height="350" Width="525" ResizeMode="NoResize" 
+  SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal"
+>
   <!-- This is the layout manager of which
     there are many including Grid, Canvas,
     and DockPanel -->
