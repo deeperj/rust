@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Catel.Core" Version="5.12.9" />
+    <PackageReference Include="Catel.MVVM" Version="5.12.9" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="Orchestra.Core" Version="6.0.4" />
+    <PackageReference Include="Orchestra.Shell.Ribbon.Fluent" Version="6.0.4" />
+  </ItemGroup>
+
+</Project>
