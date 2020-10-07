@@ -1,4 +1,0 @@
-C:\Users\User\Dropbox\rtmp\src\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe
-C:\Users\User\Dropbox\rtmp\src\rust\cpp\PuzzleGame\Debug\PuzzleGame.pdb
-C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.exe
-C:\Users\inscia\source\repos\rust\cpp\PuzzleGame\Debug\PuzzleGame.pdb

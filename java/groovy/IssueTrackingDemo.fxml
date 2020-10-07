@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="114.0" prefHeight="366.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TreeView fx:id="tre_projects" prefHeight="478.4" prefWidth="187.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.23089840470193115" orientation="VERTICAL" prefHeight="478.4" prefWidth="445.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="tbl_issues" prefHeight="107.2" prefWidth="444.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane fx:id="anp_details" cacheShape="false" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <HBox fx:id="hbx_title_line" layoutX="14.0" layoutY="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="7.600000000000023">
+                                 <children>
+                                    <HBox fx:id="hbx_labels">
+                                       <children>
+                                          <Hyperlink fx:id="hyp_project" minWidth="-Infinity" text="PROJECT" />
+                                          <Label text="/" />
+                                          <Hyperlink fx:id="hyp_debug_id" text="ID" />
+                                       </children>
+                                    </HBox>
+                                    <TextField maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="342.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <TextArea layoutX="14.0" layoutY="58.0" prefHeight="299.0" prefWidth="422.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="7.600000000000023" AnchorPane.topAnchor="58.0" />
+                              <Label layoutX="14.0" layoutY="40.0" text="DESCRIPTION" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

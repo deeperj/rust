@@ -1,0 +1,20 @@
+16:11:40 **** Incremental Build of configuration Debug for project usb_test-tempJ ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32L053xx -DDEBUG -c -I../Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "usb_test-tempJ.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\L053\blinkytest\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="usb_test-tempJ.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: usb_test-tempJ.elf
+ 
+arm-none-eabi-objdump -h -S  usb_test-tempJ.elf  > "usb_test-tempJ.list"
+arm-none-eabi-objcopy  -O binary  usb_test-tempJ.elf  "usb_test-tempJ.bin"
+arm-none-eabi-size   usb_test-tempJ.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31080	    464	   3528	  35072	   8900	usb_test-tempJ.elf
+Finished building: default.size.stdout
+ 
+Finished building: usb_test-tempJ.bin
+ 
+Finished building: usb_test-tempJ.list
+ 
+
+16:11:43 Build Finished. 0 errors, 0 warnings. (took 2s.290ms)
+

@@ -1,0 +1,37 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Components": [
+          {
+            "RelativeFilename": "background.png",
+            "Alpha": 255,
+            "Name": "image1",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [],
+        "Name": "Main"
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "GraphApplication",
+    "Width": 480,
+    "Height": 272,
+    "Target": "STM32F746G-DISCO",
+    "TargetBpp": 16,
+    "StartupScreenName": "Main",
+    "Skin": "Blue",
+    "TouchGfxPath": "C:\\touchgfx\\4.8.0\\"
+  },
+  "Version": "4.8.0"
+}

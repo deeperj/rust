@@ -1,0 +1,4 @@
+﻿Name=Andrea;Surname=Angella;Age=28
+Name=Laura;Surname=Angella;Age=25
+Name=Franco;Surname=Angella;Age=56
+Name=Annamaria;Surname=Simonelli;Age=56

@@ -1,0 +1,624 @@
+ Software design (Course Work) 
+
+ 
+
+ 
+
+ 
+
+Student name: Sahil Loria 
+
+ 
+
+Group 12 
+
+ 
+
+Teacher name: John Alamina 
+
+ 
+
+Topic: Automated Teller Machine (ATM) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+CONTENTS: 
+
+1. Introduction............................. 
+2. Objective................................... 
+3. Use case diagram....................... 
+4. Activity diagram.......................... 
+5. Class diagram............................. 
+6. Sequence diagram...................... 
+7. Flow chart................................. 
+8. Code........................................... 
+
+
+ 
+
+Automatic teller machine (ATM) 
+
+1. Introduction: 
+
+An Automated Teller Machine (ATM) allows customers to perform banking transactions anywhere and 
+at any time without the need of human teller. By using a debit or ATM card at an ATM, individuals can 
+withdraw cash from their bank accounts, make a deposit or change pin and can also perform other 
+functions. In my (ATM) project user can see its balance in the account before and after withdraw and 
+can change its (ATM) pin, I made this project by using some important diagrams such as use case, 
+activity, class and sequence diagram, flow chart algorithm which illustrate the whole events occurs in 
+the project. 
+
+ 
+
+2. Objective: 
+
+The main objective of this project to make a program of an ATM (Auto Teller Machine) which gives the 
+option to user to withdraw the money from their account, can check the balance and change the pin 
+when they want. There is following ways by which this project is implemented. 
+
+ 
+
+Use case diagram: 
+
+A use case diagram is the list of actions or events happens in a project by specifying the roles of 
+actors or users through which the project or goal will accomplish. In this diagram there are two 
+actors are used customer and bank. Firstly, customer start the transaction and insert his/her 
+ATM card which has include relationship with enter pin and enter pin has also include 
+
+
+relationship with authorised pin and extends relationships with change pin and show balance. If 
+pin authorise then transaction will continue and option like show balance, withdraw, and 
+change pin will display and if bank unauthorised the pin than it displays error. Furthermore, if 
+customer withdraw money which has include relationship with enter amount, then, if the enter 
+amount is authorised by bank then transaction will also be authorised and dispense which has 
+extend relationship with amount authorised, otherwise it will display error. 
+
+ 
+
+ 
+
+Activity Diagram: 
+
+Activity diagram is used to maintain the activity of a project from one activity to another. In this 
+activity diagram of ATM, there are three main activities which are connected to each other that 
+is customer, bank and ATM. Firstly, customer will insert the card in the ATM and enter the pin 
+which will verified by the bank, if pin verified then ATM will display the options of change pin 
+and withdraw cash, if customer will choose to change pin then customer have to enter the pin 
+again and his/her new pin will be update by bank and if customer select withdraw cash then 
+he/ she must enter the amount which will again verified by bank. Moreover, if the customer has 
+enough money in his account then transaction will be done and enter amount will debit from 
+customer account and ATM show the new balance to the customer and transaction finish, 
+
+
+otherwise if customer accounts do not have sufficient money, then transaction fails, and error 
+will display by the ATM and to restart the transaction customer has to enter the amount again.. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3.Class Diagram: 
+
+The class diagram is one of the most important part of the project which helps to analyse and 
+design the static view of a project and helps to write the code of a software program or 
+application. In this project there are basically three classes, ATM, account, and Bank. In the 
+bank class, the accounts and enum are in the protected class which helps to save the accounts 
+of customer and enum helps to make them constant. Then there are some methods such as 
+pinOk which means customer enters the right pin. Change pin, which allows the customer to 
+
+
+change its pin code, then the other methods are withdrawCash and show balance through 
+which customer withdraw his/her money and check its balance in the account. The other class 
+is of account which has aggregation relation with bank and has getBal, setBal, debitamount 
+methods which helps set the balance, debit the money, of a customer while withdrawing the 
+money from ATM. The next class is the ATM class which inherits by the bank class which 
+includes the amount, pin as it's attributes and getPin, insertCard, displayinfo, and getamount as 
+the methods which helps to the customers do all the functions. 
+
+ 
+
+ 
+
+. 
+
+Sequence Diagram: 
+
+The Sequence diagram depicts the objects and classes involved in the scenario and the 
+sequence of messages exchanged between the objects. It also shows the time order that the 
+interactions take place. In this sequence diagram the customer act as an actor, ATM is an entity 
+object, and bank is act as a control object which will control the whole process. Firstly, in this 
+project the customer will insert card in the ATM and after that ATM will appeal for the pin to 
+customer, then customer enter his/her card pin. Furthermore, bank verify the entered pin by 
+
+
+customer and in return if pin is ok then ATM will display to choose options to customer. If 
+entered the pin will invalid, then customer must enter his pin again. After this, if customer 
+choose withdraw option, then customer must enter the amount to withdraw which is again 
+checked by bank and if the funds is less than the amount which is entered than bank will send 
+amount acceptable message to the ATM and ATM send message to customer to dispense. And 
+if the funds are invalid then, in return bank will send message to ATM that the amount 
+unacceptable, and ATM send message to customer has to re-enter the amount. Moreover, if 
+customer select the option of check balance then ATM send that message to the bank in return 
+bank give command to show the balance to ATM then after that ATM display the balance to 
+customer. At last if customer choose the change pin option then customer has to enter his pin, 
+and then ATM will give command to the Bank to update the pin, in return bank change the oin 
+of that customer and after that, ATM will display the new pin. So, in that way the the whole 
+process will work. 
+
+ 
+
+
+ 
+
+
+ 
+
+FLOW CHART: 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+#Code or Programming: 
+
+The code of this ATM basically divided into three parts that is header file(atmmm.h), 
+main(main.cpp) and source file (atmmm.cpp). Firstly, all the classes such as bank, ATM and 
+account which are used in the code is contain in the header file(atmmm.h). Then, in the 
+(atmmm.cpp) file and main.cpp file contain all the implementations of the program. 
+
+ 
+
+IMPLEMENTATION: 
+
+I begin my program by using following code: 
+
+ 
+
+#include "atmmm.h" 
+
+int givenPinumber = 5432; 
+
+int enterpin; 
+
+void account::setBal(double bal) { 
+
+ balance = bal; 
+
+} 
+
+double account::getBal() { 
+
+ return balance; 
+
+} 
+
+bank::bank(){ 
+
+ allAccounts[0].pin = "0000"; 
+
+ allAccounts[0].setBal(100); 
+
+} 
+
+
+void atm::insert() { 
+
+ enum menu { bal = 1, withdraw = 2,changepinS =3, exit = 4 }; 
+
+ if (login()) { 
+
+ selection= getUserOpt(); 
+
+ switch (selection) { 
+
+ case bal: 
+
+ displaybalance(); 
+
+ break; 
+
+ case withdraw: 
+
+ withdrawcash(); 
+
+ break; 
+
+ case changepinS: 
+
+ changepin(); 
+
+ break; 
+
+ Default; 
+
+ break; 
+
+ } 
+
+ } 
+
+ else { 
+
+ cout << "exitting.."; 
+
+ //return; 
+
+ } 
+
+} 
+
+In the above implementation of code firstly, I set the balance, pin, and give the insert option to 
+the customer. Then I use if statements and switch cases, due to which my program will give the 
+options to the customer or user that is, press 1 for check balance , press 2 for withdraw, press 3 
+for change pin and press 4 for exit. 
+
+Then I continue my code with the following : 
+
+bool atm::login() { 
+
+ cout << " welcome"; 
+
+
+ int givenPinNumber = -1; 
+
+ bool isPinInvalid = true; 
+
+ while (isPinInvalid) { 
+
+ cout << " Enter your PIN: "; 
+
+ cin >> givenPinNumber; 
+
+ if (givenPinNumber == 5432) { 
+
+ cout << "Pin ok." << endl; 
+
+ isPinInvalid = false; 
+
+ } 
+
+ else { 
+
+ cout << "Invalid PIN number! Try again." << endl; 
+
+ } 
+
+ } 
+
+ return true; 
+
+} 
+
+In the above implementation of code firstly I take some variables for validation of pin, and then 
+I use while loop and cout the (enter your pin) through which my program will give option or 
+display the option to the user to enter their pin, after that I use the if statements again, by 
+which my program comes to know that whether that the enter pin is valid or not if the pin is ok 
+then transaction will continue and if it's not then my program will display “Invalid PIN number! 
+Try again” to the user. 
+
+Nextly, I continue with ATM class with getUserOpt and displaybalance, which is given beloiw: 
+
+int atm::getUserOpt() { 
+
+ int selectedOption = -1; 
+
+ cout << "Main menu:" << endl; 
+
+ cout << " 1 - View my balance" << endl; 
+
+ cout << " 2 - Withdraw cash" << endl; 
+
+ cout << " 3 - change pin "<<endl; 
+
+ cout << " 4 - Exit" << endl; 
+
+ cout << "Enter a choice: " << endl; 
+
+ cin >> selectedOption; 
+
+
+ return selectedOption; 
+
+} 
+
+ 
+
+void atm::displaybalance() { 
+
+ //cout << "" << endl; 
+
+ cout << " You have: 100 pound in your account" << allAccounts[user].getBal() << 
+endl; 
+
+} 
+
+In the above code, I take the variable as a selected option, to give the options to the user and 
+cout the all the options to display, for user to select and then I use ATM display option through 
+which my program able to display the balance to the user and cout the balance by which user 
+can see its balance in the account. 
+
+Then I use ATM withdrawcash function: 
+
+void atm::withdrawcash() { 
+
+ int selectedOption = -1; 
+
+ int valueToWithdraw = 0; 
+
+ bool isNotFinished = true; 
+
+ int balance=100; 
+
+ //balance = 100; 
+
+ /*cin >> balance;*/ 
+
+ do { 
+
+ cout << "Withdrawal options:" << endl; 
+
+ cout << "1 - $20" << endl; 
+
+ cout << "2 - $40" << endl; 
+
+ cout << "3 - $60" << endl; 
+
+ cout << "4 - $100" << endl; 
+
+ cout << "5 - $200" << endl; 
+
+ cout << "6 - cancel transaction" << endl; 
+
+ cout << "choose a withdrawal option (1-6)" << endl; 
+
+ cin >> selectedOption; 
+
+
+ switch (selectedOption) { 
+
+ case 1: 
+
+ valueToWithdraw = 20; 
+
+ break; 
+
+ case 2: 
+
+ valueToWithdraw = 40; 
+
+ break; 
+
+ case 3: 
+
+ valueToWithdraw = 60; 
+
+ break; 
+
+ case 4: 
+
+ valueToWithdraw = 100; 
+
+ break; 
+
+ case 5: 
+
+ valueToWithdraw = 200; 
+
+ break; 
+
+ case 6: 
+
+ isNotFinished = false; 
+
+ break; 
+
+ default: 
+
+ cout << "Invalid option! Try again." << endl; 
+
+ break; 
+
+ } 
+
+ if (valueToWithdraw > balance) { 
+
+ cout << "You just have pounds " << balance << ". You can't withdraw " << 
+valueToWithdraw << endl; 
+
+ } 
+
+ else { 
+
+ balance = balance - valueToWithdraw; 
+
+
+ cout <<"your new balance is: " <<balance << endl; 
+
+ isNotFinished = false; 
+
+ } 
+
+ valueToWithdraw = 0; 
+
+ } while (isNotFinished); 
+
+} 
+
+The above function is use for withdrawing the cash, if customer select to withdraw option then 
+this function will activate. Firstly, I take some integers and give the balance and cout the 
+options to withdraw, so, after press the withdraw option my program will display all the 
+withdraw options. Then I use switch cases to break down all the selected option and after that 
+if statements, such as, If the customer have less balance in the account then the selected or 
+enter amount then my program will display that "You just have pounds, You can't withdraw " 
+and retry again. 
+
+Then at last I use ATM changepin function: 
+
+void atm::changepin() { 
+
+ int newpin; 
+
+ int oldpin; 
+
+ cout << "enter old pin" << endl; 
+
+ cin >> oldpin; 
+
+ if (oldpin == 5432) 
+
+ { 
+
+ cout << "enter new pin" << endl; 
+
+ cin >> newpin; 
+
+ cout << "your new pin is : " << newpin; 
+
+ } 
+
+} 
+
+This function will activate when the customer selects the changepin option. In this firstly, I take 
+some integers and give options to the user to enter the old and new pin and then use if 
+statements, by which user can change its pin at any time. 
+
+So this is how all the code and project implemented. 
+
+ 
+
+
+
+ 
+
+ 
+
+
+ 
+
+- 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+

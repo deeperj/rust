@@ -1,0 +1,221 @@
+UNIVERSITY OF HUDDERSFIELD 
+Name: Samundra Shrestha 
+Student ID: U2062850 
+Assignment Report and 
+Submission 
+UNIVERSITY OF HUDDERSFIELD 
+Name: Samundra Shrestha 
+Student ID: U2062850 
+Assignment Report and 
+Submission 
+Class Diagram Report: 
+
+The Above Class diagram is of thedifferent shapes of the area and the class 
+such as Triangle,Square, Circle andRectangle. Each of theclass represent the ownsub class where 
+as the mainclass is shape and the math which showthe all relationshipbetween them. Similarly the 
+Circle class which is called as sub class of the class diagram. It includes the radius with thefunction 
+double.Everyclass has their own methods like wise the circleclass has also it’s ownmethods which 
+has +Circle()r :double and +Area():double. As we all know that + signmeans that which is public to 
+the users. Whereas the– sign means private that which is hidden to the users. Like wise to allthe 
+classes I had used sameprocess as thecircle one which is similar to all. 
+
+Programming Code : 
+
+Main.cpp 
+
+#include <iostream> 
+#include "shapes.h" 
+
+int main() { 
+Shape s; 
+s.area(); 
+} 
+
+Shapes.cpp 
+
+#include "shapes.h" 
+
+double Shape::area(){ 
+cout << "Select a shape " << endl; 
+
+
+cout << "1. Circle " << endl; 
+cout << "2. Triangle " << endl; 
+cout << "3. Rectangle " << endl; 
+cout << "4. Square " << endl; 
+
+int choice; 
+cin >> choice; 
+enum shape {circle=1,triangle=2,rectangle=3,square=4}; 
+switch(choice){ 
+case circle:{ 
+cout << "what is the radius? "; 
+double r; 
+cin >> r; 
+Circle c(r); 
+cout << "the area is " << c.area(); 
+break; 
+} 
+case rectangle:{ 
+cout << "what is the length?"; 
+double l; 
+cin >> l; 
+cout << "what is the breadth?"; 
+double b; 
+cin >> b; 
+Rectangle c(l,b); 
+cout <<"the area is " << c.area(); 
+break; 
+} 
+case square:{ 
+cout << "what is the side length? "; 
+double s; 
+cin >> s; 
+Square c(s); 
+cout << "the area is " << c.area(); 
+break; 
+} 
+case triangle:{ 
+cout <<" what is the length?"; 
+double l; 
+cin >> l; 
+cout <<"what is the base?"; 
+double b; 
+cin >> b; 
+Triangle c(l,b); 
+cout <<"the area is " << c.area(); 
+break; 
+} 
+default: 
+
+
+cout << "invalid selection"; 
+exit(0); 
+break; 
+} 
+return 0; 
+} 
+
+Rectangle::Rectangle(double l, double b){ 
+length=l; 
+breadth=b; 
+} 
+Circle::Circle(double r){ 
+radius=r; 
+} 
+Triangle::Triangle(double l, double b){ 
+length=l; 
+base=b; 
+} 
+
+Square::Square(double s){ 
+side=s; 
+} 
+
+double Rectangle::area(){ 
+return (length*breadth); 
+} 
+
+double Circle::area(){ 
+return math.PI*math.sqr(radius); 
+} 
+double Square::area(){ 
+return math.sqr(side); 
+} 
+double Triangle::area(){ 
+return 0.10*(length*base); 
+} 
+
+double Maths::sqr(double v){ 
+return v*v; 
+} 
+
+Shapes.h 
+
+#include <iostream> 
+#include <string> 
+using std::cin; 
+using std::endl; 
+using std::cout; 
+
+
+using std::string; 
+
+class Maths{ 
+public: 
+double PI=22.0/7; 
+double sqr(double value); 
+}; 
+
+class Shape{ 
+public: 
+Maths math; 
+double area(); 
+}; 
+
+class Rectangle:public Shape{ 
+private: 
+double length, breadth; 
+public: 
+Rectangle(double length, double breadth); 
+double area(); 
+
+}; 
+
+class Circle:public Shape{ 
+private: 
+double radius; 
+public: 
+Circle(double radius); 
+double area(); 
+}; 
+
+class Triangle:public Shape{ 
+private: 
+double length, base; 
+public: 
+Triangle(double length, double base); 
+double area(); 
+}; 
+
+class Square:public Shape{ 
+private: 
+double side; 
+public: 
+double area(); 
+Square(double side); 
+}; 
+
+
+Report for programming code: 
+
+At the beginning we have to create a three cpp files which is Main.cpp, 
+Shapes.cpp and Shapes.h. As the question ask me to show the output of the all 
+shapes and their area respectively. I have used the different data types on 
+this programming such as Double,int, which are very necessary to run the 
+programme. As we created the different file called main.cpp, shapes.h, 
+shapes.cpp which declared the programme file respectively main.cpp declared 
+the main function of the programme which made the programme run correctly 
+without any errors. Like wise the shapes.cpp declared the method of the 
+programming which includes all the data types and function to the programme 
+which allows the compilers to process or run the programme correctly. To run 
+the programme we also need to return the value of the each input value or the 
+function . Also Shapes.h file declared the input of the programming which is 
+different class Circle, Triangle, Rectangle and Square which includes the 
+various data types such as double, private and public. 
+
+According there four shapes of area which Circle, Square, Triangle and 
+Rectangle. Firstly I have written the coding of circle and shown the output 
+which is radius of circle by using the formula math.PI*math.sqr(radius); which 
+gives us the area or radius of Circle. Like wise I have written the coding of 
+Square and the output which area of Square by using the formula 
+math.sqr(side); which gives us the area of square on the Screen. Similarly I 
+have written the coding of Rectangle and shown the output which is area of 
+rectangle by using the formula (length*breadth) which gives us the area of 
+rectangle by entering the any value on the output screen. And finally I have 
+also written the coding of the Triangle and the shown the perfect result to 
+the users to find the area of the triangle by using the formula 
+0.10*(Height*base); which gives the area of triangle to the users by entering 
+the any value on the output screen. 
+
+
