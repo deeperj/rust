@@ -1,0 +1,21 @@
+07:33:20 **** Incremental Build of configuration Debug for project h7vbt ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/newmain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DSTM32H750xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/newmain.d" -MT"Core/Src/newmain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/newmain.o"
+arm-none-eabi-gcc "../Core/Src/oldmain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DSTM32H750xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/oldmain.d" -MT"Core/Src/oldmain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/oldmain.o"
+arm-none-eabi-gcc -o "h7vbt.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\h7vbt\basic\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="h7vbt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: h7vbt.elf
+ 
+arm-none-eabi-objdump -h -S  h7vbt.elf  > "h7vbt.list"
+arm-none-eabi-objcopy  -O binary  h7vbt.elf  "h7vbt.bin"
+arm-none-eabi-size   h7vbt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1328	     12	   1572	   2912	    b60	h7vbt.elf
+Finished building: default.size.stdout
+Finished building: h7vbt.list
+ 
+Finished building: h7vbt.bin
+ 
+ 
+
+07:33:23 Build Finished. 0 errors, 0 warnings. (took 2s.522ms)
+

@@ -1,0 +1,10 @@
+08:13:53 **** Build of configuration Debug for project blinkyll ****
+make -j4 all 
+arm-none-eabi-size   blinkyll.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2292	     12	   1564	   3868	    f1c	blinkyll.elf
+Finished building: default.size.stdout
+ 
+
+08:13:54 Build Finished. 0 errors, 0 warnings. (took 1s.74ms)
+
