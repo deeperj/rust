@@ -1,0 +1,24 @@
+08:21:33 **** Incremental Build of configuration Debug for project f303usb_mouse ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F303xC -DDEBUG -c -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:88:22: warning: unused variable 'myAccConfigDef' [-Wunused-variable]
+  LIS3DSH_InitTypeDef myAccConfigDef;
+                      ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "f303usb_mouse.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\f303usb_mouse\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f303usb_mouse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: f303usb_mouse.elf
+ 
+arm-none-eabi-objdump -h -S  f303usb_mouse.elf  > "f303usb_mouse.list"
+arm-none-eabi-objcopy  -O binary  f303usb_mouse.elf  "f303usb_mouse.bin"
+arm-none-eabi-size   f303usb_mouse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31292	    364	   3756	  35412	   8a54	f303usb_mouse.elf
+Finished building: default.size.stdout
+ 
+Finished building: f303usb_mouse.bin
+ 
+Finished building: f303usb_mouse.list
+ 
+
+08:21:38 Build Finished. 0 errors, 1 warnings. (took 4s.288ms)
+

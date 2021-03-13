@@ -1,10 +1,20 @@
-01:26:28 **** Incremental Build of configuration Debug for project usb303hid ****
+16:41:25 **** Build of configuration Debug for project usb303hid ****
 make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F303xC -DDEBUG -c -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "usb303hid.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\usb303hid\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="usb303hid.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: usb303hid.elf
+ 
+arm-none-eabi-objdump -h -S  usb303hid.elf  > "usb303hid.list"
+arm-none-eabi-objcopy  -O binary  usb303hid.elf  "usb303hid.bin"
 arm-none-eabi-size   usb303hid.elf 
    text	   data	    bss	    dec	    hex	filename
-  30404	    364	   3692	  34460	   869c	usb303hid.elf
+  30320	    364	   3692	  34376	   8648	usb303hid.elf
 Finished building: default.size.stdout
  
+Finished building: usb303hid.bin
+ 
+Finished building: usb303hid.list
+ 
 
-01:26:30 Build Finished. 0 errors, 0 warnings. (took 1s.920ms)
+16:41:37 Build Finished. 0 errors, 0 warnings. (took 11s.681ms)
 
