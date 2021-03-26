@@ -1,0 +1,130 @@
+Complex Number Program 
+
+The aim ofthe program 
+
+The program is a method to solve complex numbers 
+problems. The implementations that have gone 
+through the program are vast and complex. 
+
+Thorough understanding of concepts of object-
+oriented paradigm was crucial to develop the 
+program using the implementations of classes and 
+the four main concepts of object-oriented paradigm 
+such as polymorphism, abstraction, encapsulation 
+and inheritance. 
+
+
+The objectives ofthe program 
+
+1. To implement a complex class 
+2. Respecting the general rule of encapsulation 
+3. Creating the suitable methods in the main class 
+4. Implementing the understanding of how complex 
+numbers work and how to write a program that does 
+the specific job 
+5. To run the program successfully without any 
+errors and gaining reliable results 
+6. To make the user able to make any type of 
+complex number calculation 
+
+Methodology 
+
+- The program uses the implementations of the 
+basic yet complex understanding of the object-
+oriented paradigm programming. By initialising the 
+main class called Complex. 
+Followed by the implementations of the private 
+members (mReal and mImag) which are following 
+the rules of encapsulation and calling the members 
+using a getter function which is public. 
+
+Methods were used extensively in the program. 
+Beginning with a getter method for the private 
+members. In addition to a method for each 
+calculation used on the program which are as 
+follows: 
+
+
+1. Addition 
+2. Subtraction 
+3. Division 
+4. Multiplication 
+5. Polar-to-rectangular conversions 
+6. Rectangular-to-polar conversions 
+7. Complex modulus 
+In addition, overriding was used to make the 
+program understandable and easier to read. 
+
+
+The diagrams ofthe program 
+
+
+- Here you can see the class diagram of the 
+program. Containing the private attributes and the 
+main public methods of which were implemented 
+in the program. The format of the class diagram 
+have been respected and followed. 
+
+- As it appears, this is the flow chart for the addition 
+algorithm for the complex numbers. It is initiated by 
+calling the method followed by the initialisation of 
+the variables of which the values of the real and 
+imaginary numbers are stored inside. Then followed 
+by calculating the addition of the two separate 
+numbers (real and imaginary) and then returning the 
+values of the variables as they now store the 
+addition value of the two numbers. 
+
+The same concept is applied here, with the 
+variables are being initialised, stored the value of 
+the difference between the two numbers and then 
+returned. 
+
+
+Flowchart:Addition 
+
+Add (Complex no); 
+double r,i; 
+r = Real()+no.Real(); 
+i = Imag()+no.Imag(); 
+return i,r; 
+
+End 
+
+Flowchart:Multiplication 
+
+Multiply (Complex no); 
+double r,i; 
+r =(Real()*no.Real())+(Imag()*no.Imag()*-1); 
+i = ((Real()*no.Imag())+(Imag()*no.Real())); 
+
+return r,i 
+
+End 
+
+
+The outcome ofthe program 
+
+- The results of the program came very promising 
+and reliable. Making the program and excellent 
+choice if the user needs an overall complex 
+calculator. 
+The program was implemented to be as user 
+friendly as possible with clear prompting for 
+anybody to use. As the user is prompted to write the 
+parts of the real and imaginary part of the first 
+complex number and then it is repeated for the 
+second complex number. 
+
+The program then starts calculating the results and 
+outputs it on the screen in order. 
+
+
+Conclusion 
+
+The program aided me in my understanding and 
+learning of object-oriented programming greatly. A 
+vast amount of knowledge was gained from creating 
+this program of which I am very thankful for. 
+
+

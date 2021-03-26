@@ -1,0 +1,99 @@
+Complex Calculator 
+
+Summary: 
+
+Complex Calculator is an object-oriented program that is used to calculate anything related 
+to complex number like adding, Subtracting, Multiplying, division, converting between 
+rectangular form to polar form and vice versa and also power function and root function. 
+
+Chapter one: 
+
+Introduction: Complex Calculator is a program to calculate everything related to 
+complex number. Helping students to check their answers fast and efficient. 
+
+Aim: To develop a Complex Number calculator to add, subtract, divide, multiply, 
+switch between polar form and rectangular form 
+
+Objective: 
+
+1. To create a class called Complex using the encapsulation. 
+2. Create function to add. 
+3. Create function to Subtract. 
+4. Create function to Multiply. 
+5. Create function to Divide. 
+6. Create a Pow function to be able to square complex data type. 
+7. Create a root function to be able to square root complex data type. 
+8. Take input from the user. 
+9. Output to the user the answers. 
+Chapter Two: 
+
+Methodology: 
+
+I started by creating a Complex.cpp file to create inside it the class called complex so that I 
+can use it to set my own attributes so that all the functions can use this attributes. I created 
+two attributes with double data type so that I can use it for all the functions like division. 
+First attribute to store real numbers and the other one to store the imaginary. After that I 
+created three constructors. Then I started with writing the functions I started with the 
+function to return the real and the imaginary part as the I declared the attributes as private. 
+Then I created the magnitude function that add the real and imaginary part each squared 
+under the square root and then return it. After that the argument function I started by 
+declaring the ctemp and initializing it with the pi value to use it to get the angle in rads. I 
+used an if function to make sure that if the imaginary part is zero then the angle is 90 and 
+the else will be the formula to get the angle. Then returning it inside the ctemp. After that 
+the setpolar function that will use the argument and the magnitude function to return back 
+the real and imaginary part using the rectangular form which must look like this 
+
+mReal = aMagnitude * cos(aArgument); 
+mImag = aMagnitude * sin(aArgument); 
+
+
+after that I created a Pow function and the root function that is used to power and square 
+root a complex number using the standard pow function and the standard sqrt function 
+inside the c++ library. after that I started doing the Addition function using the attributes of 
+the class I am in by adding both the real and the imaginary and returning it in a variable I 
+declared complex answer. I did the same for subtraction changed the sign only. After that I 
+implemented the multiplication function which I will show its flowchart here: 
+
+
+And this is the pseudo code 
+Start 
+Declare num as Complex 
+Declare answer as Complex 
+answer.Real = num.Real() * mReal-num.Imag()*mImag 
+answer. Imag= num.Real()* mImag+num.Imag()*mReal 
+output answer 
+end 
+
+
+after that I implemented the division function. And here is the Addition function flowchart : 
+
+
+And this is the pseudo code : 
+start 
+declare num as Complex 
+declare answer as Complex 
+answer.real= num.Real+mReal() 
+answer.Imag=num.Imag_mImag() 
+output answer 
+end 
+In addition , I created a complex.h file that I declared in it all the functions and the data I 
+
+can use. I used multiple file so that it will be easier to me to trace errors and write the code. 
+Then the main file I outputted to the user messages asking to input the first complex 
+number by inputting the real then the imaginary and the same for the other number I took 
+this number and used inside the functions I implemented in the Complex.cpp file by 
+recalling them inside the main I created variables so that I can output them to the user. 
+
+
+And here is the class diagram and some of the pseudo codes that surely helped me. 
+implement this object-oriented code. 
+
+
+Chapter three: 
+Conclusion: 
+
+To sum up, the code ran flawlessly with no errors, it gave the right outputs that was 
+predicted. It is now a full object-oriented program that is easy to be used by anyone and 
+efficient, fast and trusted to give the right answers. 
+
+

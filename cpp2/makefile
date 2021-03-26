@@ -1,3 +1,3 @@
-run.exe:g12_14/aman/*.cpp
-	g++ g12_14/aman/*.cpp -o run.exe -std=c++11
+run.exe:2021_g11_12/p1/noor/*.cpp
+	g++ 2021_g11_12/p1/noor/*.cpp -o run.exe -std=c++11
 	run.exe
