@@ -9,6 +9,6 @@ int main() {
   //   cout << (i+1) << " ";
   //   int j= rand()%5;
   //   cout << j << endl;
-  // }
-  test_shuffle_array();
+  // }/
+  test_h_find();
 }
