@@ -19,7 +19,17 @@ void test_shuffle_array(){
   int a=30;
   int out[a];
   int value=shuffleArray(out, a);
-  if(value>0){
+  bool shuffled=false;
+  for(int i=0;i<a;i++){
+    if(i>0){
+      if(out[i]>i[i-1]){
+        continue;
+      }else{
+        bool shuffled=true;
+      }
+    }
+  }
+  if(shuffled){
     cout << "shuffleArray() test success! Processed .. " << value << " names!" << endl;
   }else{
     cout << "shuffleArray() unit test failed!" << endl;
