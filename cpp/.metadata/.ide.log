@@ -277,3 +277,25 @@
 2020-11-01 17:08:19,905 [INFO] ThirdPartyDb:299 - Save Third Party DataBase File (C:/Users/User/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) [forced]
 2020-11-01 17:08:19,996 [INFO] IntegrityCheckThread:76 - exiting critical section [integrity check]
 2020-11-01 17:08:19,996 [INFO] IntegrityCheckThread:79 - End integrity checks thread
+2021-04-16 01:24:58,708 [INFO] Activator:178 - 
+
+
+2021-04-16 01:24:58,716 [INFO] Activator:179 - !SESSION log4j initialized
+2021-04-16 01:25:41,215 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.165331204 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,250 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.2041570275 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,262 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.114039974 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,269 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.core.1083960614 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,277 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.1208958945 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,285 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.854503065 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,292 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.2146378960 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,379 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.165331204 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,385 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.2041570275 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,392 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.114039974 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,399 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.core.1083960614 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,472 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.1208958945 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,478 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.854503065 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 01:25:41,486 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.2146378960 uses a null category that is invalid in its context. The option was ignored.
+2021-04-19 06:12:50,292 [INFO] Activator:178 - 
+
+
+2021-04-19 06:12:50,298 [INFO] Activator:179 - !SESSION log4j initialized

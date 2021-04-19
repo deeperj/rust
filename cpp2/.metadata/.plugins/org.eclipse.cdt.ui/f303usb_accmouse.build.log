@@ -1,24 +1,10 @@
-17:46:38 **** Incremental Build of configuration Debug for project f303usb_accmouse ****
+01:28:18 **** Incremental Build of configuration Debug for project f303usb_accmouse ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F303xC -DDEBUG -c -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:88:22: warning: unused variable 'myAccConfigDef' [-Wunused-variable]
-  LIS3DSH_InitTypeDef myAccConfigDef;
-                      ^~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "f303usb_accmouse.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\f303usb_accmouse\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f303usb_accmouse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: f303usb_accmouse.elf
- 
-arm-none-eabi-objdump -h -S  f303usb_accmouse.elf  > "f303usb_accmouse.list"
-arm-none-eabi-objcopy  -O binary  f303usb_accmouse.elf  "f303usb_accmouse.bin"
 arm-none-eabi-size   f303usb_accmouse.elf 
    text	   data	    bss	    dec	    hex	filename
   31424	    364	   3756	  35544	   8ad8	f303usb_accmouse.elf
 Finished building: default.size.stdout
  
-Finished building: f303usb_accmouse.bin
- 
-Finished building: f303usb_accmouse.list
- 
 
-17:46:41 Build Finished. 0 errors, 1 warnings. (took 2s.936ms)
+01:28:19 Build Finished. 0 errors, 0 warnings. (took 1s.151ms)
 
