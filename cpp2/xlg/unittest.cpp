@@ -47,7 +47,7 @@ void test_h_find(){
   // negative test
   cout << "running negative test for h_find().." << endl;
   if(h_find(hs,hsl,5)>0){
-    cout << "test failed for h_find()" << endl;
+     cout << "test failed for h_find()" << endl;
   }else{
     cout << "test passed for h_find()" << endl;
   }
