@@ -1,40 +1,37 @@
 
 export default class TicTacToeGame 
-{}
-  /*
-  this.winner = false;
-  this.validMoves =  [
-    [0, 1, 3],
-    [1, 0, 2, 4],
-    [2, 1, 5],
-    [3, 0, 4, 6],
-    [4, 1, 3, 5, 7],
-    [5, 2, 4, 8],
-    [6, 3, 7],
-    [7, 6, 8, 4],
-    [8, 5, 7]
-  ];
-  // List board = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
-  this.BSZ = 3;
-  this.BSZ2 = 9;
-  this.vdx;
-  this.zdx;
-  this._c;
-  this.board = [1, 4, 2, 6, 0, 5, 7, 3, 8];
+{
 
-  constructor() 
-  {
-    this.vdx = this.zdx = this.find(board, 0);
+  constructor(){
+    this.winner = false;
+    this.validMoves =  [
+      [0, 1, 3],
+      [1, 0, 2, 4],
+      [2, 1, 5],
+      [3, 0, 4, 6],
+      [4, 1, 3, 5, 7],
+      [5, 2, 4, 8],
+      [6, 3, 7],
+      [7, 6, 8, 4],
+      [8, 5, 7]
+    ];
+    // List board = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
+    this.BSZ = 3;
+    this.BSZ2 = 9;
+    this.board = [1, 4, 2, 6, 0, 5, 7, 3, 8];
+    this.vdx = this.zdx = this.find(this.board, 0);
   }
   
+  next(min, max){return min + Math.floor(Math.random() * max);}
+
   randomizeBoard() 
   {
     this.board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
     for (let i = 0; i < this.BSZ2; i++) {
       let fixed = false;
       while (!fixed) {
-        let fix = _next(0, BSZ2);
-        if (this.board[fix] == -1) {
+        let fix = this.next(0, this.BSZ2);
+        if (this.board[fix] === -1) {
           this.board[fix] = i;
           fixed = true;
         }
@@ -42,33 +39,32 @@ export default class TicTacToeGame
     }
   }
 
-  _next(min, max) => min + Math.floor(Math.random() * max);
 
   reset() 
   {
     this.winner = false;
-    randomizeBoard();
+    this.randomizeBoard();
   }
 
   drawBoard() 
   {
-    var sb;
+    let sb = '';
     for (var i = 0; i < this.BSZ; i++) {
       for (var j = 0; j < this.BSZ; j++)
-        if (this.board[i * this.BSZ + j] == 0)
-          sb.append("X");
-        else
-          sb.append(board[i * this.BSZ + j]);
-      print(sb);
-      sb.clear();
-    }
+        if (this.board[i * this.BSZ + j] === 0){
+          sb+="X";
+        }else{
+          sb+=(this.board[i * this.BSZ + j]);
+        }
+      sb+='\n';
+    }console.log(sb);
   }
 
   getText() 
   {
     if (this.winner)
       return "we have a winner!";
-    else if (!validChoice())
+    else if (!this.validChoice())
       return "invalid choice";
     else
       return "";
@@ -82,41 +78,51 @@ export default class TicTacToeGame
   loop() 
   {
     while (!this.winner) {
-      drawBoard();
-      this._c = getChoice();
-      this.zdx = find(board, 0);
-      this.vdx = find(board, _c);
+      this.drawBoard();
+      this._c =  this.getChoice();
+      this.zdx = this.find(this.board, 0);
+      this.vdx = this.find(this.board, this._c);
 //      print(validMoves[zdx]);
-      if (this._c == -1 || !validChoice()) {
-        print("invalid choice");
-        continue;
+      if (this._c === -1 || !this.validChoice()) {
+        console.log("invalid choice");
+        break;
       }
-      swapPieces();
-      this.winner = checkWinner();
+      this.swapPieces();
+      this.winner = this.checkWinner();
       if (this.winner) {
-        drawBoard();
-        print("we have a winner!");
+        this.drawBoard();
+        console.log("we have a winner!");
       }
     }
   }
 
-  void swapPieces() 
+  swapPieces() 
   {
-    this.board[this.zdx] = board[this.vdx];
-    board[this.vdx] = 0;
+    this.board[this.zdx] = this.board[this.vdx];
+    this.board[this.vdx] = 0;
   }
 
   validChoice() 
   {
-    return validMoves[zdx].contains(vdx);
+    return this.validMoves[this.zdx].includes(this.vdx);
   }
 
   getChoice() 
   {
-    console.log("select a value: ");
-    let line = input('select a value: ');
+    // const readline = require("readline");
+    // const rl = readline.createInterface({
+    //     input: process.stdin,
+    //     output: process.stdout
+    // });
+    // let line = '';
+    // rl.question("Where do you live ? ", country=>{
+    //   console.log(`i am here ${country}`);
+    //   line=country
+    //   rl.close();
+    // });
+    let line = prompt('select a value: ');
     try {
-      return int.parse(line.trim());
+      return parseInt(line.trim());
     } catch {
       return -1;
     }
@@ -132,32 +138,31 @@ export default class TicTacToeGame
   gamePlay(idx) 
   {
     if (this.winner) {
-      reset();
+      this.reset();
       return;
     }
-    this.zdx = find(this.board, 0);
-    this.vdx = this.idx;
-//      print(validMoves[zdx]);
-    if (!validChoice()) {
-      print("invalid choice ${idx}");
+    this.zdx = this.find(this.board, 0);
+    this.vdx = idx;
+    if (!this.validChoice()) {
+      console.log(`invalid choice ${idx}`);
       return;
     }
-    swapPieces();
-    this.winner = checkWinner();
+    this.swapPieces();
+    this.winner = this.checkWinner();
   }
 
   checkWinner()
   {
-    if (!((this.board[0] == 0 || this.board[0] == 1) &&
-        (board[this.BSZ2 - 1] == 0 || this.board[BSZ2 - 1] == 8))) {
+    if (!((this.board[0] === 0 || this.board[0] === 1) &&
+        (this.board[this.BSZ2 - 1] === 0 || this.board[this.BSZ2 - 1] == 8))) {
       return false;
     }
     //check for winner step 2 check remaining board spaces
     for (let i = 0; i < this.BSZ2; i++) {
       if (i > 0 && i < this.BSZ2 - 1) {
-        if ((this.board[i] != 0 &&
+        if ((this.board[i] !== 0 &&
             i > 1 &&
-            (this.board[i - 1] == 0
+            (this.board[i - 1] === 0
                 ? this.board[i] < this.board[i - 2]
                 : this.board[i] < this.board[i - 1]))) {
           // cout << "here" << i << endl;
@@ -168,4 +173,4 @@ export default class TicTacToeGame
     return true;
   }
 }
-*/
+export let ttt = new TicTacToeGame();
