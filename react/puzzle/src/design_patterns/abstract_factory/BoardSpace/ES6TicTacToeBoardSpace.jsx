@@ -1,32 +1,28 @@
 
 import { Component } from 'react';
-//import { TicTacToeGame } from  '../../../services/TicTacToeGame';
-
-//import { ITicTacToeBoardSpace } from './ITicTacToeBoardSpace';
-
 
 export class ES6TicTacToeBoardSpace extends Component{
 
-  //TicTacToeGame _tictactoe;
-  constructor() { 
-    super();
-  }
-
-  bspace(id){
-    let res= "boardspace "+(this.ttt.windex!=-1 
-      && this.ttt.winstates[this.ttt.windex].includes(id))
-      ?"usewhite":"usered";
+  bspace = () =>{
+    //console.dir(this.ttt);
+    let res=((this.id==this.ttt.vdx) && !this.ttt.validChoice())?"usered":"usepink";
+    res = (this.ttt.winner?"usegreen":res);
+    res = (this.ttt.board[this.id]==0?"usewhite":res);
     return "boardspace "+res;
   }
-  handle(ttt,id){
-    console.log('handling');
-    //ttt.gamePlay(ttt.board[id]);
+
+  handle =()=>{
+    this.setState({id:1})
+    this.ttt.gamePlay(this.id);
+    this.props.build();
   }
+
   render(){
       this.ttt=this.props.componentData.component;
+      this.id=this.props.componentData.id;
       const {component:ttt,id} = this.props.componentData;
       return (
-        <div className={this.bspace(id)} onClick={this.handle(ttt,id)}>
+        <div className={this.bspace()} onClick={this.handle}>
           <div className="btext">{ttt.board[id]}</div>
         </div>
       );

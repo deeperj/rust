@@ -67,7 +67,7 @@ export default class TicTacToeGame
     else if (!this.validChoice())
       return "invalid choice";
     else
-      return "";
+      return "Number puzzle";
   }
 
   gameLoop() 
@@ -144,7 +144,7 @@ export default class TicTacToeGame
     this.zdx = this.find(this.board, 0);
     this.vdx = idx;
     if (!this.validChoice()) {
-      console.log(`invalid choice ${idx}`);
+      console.log(`${this.zdx} invalid choice ${idx}`);
       return;
     }
     this.swapPieces();

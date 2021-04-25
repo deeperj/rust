@@ -15,6 +15,5 @@ using std::fstream;
 
 int getNames(string file, string names[]);
 int shuffleArray(int outArray[], int len);
-int h_find(int needle[], int len, int hstack);
 
 #endif
