@@ -28,15 +28,16 @@ void test_shuffle_array(){
         shuffled=true;
       }
     }
-  }
-  for(int i=0;i<a;i++){
-    if(i>0){
-      if(out[i]==out[i-1]){
-        shuffled=false;
-        continue;
-      }else{
-        shuffled=true;
-        break;
+  }if(shuffled){
+    for(int i=0;i<a;i++){
+      if(i>0){
+        if(out[i]==out[i-1]){
+          shuffled=false;
+          continue;
+        }else{
+          shuffled=true;
+          break;
+        }
       }
     }
   }
