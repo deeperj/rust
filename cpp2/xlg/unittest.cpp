@@ -5,7 +5,7 @@
 void test_get_names(){
   //function takes in a test file an output array and returns number of lines
   //it should return at least 1 line
-  int a=30;
+  const int a=30;
   string fNames[a];
   int value=getNames("data.txt", fNames);
   if(value>0){
