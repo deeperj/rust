@@ -2941,3 +2941,21 @@ Please check for update: Help > Check for Updates
 
 !ENTRY org.eclipse.cdt.core 1 0 2021-04-25 07:28:00.406
 !MESSAGE Indexed 'f303default_mode' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2021-04-26 02:39:55.310 -----------------------------------------------
+eclipse.buildId=Version 1.4.0
+java.version=1.8.0_252
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-26 02:40:09.905
+!MESSAGE Log4j initialized with config file C:\Users\User\Dropbox\rtmp\src\rust\cpp2\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-26 02:40:25.734
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-26 02:40:26.462
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2021-04-26 02:40:50.009
+!MESSAGE No repository found at jar:file:/C:/Users/User/Downloads/software/en.x-cube-touchgfx-4-14-0.zip!/.
