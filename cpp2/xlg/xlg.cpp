@@ -38,3 +38,25 @@ int shuffleArray(int out[], int arrayLen){
   // endfunction
   return 0;
 }
+
+
+int xlg(int x, int y, string arr[], int len){
+  // :input-> x, y, array, arraylen;
+  // :declare ppg = arraylen/x;
+  // :declare rem = arraylen%x;
+  // :declare shuffleArray having length arraylen;
+  // :call function -> shuffle_array(shuffleArray);
+  // for(i=0;i<y;i++)
+  // :cout << "Round " << (i+1) << endl;
+  // :declare -> j=0;
+  // while(j<x-1) is yes then
+  //   :cout << "Group " << (j+1) << endl;
+  //   :declare subArray of length ppg;
+  //   :call function -> sublist(array,subArray,j*ppg,ppg);
+  //   :j=j+1;
+  // endwhile
+  // :call function -> sublist(array,subArray,j*ppg,ppg+rem);
+  // endfor
+  // stop
+  return 0;
+}
