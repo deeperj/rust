@@ -20,18 +20,21 @@ int getNames(string file, string names[]){
 
   // input: array, length ->output: shuffled array
 int shuffleArray(int out[], int arrayLen){
-  // :input -> output_array, arraylen;
-  // :declare -> arraylen as length of ouput_array;
   // :set output_array values to zero;
-  // :declare -> i=0;
-  // :declare -> j=random_between_1_and_arraylen;
+  for(int i=0;i<arrayLen;i++)out[i]=0;
+  // :random generator init;
+  srand(time(NULL));
   // while(i<arraylen) is yes then
-  //   while(output_array[j]>0) is yes then
-  //   :j=random_between_1_and_arraylen;
-  //   endwhile is no
-  //   :output_array[j]=i;
-  //   :i=i+1;
-  // endwhile is no
+  for(int i=0;i<arrayLen;i++){
+    // :declare -> j=random_between_1_and_arraylen;
+    int j=1+(rand()%arrayLen);
+    //   while(output_array[j]>0) is yes then
+    while(out[j]>0)
+      //   :j=random_between_1_and_arraylen;
+      j=1+(rand()%arrayLen);
+    //:output_array[j]=i;
+    out[j]=i;
+  }
   // endfunction
   return 0;
 }
