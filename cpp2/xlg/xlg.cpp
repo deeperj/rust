@@ -60,3 +60,14 @@ int xlg(int x, int y, string arr[], int len){
   // stop
   return 0;
 }
+
+int sublist(int array[], int shuffled[],int out[], int start, int count){
+  // begin function -> sublist
+  // :input -> array, output_array, shuffleArray, start_index, count;
+  // for(i=0;i<count;i++)
+  // :outputarray[i]=array[shuffleArray[i+start_index]];
+  // :cout << outputarray[i] << endl;
+  // endfor
+  // endfunction
+  return 0;
+}
