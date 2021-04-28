@@ -40,28 +40,46 @@ int shuffleArray(int out[], int arrayLen){
 }
 
 
-int xlg(int x, int y, string arr[], int len){
-  // :input-> x, y, array, arraylen;
+int xlg(int x, int y, string arr[], int const len ){
+  if(x==0 || y==0 || len ==0){
+    return ERROR;
+  }
+  // :input-> x (no of groups from arr list), y (no of times), array, arraylen;
   // :declare ppg = arraylen/x;
+  const int ppg = len/x;
   // :declare rem = arraylen%x;
+  int rem = len%x;
   // :declare shuffleArray having length arraylen;
+  int shuffle[len] = {0};
   // :call function -> shuffle_array(shuffleArray);
-  // for(i=0;i<y;i++)
-  // :cout << "Round " << (i+1) << endl;
-  // :declare -> j=0;
-  // while(j<x-1) is yes then
-  //   :cout << "Group " << (j+1) << endl;
+  int res=shuffleArray(shuffle, len);
+  if(res != SUCCESS){
+    return ERROR;
+  }
+for(int i=0; i<y ;i++){
+    cout << "Round " << (i+1) << endl;
+    int j=0;
+    for(j=0;j<x-1; j++) {  //   :cout << "Group " << (j+1) << endl;
   //   :declare subArray of length ppg;
+      string subl[ppg];
   //   :call function -> sublist(array,subArray,j*ppg,ppg);
-  //   :j=j+1;
-  // endwhile
-  // :call function -> sublist(array,subArray,j*ppg,ppg+rem);
-  // endfor
-  // stop
-  return 0;
+      res = sublist(arr, shuffle,subl,j*ppg,ppg);
+      if(res != SUCCESS){
+        return ERROR;
+      }
+  }
+    if(rem>0){
+      string subl[ppg];
+      res = sublist(arr,shuffle,subl,j*ppg,ppg+rem);
+      if(res != SUCCESS){
+        return ERROR;
+      }
+    }
+  }
+  return SUCCESS;
 }
 
-int sublist(int array[], int shuffled[],int out[], int start, int count){
+int sublist(string array[], int shuffled[],string out[], int start, int count){
   // begin function -> sublist
   // :input -> array, output_array, shuffleArray, start_index, count;
   // for(i=0;i<count;i++)
@@ -69,5 +87,5 @@ int sublist(int array[], int shuffled[],int out[], int start, int count){
   // :cout << outputarray[i] << endl;
   // endfor
   // endfunction
-  return 0;
+  return SUCCESS;
 }

@@ -10,5 +10,5 @@ int main() {
   //   int j= rand()%5;
   //   cout << j << endl;
   // }/
-  test_shuffle_array();
+  test_xlg();
 }

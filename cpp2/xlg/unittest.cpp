@@ -72,3 +72,35 @@ int h_find(const int haystack[], int len, int needle){
     }
   }return -1;
 }
+
+void test_xlg(){
+  //Arrange
+  string arr[]={"1,2,3,4"};
+  //Action
+  int res=xlg(2,1,arr,sizeof(arr)/sizeof(arr[0]));
+  //Assert
+  switch(res){
+    case ERROR:
+      cout << "test alg() Failed!" << endl ;
+      break;
+    default:
+      cout << "test alg() Success!" << endl;
+  }
+}
+
+void test_sublist(){
+  //Arrange
+  string arr[]={"1,2,3,4"};
+  int sh[]={1,2,3,4};
+  //Action
+  int res=sublist(arr,sh,arr,0,0);
+  //Assert
+  switch(res){
+    case ERROR:
+      cout << "test sublist() Failed!" << endl ;
+      break;
+    default:
+      cout << "test sublist() Success!" << endl;
+  }
+
+}
