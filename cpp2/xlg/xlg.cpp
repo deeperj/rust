@@ -33,7 +33,7 @@ int shuffleArray(int out[], int arrayLen){
     //   while(output_array[j]>0) is yes then
     while(out[j]>0)
       //   :j=random_between_1_and_arraylen;
-      j=1+(rand()%arrayLen);
+      j=1+(rand()%(arrayLen-1));
     //:output_array[j]=i;
     out[j]=i;
     //cout << j << " " << i << endl;
@@ -55,7 +55,7 @@ int xlg(int x, int y, string arr[], const int len ){
   // :declare shuffleArray having length arraylen;
   int shuffle[len] = {0};
   // :call function -> shuffle_array(shuffleArray);
-  cout << "debug1 alen=" << len << " " << endl;
+  // cout << "debug1 alen=" << len << " " << endl;
   int res=shuffleArray(shuffle, len);
   if(res != SUCCESS){
     cout << "xlg::xlg: an error occurred!" << endl;
