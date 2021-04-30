@@ -75,9 +75,11 @@ int h_find(const int haystack[], int len, int needle){
 
 void test_xlg(){
   //Arrange
-  string arr[]={"1,2,3,4"};
+  const int a=30;
+  string fNames[a];
+  int value=getNames("data.txt", fNames);
   //Action
-  int res=xlg(2,1,arr,sizeof(arr)/sizeof(arr[0]));
+  int res=xlg(2,1,fNames,value);
   //Assert
   switch(res){
     case ERROR:
