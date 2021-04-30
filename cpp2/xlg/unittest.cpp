@@ -79,7 +79,7 @@ void test_xlg(){
   string fNames[a];
   int value=getNames("data.txt", fNames);
   //Action
-  int res=xlg(2,1,fNames,value);
+  int res=xlg(2,3,fNames,value);
   //Assert
   switch(res){
     case ERROR:
