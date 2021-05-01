@@ -11,6 +11,7 @@ int main(){
     Point2D b(10,12);
     Point2D midpoint = a.midPoint(b);
     double grad = a.gradient(b);
-    cout << "the gradient is " << grad; 
+    cout << "the gradient is " << grad << endl; 
+    cout << "the midpoint is is " << midpoint.mx << ", " << midpoint.my; 
     return 0;
 }
