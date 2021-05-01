@@ -14,6 +14,9 @@ namespace progressive.Models
         public string LastName { get; set; }
         public string OtherNames { get; set; }
 
+        public Module Module { get; set; }
+        public Group Group { get; set; }
+
         public ICollection<Progression> Progressions { get; set; }
     }
 }

@@ -7,7 +7,8 @@ namespace progressive.Models
     {
         Attendance, 
         Formative, 
-        Summative
+        Summative,
+        Enrollment
     }
 
     public enum TaskType
@@ -22,7 +23,9 @@ namespace progressive.Models
         EndTermMock,
         Quiz,
         ReflectiveJournal,
-        Portfolio
+        Portfolio,
+        Enrollment,
+        Diagnostic
     }
 
     public class Task
@@ -35,6 +38,9 @@ namespace progressive.Models
         public string TaskName { get; set; }
         public int DueWeek { get; set; }
         public int DueLesson { get; set; }
+        public DateTime? DueDate { get; set }
+
+        public Module Module { get; set; }
 
         public ICollection<Progression> Progressions { get; set; }
     }
