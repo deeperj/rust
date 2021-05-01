@@ -42,11 +42,12 @@ int shuffleArray(int out[], int arrayLen){
 }
 
 
+  // :input-> x (no of groups from arr list), y (no of times)
+  //, array, arraylen ->output -> x lists in array, y times
 int xlg(int x, int y, string arr[], const int len ){
   if(x==0 || y==0 || len ==0){
     return ERROR;
   }
-  // :input-> x (no of groups from arr list), y (no of times), array, arraylen;
   // :declare ppg = arraylen/x;
   const int ppg = len/x;
   // :declare rem = arraylen%x;
