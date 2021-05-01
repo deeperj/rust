@@ -1,21 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using progressive.Data;
+using ContosoUniversity.Data;
 
-namespace progressive
+namespace ContosoUniversity
 {
-    public class Startup
+    public class StartupContuoso
     {
         public Startup(IConfiguration configuration)
         {
@@ -27,14 +21,13 @@ namespace progressive
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.AddRazorPages();
 
-            services.AddDbContext<ProgressiveContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("ProgressiveDB")));
-                // options.UseSqlServer(Configuration.GetConnectionString("ProgressiveDB")));
-            //services.AddDatabaseDeveloperPageExceptionFilter();
-       }
+            services.AddDbContext<SchoolContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("SchoolContext")));
+                    // options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,7 +36,6 @@ namespace progressive
             {
                 app.UseDeveloperExceptionPage();
             }
-
             else
             {
                 app.UseExceptionHandler("/Error");
@@ -60,7 +52,7 @@ namespace progressive
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }

@@ -1,3 +1,5 @@
+using System;
+
 namespace progressive.Models
 {
 
@@ -7,9 +9,9 @@ namespace progressive.Models
         public int TaskID { get; set; }
         public int StudentID { get; set; }
         public int TaskAssessment { get; set; }
-        public bool? RPAGRated { get; set; }
         public bool? Completed { get; set; }
         public DateTime DueDate { get; set; }
+        public string Comments { get; set; }
 
         public Task Task { get; set; }
         public Student Student { get; set; }

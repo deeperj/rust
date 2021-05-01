@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace progressive.Models
 {
@@ -7,12 +8,16 @@ namespace progressive.Models
     {
         // [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int BatchID { get; set; }
-        public string BatchName { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime MidSemDate { get; set; }
-        public DateTime EndSemDate { get; set; }
+        public string BatchCode { get; set; }
+        public DateTime Term1StartDate { get; set; }
+        public DateTime Term2StartDate { get; set; }
+        public DateTime MidTerm1Date { get; set; }
+        public DateTime EndTerm1Date { get; set; }
+        public DateTime MidTerm2Date { get; set; }
+        public DateTime EndTerm2Date { get; set; }
+        public bool IsActive {get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public ICollection<Group> Groups { get; set; }
     }
 }
 

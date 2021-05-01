@@ -1,18 +1,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System;
 
 namespace progressive.Models
 {
-    public class Module
+
+    public class GroupModule
     {
         // [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
+        public int GroupID { get; set; }
         public int ModuleID { get; set; }
-        public string ModuleName { get; set; }
 
-        public ICollection<Task> Tasks { get; set; }
-        public ICollection<GroupModule> GroupModules { get; set; }
-        
+        public Module Module { get; set; }
+        public Group Group { get; set; }
+
     }
 }
 
