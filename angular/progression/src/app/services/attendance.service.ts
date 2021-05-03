@@ -26,5 +26,9 @@ export class AttendanceService {
     return throwError("Error occurred. Pleas try again");
   }
 
+  getAttendanceStudents() : Observable<ExpenseEntry[]> {
+    return this.httpClient.get<ExpenseEntry[]>(this.expenseRestUrl, this.httpOptions)
+    .pipe(retry(3),catchError(this.httpErrorHandler));
+ }
 
 }

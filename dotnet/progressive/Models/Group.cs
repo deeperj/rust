@@ -3,31 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace progressive.Models
 {
-    public enum Department
-    {
-        Science, 
-        Engineering, 
-        Computing,
-        Business
-    }
-
-    public enum Pathway
-    {
-        ComputerSecurity, 
-        ComputerSystemsEngineering, 
-        ElectricalElectronicsEngineering,
-        Nursing,
-        MidWifery,
-        ChemicalEngineering,
-        AutomotiveEngineering,
-        MechanicalEngineering,
-        CyberSecurity,
-        Pharmacy,
-        Computing,
-        SoftwareEngineering,
-        BioMedicalScience
-    }
-
     public class Group
     {
         // [DatabaseGenerated(DatabaseGeneratedOption.None)]
