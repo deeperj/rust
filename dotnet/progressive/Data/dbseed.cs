@@ -28,8 +28,8 @@ namespace progressive.Data
                 IsActive = true
               }
             };
-            // context.Batches.AddRange(batches);
-            // context.SaveChanges();
+            context.Batches.AddRange(batches);
+            context.SaveChanges();
 
             var groups = new Group[]
             {
@@ -92,9 +92,9 @@ namespace progressive.Data
             context.Students.AddRange(students);
             context.SaveChanges();
 
-            var tasks = new Task[]
+            var tasks = new ModuleTask[]
             {
-              new Task{
+              new ModuleTask{
                 ModuleID = 1,
                 Term = 2,
                 TaskType = TaskType.Attendance,
@@ -113,7 +113,7 @@ namespace progressive.Data
             var progressions = new Progression[]
             {
               new Progression{
-                TaskID = 1,
+                ModuleTaskID = 1,
                 StudentID = 1,
                 TaskAssessment = 100,
                 Completed = true,

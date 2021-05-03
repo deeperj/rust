@@ -10,7 +10,7 @@ namespace progressive.Models
         public int ModuleID { get; set; }
         public string ModuleName { get; set; }
 
-        public ICollection<Task> Tasks { get; set; }
+        public ICollection<progressive.Models.ModuleTask> Tasks { get; set; }
         public ICollection<GroupModule> GroupModules { get; set; }
         
     }

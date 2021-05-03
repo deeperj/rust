@@ -114,70 +114,9 @@ namespace progressive.Migrations
                     b.ToTable("Module");
                 });
 
-            modelBuilder.Entity("progressive.Models.Progression", b =>
+            modelBuilder.Entity("progressive.Models.ModuleTask", b =>
                 {
-                    b.Property<int>("ProgressionID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool?>("Completed")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("StudentID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TaskAssessment")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TaskID")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ProgressionID");
-
-                    b.HasIndex("StudentID");
-
-                    b.HasIndex("TaskID");
-
-                    b.ToTable("Progression");
-                });
-
-            modelBuilder.Entity("progressive.Models.Student", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("GroupID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OtherNames")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SGCode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UniCode")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("GroupID");
-
-                    b.ToTable("Student");
-                });
-
-            modelBuilder.Entity("progressive.Models.Task", b =>
-                {
-                    b.Property<int>("TaskID")
+                    b.Property<int>("ModuleTaskID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -211,11 +150,72 @@ namespace progressive.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("TaskID");
+                    b.HasKey("ModuleTaskID");
 
                     b.HasIndex("ModuleID");
 
                     b.ToTable("Task");
+                });
+
+            modelBuilder.Entity("progressive.Models.Progression", b =>
+                {
+                    b.Property<int>("ProgressionID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool?>("Completed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ModuleTaskID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("StudentID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TaskAssessment")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ProgressionID");
+
+                    b.HasIndex("ModuleTaskID");
+
+                    b.HasIndex("StudentID");
+
+                    b.ToTable("Progression");
+                });
+
+            modelBuilder.Entity("progressive.Models.Student", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GroupID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OtherNames")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SGCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UniCode")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("GroupID");
+
+                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("progressive.Models.TimeTable", b =>
@@ -276,17 +276,28 @@ namespace progressive.Migrations
                     b.Navigation("Module");
                 });
 
-            modelBuilder.Entity("progressive.Models.Progression", b =>
+            modelBuilder.Entity("progressive.Models.ModuleTask", b =>
                 {
-                    b.HasOne("progressive.Models.Student", "Student")
-                        .WithMany("Progressions")
-                        .HasForeignKey("StudentID")
+                    b.HasOne("progressive.Models.Module", "Module")
+                        .WithMany("Tasks")
+                        .HasForeignKey("ModuleID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("progressive.Models.Task", "Task")
+                    b.Navigation("Module");
+                });
+
+            modelBuilder.Entity("progressive.Models.Progression", b =>
+                {
+                    b.HasOne("progressive.Models.ModuleTask", "Task")
                         .WithMany("Progressions")
-                        .HasForeignKey("TaskID")
+                        .HasForeignKey("ModuleTaskID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("progressive.Models.Student", "Student")
+                        .WithMany("Progressions")
+                        .HasForeignKey("StudentID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -304,17 +315,6 @@ namespace progressive.Migrations
                         .IsRequired();
 
                     b.Navigation("Group");
-                });
-
-            modelBuilder.Entity("progressive.Models.Task", b =>
-                {
-                    b.HasOne("progressive.Models.Module", "Module")
-                        .WithMany("Tasks")
-                        .HasForeignKey("ModuleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Module");
                 });
 
             modelBuilder.Entity("progressive.Models.TimeTable", b =>
@@ -347,12 +347,12 @@ namespace progressive.Migrations
                     b.Navigation("Tasks");
                 });
 
-            modelBuilder.Entity("progressive.Models.Student", b =>
+            modelBuilder.Entity("progressive.Models.ModuleTask", b =>
                 {
                     b.Navigation("Progressions");
                 });
 
-            modelBuilder.Entity("progressive.Models.Task", b =>
+            modelBuilder.Entity("progressive.Models.Student", b =>
                 {
                     b.Navigation("Progressions");
                 });

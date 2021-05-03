@@ -1,14 +1,10 @@
 using progressive.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using progressive.Services.Tests.Domain;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
 namespace progressive
 {
     public class Program
@@ -16,8 +12,9 @@ namespace progressive
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build(); //.Run();
-            CreateDbIfNotExists(host);
-
+            //CreateDbIfNotExists(host);
+            Global.AppStartup();
+            //TestDatabase.TestGetGroupModules();
             host.Run();
         }
 
@@ -30,7 +27,7 @@ namespace progressive
                 {
                     var context = services.GetRequiredService<ProgressiveContext>();
                     //context.Database.EnsureCreated();
-                   // DbInitializer.Initialize(context);
+                   //DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

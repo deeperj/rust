@@ -12,7 +12,7 @@ namespace progressive.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Batch> Batches { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<ModuleTask> Tasks { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<GroupModule> GroupModules { get; set; }
@@ -22,7 +22,7 @@ namespace progressive.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Batch>().ToTable("Batch");
-            modelBuilder.Entity<Task>().ToTable("Task");
+            modelBuilder.Entity<ModuleTask>().ToTable("Task");
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Module>().ToTable("Module");
             modelBuilder.Entity<Group>().ToTable("Group");
