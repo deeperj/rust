@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { GroupModule } from '../models/GroupModule';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,8 @@ export class AttendanceService {
     return throwError("Error occurred. Pleas try again");
   }
 
-  getAttendanceStudents() : Observable<ExpenseEntry[]> {
-    return this.httpClient.get<ExpenseEntry[]>(this.expenseRestUrl, this.httpOptions)
+  getAttendanceStudents() : Observable<GroupModule[]> {
+    return this.httpClient.get<GroupModule[]>(this.attendanceUrl, this.httpOptions)
     .pipe(retry(3),catchError(this.httpErrorHandler));
  }
 

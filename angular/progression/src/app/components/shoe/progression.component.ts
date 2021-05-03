@@ -9,7 +9,6 @@ import { DebugService } from '../../services/debug.service';
   styleUrls: ['./progression.component.css']
 })
 export class ProgressionComponent implements OnInit {
-  panelOpenState = false;
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   attendance!: GroupModule[];
   constructor(private debugService: DebugService, private restService : AttendanceService) { }

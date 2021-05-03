@@ -7,12 +7,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ProgressionComponent } from './components/progression/progression.component';
+import { DebugService } from './services/debug.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,13 @@ import { ProgressionComponent } from './components/progression/progression.compo
     MatIconModule,
     MatTabsModule,
     MatListModule,
+    MatExpansionModule,
+
+  ],
+  providers: [
+    DebugService,
     
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
