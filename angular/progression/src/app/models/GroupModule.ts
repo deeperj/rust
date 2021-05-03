@@ -2,7 +2,7 @@ import { Module } from './Module';
 import { Group } from './Group';
 
 export interface GroupModule {
-    //    ID: number;
+    ID: number;
     GroupID: number;
     ModuleID: number;
 
