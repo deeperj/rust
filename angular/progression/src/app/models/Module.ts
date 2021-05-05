@@ -3,11 +3,11 @@ import { GroupModule } from './GroupModule';
 
 
 export interface Module {
-    ModuleID: number;
-    ModuleName: string;
+    moduleId: number;
+    moduleName: string;
 
-    Tasks: ModuleTask[];
-    GroupModules: GroupModule[];
+    tasks: ModuleTask[];
+    groupModules: GroupModule[];
     
 }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupModule } from 'src/app/models/GroupModule';
+//import { Console } from 'node:console';
+import { GroupModule } from '../../models/GroupModule';
+import { Progression } from '../../models/Progression';
 import { AttendanceService } from '../../services/attendance.service';
 import { DebugService } from '../../services/debug.service';
 
@@ -10,8 +12,8 @@ import { DebugService } from '../../services/debug.service';
 })
 export class ProgressionComponent implements OnInit {
   panelOpenState = false;
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  attendance!: GroupModule[];
+  attendance!: Progression[];
+  attendanceStudents!: GroupModule[];
   constructor(private debugService: DebugService, private restService : AttendanceService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,11 @@ export class ProgressionComponent implements OnInit {
   getAttendance() {
     //throw new Error('Method not implemented.');
     this.restService.getAttendanceStudents()
-    .subscribe( data => this.attendance = data );
+    .subscribe( data => {
+      console.log(data[0].group.students);
+      console.log(data[0].group.students);
+      this.attendanceStudents = data
+    });
 }
 
 }

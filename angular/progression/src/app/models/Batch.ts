@@ -2,16 +2,16 @@ import { Group } from './Group';
 
 
 export interface Batch {
-  BatchID: number;
-  BatchCode: string;
-  Term1StartDate: Date | string;
-  Term2StartDate: Date | string;
-  MidTerm1Date: Date | string;
-  EndTerm1Date: Date | string;
-  MidTerm2Date: Date | string;
-  EndTerm2Date: Date | string;
-  IsActive: boolean;
+  batchId: number;
+  batchCode: string;
+  term1StartDate: Date | string;
+  term2StartDate: Date | string;
+  midTerm1Date: Date | string;
+  endTerm1Date: Date | string;
+  midTerm2Date: Date | string;
+  endTerm2Date: Date | string;
+  isActive: boolean;
 
-  Groups: Group[];
+  groups: Group[];
 }
 

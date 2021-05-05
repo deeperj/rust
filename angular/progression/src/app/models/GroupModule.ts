@@ -2,12 +2,12 @@ import { Module } from './Module';
 import { Group } from './Group';
 
 export interface GroupModule {
-    ID: number;
-    GroupID: number;
-    ModuleID: number;
+    id: number;
+    groupId: number;
+    moduleId: number;
 
-    Module: Module;
-    Group: Group;
+    module: Module;
+    group: Group;
 
 }
 

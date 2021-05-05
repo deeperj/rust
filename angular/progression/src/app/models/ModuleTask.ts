@@ -3,19 +3,19 @@ import { Module } from './Module';
 import { Progression } from './Progression';
 
 export interface ModuleTask {
-    ModuleTaskID: number;
-    ModuleID: number;
-    Term: number;
-    TaskType: TaskType;
-    RPAGType: RPAGType;
-    InSumRPAG: boolean;
-    TaskName: string;
-    Url: string;
-    DueWeek: number;
-    DueLesson: number;
-    DueDate: Date | string | null;
+    moduleTaskId: number;
+    moduleId: number;
+    term: number;
+    taskType: TaskType;
+    rpagType: RPAGType;
+    inSumRpag: boolean;
+    taskName: string;
+    url: string;
+    dueWeek: number;
+    dueLesson: number;
+    dueDate: Date | string | null;
 
-    Module: Module;
+    module: Module;
 
     Progressions: Progression[];
 }

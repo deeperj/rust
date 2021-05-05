@@ -4,15 +4,15 @@ import { GroupModule } from './GroupModule';
 import { Student } from './Student';
 
 export interface Group {
-    GroupID: number;
-    BatchID: number;
-    GroupNumber: number;
-    GroupCode: string;
-    Pathway: Pathway;
-    Department: Department;
+    groupId: number;
+    batchId: number;
+    groupNumber: number;
+    groupCode: string;
+    pathway: Pathway;
+    department: Department;
 
-    Batch: Batch;
+    batch: Batch;
 
-    Students: Student[];
-    GroupModules: GroupModule[];
+    students: Student[];
+    groupModules: GroupModule[];
 }

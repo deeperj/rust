@@ -30,8 +30,10 @@ namespace progressive
                     builder =>
                     {
                         builder.WithOrigins("http://localhost:4200",
-                                            "http://www.contoso.com");
-                    });
+                                            "http://www.contoso.com")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+            });
             });
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

@@ -2,14 +2,14 @@ import { Group } from './Group';
 import { Progression } from './Progression';
 
 export interface Student {
-    ID: number;
-    GroupID: number;
-    UniCode: string;
-    SGCode: string;
-    LastName: string;
-    OtherNames: string;
+    id: number;
+    groupId: number;
+    uniCode: string;
+    sgCode: string;
+    lastName: string;
+    otherNames: string;
 
-    Group: Group;
+    group: Group;
 
-    Progressions: Progression[];
+    progressions: Progression[];
 }
