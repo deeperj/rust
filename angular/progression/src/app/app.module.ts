@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ProgressionComponent } from './components/progression/progression.component';
 import { DebugService } from './services/debug.service';
+import { StringConcatPipe } from './pipes/stringconcatpipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { DebugService } from './services/debug.service';
     HeaderComponent,
     MainMenuComponent,
     ProgressionComponent,
+    StringConcatPipe,
+    
   ],
   imports: [
     BrowserModule,

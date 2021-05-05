@@ -3,6 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { GroupModule } from '../models/GroupModule';
+import { Attendance } from '../models/ui/Attendance';
+import { Student } from '../models/Student';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,10 @@ export class AttendanceService {
   getAttendanceStudents() : Observable<GroupModule[]> {
     return this.httpClient.get<GroupModule[]>(this.attendanceUrl, this.httpOptions)
     .pipe(retry(3),catchError(this.httpErrorHandler));
- }
+  }
+
+  progressionBinder(att:Attendance[], modid:number ,idx:number){
+    return att.find(a=>{return a.groupModuleId===modid})?.students[idx];
+  }
 
 }
