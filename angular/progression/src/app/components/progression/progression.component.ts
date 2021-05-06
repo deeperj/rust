@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
 //import { Console } from 'node:console';
@@ -14,7 +15,10 @@ import { DebugService } from '../../services/debug.service';
 })
 export class ProgressionComponent implements OnInit {
   attendance: Attendance[]=[];
-  constructor(private debugService: DebugService, private attendanceUI : AttendanceService) { }
+  constructor( 
+    private dbg: DebugService, 
+    private attendanceUI : AttendanceService) 
+    { }
 
   ngOnInit(): void {
     this.getAttendance();
@@ -44,7 +48,6 @@ export class ProgressionComponent implements OnInit {
           })
         )
       });
-      //console.log(this.attendance[0].students[0].student);
     });
 
   }
@@ -60,4 +63,21 @@ export class ProgressionComponent implements OnInit {
       prog.taskAssessment=prog.completed?100:0
     }
   }
+
+  onAttendanceDone($event:any, modAttendance:Progression[]){
+    //let today: number = Date.now();
+    const today = moment().format('YYYY-MM-DD hh:mm:ss');
+    //let attProgressions :Progression[]= [];//Object.assign(Progression[], modAttendance);
+    //modAttendance.forEach(a=>attProgressions.push(a))
+    let attProgressions:Progression[] = JSON.parse(JSON.stringify(modAttendance));
+    attProgressions.forEach(att=>{
+      att.dueDate=today;
+      att.student=null;
+      delete att.progressionId;
+    })
+    this.attendanceUI.addAttendance(attProgressions).subscribe(data=>{
+      this.dbg.info(data+" attendances saved!");
+    })
+  }
 }
+

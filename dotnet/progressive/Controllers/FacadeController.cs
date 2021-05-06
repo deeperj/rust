@@ -12,7 +12,6 @@ using progressive.Services.Domain;
 namespace progressive.Controllers
 {
     [ApiController]
-    // [Route("api/[controller]")]
     public class FacadeController : ControllerBase
     {
         private readonly IDomainFacade _domain;
@@ -27,6 +26,16 @@ namespace progressive.Controllers
         public async Task<ActionResult<IEnumerable<GroupModule>>> GetGroupModules()
         {
             return Ok(await _domain.GetGroupModules());
+        }
+
+        // POST: api/Facade/SaveAttendance
+        [HttpPost]
+        [Route("api/[controller]/SaveAttendance")]
+        public async Task<ActionResult<int>> SaveAttendance(Progression[] progressions)
+        {
+            int count = await _domain.SaveAttendance(progressions);
+
+            return CreatedAtAction("SaveAttendance", new { count = count });
         }
 
     }

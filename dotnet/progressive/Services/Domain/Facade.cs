@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
 using progressive.Services.Domain.Common;
+using progressive.Services.Domain.Attendance;
 
 namespace progressive.Services.Domain
 {
@@ -15,17 +16,25 @@ namespace progressive.Services.Domain
     {
         protected readonly ProgressiveContext _context;
         private GroupModuleService _GroupModuleService;
+        private AttendanceService _AttendanceService;
 
         public Facade(ProgressiveContext context)
         {
             _context = context;
             _GroupModuleService = new GroupModuleService(context);
+            _AttendanceService = new AttendanceService(context);
         }
 
         public async Task<IEnumerable<GroupModule>> GetGroupModules()
         {
             return await _GroupModuleService.GetAllEagerAsync();
         }
+
+        public async Task<int> SaveAttendance(Progression[] progressions)
+        {
+            return await _AttendanceService.SaveAttendance(progressions);
+        }
+
 
     }
 }

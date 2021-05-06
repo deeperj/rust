@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
 
-namespace progressive.Services.Domain.Attendace
+namespace progressive.Services.Domain.Attendance
 {
-    public class AttendaceService
+    public class AttendanceService
     {
       protected readonly ProgressiveContext _context;
-      public AttendaceService(ProgressiveContext context)
+      public AttendanceService(ProgressiveContext context)
       {
         _context=context;
       }

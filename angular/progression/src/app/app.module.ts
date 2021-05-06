@@ -8,6 +8,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +20,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ProgressionComponent } from './components/progression/progression.component';
 import { DebugService } from './services/debug.service';
 import { StringConcatPipe } from './pipes/stringconcatpipe';
+import { MsgBoxComponent } from './components/msg-box/msg-box.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { StringConcatPipe } from './pipes/stringconcatpipe';
     MainMenuComponent,
     ProgressionComponent,
     StringConcatPipe,
-    
+    MsgBoxComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { StringConcatPipe } from './pipes/stringconcatpipe';
     MatTabsModule,
     MatListModule,
     MatExpansionModule,
-
+    MatButtonModule,
+    MatDividerModule,
+    MatSnackBarModule,
   ],
   providers: [
     DebugService,

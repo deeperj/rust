@@ -12,5 +12,6 @@ namespace progressive.Services.Domain
     public interface IDomainFacade
     {
         Task<IEnumerable<GroupModule>> GetGroupModules();
+        Task<int> SaveAttendance(Progression[] progressions);
     }
 }

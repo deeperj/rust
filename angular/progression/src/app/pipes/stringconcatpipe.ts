@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  *   {{ 2 | exponentialStrength:10 }}
  *   formats to: 1024
 */
-@Pipe({name: 'concat'})
+@Pipe({name: 'concat'})//NOT CALLED YET
 export class StringConcatPipe implements PipeTransform {
   transform(value: string, other?: string): string {
     return value.concat(' '+other);
