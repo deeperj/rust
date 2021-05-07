@@ -87,5 +87,13 @@ int xlg(int x, int y, string arr[], const int len ){
   return SUCCESS;
 }
 
+int sublist(string array[], int shuffled[],string out[], int start, int count){
+  for(int i=0;i<count;i++){
+    // :outputarray[i]=array[shuffleArray[i+start_index]];
+    out[i]=array[shuffled[i+start]];   
+    cout << (i+1) << ".) "<< out[i] << endl;
+  }
+  return SUCCESS;
+}
 
 
