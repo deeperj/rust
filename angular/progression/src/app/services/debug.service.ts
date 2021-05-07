@@ -11,7 +11,7 @@ export class DebugService{
   ){}
 
   info(msg:string, duration:number=1500){
-      this._snackBar.open("data loaded");
+      this._snackBar.open(msg);
       setTimeout(()=>this._snackBar.dismiss(), duration);
     }
 }

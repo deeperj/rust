@@ -9,9 +9,11 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-selection-list #studatt (selectionChange)="onSelectionChange($event, att.students)">
-      <mat-list-option [value]="prog.student" *ngFor="let prog of att.students">
-        {{studName(prog.student!)}}
-      </mat-list-option>
+      <div (dblclick)="onRightClick()">
+        <mat-list-option [value]="prog.student" *ngFor="let prog of att.students">
+          {{studName(prog.student!)}}
+        </mat-list-option>
+      </div>
     </mat-selection-list>
     <!-- <p>
       Options selected: {{studatt.selectedOptions.selected.length}}

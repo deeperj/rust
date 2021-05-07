@@ -1,7 +1,5 @@
 #include "xlg.h"
 
-
-
 int getNames(string file, string names[]){
   fstream namesfile;
   namesfile.open(file);

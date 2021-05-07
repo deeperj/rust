@@ -18,10 +18,21 @@ export class ProgressionComponent implements OnInit {
   constructor( 
     private dbg: DebugService, 
     private attendanceUI : AttendanceService) 
-    { }
+    { 
+    }
 
   ngOnInit(): void {
     this.getAttendance();
+  }
+  
+  registerContext_NOT_USED():void{
+      const card = document.querySelector('mat-list-option');
+
+      card?.addEventListener('dblclick', e=> {
+        console.log('i just got double clicked');
+        this.dbg.info("i just got clicked too!");
+      });      
+
   }
   getAttendance() {
     //throw new Error('Method not implemented.');
@@ -49,7 +60,7 @@ export class ProgressionComponent implements OnInit {
         )
       });
     });
-
+    this.dbg.info(" items loaded!");
   }
 
   studName(stud:Student):string{
@@ -64,11 +75,14 @@ export class ProgressionComponent implements OnInit {
     }
   }
 
+  onRightClick(){
+    this.dbg.info("can i help?");
+    console.log('right-clicked');
+  }
+
   onAttendanceDone($event:any, modAttendance:Progression[]){
     //let today: number = Date.now();
     const today = moment().format('YYYY-MM-DD hh:mm:ss');
-    //let attProgressions :Progression[]= [];//Object.assign(Progression[], modAttendance);
-    //modAttendance.forEach(a=>attProgressions.push(a))
     let attProgressions:Progression[] = JSON.parse(JSON.stringify(modAttendance));
     attProgressions.forEach(att=>{
       att.dueDate=today;
@@ -76,7 +90,8 @@ export class ProgressionComponent implements OnInit {
       delete att.progressionId;
     })
     this.attendanceUI.addAttendance(attProgressions).subscribe(data=>{
-      this.dbg.info(data+" attendances saved!");
+      console.log(data);
+      this.dbg.info(data.count+" attendances saved!");
     })
   }
 }

@@ -40,8 +40,8 @@ export class AttendanceService {
     .pipe(retry(3),catchError(this.httpErrorHandler));
   }
 
-  addAttendance(attendance: Progression[]): Observable<number> {
-    return this.httpClient.post<number>(this.addAttendanceUrl,  attendance, this.httpOptions)
+  addAttendance(attendance: Progression[]): Observable<any> {
+    return this.httpClient.post<any>(this.addAttendanceUrl,  attendance, this.httpOptions)
     .pipe(
        retry(3),
        catchError(this.httpErrorHandler)
@@ -53,7 +53,6 @@ export class AttendanceService {
   }
 
   studName(stud:Student|null|undefined):string{
-    
     return stud?stud.lastName.concat(' '+stud.otherNames):"";
   }
 
