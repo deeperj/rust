@@ -1,0 +1,128 @@
+[
+    {
+        "Comments": null,
+        "Completed": 1,
+        "DueDate": "0001-01-01 00:00:00",
+        "ModuleTaskID": 1,
+        "ProgressionID": 1,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    },
+    {
+        "Comments": "",
+        "Completed": 1,
+        "DueDate": "2021-05-06 08:06:44",
+        "ModuleTaskID": 1,
+        "ProgressionID": 2,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    },
+    {
+        "Comments": "",
+        "Completed": 1,
+        "DueDate": "2021-05-06 08:06:44",
+        "ModuleTaskID": 1,
+        "ProgressionID": 3,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    },
+    {
+        "Comments": "",
+        "Completed": 1,
+        "DueDate": "2021-05-06 08:06:44",
+        "ModuleTaskID": 1,
+        "ProgressionID": 4,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    },
+    {
+        "Comments": "",
+        "Completed": 1,
+        "DueDate": "2021-05-06 10:00:25",
+        "ModuleTaskID": 1,
+        "ProgressionID": 5,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-06 01:48:58",
+        "ModuleTaskID": 1,
+        "ProgressionID": 6,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-06 01:59:07",
+        "ModuleTaskID": 1,
+        "ProgressionID": 7,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-06 02:09:55",
+        "ModuleTaskID": 1,
+        "ProgressionID": 8,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-06 02:13:08",
+        "ModuleTaskID": 1,
+        "ProgressionID": 9,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-06 02:19:26",
+        "ModuleTaskID": 1,
+        "ProgressionID": 10,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-06 02:19:59",
+        "ModuleTaskID": 1,
+        "ProgressionID": 11,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 1,
+        "DueDate": "2021-05-07 03:18:35",
+        "ModuleTaskID": 1,
+        "ProgressionID": 12,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    },
+    {
+        "Comments": "",
+        "Completed": 0,
+        "DueDate": "2021-05-07 03:19:18",
+        "ModuleTaskID": 1,
+        "ProgressionID": 13,
+        "StudentID": 1,
+        "TaskAssessment": 0
+    },
+    {
+        "Comments": "",
+        "Completed": 1,
+        "DueDate": "2021-05-07 03:20:47",
+        "ModuleTaskID": 1,
+        "ProgressionID": 14,
+        "StudentID": 1,
+        "TaskAssessment": 100
+    }
+]
