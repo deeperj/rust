@@ -1,6 +1,7 @@
 
 
 #include "unittest.h"
+#include "expect.h"
 
 void test_get_names(){
   //function takes in a test file an output array and returns number of lines
@@ -46,6 +47,37 @@ void test_shuffle_array(){
   }else{
     cout << "shuffleArray() unit test failed!" << endl;
   }
+}
+
+int expect_find_positive(){
+    // 1. Arrange
+    int hs[]={1,2,3,4};
+    int hsl=sizeof(hs)/sizeof(hs[0]);
+    // 2. Act and Assert
+    return h_find(hs,hsl,3);
+}
+
+int expect_find_negative(){
+    // 1. Arrange
+    int hs[]={1,2,3,4};
+    int hsl=sizeof(hs)/sizeof(hs[0]);
+    // 2. Act 
+    return h_find(hs,hsl,5);
+}
+
+void test_find(){
+    describe("test postive and negative h_find()", [] {
+        describe("test positive h_find(hstack,len,needle) and returns an index or -1", [] {
+          it("should return the index of 0 for h_ind(hs,hsl,3) ",[] {
+              expect(expect_find_positive()).toBe(0);
+          });
+        });
+        describe("test negative h_find(hstack,len,needle) and returns an index or -1", [] {
+          it("should return the index of 0 for h_ind(hs,hsl,3) ",[] {
+              expect(expect_find_negative()).toBe(-1);
+          });
+        });
+    });
 }
 
 void test_h_find(){
@@ -104,5 +136,4 @@ void test_sublist(){
     default:
       cout << "test sublist() Success!" << endl;
   }
-
 }
