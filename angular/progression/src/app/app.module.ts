@@ -11,6 +11,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,8 @@ import { ProgressionComponent } from './components/progression/progression.compo
 import { DebugService } from './services/debug.service';
 import { StringConcatPipe } from './pipes/stringconcatpipe';
 import { MsgBoxComponent } from './components/msg-box/msg-box.component';
+import { ProgressReportComponent } from './components/progress-report/progress-report.component';
+import { AttendanceReportComponent } from './components/attendance-report/attendance-report.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { MsgBoxComponent } from './components/msg-box/msg-box.component';
     ProgressionComponent,
     StringConcatPipe,
     MsgBoxComponent,
+    ProgressReportComponent,
+    AttendanceReportComponent,
 
   ],
   imports: [
@@ -45,10 +50,10 @@ import { MsgBoxComponent } from './components/msg-box/msg-box.component';
     MatButtonModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatTableModule,
   ],
   providers: [
-    DebugService,
-    
+    DebugService,  
   ],
   bootstrap: [AppComponent]
 })

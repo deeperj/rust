@@ -3,7 +3,6 @@ import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
 //import { Console } from 'node:console';
-import { GroupModule } from '../../models/GroupModule';
 import { Attendance } from '../../models/ui/Attendance';
 import { AttendanceService } from '../../services/attendance.service';
 import { DebugService } from '../../services/debug.service';
@@ -17,7 +16,7 @@ export class ProgressionComponent implements OnInit {
   attendance: Attendance[]=[];
   constructor( 
     private dbg: DebugService, 
-    private attendanceUI : AttendanceService) 
+    public rootsvc : AttendanceService) 
     { 
     }
 
@@ -36,8 +35,9 @@ export class ProgressionComponent implements OnInit {
   }
   getAttendance() {
     //throw new Error('Method not implemented.');
-    this.attendanceUI.getAttendanceStudents()
+    this.rootsvc.getAttendanceStudents()
     .subscribe( data => {
+      this.rootsvc.groupMods=data;
       data.map((gmod, i) => {
         this.attendance.push(
           ({
@@ -55,7 +55,9 @@ export class ProgressionComponent implements OnInit {
               comments: "",
               task: null,
               student: stud
-            })})
+            }
+            )},
+            )
           })
         )
       });
@@ -89,7 +91,7 @@ export class ProgressionComponent implements OnInit {
       att.student=null;
       delete att.progressionId;
     })
-    this.attendanceUI.addAttendance(attProgressions).subscribe(data=>{
+    this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
       console.log(data);
       this.dbg.info(data.count+" attendances saved!");
     })

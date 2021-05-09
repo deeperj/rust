@@ -14,23 +14,35 @@ import { Progression } from '../models/Progression';
 export class AttendanceService {
   private attendanceUrl = 'https://localhost:5001/api/Facade/GetGroupModules';
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
+  private attendanceDatesUrl = 'https://localhost:5001/api/Facade/GetUniqueAttendanceDates';
   private httpOptions = {
       headers: new HttpHeaders( { 'Content-Type': 'application/json' })
   };
+  _groupMods: GroupModule[]=[];
 
   constructor(
     private httpClient : HttpClient,
     private dbg : DebugService,
     ) { }
 
+    public get groupMods() {
+      return this._groupMods;
+  }
+
+  public set groupMods(gmds: GroupModule[]) {
+      if (this._groupMods.length==0) {
+          this._groupMods=gmds;
+      }
+  }
+
   private httpErrorHandler (error: HttpErrorResponse) {
+    console.log('err_handler: '+this.dbg);
     if (error.error instanceof ErrorEvent) {
       console.error("A client side error occurs. The error message is " + error.message);
     } else {
       console.error(
           "An error happened in server. The HTTP status code is "  + error.status + " and the error returned is " + error.message);
     }
-    console.log('here '+this.dbg);
     this.dbg.info('Error '+error.status + ': '+ error.message);
     return throwError("Error occurred. Please try again");
   }
@@ -38,6 +50,14 @@ export class AttendanceService {
   getAttendanceStudents() : Observable<GroupModule[]> {
     return this.httpClient.get<GroupModule[]>(this.attendanceUrl, this.httpOptions)
     .pipe(retry(3),catchError(this.httpErrorHandler));
+  }
+
+  getAttendanceDates(modid: number, grpid:number) : Observable<string[]> {
+    return this.httpClient.get<string[]>(this.attendanceDatesUrl + "/" + modid + "/" + grpid, this.httpOptions)
+    .pipe(
+       retry(3),
+       catchError(this.httpErrorHandler)
+    );
   }
 
   addAttendance(attendance: Progression[]): Observable<any> {

@@ -28,6 +28,13 @@ namespace progressive.Controllers
             return Ok(await _domain.GetGroupModules());
         }
 
+        // GET: api/Facade/GetUniqueAttendanceDates/:modid/:grpid
+        [Route("api/[controller]/GetUniqueAttendanceDates/{modid}/{grpid}")]
+        public async Task<ActionResult<IEnumerable<GroupModule>>> GetUniqueAttendanceDates(int modid, int grpid)
+        {
+            return Ok(await _domain.GetUniqueAttendanceDates(modid, grpid));
+        }
+
         // POST: api/Facade/SaveAttendance
         [HttpPost]
         [Route("api/[controller]/SaveAttendance")]

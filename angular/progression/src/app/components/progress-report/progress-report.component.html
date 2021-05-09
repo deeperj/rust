@@ -1,0 +1,22 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle *ngFor="let gmod of rootsvc.groupMods; let i=index">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Group {{gmod.group.groupNumber}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ gmod.module.moduleName }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-selection-list #studatt>
+      <app-attendance-report [attRep]="i" [displayedColumns]="cols" [theDates]="theDates">
+      </app-attendance-report>
+    </mat-selection-list>
+    <!-- <p>
+      Options selected: {{studatt.selectedOptions.selected.length}}
+    </p> -->
+    <p>
+     <button mat-raised-button color="primary" >Modify</button>
+    </p>
+  </mat-expansion-panel>
+</mat-accordion>

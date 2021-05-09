@@ -13,5 +13,6 @@ namespace progressive.Services.Domain
     {
         Task<IEnumerable<GroupModule>> GetGroupModules();
         Task<int> SaveAttendance(Progression[] progressions);
+        Task<IEnumerable<DateTime>> GetUniqueAttendanceDates(int modid, int grpid);
     }
 }
