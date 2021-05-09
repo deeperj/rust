@@ -26,10 +26,10 @@ export class AttendanceReportComponent implements OnInit {
       this.displayedColumns=['SN','StudentID','LastName','OtherNames',...['hello','world']];
       console.log(this.displayedColumns);//this.attRep.dates.map(c=>moment(c.toDateString()).format('MMM-DD'))];
     }
-    setTimeout(()=>{
-      this.data=this.getData(this.dates);
-      console.log(this.attRep);
-    },1000);
+    this.data=this.getData(this.theDates);
+    console.log(this.attRep);
+    // setTimeout(()=>{
+    // },1000);
   }
   columnsToDisplay: string[] = this.displayedColumns.slice();
 

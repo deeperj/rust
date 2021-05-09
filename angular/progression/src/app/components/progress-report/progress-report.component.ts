@@ -9,7 +9,7 @@ import { DebugService } from 'src/app/services/debug.service';
   styleUrls: ['./progress-report.component.css']
 })
 export class ProgressReportComponent implements OnInit {
-  theDates!: string[];
+  dates!: string[];
   cols!: string[];
 
   constructor( 
@@ -24,6 +24,8 @@ export class ProgressReportComponent implements OnInit {
   uniqueAttendanceDates(gmod:GroupModule)   {
     const modid=gmod.module.moduleId;
     const grpid=gmod.group.groupId;
+    console.log('here',modid,grpid);
+    console.dir(gmod);
     this.rootsvc.getAttendanceDates(modid,grpid)
     .subscribe( data => this.dates = data );
     this.cols=['SN','StudentID','LastName','OtherNames',...this.dates];

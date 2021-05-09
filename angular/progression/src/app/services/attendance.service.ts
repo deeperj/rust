@@ -53,9 +53,11 @@ export class AttendanceService {
   }
 
   getAttendanceDates(modid: number, grpid:number) : Observable<string[]> {
-    return this.httpClient.get<string[]>(this.attendanceDatesUrl + "/" + modid + "/" + grpid, this.httpOptions)
+    const finalUrl = this.attendanceDatesUrl + "/" + modid + "/" + grpid;
+    console.log( finalUrl);
+    return this.httpClient.get<string[]>(finalUrl, this.httpOptions)
     .pipe(
-       retry(3),
+       retry(1),
        catchError(this.httpErrorHandler)
     );
   }
