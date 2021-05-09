@@ -4,8 +4,8 @@ import { GroupModule } from './GroupModule';
 import { Student } from './Student';
 
 export interface Group {
-    groupId: number;
-    batchId: number;
+    groupID: number;
+    batchID: number;
     groupNumber: number;
     groupCode: string;
     pathway: Pathway;

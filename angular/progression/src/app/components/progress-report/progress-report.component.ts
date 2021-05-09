@@ -9,8 +9,6 @@ import { DebugService } from 'src/app/services/debug.service';
   styleUrls: ['./progress-report.component.css']
 })
 export class ProgressReportComponent implements OnInit {
-  dates!: string[];
-  cols!: string[];
 
   constructor( 
     private dbg: DebugService, 
@@ -20,16 +18,5 @@ export class ProgressReportComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  uniqueAttendanceDates(gmod:GroupModule)   {
-    const modid=gmod.module.moduleId;
-    const grpid=gmod.group.groupId;
-    console.log('here',modid,grpid);
-    console.dir(gmod);
-    this.rootsvc.getAttendanceDates(modid,grpid)
-    .subscribe( data => this.dates = data );
-    this.cols=['SN','StudentID','LastName','OtherNames',...this.dates];
-    return this.dates;
-  }  
 
 }

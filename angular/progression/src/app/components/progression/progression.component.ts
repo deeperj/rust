@@ -18,10 +18,10 @@ export class ProgressionComponent implements OnInit {
     private dbg: DebugService, 
     public rootsvc : AttendanceService) 
     { 
+      this.getAttendance();
     }
 
   ngOnInit(): void {
-    this.getAttendance();
   }
   
   registerContext_NOT_USED():void{

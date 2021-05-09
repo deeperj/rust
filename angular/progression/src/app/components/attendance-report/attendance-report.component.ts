@@ -12,26 +12,24 @@ import { DebugService } from 'src/app/services/debug.service';
 })
 export class AttendanceReportComponent implements OnInit {
   @Input() attRep!: number;
-  @Input() theDates: string[] = [];
-  @Input() displayedColumns: string[] = ['SN','StudentID','LastName','OtherNames',...['hello','world']];
+  theDates: string[] = [];
+  displayedColumns: string[] = ['SN','StudentID','LastName','OtherNames',...['hello','world']];
+  columnsToDisplay!: string[]
   toggle:boolean=false;
   data: any[] =[];
+  gmod!: GroupModule;
   constructor(
     private dbg: DebugService, 
     public rootsvc : AttendanceService
   ) { }
 
   ngOnInit(): void {
+    this.gmod=this.rootsvc.groupMods[this.attRep];
     if(this.displayedColumns){
-      this.displayedColumns=['SN','StudentID','LastName','OtherNames',...['hello','world']];
+      this.uniqueAttendanceDates();
       console.log(this.displayedColumns);//this.attRep.dates.map(c=>moment(c.toDateString()).format('MMM-DD'))];
     }
-    this.data=this.getData(this.theDates);
-    console.log(this.attRep);
-    // setTimeout(()=>{
-    // },1000);
   }
-  columnsToDisplay: string[] = this.displayedColumns.slice();
 
   addColumn_NOT_USED() {
     console.log(this.columnsToDisplay);
@@ -66,13 +64,25 @@ export class AttendanceReportComponent implements OnInit {
       this.columnsToDisplay[randomIndex] = temp;
     }
   }
+  uniqueAttendanceDates()   {
+    const modid=this.gmod.module.moduleID;
+    const grpid=this.gmod.group.groupID;
+    this.rootsvc.getAttendanceDates(modid,grpid)
+    .subscribe( data => {
+      this.theDates = data;
+      this.displayedColumns=['SN','StudentID','LastName','OtherNames',...this.theDates];
+      this.data=this.getData(this.theDates);
+      this.columnsToDisplay = this.displayedColumns.slice();
+    } );
+  }  
+
 
   getData(ext:string[]){
     // console.log('this.rootsvc.groupMods=');
     // console.log(this.rootsvc.groupMods);
     let el = {};
     ext.forEach(v=>{el={...el,...{[v]:'*  '}}})
-    return this.rootsvc.groupMods[this.attRep].group.students.map((c,i)=>{
+    return this.gmod.group.students.map((c,i)=>{
       let v1= ({
         SN: i+1,
         StudentID:c.uniCode,

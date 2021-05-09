@@ -3,7 +3,7 @@ import { GroupModule } from './GroupModule';
 
 
 export interface Module {
-    moduleId: number;
+    moduleID: number;
     moduleName: string;
 
     tasks: ModuleTask[];
