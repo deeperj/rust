@@ -1,0 +1,49 @@
+@page
+@model progressive.Pages_TimeTables.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TimeTable</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeTable.Term)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeTable.Term)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeTable.Weekday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeTable.Weekday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeTable.StartTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeTable.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeTable.EndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeTable.EndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeTable.GroupModule)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeTable.GroupModule.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TimeTable.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

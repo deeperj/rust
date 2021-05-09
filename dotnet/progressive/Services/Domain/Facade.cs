@@ -32,7 +32,7 @@ namespace progressive.Services.Domain
 
         public async Task<IEnumerable<DateTime>> GetUniqueAttendanceDates(int modid, int grpid)
         {
-            return await _GroupModuleService.GetAsyncUniqueProgressDatesForModuleGroup(modid, grpid);
+            return await _AttendanceService.GetAsyncUniqueProgressDatesForModuleGroup(modid, grpid);
         }
 
         public async Task<int> SaveAttendance(Progression[] progressions)

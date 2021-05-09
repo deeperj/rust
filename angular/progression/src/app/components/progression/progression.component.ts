@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
@@ -13,6 +14,7 @@ import { DebugService } from '../../services/debug.service';
   styleUrls: ['./progression.component.css']
 })
 export class ProgressionComponent implements OnInit {
+  @ViewChild("menu") menu!: MatMenuTrigger;
   attendance: Attendance[]=[];
   constructor( 
     private dbg: DebugService, 
@@ -77,9 +79,15 @@ export class ProgressionComponent implements OnInit {
     }
   }
 
-  onRightClick(){
+  onDblClick_NOT_USED(){
     this.dbg.info("can i help?");
     console.log('right-clicked');
+    this.menu.openMenu();
+  }
+
+  onAdmin(){
+    window.location.href='https://localhost:5001';
+    // window.location('https://localhost:5001')
   }
 
   onAttendanceDone($event:any, modAttendance:Progression[]){

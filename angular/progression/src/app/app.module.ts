@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +52,7 @@ import { AttendanceReportComponent } from './components/attendance-report/attend
     MatDividerModule,
     MatSnackBarModule,
     MatTableModule,
+    MatMenuModule,
   ],
   providers: [
     DebugService,  

@@ -1,0 +1,78 @@
+@page
+@model progressive.Pages_Batches.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].BatchCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].Term1StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].Term2StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].MidTerm1Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].EndTerm1Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].MidTerm2Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].EndTerm2Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batch[0].IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Batch) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BatchCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term1StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term2StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidTerm1Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTerm1Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidTerm2Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTerm2Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BatchID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BatchID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BatchID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

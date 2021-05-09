@@ -24,17 +24,6 @@ namespace progressive.Services.Domain.Common
                             .Include(s => s.Group.Students)
                             .ToListAsync();
         }
-
-        public async Task<IEnumerable<DateTime>> GetAsyncUniqueProgressDatesForModuleGroup(int modid, int grpid)
-        {
-            var gstud=_context.Students.Where(c=>c.GroupID==grpid);
-            var modtasks=_context.Tasks.Where(c=>c.ModuleID==modid);
-            return await _context.Progressions
-                            .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
-                            .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
-                            .Select(c=>c.DueDate).Distinct().ToListAsync();
-        }
-
        
     }
 }

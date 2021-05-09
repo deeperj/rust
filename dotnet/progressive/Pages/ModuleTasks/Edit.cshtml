@@ -1,0 +1,80 @@
+@page
+@model progressive.Pages_ModuleTasks.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ModuleTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ModuleTask.ModuleTaskID" />
+            <div class="form-group">
+                <label asp-for="ModuleTask.ModuleID" class="control-label"></label>
+                <select asp-for="ModuleTask.ModuleID" class="form-control" asp-items="ViewBag.ModuleID"></select>
+                <span asp-validation-for="ModuleTask.ModuleID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.Term" class="control-label"></label>
+                <input asp-for="ModuleTask.Term" class="form-control" />
+                <span asp-validation-for="ModuleTask.Term" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.TaskType" class="control-label"></label>
+                <select asp-for="ModuleTask.TaskType" class="form-control"></select>
+                <span asp-validation-for="ModuleTask.TaskType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.RPAGType" class="control-label"></label>
+                <select asp-for="ModuleTask.RPAGType" class="form-control"></select>
+                <span asp-validation-for="ModuleTask.RPAGType" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ModuleTask.InSumRPAG" /> @Html.DisplayNameFor(model => model.ModuleTask.InSumRPAG)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.TaskName" class="control-label"></label>
+                <input asp-for="ModuleTask.TaskName" class="form-control" />
+                <span asp-validation-for="ModuleTask.TaskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.Url" class="control-label"></label>
+                <input asp-for="ModuleTask.Url" class="form-control" />
+                <span asp-validation-for="ModuleTask.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.DueWeek" class="control-label"></label>
+                <input asp-for="ModuleTask.DueWeek" class="form-control" />
+                <span asp-validation-for="ModuleTask.DueWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.DueLesson" class="control-label"></label>
+                <input asp-for="ModuleTask.DueLesson" class="form-control" />
+                <span asp-validation-for="ModuleTask.DueLesson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleTask.DueDate" class="control-label"></label>
+                <input asp-for="ModuleTask.DueDate" class="form-control" />
+                <span asp-validation-for="ModuleTask.DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

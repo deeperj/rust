@@ -1,0 +1,66 @@
+@page
+@model progressive.Pages_Progressions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Progression[0].TaskAssessment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progression[0].Completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progression[0].DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progression[0].Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progression[0].Task)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progression[0].Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Progression) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskAssessment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task.ModuleTaskID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProgressionID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProgressionID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProgressionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
