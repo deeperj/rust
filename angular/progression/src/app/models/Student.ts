@@ -5,7 +5,7 @@ export interface Student {
     id: number;
     groupId: number;
     uniCode: string;
-    sgCode: string;
+    sgCode: string|null;
     lastName: string;
     otherNames: string;
 

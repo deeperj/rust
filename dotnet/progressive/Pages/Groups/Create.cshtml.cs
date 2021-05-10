@@ -21,7 +21,9 @@ namespace progressive.Pages_Groups
 
         public IActionResult OnGet()
         {
-        ViewData["BatchID"] = new SelectList(_context.Batches, "BatchID", "BatchID");
+            ViewData["BatchID"] = new SelectList(_context.Batches, "BatchID", "BatchCode");
+            ViewData["Departments"] = Global.GetEnumLookupKey<Department>();
+            ViewData["Pathway"] = Global.GetEnumLookupKey<Pathway>();
             return Page();
         }
 

@@ -25,6 +25,15 @@ namespace progressive.Services.Domain.Attendance
 
           return progressions.Count();
       }
+       
+      public async Task<int> UploadStudents(Student[] students)
+      {
+          _context.Students.AddRange(students);
+          await _context.SaveChangesAsync();
+
+          return students.Count();
+      }
+
       public async Task<IEnumerable<DateTime>> GetAsyncUniqueProgressDatesForModuleGroup(int modid, int grpid)
       {
         var gstud=_context.Students.Where(c=>c.GroupID==grpid);

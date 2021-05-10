@@ -40,6 +40,11 @@ namespace progressive.Services.Domain
             return await _AttendanceService.SaveAttendance(progressions);
         }
 
+        public async Task<int> UploadStudents(Student[] students)
+        {
+            return await _AttendanceService.UploadStudents(students);
+        }
+
 
     }
 }

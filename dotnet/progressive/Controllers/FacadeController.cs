@@ -45,5 +45,15 @@ namespace progressive.Controllers
             return CreatedAtAction("SaveAttendance", new { count = count });
         }
 
+        // POST: api/Facade/UploadStudents
+        [HttpPost]
+        [Route("api/[controller]/UploadStudents")]
+        public async Task<ActionResult<int>> UploadStudents(Student[] students)
+        {
+            int count = await _domain.UploadStudents(students);
+
+            return CreatedAtAction("UploadStudents", new { count = count });
+        }
+
     }
 }

@@ -13,6 +13,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +27,7 @@ import { StringConcatPipe } from './pipes/stringconcatpipe';
 import { MsgBoxComponent } from './components/msg-box/msg-box.component';
 import { ProgressReportComponent } from './components/progress-report/progress-report.component';
 import { AttendanceReportComponent } from './components/attendance-report/attendance-report.component';
+import { FileuploadComponent } from './widgets/fileupload.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { AttendanceReportComponent } from './components/attendance-report/attend
     MsgBoxComponent,
     ProgressReportComponent,
     AttendanceReportComponent,
-
+    FileuploadComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,8 @@ import { AttendanceReportComponent } from './components/attendance-report/attend
     MatSnackBarModule,
     MatTableModule,
     MatMenuModule,
+    MatInputModule,
+    MatDialogModule,
   ],
   providers: [
     DebugService,  

@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel hideToggle *ngFor="let att of attendance">
+  <mat-expansion-panel hideToggle *ngFor="let att of attendance; let midx=index">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Group {{att.groupNumber}}
@@ -9,14 +9,17 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-selection-list #studatt (selectionChange)="onSelectionChange($event, att.students)">
-      <mat-list-option [value]="prog.student" *ngFor="let prog of att.students">
-      <mat-icon mat-list-icon  [matMenuTriggerFor]="menu">note</mat-icon>
-      <div mat-line>{{studName(prog.student!)}}</div>
+      <mat-list-option [selected]="prog.completed" [value]="prog.student" *ngFor="let prog of att.students; let i=index">
+      <mat-icon mat-list-icon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      <div mat-line><svg width="15" height="15" style="margin-right: 16px;">
+        <rect width="15" height="15" fill="green"/>
+      </svg>{{studName(prog.student!)}}</div>
       <!-- <div mat-line> {{'world'}} </div> -->
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>Late Attendance</button>
-          <button mat-menu-item>Left Attendance</button>
-          <button mat-menu-item>Late and Left</button>
+          <button mat-menu-item (click)="comment(midx, i, MALATE)">Late Attendance</button>
+          <button mat-menu-item (click)="comment(midx, i, MALEFT)">Left Attendance</button>
+          <button mat-menu-item (click)="comment(midx, i, MALL)">Late and Left</button>
+          <button mat-menu-item (click)="comment(midx, i, MACA)">None</button>
         </mat-menu>
       </mat-list-option>
     </mat-selection-list>
@@ -25,7 +28,10 @@
     </p> -->
     <p>
      <button mat-raised-button color="primary" (click)="onAttendanceDone($event, att.students)">Done</button>
-     <button mat-raised-button color="primary" (click)="onAdmin($event)">Admin</button>
+     <button mat-raised-button color="primary" (click)="onAdmin()">Admin</button>
+     <!-- <input mat-input color="primary" type="file" class="upload" (change)="changeListener($event)"> -->
+     <vo-mat-fileUpload (change)="onFileChange($event)" chooseLabel="Upload Names">
+    </vo-mat-fileUpload>
     </p>
   </mat-expansion-panel>
 </mat-accordion>

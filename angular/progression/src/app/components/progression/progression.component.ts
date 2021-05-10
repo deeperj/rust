@@ -5,8 +5,11 @@ import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
 //import { Console } from 'node:console';
 import { Attendance } from '../../models/ui/Attendance';
+import { MisAttendance } from '../../models/enums';
 import { AttendanceService } from '../../services/attendance.service';
 import { DebugService } from '../../services/debug.service';
+import { NullTemplateVisitor } from '@angular/compiler';
+import { NewStudent } from 'src/app/models/ui/NewStudent';
 
 @Component({
   selector: 'app-progression',
@@ -16,10 +19,17 @@ import { DebugService } from '../../services/debug.service';
 export class ProgressionComponent implements OnInit {
   @ViewChild("menu") menu!: MatMenuTrigger;
   attendance: Attendance[]=[];
+  matmp=[MisAttendance.Left,MisAttendance.Late,MisAttendance.LateNLeft,MisAttendance.Clear];
+  MALEFT!:MisAttendance;
+  MALATE!:MisAttendance;
+  MALL!:MisAttendance;
+  MACA!:MisAttendance;
+
   constructor( 
     private dbg: DebugService, 
     public rootsvc : AttendanceService) 
     { 
+      [this.MALEFT,this.MALATE,this.MALL,this.MACA] =this.matmp;
       this.getAttendance();
     }
 
@@ -28,12 +38,10 @@ export class ProgressionComponent implements OnInit {
   
   registerContext_NOT_USED():void{
       const card = document.querySelector('mat-list-option');
-
       card?.addEventListener('dblclick', e=> {
         console.log('i just got double clicked');
         this.dbg.info("i just got clicked too!");
       });      
-
   }
   getAttendance() {
     //throw new Error('Method not implemented.');
@@ -79,14 +87,32 @@ export class ProgressionComponent implements OnInit {
     }
   }
 
-  onDblClick_NOT_USED(){
-    this.dbg.info("can i help?");
-    console.log('right-clicked');
-    this.menu.openMenu();
+  comment(midx:number, idx:number, type:MisAttendance){
+    //console.log(this.attendance[idx]);
+    //this.dbg.info(type.toString());
+    let stud=this.attendance[midx].students[idx];
+    stud.completed=true;
+    switch(type){
+      case MisAttendance.Late:
+        stud.comments=" Attended late at "+moment().format("hh:mm:ss");
+        stud.taskAssessment=50;
+        break;
+      case MisAttendance.Left:
+        stud.comments="  Left late at "+moment().format("hh:mm:ss");
+        stud.taskAssessment=50;
+        break;
+      case MisAttendance.LateNLeft:
+        stud.comments+="\n Left early at "+moment().format("hh:mm:ss");
+        stud.taskAssessment=25;
+        break;
+      default:
+        stud.comments="";
+      }
+      this.dbg.info("update complete!");
   }
 
   onAdmin(){
-    window.location.href='https://localhost:5001';
+    window.location.href='http://localhost:5000/Students';
     // window.location('https://localhost:5001')
   }
 
@@ -102,7 +128,59 @@ export class ProgressionComponent implements OnInit {
     this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
       console.log(data);
       this.dbg.info(data.count+" attendances saved!");
+      // window.location.reload(); 
     })
   }
+
+  public onFileChange(files:File[]){
+    if(files && files.length > 0) {
+      let file : File|null = files[0]; 
+      let reader: FileReader = new FileReader();
+      if(file){
+        reader.readAsText(file);
+        reader.onload = (e) => {
+            let csv: string = reader.result as string;
+            this.uploadStudents(this.rootsvc.CSVToArray(csv));
+        }
+      }
+    }
+
+  }
+  public uploadStudents(students:string[][]){
+    let newStuds:NewStudent[]=[];
+    students.forEach(c=>{
+      newStuds.push(({
+        groupId :Number.parseInt(c[0]),
+        sgCode: null,
+        uniCode: c[3],
+        lastName: c[1],
+        otherNames: c[2]
+      }))
+    });
+//    console.log(JSON.stringify(newStuds));
+    this.rootsvc.uploadStudents(newStuds).subscribe(data=>{
+      this.dbg.info(data.count + " Students Added!");
+      console.log(data.count+ " students added")
+    });
+  }
+  public changeListener_NOT_USED_BY_NATIVE_FILE($event:any){
+    const files=$event.target.files;
+    console.log(files);
+    if(files && files.length > 0) {
+      let file : File|null = files.item(0); 
+      // console.log(file?.name);
+      // console.log(file?.size);
+      // console.log(file?.type);
+      let reader: FileReader = new FileReader();
+      if(file){
+        reader.readAsText(file);
+        reader.onload = (e) => {
+            let csv: string = reader.result as string;
+            console.log(csv);
+        }
+      }
+    }
+  }
+
 }
 

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import * as moment from 'moment';
 import { GroupModule } from 'src/app/models/GroupModule';
 import { AttendanceReport } from 'src/app/models/ui/Attendance';
 import { AttendanceService } from 'src/app/services/attendance.service';
@@ -13,7 +12,7 @@ import { DebugService } from 'src/app/services/debug.service';
 export class AttendanceReportComponent implements OnInit {
   @Input() attRep!: number;
   theDates: string[] = [];
-  displayedColumns: string[] = ['SN','StudentID','LastName','OtherNames',...['hello','world']];
+  displayedColumns: string[] = ['SN','StudentID','LastName','OtherNames','Attendance',...['hello','world']];
   columnsToDisplay!: string[]
   toggle:boolean=false;
   data: any[] =[];
@@ -27,12 +26,10 @@ export class AttendanceReportComponent implements OnInit {
     this.gmod=this.rootsvc.groupMods[this.attRep];
     if(this.displayedColumns){
       this.uniqueAttendanceDates();
-      console.log(this.displayedColumns);//this.attRep.dates.map(c=>moment(c.toDateString()).format('MMM-DD'))];
     }
   }
 
   addColumn_NOT_USED() {
-    console.log(this.columnsToDisplay);
     const randomColumn = Math.floor(Math.random() * this.displayedColumns.length);
     this.columnsToDisplay.push(this.displayedColumns[randomColumn]);
   }
@@ -70,7 +67,7 @@ export class AttendanceReportComponent implements OnInit {
     this.rootsvc.getAttendanceDates(modid,grpid)
     .subscribe( data => {
       this.theDates = data;
-      this.displayedColumns=['SN','StudentID','LastName','OtherNames',...this.theDates];
+      this.displayedColumns=['SN','StudentID','LastName','OtherNames','Attendance',...this.theDates];
       this.data=this.getData(this.theDates);
       this.columnsToDisplay = this.displayedColumns.slice();
     } );
@@ -88,6 +85,7 @@ export class AttendanceReportComponent implements OnInit {
         StudentID:c.uniCode,
         LastName: c.lastName,
         OtherNames: c.otherNames,
+        Attendance: 100,
       });
       return {...v1,...el};
     });
