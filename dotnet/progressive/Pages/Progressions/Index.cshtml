@@ -26,10 +26,10 @@
                 @Html.DisplayNameFor(model => model.Progression[0].Comments)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Progression[0].Task)
+                @Html.DisplayNameFor(model => model.Progression[0].Task.TaskName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Progression[0].Student)
+                @Html.DisplayNameFor(model => model.Progression[0].Student.FullName)
             </th>
             <th></th>
         </tr>
@@ -50,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.Comments)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Task.ModuleTaskID)
+                @Html.DisplayFor(modelItem => item.Task.TaskName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.ID)
+                @Html.DisplayFor(modelItem => item.Student.FullName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ProgressionID">Edit</a> |

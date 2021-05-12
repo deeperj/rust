@@ -41,5 +41,21 @@ namespace progressive.Services.Tests.Domain
             Console.WriteLine(r);
             //Assert.False(result, "1 should not be prime");
         }
+        [Fact]
+        public static void TestStudAttendanceByDate()
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json")
+            .Build();
+            var options = SqliteDbContextOptionsBuilderExtensions.UseSqlite(new DbContextOptionsBuilder<ProgressiveContext>(), configuration.GetConnectionString("ProgressiveDB")).Options;
+            var ctx = new ProgressiveContext(options);
+            var domain = new Facade(ctx);
+            //var result = domain.StudAttendanceByDate(1, DateTime.Parse("2021-05-06T08:06:44"));
+            var result = ctx.Progressions.Where(c=>(c.DueDate==DateTime.Parse("2021-05-06T08:06:44") && c.StudentID==1) ).ToList();
+            string r =JsonConvert.SerializeObject(result);
+            Console.WriteLine(r);
+            //Assert.False(result, "1 should not be prime");
+        }
     }
 }

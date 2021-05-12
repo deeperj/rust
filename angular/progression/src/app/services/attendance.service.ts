@@ -8,6 +8,8 @@ import { Student } from '../models/Student';
 import { DebugService } from './debug.service';
 import { Progression } from '../models/Progression';
 import { NewStudent } from '../models/ui/NewStudent';
+import {Subject} from 'rxjs';
+import { Rpag } from '../models/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -17,23 +19,26 @@ export class AttendanceService {
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
   private addStudentsUrl = 'https://localhost:5001/api/Facade/UploadStudents';
   private attendanceDatesUrl = 'https://localhost:5001/api/Facade/GetUniqueAttendanceDates';
+  private studAttendanceByDateUrl = 'https://localhost:5001/api/Facade/StudAttendanceByDate';
+  private attendanceScoreByModuleUrl = 'https://localhost:5001/api/Facade/StudAttendanceScoreByModule';
   private httpOptions = {
       headers: new HttpHeaders( { 'Content-Type': 'application/json' })
   };
-  _groupMods: GroupModule[]=[];
+  _attendance: Attendance[]=[];
+  pivotReady = new Subject();
 
   constructor(
     private httpClient : HttpClient,
     private dbg : DebugService,
     ) { }
 
-    public get groupMods() {
-      return this._groupMods;
+    public get attendance() {
+      return this._attendance;
   }
 
-  public set groupMods(gmds: GroupModule[]) {
-      if (this._groupMods.length==0) {
-          this._groupMods=gmds;
+  public set attendance(gmds: Attendance[]) {
+      if (this._attendance.length==0) {
+          this._attendance=gmds;
       }
   }
 
@@ -52,6 +57,26 @@ export class AttendanceService {
   getAttendanceStudents() : Observable<GroupModule[]> {
     return this.httpClient.get<GroupModule[]>(this.attendanceUrl, this.httpOptions)
     .pipe(retry(3),catchError(this.httpErrorHandler));
+  }
+
+  getStudAttendanceByDate(sid: number, param:string) : Observable<Progression> {
+    const finalUrl = this.studAttendanceByDateUrl + "/" + sid + "/" + encodeURIComponent(param);
+    // const finalUrl = this.studAttendanceByDateUrl + "?id=" + sid + "&param=" + param;
+    return this.httpClient.get<Progression>(finalUrl, this.httpOptions)
+    .pipe(
+       retry(1),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  getStudAttendanceScoreByModule(sid: number, modid:number) : Observable<number> {
+    const finalUrl = this.attendanceScoreByModuleUrl + "/" + sid + "/" + modid;
+    // console.log(finalUrl);
+    return this.httpClient.get<number>(finalUrl, this.httpOptions)
+    .pipe(
+       retry(1),
+       catchError(this.httpErrorHandler)
+    );
   }
 
   getAttendanceDates(modid: number, grpid:number) : Observable<string[]> {
@@ -79,14 +104,22 @@ export class AttendanceService {
     );
   }
 
-  progressionBinder_NOT_USED(att:Attendance[], modid:number ,idx:number){
-    return att.find(a=>{ a.groupModuleId===modid})?.students[idx];
-  }
 
   studName(stud:Student|null|undefined):string{
     return stud?stud.lastName.concat(' '+stud.otherNames):"";
   }
 
+  getRpag(score:number):Rpag{
+      if(score>=70)
+        return Rpag.G;
+      else if(score <70 && score >=50)
+        return Rpag.A;
+      else if(score <50 && score >=40)
+        return Rpag.P;
+      else
+        return Rpag.R;
+  }
+  
   // ref: http://stackoverflow.com/a/1293163/2343
   // This will parse a delimited string into an array of
   // arrays. The default delimiter is the comma, but this

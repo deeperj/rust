@@ -1,5 +1,5 @@
 
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
+<table mat-table [dataSource]="attendancePivot" class="mat-elevation-z8">
   <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
     <th mat-header-cell *matHeaderCellDef>
       <button mat-raised-button (click)="toggleColumn(column)"> {{column}} </button>

@@ -38,8 +38,8 @@ namespace progressive.Pages_Progressions
             {
                 return NotFound();
             }
-           ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID");
-           ViewData["ModuleTaskID"] = new SelectList(_context.Tasks, "ModuleTaskID", "ModuleTaskID");
+           ViewData["StudentID"] = new SelectList(_context.Students, "ID", "FullName");
+           ViewData["ModuleTaskID"] = new SelectList(_context.Tasks, "ModuleTaskID", "TaskName");
             return Page();
         }
 

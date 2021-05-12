@@ -33,6 +33,24 @@ namespace progressive.Services.Domain.Attendance
 
           return students.Count();
       }
+       
+      public async Task<Progression> StudAttendanceByDate(int id, DateTime param)
+      {
+          var progression = await _context.Progressions.Where(c=>(c.DueDate==param && c.StudentID==id) ).SingleAsync();
+          return progression;
+      }
+       
+      public async Task<float> StudAttendanceScoreByModule(int id, int modid)
+      {
+        var modtasks=_context.Tasks
+                        .Where(c=>c.ModuleID==modid)
+                        .Where(c=>c.TaskType==TaskType.Attendance);
+         var result =  await _context.Progressions
+                        .Where(c=> c.StudentID==id)
+                        .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
+                        .ToListAsync();
+          return  result.Aggregate(0, (acc, x) => acc + x.TaskAssessment);
+      }
 
       public async Task<IEnumerable<DateTime>> GetAsyncUniqueProgressDatesForModuleGroup(int modid, int grpid)
       {

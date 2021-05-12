@@ -15,7 +15,7 @@ namespace progressive
             var host = CreateHostBuilder(args).Build(); //.Run();
             //CreateDbIfNotExists(host);
             Global.AppStartup();
-            //TestDatabase.TestGetUniqueProgressDatesForModuleGroup();
+            // TestDatabase.TestStudAttendanceByDate();
             host.Run();
         }
 

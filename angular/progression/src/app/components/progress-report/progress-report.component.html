@@ -1,11 +1,11 @@
 <mat-accordion>
-  <mat-expansion-panel hideToggle *ngFor="let gmod of rootsvc.groupMods; let i=index">
+  <mat-expansion-panel hideToggle *ngFor="let gmod of rootsvc.attendance; let i=index">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Group {{gmod.group.groupNumber}}
+        Group {{gmod.groupModule.group.groupNumber}}
       </mat-panel-title>
       <mat-panel-description>
-        {{ gmod.module.moduleName }}
+        {{ gmod.groupModule.module.moduleName }}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-selection-list #studatt>

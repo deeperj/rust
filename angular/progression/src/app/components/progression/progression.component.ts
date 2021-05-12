@@ -4,11 +4,9 @@ import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
 //import { Console } from 'node:console';
-import { Attendance } from '../../models/ui/Attendance';
-import { MisAttendance } from '../../models/enums';
+import { MisAttendance, Rpag } from '../../models/enums';
 import { AttendanceService } from '../../services/attendance.service';
 import { DebugService } from '../../services/debug.service';
-import { NullTemplateVisitor } from '@angular/compiler';
 import { NewStudent } from 'src/app/models/ui/NewStudent';
 
 @Component({
@@ -18,12 +16,12 @@ import { NewStudent } from 'src/app/models/ui/NewStudent';
 })
 export class ProgressionComponent implements OnInit {
   @ViewChild("menu") menu!: MatMenuTrigger;
-  attendance: Attendance[]=[];
   matmp=[MisAttendance.Left,MisAttendance.Late,MisAttendance.LateNLeft,MisAttendance.Clear];
   MALEFT!:MisAttendance;
   MALATE!:MisAttendance;
   MALL!:MisAttendance;
   MACA!:MisAttendance;
+  RpagG=Rpag.G;
 
   constructor( 
     private dbg: DebugService, 
@@ -36,22 +34,14 @@ export class ProgressionComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  registerContext_NOT_USED():void{
-      const card = document.querySelector('mat-list-option');
-      card?.addEventListener('dblclick', e=> {
-        console.log('i just got double clicked');
-        this.dbg.info("i just got clicked too!");
-      });      
-  }
   getAttendance() {
     //throw new Error('Method not implemented.');
     this.rootsvc.getAttendanceStudents()
     .subscribe( data => {
-      this.rootsvc.groupMods=data;
       data.map((gmod, i) => {
-        this.attendance.push(
+        this.rootsvc.attendance.push(
           ({
-            groupModuleId: gmod.id,
+            groupModule: gmod,
             groupNumber:gmod.group.groupNumber,
             moduleName:gmod.module.moduleName,
             students: gmod.group.students.map(stud=>{
@@ -64,17 +54,35 @@ export class ProgressionComponent implements OnInit {
               dueDate: "",
               comments: "",
               task: null,
-              student: stud
+              student: stud,
+              attendance: [],
+              attendanceScore: null,
+              rpag: null
             }
             )},
             )
           })
-        )
+        );
+        // this.initializeAttendance(gmod);
       });
     });
     this.dbg.info(" items loaded!");
   }
-
+  rpag(rpag:Rpag|null){
+    //console.log(rpag);
+    switch(rpag){
+      case Rpag.R:
+        return "red";
+      case Rpag.P:
+        return "purple";
+      case Rpag.A:
+        return "yellow";
+      case Rpag.G:
+        return "green";
+      default:
+        return "black";
+    }
+  }
   studName(stud:Student):string{
     return stud.lastName.concat(' '+stud.otherNames);
   }
@@ -90,7 +98,7 @@ export class ProgressionComponent implements OnInit {
   comment(midx:number, idx:number, type:MisAttendance){
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
-    let stud=this.attendance[midx].students[idx];
+    let stud=this.rootsvc.attendance[midx].students[idx];
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:
@@ -113,7 +121,26 @@ export class ProgressionComponent implements OnInit {
 
   onAdmin(){
     window.location.href='http://localhost:5000/Students';
-    // window.location('https://localhost:5001')
+    // window.location('https://localhost:5001')window.location.href = "mailto:address@dmail.com";
+  }
+//window.location.href = 'mailto:address@dmail.com?subject=Hello there&body=This is the body';
+
+  email(students:Progression[]){
+    //let today: number = Date.now();
+    if(students.filter(c=>c.completed).length==0){
+      this.dbg.info("nothing to do");
+      return;
+    }
+    let mailto="mailto:";
+    students.forEach((student,i)=>{
+      if(student.completed){
+        mailto=mailto.concat('u'+student.student?.uniCode+"@unimail.hud.ac.uk");
+        if(i<students.length-1)mailto=mailto.concat(',');
+      }
+    });
+    mailto=mailto.concat("?subject=Attendance");
+    console.log("mail to ref:"+mailto);
+    window.location.href = mailto;
   }
 
   onAttendanceDone($event:any, modAttendance:Progression[]){
@@ -168,9 +195,6 @@ export class ProgressionComponent implements OnInit {
     console.log(files);
     if(files && files.length > 0) {
       let file : File|null = files.item(0); 
-      // console.log(file?.name);
-      // console.log(file?.size);
-      // console.log(file?.type);
       let reader: FileReader = new FileReader();
       if(file){
         reader.readAsText(file);

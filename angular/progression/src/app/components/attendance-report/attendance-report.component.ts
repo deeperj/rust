@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { GroupModule } from 'src/app/models/GroupModule';
-import { AttendanceReport } from 'src/app/models/ui/Attendance';
+import * as moment from 'moment';
+import { Attendance } from 'src/app/models/ui/Attendance';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { DebugService } from 'src/app/services/debug.service';
 
@@ -11,34 +11,25 @@ import { DebugService } from 'src/app/services/debug.service';
 })
 export class AttendanceReportComponent implements OnInit {
   @Input() attRep!: number;
+  attendancePivot: any[] =[];
+  theDates2: string[] = [];
   theDates: string[] = [];
-  displayedColumns: string[] = ['SN','StudentID','LastName','OtherNames','Attendance',...['hello','world']];
+  displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','Attendance',...['hello','world']];
   columnsToDisplay!: string[]
   toggle:boolean=false;
-  data: any[] =[];
-  gmod!: GroupModule;
+  attendance!: Attendance;
   constructor(
     private dbg: DebugService, 
     public rootsvc : AttendanceService
   ) { }
 
   ngOnInit(): void {
-    this.gmod=this.rootsvc.groupMods[this.attRep];
+    this.attendance=this.rootsvc.attendance[this.attRep];
     if(this.displayedColumns){
-      this.uniqueAttendanceDates();
+      this.initializeData();
     }
   }
 
-  addColumn_NOT_USED() {
-    const randomColumn = Math.floor(Math.random() * this.displayedColumns.length);
-    this.columnsToDisplay.push(this.displayedColumns[randomColumn]);
-  }
-
-  removeColumn_NOT_USED() {
-    if (this.columnsToDisplay.length) {
-      this.columnsToDisplay.pop();
-    }
-  }
 
   toggleColumn(col:string) {                             
     this.toggle=!this.toggle
@@ -48,45 +39,66 @@ export class AttendanceReportComponent implements OnInit {
       this.columnsToDisplay=this.displayedColumns.slice();
     }
   }
-
-  shuffle_NOT_USED() {
-    let currentIndex = this.columnsToDisplay.length;
-    while (0 !== currentIndex) {
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // Swap
-      let temp = this.columnsToDisplay[currentIndex];
-      this.columnsToDisplay[currentIndex] = this.columnsToDisplay[randomIndex];
-      this.columnsToDisplay[randomIndex] = temp;
-    }
-  }
-  uniqueAttendanceDates()   {
-    const modid=this.gmod.module.moduleID;
-    const grpid=this.gmod.group.groupID;
+  initializeData()   {
+    const modid=this.attendance.groupModule.module.moduleID;
+    const grpid=this.attendance.groupModule.group.groupID;
     this.rootsvc.getAttendanceDates(modid,grpid)
     .subscribe( data => {
+      this.theDates2 = data;
       this.theDates = data;
-      this.displayedColumns=['SN','StudentID','LastName','OtherNames','Attendance',...this.theDates];
-      this.data=this.getData(this.theDates);
-      this.columnsToDisplay = this.displayedColumns.slice();
+      this.theDates=this.theDates.map(c=>moment(c).format('MMM_DD_HHmmss'))
+      this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Attendance',...this.theDates];
+      this.getStudentAttendance(modid);
+      // this.rootsvc.pivotReady.subscribe(()=>{
+      //   this.rootsvc.attendancePivot=this.getData();
+      // });
+      setTimeout(() => {
+        this.attendancePivot=this.getData();
+        // console.log(this.attendancePivot);
+      }, 4000);
+        this.columnsToDisplay = this.displayedColumns.slice();
     } );
   }  
 
+  getStudentAttendance(modid:number){
+    this.attendance.students.forEach((attRec,ridx)=>{
+      this.rootsvc.getStudAttendanceScoreByModule(attRec.studentId,modid).subscribe(data=>{
+        //console.log(data);
+        attRec.attendanceScore=(data/this.theDates.length).toFixed(2);
+        attRec.rpag=this.rootsvc.getRpag(Number.parseFloat(attRec.attendanceScore))
+      });
+      this.theDates2.forEach((theDate,i)=>{
+        this.rootsvc.getStudAttendanceByDate(attRec.studentId,theDate).subscribe(data=>{
+          // console.log(i,this.theDates.length);
+          // console.log(i+"attbydate:");
+          attRec.attendance?.push(data);
+        });
+      })
+      //console.log(ridx,this.attendance.students.length,'attendance.length=',attRec.attendance.length,'attRep=',this.attRep);
+});
+  }
+  //     
+  //Object.keys(a).forEach(key => console.log(key));
 
-  getData(ext:string[]){
+  getData(){
     // console.log('this.rootsvc.groupMods=');
     // console.log(this.rootsvc.groupMods);
-    let el = {};
-    ext.forEach(v=>{el={...el,...{[v]:'*  '}}})
-    return this.gmod.group.students.map((c,i)=>{
+    let el:{[k:string]:string} = {};
+    this.theDates.forEach(v=>{el={...el,...{[v]:'*  '}}})
+    return this.attendance.students.map((c,i)=>{
       let v1= ({
         SN: i+1,
-        StudentID:c.uniCode,
-        LastName: c.lastName,
-        OtherNames: c.otherNames,
-        Attendance: 100,
+        StudentUniID:c.student?'U'+c.student.uniCode:'',
+        LastName: c.student?c.student.lastName:'',
+        OtherNames: c.student?c.student.otherNames:'',
+        Attendance: c.attendanceScore
       });
+      // console.log(c.rpag);
+      this.theDates.forEach((theDate,i)=>{
+        const v:number=c.attendance[i].taskAssessment;
+        const attendance:string=v==100?"Y":v==0?"N":"NN";
+        el[theDate]=attendance;
+      })
       return {...v1,...el};
     });
   }
