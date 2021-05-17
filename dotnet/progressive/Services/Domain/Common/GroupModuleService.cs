@@ -24,7 +24,6 @@ namespace progressive.Services.Domain.Common
                             .Include(s => s.Group.Students)
                             .ToListAsync();
         }
-
        
     }
 }

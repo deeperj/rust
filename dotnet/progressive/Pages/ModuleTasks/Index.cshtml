@@ -1,0 +1,90 @@
+@page
+@model progressive.Pages_ModuleTasks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].Term)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].TaskType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].RPAGType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].InSumRPAG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].TaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].DueWeek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].DueLesson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].Module)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ModuleTask) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RPAGType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InSumRPAG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueWeek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueLesson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Module.ModuleID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ModuleTaskID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ModuleTaskID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ModuleTaskID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

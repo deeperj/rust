@@ -1,0 +1,60 @@
+@page
+@model progressive.Pages_TimeTables.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeTable[0].Term)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeTable[0].Weekday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeTable[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeTable[0].EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeTable[0].GroupModule)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TimeTable) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weekday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupModule.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

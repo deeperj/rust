@@ -1,8 +1,16 @@
-export enum DBStatus {
-  NoError,
-  NotFound,
-}
-
+export enum Rpag {
+    R,
+    P,
+    A,
+    G,
+  }
+  export enum MisAttendance {
+    Late,
+    Left,
+    LateNLeft,
+    Clear,
+  }
+    
 export enum Weekday {
     Sunday, 
     Monday, 

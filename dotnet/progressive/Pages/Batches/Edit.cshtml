@@ -1,0 +1,70 @@
+@page
+@model progressive.Pages_Batches.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Batch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Batch.BatchID" />
+            <div class="form-group">
+                <label asp-for="Batch.BatchCode" class="control-label"></label>
+                <input asp-for="Batch.BatchCode" class="form-control" />
+                <span asp-validation-for="Batch.BatchCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Batch.Term1StartDate" class="control-label"></label>
+                <input asp-for="Batch.Term1StartDate" class="form-control" />
+                <span asp-validation-for="Batch.Term1StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Batch.Term2StartDate" class="control-label"></label>
+                <input asp-for="Batch.Term2StartDate" class="form-control" />
+                <span asp-validation-for="Batch.Term2StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Batch.MidTerm1Date" class="control-label"></label>
+                <input asp-for="Batch.MidTerm1Date" class="form-control" />
+                <span asp-validation-for="Batch.MidTerm1Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Batch.EndTerm1Date" class="control-label"></label>
+                <input asp-for="Batch.EndTerm1Date" class="form-control" />
+                <span asp-validation-for="Batch.EndTerm1Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Batch.MidTerm2Date" class="control-label"></label>
+                <input asp-for="Batch.MidTerm2Date" class="form-control" />
+                <span asp-validation-for="Batch.MidTerm2Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Batch.EndTerm2Date" class="control-label"></label>
+                <input asp-for="Batch.EndTerm2Date" class="form-control" />
+                <span asp-validation-for="Batch.EndTerm2Date" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Batch.IsActive" /> @Html.DisplayNameFor(model => model.Batch.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

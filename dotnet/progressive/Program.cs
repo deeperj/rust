@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using progressive.Services.Tests.Domain;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+
 namespace progressive
 {
     public class Program
@@ -14,7 +15,7 @@ namespace progressive
             var host = CreateHostBuilder(args).Build(); //.Run();
             //CreateDbIfNotExists(host);
             Global.AppStartup();
-            //TestDatabase.TestGetGroupModules();
+            // TestDatabase.TestStudAttendanceByDate();
             host.Run();
         }
 
@@ -26,7 +27,6 @@ namespace progressive
                 try
                 {
                     var context = services.GetRequiredService<ProgressiveContext>();
-                    //context.Database.EnsureCreated();
                    //DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)

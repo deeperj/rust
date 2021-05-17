@@ -1,0 +1,60 @@
+@page
+@model progressive.Pages_Progressions.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Progression</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Progression.ProgressionID" />
+            <div class="form-group">
+                <label asp-for="Progression.ModuleTaskID" class="control-label"></label>
+                <select asp-for="Progression.ModuleTaskID" class="form-control" asp-items="ViewBag.ModuleTaskID"></select>
+                <span asp-validation-for="Progression.ModuleTaskID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Progression.StudentID" class="control-label"></label>
+                <select asp-for="Progression.StudentID" class="form-control" asp-items="ViewBag.StudentID"></select>
+                <span asp-validation-for="Progression.StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Progression.TaskAssessment" class="control-label"></label>
+                <input asp-for="Progression.TaskAssessment" class="form-control" />
+                <span asp-validation-for="Progression.TaskAssessment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Progression.Completed" class="control-label"></label>
+                <input asp-for="Progression.Completed" class="form-control" />
+                <span asp-validation-for="Progression.Completed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Progression.DueDate" class="control-label"></label>
+                <input asp-for="Progression.DueDate" class="form-control" />
+                <span asp-validation-for="Progression.DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Progression.Comments" class="control-label"></label>
+                <input asp-for="Progression.Comments" class="form-control" />
+                <span asp-validation-for="Progression.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

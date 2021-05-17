@@ -1,0 +1,13 @@
+[
+    {
+        "BatchCode": "Sep2020",
+        "BatchID": 1,
+        "EndTerm1Date": "0001-01-01 00:00:00",
+        "EndTerm2Date": "2021-05-03 00:00:00",
+        "IsActive": 1,
+        "MidTerm1Date": "0001-01-01 00:00:00",
+        "MidTerm2Date": "2021-03-31 00:00:00",
+        "Term1StartDate": "2020-09-01 00:00:00",
+        "Term2StartDate": "2021-02-08 00:00:00"
+    }
+]

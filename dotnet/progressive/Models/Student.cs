@@ -11,6 +11,11 @@ namespace progressive.Models
         public string SGCode { get; set; }
         public string LastName { get; set; }
         public string OtherNames { get; set; }
+        public string FullName { 
+            get{
+                return LastName+" "+OtherNames;
+            } 
+        }
 
         public Group Group { get; set; }
 
