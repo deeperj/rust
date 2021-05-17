@@ -1,4 +1,4 @@
-// PuzzleGame.hpp : Defines the entry point for the console application.
+cd// PuzzleGame.hpp : Defines the entry point for the console application.
 //
 
 #pragma once
@@ -57,7 +57,7 @@ public:
 	void setVal(int);
 
 };
-class PuzzleBoard {
+class PuzzleBoard{
 private:
 public:
 	Point2D startpos;
