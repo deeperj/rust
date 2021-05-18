@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
-import { Progression } from 'src/app/models/Progression';
 import { Attendance } from 'src/app/models/ui/Attendance';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { DebugService } from 'src/app/services/debug.service';
@@ -51,7 +50,7 @@ export class AttendanceReportComponent implements OnInit {
       this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Attendance',...this.theDates];
       this.getStudentAttendance(modid);
       // this.rootsvc.pivotReady.subscribe(()=>{
-      //   this.attendancePivot=this.getData();
+      //   this.rootsvc.attendancePivot=this.getData();
       // });
       setTimeout(() => {
         this.attendancePivot=this.getData();
@@ -62,22 +61,12 @@ export class AttendanceReportComponent implements OnInit {
   }  
 
   getStudentAttendance(modid:number){
-    let counter:number=0;
     this.attendance.students.forEach((attRec,ridx)=>{
       this.rootsvc.getStudAttendanceScoreByModule(attRec.studentId,modid).subscribe(data=>{
-        //console.log(data);
         attRec.attendanceScore=(data/this.theDates.length).toFixed(2);
         attRec.rpag=this.rootsvc.getRpag(Number.parseFloat(attRec.attendanceScore))
       });
-      this.theDates2.forEach((theDate,i)=>{
-        this.rootsvc.getStudAttendanceByDate(attRec.studentId,theDate).subscribe(data=>{
-          attRec.attendance?.push(data);
-        });
-      });
-      counter++;
-      //console.log(counter,'ridx=',ridx,this.attendance.students.length,'attendance.length=',attRec.attendance.length,'attRep=',this.attRep);
-      //if(counter==this.attendance.students.length)this.rootsvc.pivotReady.next();
-});
+    });
   }
   //     
   //Object.keys(a).forEach(key => console.log(key));
@@ -95,14 +84,13 @@ export class AttendanceReportComponent implements OnInit {
         OtherNames: c.student?c.student.otherNames:'',
         Attendance: c.attendanceScore
       });
-      // console.log(c.attendance.length);
-      this.theDates.forEach((theDate,j)=>{
-        const v1:Progression|undefined=c.attendance.find(x=>moment(x.dueDate).format('MMM_DD_HHmmss')===theDate);
-        let v:number = v1?v1.taskAssessment:-1;
-        const attendance:string=v==-1?"EE":(v==100?"Y":v==0?"N":"NN");
+      // console.log(c.rpag);
+      this.theDates.forEach((theDate,i)=>{
+        const v:number=c.attendance[i].taskAssessment;
+        const attendance:string=v==100?"Y":v==0?"N":"NN";
         el[theDate]=attendance;
       })
       return {...v1,...el};
     });
   }
-} 
+}

@@ -9,6 +9,7 @@ export enum Rpag {
     Left,
     LateNLeft,
     Clear,
+    Comment,
   }
     
 export enum Weekday {
