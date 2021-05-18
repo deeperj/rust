@@ -31,7 +31,7 @@ namespace progressive.Data{
         }).ToList();
     }
 
-    public static Dictionary<int, string> GetEnumDictionary<T>() where T : struct
+    public static Dictionary<int, string> GetEnumDictionary_NOT_USED<T>() where T : struct
     {
         if (!typeof(T).IsEnum)
             throw new ArgumentException("T is not an Enum type");
