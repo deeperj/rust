@@ -62,7 +62,7 @@ namespace progressive.Services.Domain.Attendance
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
                         .Select(c=>c.DueDate).Distinct().ToListAsync();
-      }
+      }//collection.Select(c => {c.PropertyToSet = value; return c;}).ToList();
 
     }
 }

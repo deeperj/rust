@@ -16,18 +16,26 @@ import { NewStudent } from 'src/app/models/ui/NewStudent';
 })
 export class ProgressionComponent implements OnInit {
   @ViewChild("menu") menu!: MatMenuTrigger;
-  matmp=[MisAttendance.Left,MisAttendance.Late,MisAttendance.LateNLeft,MisAttendance.Clear];
+  matmp=[
+    MisAttendance.Left,
+    MisAttendance.Late,
+    MisAttendance.LateNLeft,
+    MisAttendance.Clear,
+    MisAttendance.Comment
+  ];
   MALEFT!:MisAttendance;
   MALATE!:MisAttendance;
   MALL!:MisAttendance;
   MACA!:MisAttendance;
+  MACO!:MisAttendance;
+
   RpagG=Rpag.G;
 
   constructor( 
     private dbg: DebugService, 
     public rootsvc : AttendanceService) 
     { 
-      [this.MALEFT,this.MALATE,this.MALL,this.MACA] =this.matmp;
+      [this.MALEFT,this.MALATE,this.MALL,this.MACA,this.MACO] =this.matmp;
       this.getAttendance();
     }
 
@@ -102,18 +110,24 @@ export class ProgressionComponent implements OnInit {
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:
-        stud.comments=" Attended late at "+moment().format("hh:mm:ss");
+        stud.comments=" Attended late at "+moment().format("HH:mm:ss");
         stud.taskAssessment=50;
         break;
       case MisAttendance.Left:
-        stud.comments="  Left late at "+moment().format("hh:mm:ss");
+        stud.comments="  Left late at "+moment().format("HH:mm:ss");
         stud.taskAssessment=50;
         break;
       case MisAttendance.LateNLeft:
-        stud.comments+="\n Left early at "+moment().format("hh:mm:ss");
+        stud.comments+="\n Left early at "+moment().format("HH:mm:ss");
         stud.taskAssessment=25;
         break;
-      default:
+      case MisAttendance.Comment:
+          let co = prompt("Enter Comment");
+          stud.comments+=co;
+          stud.completed=!stud.completed;
+          console.log(stud.comments);
+          break;
+        default:
         stud.comments="";
       }
       this.dbg.info("update complete!");
@@ -145,7 +159,7 @@ export class ProgressionComponent implements OnInit {
 
   onAttendanceDone($event:any, modAttendance:Progression[]){
     //let today: number = Date.now();
-    const today = moment().format('YYYY-MM-DD hh:mm:ss');
+    const today = moment().format('YYYY-MM-DD HH:mm:ss');
     let attProgressions:Progression[] = JSON.parse(JSON.stringify(modAttendance));
     attProgressions.forEach(att=>{
       att.dueDate=today;
