@@ -47,20 +47,14 @@ double qroots(float a, float b, float c, float *x1, float *x2){
 
   }
 
+#include "add.hpp"
+
 int main() {
   int a = 5;
-  int b = a;  //passing by value (deep)
-  int *p = &a;  //passing by ref (shallow)
-
-  cout << a << endl;  //
-  cout << b << endl;  //& 
-  cout << *p << endl << endl;  //dereference operator
-
-  a = 10; 
-
-  cout << a << endl;  //
-  cout << b << endl;  //& 
-  cout << *p << endl << endl;  //& address of operator
-
-  return 0;
+  int b = 5;
+  cout << add(a,b) << endl;
+  // A variable name must be declare before use
+  return 0; 
 }
+
+
