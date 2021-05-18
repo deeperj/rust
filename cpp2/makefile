@@ -1,3 +1,3 @@
-run.exe:xlg/*.cpp
-	g++ xlg/*.cpp -Incurwin ncurwin/pdcurses.a -lgdi32 -lcomdlg32 -o run.exe 
+run.exe:misc/qroot.cpp
+	g++ misc/qroot.cpp -o run.exe 
 	run.exe
