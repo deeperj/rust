@@ -56,6 +56,16 @@ namespace progressive.Controllers
             return CreatedAtAction("UploadStudents", new { count = count });
         }
 
+        // POST: api/Facade/UpdateAttendance  
+        [HttpPost]
+        [Route("api/[controller]/UpdateAttendance")]
+        public async Task<ActionResult<int>> UpdateAttendance(Progression[] progressions)
+        {
+            int count = await _domain.UpdateAttendance(progressions);
+
+            return CreatedAtAction("UpdateAttendance", new { count = count });
+        }
+
         // GET: api/Facade/StudAttendanceByDate/id/dateparam
         [Route("api/[controller]/StudAttendanceByDate/{id}/{param}")]
         // [HttpGet("{id}")]

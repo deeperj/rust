@@ -17,6 +17,7 @@ import { Rpag } from '../models/enums';
 export class AttendanceService {
   private attendanceUrl = 'https://localhost:5001/api/Facade/GetGroupModules';
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
+  private editAttendanceUrl = 'https://localhost:5001/api/Facade/UpdateAttendance';
   private addStudentsUrl = 'https://localhost:5001/api/Facade/UploadStudents';
   private attendanceDatesUrl = 'https://localhost:5001/api/Facade/GetUniqueAttendanceDates';
   private studAttendanceByDateUrl = 'https://localhost:5001/api/Facade/StudAttendanceByDate';
@@ -84,6 +85,14 @@ export class AttendanceService {
     return this.httpClient.get<string[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  editAttendance(attendance: Progression[]): Observable<any> {
+    return this.httpClient.post<any>(this.editAttendanceUrl,  attendance, this.httpOptions)
+    .pipe(
+       retry(3),
        catchError(this.httpErrorHandler)
     );
   }

@@ -31,6 +31,10 @@ export class ProgressionComponent implements OnInit {
 
   RpagG=Rpag.G;
 
+  selectAll:boolean=false;
+  dateSet:boolean=false;
+  today:string="";
+
   constructor( 
     private dbg: DebugService, 
     public rootsvc : AttendanceService) 
@@ -103,6 +107,13 @@ export class ProgressionComponent implements OnInit {
     }
   }
 
+  toggleSelectAll(studarr:Progression[]){
+    this.selectAll=!this.selectAll;
+    studarr.forEach(a=>{
+      a.completed=this.selectAll;
+    });
+  }
+
   comment(midx:number, idx:number, type:MisAttendance){
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
@@ -127,10 +138,10 @@ export class ProgressionComponent implements OnInit {
           stud.completed=!stud.completed;
           console.log(stud.comments);
           break;
-        default:
-        stud.comments="";
-      }
-      this.dbg.info("update complete!");
+      default:
+          this.dbg.info("Invalid Comment Type");
+          return;
+    }this.dbg.info("update complete!");
   }
 
   onAdmin(){
@@ -157,19 +168,43 @@ export class ProgressionComponent implements OnInit {
     window.location.href = mailto;
   }
 
-  onAttendanceDone($event:any, modAttendance:Progression[]){
+  onAttendanceDone(modAttendance:Progression[]){
     //let today: number = Date.now();
-    const today = moment().format('YYYY-MM-DD HH:mm:ss');
+    this.today = this.dateSet?this.today:moment().format('YYYY-MM-DD HH:mm:ss');
+    this.dateSet=true
     let attProgressions:Progression[] = JSON.parse(JSON.stringify(modAttendance));
     attProgressions.forEach(att=>{
-      att.dueDate=today;
+      att.dueDate=this.today;
       att.student=null;
       delete att.progressionId;
     })
     this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
       console.log(data);
       this.dbg.info(data.count+" attendances saved!");
+      // this.selectAll=true;
+      // this.toggleSelectAll(modAttendance);
+    })
+  }
+
+
+  onUpdate(modAttendance:Progression[]){
+    const all:Progression[]=modAttendance.filter(c=>c.completed);
+    if(all.length==0){
+      this.dbg.info("nothing to do");
+      return;
+    }
+    let attProgressions:Progression[] = JSON.parse(JSON.stringify(all));
+    attProgressions.forEach(att=>{
+      att.dueDate=this.today;
+      att.student=null;
+      delete att.progressionId;
+    })
+    this.rootsvc.editAttendance(attProgressions).subscribe(data=>{
+      console.log(data);
+      this.dbg.info(data.count+" attendances saved!");
       // window.location.reload(); 
+      this.selectAll=true;
+      this.toggleSelectAll(modAttendance);
     })
   }
 

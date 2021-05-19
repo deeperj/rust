@@ -26,6 +26,22 @@ namespace progressive.Services.Domain.Attendance
           return progressions.Count();
       }
        
+      public async Task<int> UpdateAttendance(Progression[] progressions)
+      {
+          using (_context)
+          {
+              var a2c = _context.Progressions.Where(f=>f.DueDate==progressions[0].DueDate);
+              progressions.ToList().ForEach(a=>{
+                var stud = a2c.Where(a2c2=>a.StudentID==a2c2.StudentID).Single();
+                stud.TaskAssessment=a.TaskAssessment;
+                stud.Comments=a.Comments;
+                stud.Completed=a.Completed;
+                _context.SaveChangesAsync();
+              });
+          }
+          return progressions.Count();
+      }
+       
       public async Task<int> UploadStudents(Student[] students)
       {
           _context.Students.AddRange(students);
@@ -62,7 +78,7 @@ namespace progressive.Services.Domain.Attendance
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
                         .Select(c=>c.DueDate).Distinct().ToListAsync();
-      }//collection.Select(c => {c.PropertyToSet = value; return c;}).ToList();
+      }
 
     }
 }

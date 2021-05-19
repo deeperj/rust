@@ -22,8 +22,8 @@ namespace progressive.Pages_ModuleTasks
         public IActionResult OnGet()
         {
             ViewData["ModuleID"] = new SelectList(_context.Modules, "ModuleID", "ModuleName");
-            ViewData["TaskType"] = GetEnumLookupKey<TaskType>();
-            ViewData["RPAGType"] = GetEnumLookupKey<RPAGType>();
+            ViewData["TaskType"] = Global.GetEnumLookupKey<TaskType>();
+            ViewData["RPAGType"] = Global.GetEnumLookupKey<RPAGType>();
             return Page();
         }
 
