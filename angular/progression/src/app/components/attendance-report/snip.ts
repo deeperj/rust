@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
-import { Attendance } from 'src/app/models/ui/Attendance';
+import { Progress } from 'src/app/models/ui/Progress';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { DebugService } from 'src/app/services/debug.service';
 
@@ -17,14 +17,14 @@ export class AttendanceReportComponent implements OnInit {
   displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','Attendance',...['hello','world']];
   columnsToDisplay!: string[]
   toggle:boolean=false;
-  attendance!: Attendance;
+  attendance!: Progress;
   constructor(
     private dbg: DebugService, 
     public rootsvc : AttendanceService
   ) { }
 
   ngOnInit(): void {
-    this.attendance=this.rootsvc.attendance[this.attRep];
+    this.attendance=this.rootsvc.progress[this.attRep];
     if(this.displayedColumns){
       this.initializeData();
     }
@@ -61,10 +61,10 @@ export class AttendanceReportComponent implements OnInit {
   }  
 
   getStudentAttendance(modid:number){
-    this.attendance.students.forEach((attRec,ridx)=>{
+    this.attendance.progressRecords.forEach((attRec,ridx)=>{
       this.rootsvc.getStudAttendanceScoreByModule(attRec.studentId,modid).subscribe(data=>{
-        attRec.attendanceScore=(data/this.theDates.length).toFixed(2);
-        attRec.rpag=this.rootsvc.getRpag(Number.parseFloat(attRec.attendanceScore))
+        attRec.score=(data/this.theDates.length).toFixed(2);
+        attRec.rpag=this.rootsvc.getRpag(Number.parseFloat(attRec.score))
       });
     });
   }
@@ -76,17 +76,17 @@ export class AttendanceReportComponent implements OnInit {
     // console.log(this.rootsvc.groupMods);
     let el:{[k:string]:string} = {};
     this.theDates.forEach(v=>{el={...el,...{[v]:'*  '}}})
-    return this.attendance.students.map((c,i)=>{
+    return this.attendance.progressRecords.map((c,i)=>{
       let v1= ({
         SN: i+1,
         StudentUniID:c.student?'U'+c.student.uniCode:'',
         LastName: c.student?c.student.lastName:'',
         OtherNames: c.student?c.student.otherNames:'',
-        Attendance: c.attendanceScore
+        Attendance: c.score
       });
       // console.log(c.rpag);
       this.theDates.forEach((theDate,i)=>{
-        const v:number=c.attendance[i].taskAssessment;
+        const v:number=c.progress[i].taskAssessment;
         const attendance:string=v==100?"Y":v==0?"N":"NN";
         el[theDate]=attendance;
       })

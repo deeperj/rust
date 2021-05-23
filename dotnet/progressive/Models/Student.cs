@@ -16,6 +16,7 @@ namespace progressive.Models
                 return LastName+" "+OtherNames;
             } 
         }
+        public DateTime StartDate { get; set; }
 
         public Group Group { get; set; }
 

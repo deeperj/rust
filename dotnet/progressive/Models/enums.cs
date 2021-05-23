@@ -89,6 +89,7 @@ namespace progressive.Models
         Formative, 
         Summative,
         Enrollment,
+        Inactive,
         None
     }
 

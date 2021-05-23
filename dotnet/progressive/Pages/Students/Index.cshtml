@@ -26,6 +26,9 @@
                 @Html.DisplayNameFor(model => model.Student[0].OtherNames)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Student[0].StartDate)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Student[0].Group)
             </th>
             <th></th>
@@ -45,6 +48,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OtherNames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Group.GroupID)

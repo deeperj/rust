@@ -9,6 +9,7 @@ using progressive.Data;
 using progressive.Models;
 using progressive.Services.Domain.Common;
 using progressive.Services.Domain.Attendance;
+using progressive.Services.Domain.Assessment;
 
 namespace progressive.Services.Domain
 {
@@ -17,12 +18,14 @@ namespace progressive.Services.Domain
         protected readonly ProgressiveContext _context;
         private GroupModuleService _GroupModuleService;
         private AttendanceService _AttendanceService;
+        private AssessmentService _AssessmentService;
 
         public Facade(ProgressiveContext context)
         {
             _context = context;
             _GroupModuleService = new GroupModuleService(context);
             _AttendanceService = new AttendanceService(context);
+            _AssessmentService = new AssessmentService(context);
         }
 
         public async Task<IEnumerable<GroupModule>> GetGroupModules()
@@ -33,11 +36,20 @@ namespace progressive.Services.Domain
         public async Task<IEnumerable<DateTime>> GetUniqueAttendanceDates(int modid, int grpid)
         {
             return await _AttendanceService.GetAsyncUniqueProgressDatesForModuleGroup(modid, grpid);
-        }//StudAttendanceByDate
+        }
+        public async Task<IEnumerable<Progression>> SummativesByModuleGroup(int modid, int grpid)
+        {
+            return await _AssessmentService.GetAsyncProgressByModuleGroup(modid, grpid);
+        }
 
         public async Task<Progression> StudAttendanceByDate(int id, DateTime param)
         {
             return await _AttendanceService.StudAttendanceByDate(id, param);
+        }
+
+        public async Task<IEnumerable<Progression>> SummativesNOT_USED(int id, int modid)
+        {
+            return await _AssessmentService.SumProgressByModuleNOT_USED(id, modid);
         }
 
         public async Task<float> StudAttendanceScoreByModule(int id, int modid)
@@ -53,7 +65,7 @@ namespace progressive.Services.Domain
 
         public async Task<int> UpdateAttendance(Progression[] progressions)
         {
-            return await _AttendanceService.SaveAttendance(progressions);
+            return await _AttendanceService.UpdateAttendance(progressions);
         }
 
         public async Task<int> UploadStudents(Student[] students)

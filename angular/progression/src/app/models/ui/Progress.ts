@@ -4,15 +4,16 @@ import { Module } from '../Module';
 import { Progression } from '../Progression';
 
 
-export interface Attendance {
+export interface Progress {
   groupModule: GroupModule;
   groupNumber: number;
   moduleName: string;
-  students: (Progression & AttendanceRecord)[];
+  progressRecords: (Progression & ProgressRecord)[];
 }
-export interface AttendanceRecord{
-  attendanceScore: string|null;
+export interface ProgressRecord{
+  score: string|null;
   rpag: Rpag |null;
-  attendance: Progression[];
+  progress: Progression[];
+  attendanceCount: number;
   // attendance: {[k: string]: any}|null;
 }

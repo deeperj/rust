@@ -51,12 +51,12 @@ export class ProgressionComponent implements OnInit {
     this.rootsvc.getAttendanceStudents()
     .subscribe( data => {
       data.map((gmod, i) => {
-        this.rootsvc.attendance.push(
+        this.rootsvc.progress.push(
           ({
             groupModule: gmod,
             groupNumber:gmod.group.groupNumber,
             moduleName:gmod.module.moduleName,
-            students: gmod.group.students.map(stud=>{
+            progressRecords: gmod.group.students.map(stud=>{
               return ({
               progressionId: null,
               moduleTaskId: 1,
@@ -69,6 +69,7 @@ export class ProgressionComponent implements OnInit {
               student: stud,
               attendance: [],
               attendanceScore: null,
+              attendanceCount: 0,
               rpag: null
             }
             )},
@@ -117,7 +118,7 @@ export class ProgressionComponent implements OnInit {
   comment(midx:number, idx:number, type:MisAttendance){
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
-    let stud=this.rootsvc.attendance[midx].students[idx];
+    let stud=this.rootsvc.progress[midx].progressRecords[idx];
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:
@@ -125,7 +126,7 @@ export class ProgressionComponent implements OnInit {
         stud.taskAssessment=50;
         break;
       case MisAttendance.Left:
-        stud.comments="  Left late at "+moment().format("HH:mm:ss");
+        stud.comments="  Left early at "+moment().format("HH:mm:ss");
         stud.taskAssessment=50;
         break;
       case MisAttendance.LateNLeft:
@@ -170,7 +171,7 @@ export class ProgressionComponent implements OnInit {
 
   onAttendanceDone(modAttendance:Progression[]){
     //let today: number = Date.now();
-    this.today = this.dateSet?this.today:moment().format('YYYY-MM-DD HH:mm:ss');
+    this.today = moment().format('YYYY-MM-DD HH:mm:ss');
     this.dateSet=true
     let attProgressions:Progression[] = JSON.parse(JSON.stringify(modAttendance));
     attProgressions.forEach(att=>{
@@ -179,17 +180,16 @@ export class ProgressionComponent implements OnInit {
       delete att.progressionId;
     })
     this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
-      console.log(data);
-      this.dbg.info(data.count+" attendances saved!");
-      // this.selectAll=true;
-      // this.toggleSelectAll(modAttendance);
+      this.dbg.info(data.count+" attendance(s) saved!");
+      this.selectAll=true;
+      this.toggleSelectAll(modAttendance);
     })
   }
 
 
   onUpdate(modAttendance:Progression[]){
     const all:Progression[]=modAttendance.filter(c=>c.completed);
-    if(all.length==0){
+    if(all.length==0 || !this.dateSet){
       this.dbg.info("nothing to do");
       return;
     }
@@ -200,8 +200,7 @@ export class ProgressionComponent implements OnInit {
       delete att.progressionId;
     })
     this.rootsvc.editAttendance(attProgressions).subscribe(data=>{
-      console.log(data);
-      this.dbg.info(data.count+" attendances saved!");
+      this.dbg.info(data.count+" attendance(s) updated!");
       // window.location.reload(); 
       this.selectAll=true;
       this.toggleSelectAll(modAttendance);
@@ -224,16 +223,15 @@ export class ProgressionComponent implements OnInit {
   }
   public uploadStudents(students:string[][]){
     let newStuds:NewStudent[]=[];
-    students.forEach(c=>{
+    students.forEach(csv=>{
       newStuds.push(({
-        groupId :Number.parseInt(c[0]),
+        groupId :Number.parseInt(csv[0]),
         sgCode: null,
-        uniCode: c[3],
-        lastName: c[1],
-        otherNames: c[2]
+        uniCode: csv[3],
+        lastName: csv[1],
+        otherNames: csv[2]
       }))
     });
-//    console.log(JSON.stringify(newStuds));
     this.rootsvc.uploadStudents(newStuds).subscribe(data=>{
       this.dbg.info(data.count + " Students Added!");
       console.log(data.count+ " students added")

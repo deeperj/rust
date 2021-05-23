@@ -18,5 +18,8 @@ namespace progressive.Services.Domain
         Task<IEnumerable<DateTime>> GetUniqueAttendanceDates(int modid, int grpid);
         Task<Progression> StudAttendanceByDate(int id, DateTime param);
         Task<float> StudAttendanceScoreByModule(int id, int module);
+        Task<IEnumerable<Progression>> SummativesNOT_USED(int id, int modid);
+        Task<IEnumerable<Progression>> SummativesByModuleGroup(int mid, int gid);
+
     }
 }

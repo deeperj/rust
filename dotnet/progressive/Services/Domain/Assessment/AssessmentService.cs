@@ -8,17 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
 
-namespace progressive.Services.Domain.Attendance
+namespace progressive.Services.Domain.Assessment
 {
-    public class AttendanceService
+    public class AssessmentService
     {
       protected readonly ProgressiveContext _context;
-      public AttendanceService(ProgressiveContext context)
+      public AssessmentService(ProgressiveContext context)
       {
         _context=context;
       }
        
-      public async Task<int> SaveAttendance(Progression[] progressions)
+      public async Task<int> SaveAssessmentNOT_USED(Progression[] progressions)
       {
           _context.Progressions.AddRange(progressions);
           await _context.SaveChangesAsync();
@@ -26,7 +26,7 @@ namespace progressive.Services.Domain.Attendance
           return progressions.Count();
       }
        
-      public async Task<int> UpdateAttendance(Progression[] progressions)
+      public async Task<int> UpdateAssessmentNOT_USED(Progression[] progressions)
       {
           var a2c =await  _context.Progressions.Where(f=>f.DueDate==progressions[0].DueDate 
                                           && progressions.Select(p=>p.StudentID).ToList()
@@ -38,7 +38,7 @@ namespace progressive.Services.Domain.Attendance
           return found;
       }
        
-      public async Task<int> UploadStudents(Student[] students)
+      public async Task<int> UploadAssessmentsNOT_USED(Student[] students)
       {
           _context.Students.AddRange(students);
           await _context.SaveChangesAsync();
@@ -46,37 +46,29 @@ namespace progressive.Services.Domain.Attendance
           return students.Count();
       }
        
-      public async Task<Progression> StudAttendanceByDate(int id, DateTime param)
-      {
-          var progression = await _context.Progressions
-                            .Where(c=>(c.DueDate==param && c.StudentID==id) )
-                            .OrderBy(c=>c.DueDate)
-                            .SingleAsync();
-          return progression;
-      }
-       
-      public async Task<float> StudAttendanceScoreByModule(int id, int modid)
+      public async Task<IEnumerable<Progression>> SumProgressByModuleNOT_USED(int id, int modid)
       {
         var modtasks=_context.Tasks
                         .Where(c=>c.ModuleID==modid)
-                        .Where(c=>c.TaskType==TaskType.Attendance);
-         var result =  await _context.Progressions
+                        .Where(c=>c.RPAGType==RPAGType.Summative);
+         return await _context.Progressions
                         .Where(c=> c.StudentID==id)
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
+                        // .Include(s => s.Task)
                         .ToListAsync();
-          return  result.Aggregate(0, (acc, x) => acc + x.TaskAssessment);
       }
        
-      public async Task<IEnumerable<DateTime>> GetAsyncUniqueProgressDatesForModuleGroup(int modid, int grpid)
+      public async Task<IEnumerable<Progression>> GetAsyncProgressByModuleGroup(int modid, int grpid)
       {
         var gstud=_context.Students.Where(c=>c.GroupID==grpid);
         var modtasks=_context.Tasks
                         .Where(c=>c.ModuleID==modid)
-                        .Where(c=>c.TaskType==TaskType.Attendance);
+                        .Where(c=>c.RPAGType==RPAGType.Summative);
         return await _context.Progressions
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
-                        .Select(c=>c.DueDate).Distinct().ToListAsync();
+                        .Include(s => s.Task)
+                        .ToListAsync();
       }
 
     }

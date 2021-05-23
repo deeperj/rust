@@ -37,7 +37,9 @@ namespace progressive.Pages_ModuleTasks
             {
                 return NotFound();
             }
-           ViewData["ModuleID"] = new SelectList(_context.Modules, "ModuleID", "ModuleID");
+            ViewData["ModuleID"] = new SelectList(_context.Modules, "ModuleID", "ModuleName");
+            ViewData["TaskType"] = Global.GetEnumLookupKey<TaskType>();
+            ViewData["RPAGType"] = Global.GetEnumLookupKey<RPAGType>();
             return Page();
         }
 

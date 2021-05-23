@@ -66,7 +66,7 @@ namespace progressive.Controllers
             return CreatedAtAction("UpdateAttendance", new { count = count });
         }
 
-        // GET: api/Facade/StudAttendanceByDate/id/dateparam
+        // GET: api/Facade/StudAttendanceByDate/:id/:dateparam
         [Route("api/[controller]/StudAttendanceByDate/{id}/{param}")]
         // [HttpGet("{id}")]
         public async Task<ActionResult<Progression>> StudAttendanceByDate(int id, DateTime param)
@@ -80,7 +80,7 @@ namespace progressive.Controllers
             return progression;
         }
 
-        // GET: api/Facade/StudAttendanceByDate/id/modid
+        // GET: api/Facade/StudAttendanceByDate/:id/:modid
         [Route("api/[controller]/StudAttendanceScoreByModule/{id}/{modid}")]
         // [HttpGet("{id}")]
         public async Task<ActionResult<float>> StudAttendanceScoreByModule(int id, int modid)
@@ -92,6 +92,34 @@ namespace progressive.Controllers
                 return BadRequest();
             }
             return score;
+        }
+
+        // GET: api/Facade/Summatives/id/modid
+        [Route("api/[controller]/Summatives/{id}/{modid}")]
+        // [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Progression>>> SummativesNOT_USED(int id, int modid)
+        {
+            var progressions = await _domain.SummativesNOT_USED(id,modid);
+
+            if (progressions == null)
+            {
+                return BadRequest();
+            }
+            return Ok(progressions);
+        }
+
+        // GET: api/Facade/SummativesByGroupModule/id/modid
+        [Route("api/[controller]/SummativesByGroupModule/{id}/{modid}")]
+        // [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Progression>>> SummativesByGroupModule(int id, int modid)
+        {
+            var progressions = await _domain.SummativesByModuleGroup(id,modid);
+
+            if (progressions == null)
+            {
+                return BadRequest();
+            }
+            return Ok(progressions);
         }
 
     }

@@ -40,6 +40,11 @@
                 <span asp-validation-for="Student.OtherNames" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Student.StartDate" class="control-label"></label>
+                <input asp-for="Student.StartDate" class="form-control" />
+                <span asp-validation-for="Student.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
