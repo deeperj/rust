@@ -15,6 +15,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -63,6 +64,7 @@ import { SumAssessmentComponent } from './components/sum-assessment/sum-assessme
     MatMenuModule,
     MatInputModule,
     MatDialogModule,
+    MatCheckboxModule,
   ],
   providers: [
     DebugService,  

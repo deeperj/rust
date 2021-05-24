@@ -10,23 +10,26 @@ import { Progression } from '../models/Progression';
 import { NewStudent } from '../models/ui/NewStudent';
 import {Subject} from 'rxjs';
 import { Rpag } from '../models/enums';
+import { ModuleTask } from '../models/ModuleTask';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AttendanceService {
+export class DomainService {
   private attendanceUrl = 'https://localhost:5001/api/Facade/GetGroupModules';
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
   private editAttendanceUrl = 'https://localhost:5001/api/Facade/UpdateAttendance';
   private addStudentsUrl = 'https://localhost:5001/api/Facade/UploadStudents';
   private attendanceDatesUrl = 'https://localhost:5001/api/Facade/GetUniqueAttendanceDates';
+  private sumTasksByModuleUrl = 'https://localhost:5001/api/Facade/SumTasksByModule';
+  private summativesByGroupUrl = 'https://localhost:5001/api/Facade/SummativesByGroupModule';
   private studAttendanceByDateUrl = 'https://localhost:5001/api/Facade/StudAttendanceByDate';
   private attendanceScoreByModuleUrl = 'https://localhost:5001/api/Facade/StudAttendanceScoreByModule';
   protected httpOptions = {
       headers: new HttpHeaders( { 'Content-Type': 'application/json' })
   };
   _progress: Progress[]=[];
-  protected pivotReady = new Subject();
+  _pivotReady = new Subject();
 
   constructor(
     protected httpClient : HttpClient,
@@ -37,10 +40,14 @@ export class AttendanceService {
       return this._dbg;
     }
 
-  public get progress() {
-    return this._progress;
-  }
+    public get progress() {
+      return this._progress;
+    }
 
+    public get pivotReady() {
+      return this._pivotReady;
+    }
+    
   public set progress(gmds: Progress[]) {
       if (this._progress.length==0) {
           this._progress=gmds;
@@ -69,6 +76,24 @@ export class AttendanceService {
     const finalUrl = this.studAttendanceByDateUrl + "/" + sid + "/" + encodeURIComponent(param);
     // const finalUrl = this.studAttendanceByDateUrl + "?id=" + sid + "&param=" + param;
     return this.httpClient.get<Progression>(finalUrl, this.httpOptions)
+    .pipe(
+       retry(1),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  getSummativesByGroup(modid: number, grpid:number) : Observable<Progression[]> {
+    const finalUrl = this.summativesByGroupUrl + "/" + modid + "/" + grpid;
+    return this.httpClient.get<Progression[]>(finalUrl, this.httpOptions)
+    .pipe(
+       retry(1),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  getSumTasksByModule(modid: number) : Observable<ModuleTask[]> {
+    const finalUrl = this.sumTasksByModuleUrl + "/" + modid;
+    return this.httpClient.get<ModuleTask[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
        catchError(this.httpErrorHandler)
@@ -143,7 +168,7 @@ export class AttendanceService {
 
   attendanceLag(student:(Progression & ProgressRecord)):number{
     //console.log(JSON.stringify(student.attendance));
-    let aLag:Progression[]=student.progress.reverse();
+    let aLag:Progression[]=student.attendance.reverse();
     let lag:number=0;
     for(let i:number=0;i<aLag.length;i++){
       if(!aLag[i].completed)

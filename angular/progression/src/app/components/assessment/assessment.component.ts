@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AttendanceService } from 'src/app/services/attendance.service';
-import { DebugService } from 'src/app/services/debug.service';
+import { DomainService } from 'src/app/services/domain.service';
 
 @Component({
   selector: 'app-assessment',
@@ -10,8 +9,7 @@ import { DebugService } from 'src/app/services/debug.service';
 export class AssessmentComponent implements OnInit {
 
   constructor( 
-    private dbg: DebugService, 
-    public rootsvc : AttendanceService) 
+    public rootsvc : DomainService) 
     { 
     }
 

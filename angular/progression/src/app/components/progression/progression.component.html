@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel hideToggle *ngFor="let att of rootsvc.attendance; let midx=index">
+  <mat-expansion-panel hideToggle *ngFor="let att of rootsvc.progress; let midx=index">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Group {{att.groupNumber}}
@@ -8,14 +8,14 @@
         {{att.moduleName}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-selection-list #studatt (selectionChange)="onSelectionChange($event, att.students)">
-      <mat-list-option [selected]="prog.completed" [value]="prog.student" *ngFor="let prog of att.students; let i=index">
+    <mat-selection-list #studatt (selectionChange)="onSelectionChange($event, att.studentProgress)">
+      <mat-list-option [selected]="prog.completed" [value]="prog.student" *ngFor="let prog of att.studentProgress; let i=index">
       <mat-icon mat-list-icon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
       <div mat-line>
         <span style="margin-right: 16px;">[ {{(''+(i+1)).padStart(2,'0')}} ]</span>
         <svg width="15" height="15" style="margin-right: 16px">
           <title>{{ (prog?prog.attendanceScore:'')}}%</title>
-        <rect width="15" height="15" style="fill:{{rpag(prog?prog.rpag:RpagG)}}"/>
+        <rect width="15" height="15" style="fill:{{rpag(prog?prog.attendanceRpag:RpagG)}}"/>
         </svg>
         <span style="margin-right: 16px;">[ U{{ (prog.student?prog.student.uniCode:'')}} ]</span> {{studName(prog.student!)}}</div>
         <mat-menu #menu="matMenu">
@@ -31,14 +31,14 @@
       Options selected: {{studatt.selectedOptions.selected.length}}
     </p> -->
     <p>
-      <button mat-raised-button color="primary" (click)="toggleSelectAll(att.students)">{{selectAll?'Deselect':'Select'}} all</button>
-      <button mat-raised-button color="primary" [disabled]="dateSet" (click)="onAttendanceDone(att.students)">Done</button>
+      <button mat-raised-button color="primary" (click)="toggleSelectAll(att.studentProgress)">{{selectAll?'Deselect':'Select'}} all</button>
+      <button mat-raised-button color="primary" [disabled]="dateSet" (click)="onAttendanceDone(att.studentProgress)">Done</button>
       <button mat-raised-button color="primary" (click)="onAdmin()">Admin</button>
       <!-- <input mat-input color="primary" type="file" class="upload" (change)="changeListener($event)"> -->
       <vo-mat-fileUpload (change)="onFileChange($event)" chooseLabel="Upload Names">
       </vo-mat-fileUpload>
-      <button mat-raised-button color="primary" (click)="email(att.students)">Email</button>
-      <button mat-raised-button color="primary" [disabled]="selectAll || !dateSet" (click)="onUpdate(att.students)">Update</button>
+      <button mat-raised-button color="primary" (click)="email(att.studentProgress)">Email</button>
+      <button mat-raised-button color="primary" [disabled]="selectAll || !dateSet" (click)="onUpdate(att.studentProgress)">Update</button>
   </p>
   </mat-expansion-panel>
 </mat-accordion>

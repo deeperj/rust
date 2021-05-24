@@ -20,6 +20,7 @@ namespace progressive.Services.Domain
         Task<float> StudAttendanceScoreByModule(int id, int module);
         Task<IEnumerable<Progression>> SummativesNOT_USED(int id, int modid);
         Task<IEnumerable<Progression>> SummativesByModuleGroup(int mid, int gid);
+        Task<IEnumerable<ModuleTask>> SumTasksByModule(int mid);
 
     }
 }

@@ -41,6 +41,10 @@ namespace progressive.Services.Domain
         {
             return await _AssessmentService.GetAsyncProgressByModuleGroup(modid, grpid);
         }
+        public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid)
+        {
+            return await _AssessmentService.SumTasksByModule(modid);
+        }
 
         public async Task<Progression> StudAttendanceByDate(int id, DateTime param)
         {

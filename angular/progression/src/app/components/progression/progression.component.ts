@@ -5,7 +5,7 @@ import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
 //import { Console } from 'node:console';
 import { MisAttendance, Rpag } from '../../models/enums';
-import { AttendanceService } from '../../services/attendance.service';
+import { DomainService } from '../../services/domain.service';
 import { DebugService } from '../../services/debug.service';
 import { NewStudent } from 'src/app/models/ui/NewStudent';
 
@@ -37,7 +37,7 @@ export class ProgressionComponent implements OnInit {
 
   constructor( 
     private dbg: DebugService, 
-    public rootsvc : AttendanceService) 
+    public rootsvc : DomainService) 
     { 
       [this.MALEFT,this.MALATE,this.MALL,this.MACA,this.MACO] =this.matmp;
       this.getAttendance();
@@ -56,7 +56,7 @@ export class ProgressionComponent implements OnInit {
             groupModule: gmod,
             groupNumber:gmod.group.groupNumber,
             moduleName:gmod.module.moduleName,
-            progressRecords: gmod.group.students.map(stud=>{
+            studentProgress: gmod.group.students.map(stud=>{
               return ({
               progressionId: null,
               moduleTaskId: 1,
@@ -68,9 +68,10 @@ export class ProgressionComponent implements OnInit {
               task: null,
               student: stud,
               attendance: [],
+              summatives: [],
               attendanceScore: null,
               attendanceCount: 0,
-              rpag: null
+              attendanceRpag: null
             }
             )},
             )
@@ -78,7 +79,7 @@ export class ProgressionComponent implements OnInit {
         );
         // this.initializeAttendance(gmod);
       });
-    });
+   });
     this.dbg.info(" items loaded!");
   }
   rpag(rpag:Rpag|null){
@@ -118,7 +119,7 @@ export class ProgressionComponent implements OnInit {
   comment(midx:number, idx:number, type:MisAttendance){
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
-    let stud=this.rootsvc.progress[midx].progressRecords[idx];
+    let stud=this.rootsvc.progress[midx].studentProgress[idx];
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:

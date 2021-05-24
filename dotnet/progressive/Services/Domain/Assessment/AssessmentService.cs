@@ -54,7 +54,6 @@ namespace progressive.Services.Domain.Assessment
          return await _context.Progressions
                         .Where(c=> c.StudentID==id)
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
-                        // .Include(s => s.Task)
                         .ToListAsync();
       }
        
@@ -68,6 +67,14 @@ namespace progressive.Services.Domain.Assessment
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
                         .Include(s => s.Task)
+                        .ToListAsync();
+      }
+   
+      public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid)
+      {
+        return await _context.Tasks
+                        .Where(c=>c.ModuleID==modid
+                        && c.RPAGType==RPAGType.Summative)
                         .ToListAsync();
       }
 

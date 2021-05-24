@@ -121,6 +121,19 @@ namespace progressive.Controllers
             }
             return Ok(progressions);
         }
+        // GET: api/Facade/SumTasksByModule/id
+        [Route("api/[controller]/SumTasksByModule/{id}")]
+        // [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<ModuleTask>>> SummativesByGroupModule(int id)
+        {
+            var tasks = await _domain.SumTasksByModule(id);
+
+            if (tasks == null)
+            {
+                return BadRequest();
+            }
+            return Ok(tasks);
+        }
 
     }
 }

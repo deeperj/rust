@@ -8,12 +8,13 @@ export interface Progress {
   groupModule: GroupModule;
   groupNumber: number;
   moduleName: string;
-  progressRecords: (Progression & ProgressRecord)[];
+  studentProgress: (Progression & ProgressRecord)[];
 }
 export interface ProgressRecord{
-  score: string|null;
-  rpag: Rpag |null;
-  progress: Progression[];
+  attendanceScore: string|null;
+  attendanceRpag: Rpag |null;
+  attendance: Progression[];
+  summatives: Progression[];
   attendanceCount: number;
   // attendance: {[k: string]: any}|null;
 }
