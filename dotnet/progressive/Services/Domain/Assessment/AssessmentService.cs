@@ -77,6 +77,20 @@ namespace progressive.Services.Domain.Assessment
                         && c.RPAGType==RPAGType.Summative)
                         .ToListAsync();
       }
+   
+      public async Task<EmailStatus> EmailSumStatus(int stid, int modid)
+      {
+        var stud = _context.Students.Find(stid);
+        var modtasks=_context.Tasks
+                        .Where(c=>c.ModuleID==modid)
+                        .Where(c=>c.RPAGType==RPAGType.Summative);
+        var sprog = await _context.Progressions
+                        .Where(c=> c.StudentID==stid)
+                        .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
+                        .ToListAsync();
+        
+        return EmailStatus.Sent;
+      }
 
     }
 }

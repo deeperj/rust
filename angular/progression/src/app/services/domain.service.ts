@@ -16,6 +16,7 @@ import { ModuleTask } from '../models/ModuleTask';
   providedIn: 'root'
 })
 export class DomainService {
+  private weeklyRemindereUrl = 'https://localhost:5001/api/Facade/SendWeeklyStatus';
   private attendanceUrl = 'https://localhost:5001/api/Facade/GetGroupModules';
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
   private editAttendanceUrl = 'https://localhost:5001/api/Facade/UpdateAttendance';
@@ -66,8 +67,12 @@ export class DomainService {
     return throwError("Error occurred. Please try again");
   }
 
+  sendWeeklyReminder() : Observable<GroupModule[]> {
+    return this.httpClient.get<GroupModule[]>(this.weeklyRemindereUrl, this.httpOptions)
+    .pipe(retry(3),catchError(this.httpErrorHandler));
+  }
+
   getAttendanceStudents() : Observable<GroupModule[]> {
-    console.log('err_handler: '+this._dbg);
     return this.httpClient.get<GroupModule[]>(this.attendanceUrl, this.httpOptions)
     .pipe(retry(3),catchError(this.httpErrorHandler));
   }

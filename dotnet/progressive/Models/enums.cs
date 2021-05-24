@@ -1,5 +1,11 @@
 namespace progressive.Models
 {
+    public enum EmailStatus
+    {
+        Sent, 
+        Error, 
+    }
+
     public enum Department
     {
         Science, 
