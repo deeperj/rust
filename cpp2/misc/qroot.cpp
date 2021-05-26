@@ -50,9 +50,24 @@ double qroots(float a, float b, float c, float *x1, float *x2){
 #include "add.hpp"
 
 int main() {
-  int a = 5;
-  int b = 5;
-  cout << add(a,b) << endl;
+  double a,b,d;
+  char c;
+  cout << "Enter format a + b <enter>. where a, b are floats and + is either +,-,/,*: ";
+  cin >> a >> c >> b;
+
+  if(c='+'){
+    d = a + b;
+  }
+  if(c='-'){
+    d = a - b; 
+  }
+  if(c='*'){
+    d = a * b;
+  }
+  if(c='/'){
+    d = a / b;
+  }
+  cout << a << c << b << "=" << d << endl;
   // A variable name must be declare before use
   return 0; 
 }
