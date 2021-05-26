@@ -19,7 +19,7 @@ class Employee {
         this->age=age;
     }
     void info(){
-        cout << name << " works in " << department << " is " << age << " years of age" << endl;
+        cout << name << " works in " << department << " and is " << age << " years of age" << endl;
     }
 } ;
 
