@@ -19,7 +19,7 @@ class complex2 {
 int main() {
   complex2 a,b,d;
   char c;
-  cout << "Enter format a + b <enter>. where a, b are floats and + is either +,-,/,*: ";
+  cout << "Enter format a.r a.i + b.r b.i <enter>. where a.r,a.i,b.r,b.i are floats and + is either +,-,/,*: ";
   cin >> a.real >> a.imag >> c >> b.real >> b.imag;
 
   if(c='+'){

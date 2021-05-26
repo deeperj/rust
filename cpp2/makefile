@@ -1,3 +1,3 @@
-run.exe:misc/op.cpp
-	g++ misc/op.cpp  -o run.exe 
+run.exe:misc/emp.cpp
+	g++ misc/emp.cpp  -o run.exe 
 	run.exe
