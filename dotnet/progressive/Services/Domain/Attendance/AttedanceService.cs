@@ -26,6 +26,18 @@ namespace progressive.Services.Domain.Attendance
           return progressions.Count();
       }
        
+      public async Task<int> UpdateAttendance(Progression[] progressions)
+      {
+          var a2c =await  _context.Progressions.Where(f=>f.DueDate==progressions[0].DueDate 
+                                          && progressions.Select(p=>p.StudentID).ToList()
+                                          .Contains(f.StudentID)).ToListAsync();
+          var found = a2c.Count();
+          _context.Progressions.RemoveRange(a2c);
+          _context.AddRange(progressions);
+          await _context.SaveChangesAsync();
+          return found;
+      }
+       
       public async Task<int> UploadStudents(Student[] students)
       {
           _context.Students.AddRange(students);
@@ -36,7 +48,10 @@ namespace progressive.Services.Domain.Attendance
        
       public async Task<Progression> StudAttendanceByDate(int id, DateTime param)
       {
-          var progression = await _context.Progressions.Where(c=>(c.DueDate==param && c.StudentID==id) ).SingleAsync();
+          var progression = await _context.Progressions
+                            .Where(c=>(c.DueDate==param && c.StudentID==id) )
+                            .OrderBy(c=>c.DueDate)
+                            .SingleAsync();
           return progression;
       }
        
@@ -51,7 +66,7 @@ namespace progressive.Services.Domain.Attendance
                         .ToListAsync();
           return  result.Aggregate(0, (acc, x) => acc + x.TaskAssessment);
       }
-
+       
       public async Task<IEnumerable<DateTime>> GetAsyncUniqueProgressDatesForModuleGroup(int modid, int grpid)
       {
         var gstud=_context.Students.Where(c=>c.GroupID==grpid);
@@ -62,7 +77,7 @@ namespace progressive.Services.Domain.Attendance
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
                         .Select(c=>c.DueDate).Distinct().ToListAsync();
-      }//collection.Select(c => {c.PropertyToSet = value; return c;}).ToList();
+      }
 
     }
 }

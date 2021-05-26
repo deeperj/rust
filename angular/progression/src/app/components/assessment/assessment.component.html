@@ -1,0 +1,64 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle *ngFor="let gmod of rootsvc.progress; let i=index">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Group {{gmod.groupModule.group.groupNumber}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ gmod.groupModule.module.moduleName }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Formative Assessment
+        </mat-panel-title>
+        <mat-panel-description>
+          Group {{gmod.groupModule.group.groupNumber}} {{ gmod.groupModule.module.moduleName }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-selection-list #studatt>
+        <app-sum-assessment [attRep]="i">
+        </app-sum-assessment>
+      </mat-selection-list>
+      <p>
+       <button mat-raised-button color="primary" >Modify</button>
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Summative Assessment
+        </mat-panel-title>
+        <mat-panel-description>
+          Group {{gmod.groupModule.group.groupNumber}} {{ gmod.groupModule.module.moduleName }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-selection-list #studatt>
+        <app-sum-assessment [attRep]="i">
+        </app-sum-assessment>
+      </mat-selection-list>
+      <p>
+       <button mat-raised-button color="primary" >Modify</button>
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Summary of Assessments
+        </mat-panel-title>
+        <mat-panel-description>
+          Group {{gmod.groupModule.group.groupNumber}} {{ gmod.groupModule.module.moduleName }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-selection-list #studatt>
+        <app-sum-assessment [attRep]="i">
+        </app-sum-assessment>
+      </mat-selection-list>
+      <p>
+       <button mat-raised-button color="primary" >Modify</button>
+      </p>
+    </mat-expansion-panel>
+      
+  </mat-expansion-panel>
+</mat-accordion>

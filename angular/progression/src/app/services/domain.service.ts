@@ -3,55 +3,73 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { GroupModule } from '../models/GroupModule';
-import { Attendance } from '../models/ui/Attendance';
+import { Progress, ProgressRecord } from '../models/ui/Progress';
 import { Student } from '../models/Student';
 import { DebugService } from './debug.service';
 import { Progression } from '../models/Progression';
 import { NewStudent } from '../models/ui/NewStudent';
 import {Subject} from 'rxjs';
 import { Rpag } from '../models/enums';
+import { ModuleTask } from '../models/ModuleTask';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AttendanceService {
+export class DomainService {
+  private weeklyRemindereUrl = 'https://localhost:5001/api/Facade/SendWeeklyStatus';
   private attendanceUrl = 'https://localhost:5001/api/Facade/GetGroupModules';
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
+  private editAttendanceUrl = 'https://localhost:5001/api/Facade/UpdateAttendance';
   private addStudentsUrl = 'https://localhost:5001/api/Facade/UploadStudents';
   private attendanceDatesUrl = 'https://localhost:5001/api/Facade/GetUniqueAttendanceDates';
+  private sumTasksByModuleUrl = 'https://localhost:5001/api/Facade/SumTasksByModule';
+  private summativesByGroupUrl = 'https://localhost:5001/api/Facade/SummativesByGroupModule';
   private studAttendanceByDateUrl = 'https://localhost:5001/api/Facade/StudAttendanceByDate';
   private attendanceScoreByModuleUrl = 'https://localhost:5001/api/Facade/StudAttendanceScoreByModule';
-  private httpOptions = {
+  protected httpOptions = {
       headers: new HttpHeaders( { 'Content-Type': 'application/json' })
   };
-  _attendance: Attendance[]=[];
-  pivotReady = new Subject();
+  _progress: Progress[]=[];
+  _pivotReady = new Subject();
 
   constructor(
-    private httpClient : HttpClient,
-    private dbg : DebugService,
+    protected httpClient : HttpClient,
+    protected _dbg : DebugService,
     ) { }
 
-    public get attendance() {
-      return this._attendance;
-  }
+    public get dbg() {
+      return this._dbg;
+    }
 
-  public set attendance(gmds: Attendance[]) {
-      if (this._attendance.length==0) {
-          this._attendance=gmds;
+    public get progress() {
+      return this._progress;
+    }
+
+    public get pivotReady() {
+      return this._pivotReady;
+    }
+    
+  public set progress(gmds: Progress[]) {
+      if (this._progress.length==0) {
+          this._progress=gmds;
       }
   }
 
-  private httpErrorHandler (error: HttpErrorResponse) {
-    console.log('err_handler: '+this.dbg);
+  protected httpErrorHandler (error: HttpErrorResponse) {
+    console.log('here',this.attendanceScoreByModuleUrl)
     if (error.error instanceof ErrorEvent) {
       console.error("A client side error occurs. The error message is " + error.message);
     } else {
       console.error(
           "An error happened in server. The HTTP status code is "  + error.status + " and the error returned is " + error.message);
     }
-    this.dbg.info('Error '+error.status + ': '+ error.message);
+    this._dbg.info('Error '+error.status + ': '+ error.message);
     return throwError("Error occurred. Please try again");
+  }
+
+  sendWeeklyReminder() : Observable<GroupModule[]> {
+    return this.httpClient.get<GroupModule[]>(this.weeklyRemindereUrl, this.httpOptions)
+    .pipe(retry(3),catchError(this.httpErrorHandler));
   }
 
   getAttendanceStudents() : Observable<GroupModule[]> {
@@ -63,6 +81,24 @@ export class AttendanceService {
     const finalUrl = this.studAttendanceByDateUrl + "/" + sid + "/" + encodeURIComponent(param);
     // const finalUrl = this.studAttendanceByDateUrl + "?id=" + sid + "&param=" + param;
     return this.httpClient.get<Progression>(finalUrl, this.httpOptions)
+    .pipe(
+       retry(1),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  getSummativesByGroup(modid: number, grpid:number) : Observable<Progression[]> {
+    const finalUrl = this.summativesByGroupUrl + "/" + modid + "/" + grpid;
+    return this.httpClient.get<Progression[]>(finalUrl, this.httpOptions)
+    .pipe(
+       retry(1),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  getSumTasksByModule(modid: number) : Observable<ModuleTask[]> {
+    const finalUrl = this.sumTasksByModuleUrl + "/" + modid;
+    return this.httpClient.get<ModuleTask[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
        catchError(this.httpErrorHandler)
@@ -88,6 +124,14 @@ export class AttendanceService {
     );
   }
 
+  editAttendance(attendance: Progression[]): Observable<any> {
+    return this.httpClient.post<any>(this.editAttendanceUrl,  attendance, this.httpOptions)
+    .pipe(
+       retry(3),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
   addAttendance(attendance: Progression[]): Observable<any> {
     return this.httpClient.post<any>(this.addAttendanceUrl,  attendance, this.httpOptions)
     .pipe(
@@ -109,15 +153,35 @@ export class AttendanceService {
     return stud?stud.lastName.concat(' '+stud.otherNames):"";
   }
 
-  getRpag(score:number):Rpag{
-      if(score>=70)
-        return Rpag.G;
-      else if(score <70 && score >=50)
-        return Rpag.A;
-      else if(score <50 && score >=40)
-        return Rpag.P;
+  getRpag(score:number,student:(Progression & ProgressRecord)):Rpag{
+    const aLag:number =this.attendanceLag(student);
+
+    if(aLag>2 && aLag<10)
+      return Rpag.P;
+    else if(aLag>9)
+      return Rpag.R;
+
+    if(score>=70)
+      return Rpag.G;
+    else if(score <70 && score >=50)
+      return Rpag.A;
+    else if(score <50 && score >=40)
+      return Rpag.P;
+    else 
+      return Rpag.R;
+  }
+
+  attendanceLag(student:(Progression & ProgressRecord)):number{
+    //console.log(JSON.stringify(student.attendance));
+    let aLag:Progression[]=student.attendance.reverse();
+    let lag:number=0;
+    for(let i:number=0;i<aLag.length;i++){
+      if(!aLag[i].completed)
+        lag++;
       else
-        return Rpag.R;
+        return lag;
+    }
+    return lag;
   }
   
   // ref: http://stackoverflow.com/a/1293163/2343

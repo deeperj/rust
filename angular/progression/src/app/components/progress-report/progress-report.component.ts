@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupModule } from 'src/app/models/GroupModule';
-import { AttendanceService } from 'src/app/services/attendance.service';
+import { DomainService } from 'src/app/services/domain.service';
 import { DebugService } from 'src/app/services/debug.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProgressReportComponent implements OnInit {
 
   constructor( 
     private dbg: DebugService, 
-    public rootsvc : AttendanceService) 
+    public rootsvc : DomainService) 
     { 
     }
 

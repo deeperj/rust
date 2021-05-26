@@ -8,7 +8,8 @@ export interface Student {
     sgCode: string|null;
     lastName: string;
     otherNames: string;
-
+    startDate: Date|string;
+    
     group: Group;
 
     progressions: Progression[];

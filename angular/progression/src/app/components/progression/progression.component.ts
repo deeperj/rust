@@ -5,7 +5,7 @@ import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
 //import { Console } from 'node:console';
 import { MisAttendance, Rpag } from '../../models/enums';
-import { AttendanceService } from '../../services/attendance.service';
+import { DomainService } from '../../services/domain.service';
 import { DebugService } from '../../services/debug.service';
 import { NewStudent } from 'src/app/models/ui/NewStudent';
 
@@ -31,9 +31,13 @@ export class ProgressionComponent implements OnInit {
 
   RpagG=Rpag.G;
 
+  selectAll:boolean=false;
+  dateSet:boolean=false;
+  today:string="";
+
   constructor( 
     private dbg: DebugService, 
-    public rootsvc : AttendanceService) 
+    public rootsvc : DomainService) 
     { 
       [this.MALEFT,this.MALATE,this.MALL,this.MACA,this.MACO] =this.matmp;
       this.getAttendance();
@@ -47,12 +51,12 @@ export class ProgressionComponent implements OnInit {
     this.rootsvc.getAttendanceStudents()
     .subscribe( data => {
       data.map((gmod, i) => {
-        this.rootsvc.attendance.push(
+        this.rootsvc.progress.push(
           ({
             groupModule: gmod,
             groupNumber:gmod.group.groupNumber,
             moduleName:gmod.module.moduleName,
-            students: gmod.group.students.map(stud=>{
+            studentProgress: gmod.group.students.map(stud=>{
               return ({
               progressionId: null,
               moduleTaskId: 1,
@@ -64,8 +68,10 @@ export class ProgressionComponent implements OnInit {
               task: null,
               student: stud,
               attendance: [],
+              summatives: [],
               attendanceScore: null,
-              rpag: null
+              attendanceCount: 0,
+              attendanceRpag: null
             }
             )},
             )
@@ -73,7 +79,7 @@ export class ProgressionComponent implements OnInit {
         );
         // this.initializeAttendance(gmod);
       });
-    });
+   });
     this.dbg.info(" items loaded!");
   }
   rpag(rpag:Rpag|null){
@@ -103,10 +109,17 @@ export class ProgressionComponent implements OnInit {
     }
   }
 
+  toggleSelectAll(studarr:Progression[]){
+    this.selectAll=!this.selectAll;
+    studarr.forEach(a=>{
+      a.completed=this.selectAll;
+    });
+  }
+
   comment(midx:number, idx:number, type:MisAttendance){
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
-    let stud=this.rootsvc.attendance[midx].students[idx];
+    let stud=this.rootsvc.progress[midx].studentProgress[idx];
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:
@@ -114,7 +127,7 @@ export class ProgressionComponent implements OnInit {
         stud.taskAssessment=50;
         break;
       case MisAttendance.Left:
-        stud.comments="  Left late at "+moment().format("HH:mm:ss");
+        stud.comments="  Left early at "+moment().format("HH:mm:ss");
         stud.taskAssessment=50;
         break;
       case MisAttendance.LateNLeft:
@@ -127,10 +140,10 @@ export class ProgressionComponent implements OnInit {
           stud.completed=!stud.completed;
           console.log(stud.comments);
           break;
-        default:
-        stud.comments="";
-      }
-      this.dbg.info("update complete!");
+      default:
+          this.dbg.info("Invalid Comment Type");
+          return;
+    }this.dbg.info("update complete!");
   }
 
   onAdmin(){
@@ -157,19 +170,41 @@ export class ProgressionComponent implements OnInit {
     window.location.href = mailto;
   }
 
-  onAttendanceDone($event:any, modAttendance:Progression[]){
+  onAttendanceDone(modAttendance:Progression[]){
     //let today: number = Date.now();
-    const today = moment().format('YYYY-MM-DD HH:mm:ss');
+    this.today = moment().format('YYYY-MM-DD HH:mm:ss');
+    this.dateSet=true
     let attProgressions:Progression[] = JSON.parse(JSON.stringify(modAttendance));
     attProgressions.forEach(att=>{
-      att.dueDate=today;
+      att.dueDate=this.today;
       att.student=null;
       delete att.progressionId;
     })
     this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
-      console.log(data);
-      this.dbg.info(data.count+" attendances saved!");
+      this.dbg.info(data.count+" attendance(s) saved!");
+      this.selectAll=true;
+      this.toggleSelectAll(modAttendance);
+    })
+  }
+
+
+  onUpdate(modAttendance:Progression[]){
+    const all:Progression[]=modAttendance.filter(c=>c.completed);
+    if(all.length==0 || !this.dateSet){
+      this.dbg.info("nothing to do");
+      return;
+    }
+    let attProgressions:Progression[] = JSON.parse(JSON.stringify(all));
+    attProgressions.forEach(att=>{
+      att.dueDate=this.today;
+      att.student=null;
+      delete att.progressionId;
+    })
+    this.rootsvc.editAttendance(attProgressions).subscribe(data=>{
+      this.dbg.info(data.count+" attendance(s) updated!");
       // window.location.reload(); 
+      this.selectAll=true;
+      this.toggleSelectAll(modAttendance);
     })
   }
 
@@ -189,16 +224,15 @@ export class ProgressionComponent implements OnInit {
   }
   public uploadStudents(students:string[][]){
     let newStuds:NewStudent[]=[];
-    students.forEach(c=>{
+    students.forEach(csv=>{
       newStuds.push(({
-        groupId :Number.parseInt(c[0]),
+        groupId :Number.parseInt(csv[0]),
         sgCode: null,
-        uniCode: c[3],
-        lastName: c[1],
-        otherNames: c[2]
+        uniCode: csv[3],
+        lastName: csv[1],
+        otherNames: csv[2]
       }))
     });
-//    console.log(JSON.stringify(newStuds));
     this.rootsvc.uploadStudents(newStuds).subscribe(data=>{
       this.dbg.info(data.count + " Students Added!");
       console.log(data.count+ " students added")
