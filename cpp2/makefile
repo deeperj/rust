@@ -1,3 +1,3 @@
-run.exe:misc/qroot.cpp misc/add.cpp
-	g++ misc/qroot.cpp misc/add.cpp -o run.exe 
+run.exe:misc/emp.cpp
+	g++ misc/emp.cpp  -o run.exe 
 	run.exe
