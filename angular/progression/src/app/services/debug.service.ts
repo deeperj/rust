@@ -10,7 +10,7 @@ export class DebugService{
     private _snackBar: MatSnackBar, 
   ){}
 
-info(msg:string, duration:number=1500){
+info(msg:string, duration:number=2500){
       this._snackBar.open(msg);
       setTimeout(()=>this._snackBar.dismiss(), duration);
     }

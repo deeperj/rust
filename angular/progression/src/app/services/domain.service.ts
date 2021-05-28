@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { GroupModule } from '../models/GroupModule';
-import { Progress, ProgressRecord } from '../models/ui/Progress';
+import { ModEmailStatus, Progress, ProgressRecord } from '../models/ui/Progress';
 import { Student } from '../models/Student';
 import { DebugService } from './debug.service';
 import { Progression } from '../models/Progression';
@@ -11,13 +11,15 @@ import { NewStudent } from '../models/ui/NewStudent';
 import {Subject} from 'rxjs';
 import { Rpag } from '../models/enums';
 import { ModuleTask } from '../models/ModuleTask';
+import { JSDocTagName } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DomainService {
-  private weeklyRemindereUrl = 'https://localhost:5001/api/Facade/SendWeeklyStatus';
+  private weeklyReminderUrl = 'https://localhost:5001/api/Facade/SendWeeklyStatus';
   private attendanceUrl = 'https://localhost:5001/api/Facade/GetGroupModules';
+  private addAssessmentUrl = 'https://localhost:5001/api/Progressions';
   private addAttendanceUrl = 'https://localhost:5001/api/Facade/SaveAttendance';
   private editAttendanceUrl = 'https://localhost:5001/api/Facade/UpdateAttendance';
   private addStudentsUrl = 'https://localhost:5001/api/Facade/UploadStudents';
@@ -56,19 +58,18 @@ export class DomainService {
   }
 
   protected httpErrorHandler (error: HttpErrorResponse) {
-    console.log('here',this.attendanceScoreByModuleUrl)
+    // console.log('here',this.attendanceScoreByModuleUrl)
     if (error.error instanceof ErrorEvent) {
       console.error("A client side error occurs. The error message is " + error.message);
     } else {
       console.error(
           "An error happened in server. The HTTP status code is "  + error.status + " and the error returned is " + error.message);
     }
-    this._dbg.info('Error '+error.status + ': '+ error.message);
     return throwError("Error occurred. Please try again");
   }
 
-  sendWeeklyReminder() : Observable<GroupModule[]> {
-    return this.httpClient.get<GroupModule[]>(this.weeklyRemindereUrl, this.httpOptions)
+  sendWeeklyReminder(params:ModEmailStatus) : Observable<any> {
+    return this.httpClient.post<any>(this.weeklyReminderUrl, params, this.httpOptions)
     .pipe(retry(3),catchError(this.httpErrorHandler));
   }
 
@@ -132,8 +133,31 @@ export class DomainService {
     );
   }
 
+  editAssessment(id:number, assessment: Progression): Observable<any> {
+    console.log(JSON.stringify(assessment));
+    const finalUrl = this.addAssessmentUrl+'/'+id;
+    console.log(finalUrl);
+    return this.httpClient.put<any>(finalUrl,  assessment, this.httpOptions)
+    .pipe(
+       retry(3),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
   addAttendance(attendance: Progression[]): Observable<any> {
     return this.httpClient.post<any>(this.addAttendanceUrl,  attendance, this.httpOptions)
+    .pipe(
+       retry(3),
+       catchError(this.httpErrorHandler)
+    );
+  }
+
+  refresh(){
+    window.location.reload();
+  }
+
+  addAssessment(assessment: Progression): Observable<any> {
+    return this.httpClient.post<any>(this.addAssessmentUrl,  assessment, this.httpOptions)
     .pipe(
        retry(3),
        catchError(this.httpErrorHandler)

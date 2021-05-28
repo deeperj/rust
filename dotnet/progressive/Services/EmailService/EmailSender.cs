@@ -1,6 +1,8 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
 using System;
+using System.Net;
+using System.Security;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +11,18 @@ namespace EmailService
 {
     public class EmailSender : IEmailSender
     {
-        private readonly EmailConfiguration _emailConfig;
+        private EmailConfiguration _emailConfig;
+        public string Password { 
+            set{
+                var x =new SecureString();
+                foreach (var item in value)
+                {
+                    x.AppendChar(item);
+                }
+                _emailConfig.Password=x;
+            } 
+        }
+
 
         public EmailSender(EmailConfiguration emailConfig)
         {
@@ -66,7 +79,7 @@ namespace EmailService
                 {
                     client.Connect(_emailConfig.SmtpServer, _emailConfig.Port, true);
                     client.AuthenticationMechanisms.Remove("XOAUTH2");
-                    client.Authenticate(_emailConfig.UserName, _emailConfig.Password);
+                    client.Authenticate(_emailConfig.UserName, _emailConfig.Password.ToString());
 
                     client.Send(mailMessage);
                 }
@@ -91,7 +104,7 @@ namespace EmailService
                 {
                     await client.ConnectAsync(_emailConfig.SmtpServer, _emailConfig.Port, true);
                     client.AuthenticationMechanisms.Remove("XOAUTH2");
-                    await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password);
+                    await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password.ToString());
 
                     await client.SendAsync(mailMessage);
                 }

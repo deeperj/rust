@@ -20,6 +20,9 @@
                 @Html.DisplayNameFor(model => model.Group[0].GroupCode)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Group[0].TaughtTerm)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Group[0].Pathway)
             </th>
             <th>
@@ -39,6 +42,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GroupCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaughtTerm)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Pathway)

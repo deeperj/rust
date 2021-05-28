@@ -29,7 +29,6 @@ class Database{
     string password[10] = {"00000","11111","22222","33333"};
     string maidens_name[10] = {"nasreen","maria","john","momaniyat" };
 
-
 };
 // SessionManager helps to check the conditions.
 class SessionManager{
@@ -41,12 +40,7 @@ class SessionManager{
     bool CheckResetDetails(string username, string newPassword, string maidenName);
     void UpdatePassword(int index, string newPassword);
 
-    
-
     Database Data;
-
-
-
 };
 
 //This class contains the functions which are being called to use and the cursor initialization and positioning. 

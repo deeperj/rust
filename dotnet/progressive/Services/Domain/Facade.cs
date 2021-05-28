@@ -20,12 +20,12 @@ namespace progressive.Services.Domain
         private AttendanceService _AttendanceService;
         private AssessmentService _AssessmentService;
 
-        public Facade(ProgressiveContext context)
+        public Facade(ProgressiveContext context, IDomainEmailService email)
         {
             _context = context;
             _GroupModuleService = new GroupModuleService(context);
             _AttendanceService = new AttendanceService(context);
-            _AssessmentService = new AssessmentService(context);
+            _AssessmentService = new AssessmentService(context, email);
         }
 
         public async Task<IEnumerable<GroupModule>> GetGroupModules()
@@ -40,6 +40,10 @@ namespace progressive.Services.Domain
         public async Task<IEnumerable<Progression>> SummativesByModuleGroup(int modid, int grpid)
         {
             return await _AssessmentService.GetAsyncProgressByModuleGroup(modid, grpid);
+        }
+        public async Task<EmailStatus> ModuleEmailStatus(int gmid, string pass )
+        {
+            return await _AssessmentService.DoStatusEmail (gmid, pass);
         }
         public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid)
         {
@@ -60,8 +64,7 @@ namespace progressive.Services.Domain
         {
             return await _AttendanceService.StudAttendanceScoreByModule(id, modid);
         }
-
-
+ 
         public async Task<int> SaveAttendance(Progression[] progressions)
         {
             return await _AttendanceService.SaveAttendance(progressions);

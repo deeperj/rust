@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ModuleTask[0].Term)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.ModuleTask[0].TaskType)
             </th>
             <th>
@@ -49,9 +46,6 @@
     <tbody>
 @foreach (var item in Model.ModuleTask) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Term)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TaskType)
             </td>

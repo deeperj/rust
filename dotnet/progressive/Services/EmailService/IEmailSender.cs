@@ -7,6 +7,10 @@ namespace EmailService
 {
     public interface IEmailSender
     {
+        string Password
+        {
+            set;
+        }
         void SendEmail(Message message);
         Task SendEmailAsync(Message message);
     }

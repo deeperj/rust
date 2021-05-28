@@ -3,9 +3,8 @@ import { Module } from './Module';
 import { Progression } from './Progression';
 
 export interface ModuleTask {
-    moduleTaskId: number;
+    moduleTaskID: number;
     moduleId: number;
-    term: number;
     taskType: TaskType;
     rpagType: RPAGType;
     inSumRpag: boolean;

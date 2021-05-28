@@ -4,6 +4,7 @@ namespace progressive.Models
     {
         Sent, 
         Error, 
+        NotSent,
     }
 
     public enum Department
@@ -35,16 +36,6 @@ namespace progressive.Models
       NotFound,
     }
 
-    public enum Weekday
-    {
-        Sunday, 
-        Monday, 
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-    }
     public enum EnumTime
     {
         _0000, 

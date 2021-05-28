@@ -37,6 +37,7 @@ namespace progressive.Data
                 BatchID = 1,
                 GroupNumber = 12,
                 GroupCode = "J1E-G12",
+                TaughtTerm = 2,
                 Pathway = Pathway.Computing,
                 Department = Department.Computing
               }
@@ -70,7 +71,7 @@ namespace progressive.Data
               new TimeTable{
                 GroupModuleID = 1,
                 Term = 2,
-                Weekday = Weekday.Monday,
+                Weekday = DayOfWeek.Monday,
                 StartTime = EnumTime._1100,
                 EndTime = EnumTime._1300
               }
@@ -96,7 +97,6 @@ namespace progressive.Data
             {
               new ModuleTask{
                 ModuleID = 1,
-                Term = 2,
                 TaskType = TaskType.Attendance,
                 RPAGType = RPAGType.Attendance,
                 InSumRPAG = true,

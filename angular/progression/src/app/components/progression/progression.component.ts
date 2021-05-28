@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
@@ -8,6 +8,8 @@ import { MisAttendance, Rpag } from '../../models/enums';
 import { DomainService } from '../../services/domain.service';
 import { DebugService } from '../../services/debug.service';
 import { NewStudent } from 'src/app/models/ui/NewStudent';
+import { GroupModule } from 'src/app/models/GroupModule';
+import { ModEmailStatus } from 'src/app/models/ui/Progress';
 
 @Component({
   selector: 'app-progression',
@@ -58,9 +60,9 @@ export class ProgressionComponent implements OnInit {
             moduleName:gmod.module.moduleName,
             studentProgress: gmod.group.students.map(stud=>{
               return ({
-              progressionId: null,
-              moduleTaskId: 1,
-              studentId: stud.id,
+              progressionID: null,
+              moduleTaskID: 1,
+              studentID: stud.id,
               taskAssessment: 0,
               completed: false,
               dueDate: "",
@@ -80,7 +82,6 @@ export class ProgressionComponent implements OnInit {
         // this.initializeAttendance(gmod);
       });
    });
-    this.dbg.info(" items loaded!");
   }
   rpag(rpag:Rpag|null){
     //console.log(rpag);
@@ -102,7 +103,7 @@ export class ProgressionComponent implements OnInit {
   }
 
   onSelectionChange($event: any, studarr:Progression[]){
-    let prog=studarr.find(a=>{return a.studentId===$event.option.value.id});
+    let prog=studarr.find(a=>{return a.studentID===$event.option.value.id});
     if(prog){
       prog.completed=$event.option.selected;
       prog.taskAssessment=prog.completed?100:0
@@ -170,6 +171,21 @@ export class ProgressionComponent implements OnInit {
     window.location.href = mailto;
   }
 
+  sendWeekly(gm:GroupModule){
+    const pass:string|null=prompt("Enter Password");
+    if(pass){
+      const sweekly:ModEmailStatus={
+        password: pass,
+        sendToday: true,
+        gMID:gm.id
+      }
+      this.rootsvc.sendWeeklyReminder(sweekly).subscribe(data=>{
+        console.log(data);
+        this.rootsvc.dbg.info("Weekly reminder sent");
+      })
+    }else this.rootsvc.dbg.info("Nothing done!");
+  }
+
   onAttendanceDone(modAttendance:Progression[]){
     //let today: number = Date.now();
     this.today = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -178,7 +194,7 @@ export class ProgressionComponent implements OnInit {
     attProgressions.forEach(att=>{
       att.dueDate=this.today;
       att.student=null;
-      delete att.progressionId;
+      delete att.progressionID;
     })
     this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
       this.dbg.info(data.count+" attendance(s) saved!");
@@ -198,7 +214,7 @@ export class ProgressionComponent implements OnInit {
     attProgressions.forEach(att=>{
       att.dueDate=this.today;
       att.student=null;
-      delete att.progressionId;
+      delete att.progressionID;
     })
     this.rootsvc.editAttendance(attProgressions).subscribe(data=>{
       this.dbg.info(data.count+" attendance(s) updated!");

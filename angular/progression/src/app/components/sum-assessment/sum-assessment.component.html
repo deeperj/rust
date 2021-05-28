@@ -8,12 +8,7 @@
       <!-- <mat-checkbox
         *ng-if="element[column]=='--'"
       ></mat-checkbox> -->
-      <button [matMenuTriggerFor]="menu" mat-flat-button> {{element[column]}}</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item >Late Attendance</button>
-        <!-- <button mat-menu-item (click)="comment(midx, i, MALEFT)">Left Early</button>
-        <button mat-menu-item (click)="comment(midx, i, MACO)">Comment</button> -->
-      </mat-menu>
+      <button (click)="updateScore(element['Student'],element[column], column)" mat-flat-button> {{element[column]}}</button>
   </td>
   </ng-container>
 

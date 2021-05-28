@@ -10,7 +10,6 @@ namespace progressive.Models
         // [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ModuleTaskID { get; set; }
         public int ModuleID { get; set; }
-        public int Term { get; set; }
         public TaskType TaskType { get; set; }
         public RPAGType RPAGType { get; set; }
         public bool InSumRPAG { get; set; }

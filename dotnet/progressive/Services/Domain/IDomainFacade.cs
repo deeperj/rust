@@ -21,6 +21,6 @@ namespace progressive.Services.Domain
         Task<IEnumerable<Progression>> SummativesNOT_USED(int id, int modid);
         Task<IEnumerable<Progression>> SummativesByModuleGroup(int mid, int gid);
         Task<IEnumerable<ModuleTask>> SumTasksByModule(int mid);
-
+        Task<EmailStatus> ModuleEmailStatus(int gmid, string password);
     }
 }

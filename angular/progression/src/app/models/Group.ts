@@ -10,7 +10,8 @@ export interface Group {
     groupCode: string;
     pathway: Pathway;
     department: Department;
-
+    taughtTerm: number;
+    
     batch: Batch;
 
     students: Student[];

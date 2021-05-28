@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,7 +10,7 @@ namespace progressive.Models
         public int ID { get; set; }
         public int GroupModuleID { get; set; }
         public int Term { get; set; }
-        public Weekday Weekday { get; set; }
+        public DayOfWeek Weekday { get; set; }
         public EnumTime StartTime { get; set; }
         public EnumTime EndTime { get; set; }
 

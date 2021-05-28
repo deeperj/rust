@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-//using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using progressive.Services.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Services.Domain;
@@ -40,6 +40,8 @@ namespace progressive
                 .GetSection("EmailConfiguration")
                 .Get<EmailConfiguration>();
             services.AddSingleton(emailConfig);
+            services.AddScoped<IEmailSender, FluentSender>();
+            services.AddScoped<IDomainEmailService, DomainEmailService>();
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );

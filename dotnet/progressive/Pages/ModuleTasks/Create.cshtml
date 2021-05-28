@@ -18,11 +18,6 @@
                 <select asp-for="ModuleTask.ModuleID" class ="form-control" asp-items="ViewBag.ModuleID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ModuleTask.Term" class="control-label"></label>
-                <input asp-for="ModuleTask.Term" class="form-control" />
-                <span asp-validation-for="ModuleTask.Term" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ModuleTask.TaskType" class="control-label"></label>
                 <select asp-for="ModuleTask.TaskType" class="form-control" asp-items="ViewBag.TaskType"></select>
                 <span asp-validation-for="ModuleTask.TaskType" class="text-danger"></span>

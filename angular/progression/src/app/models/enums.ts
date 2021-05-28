@@ -1,3 +1,10 @@
+export enum EmailStatus
+{
+    Sent, 
+    Error, 
+    NotSent,
+}
+
 export enum Rpag {
     R,
     P,

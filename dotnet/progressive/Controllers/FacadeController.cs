@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
+using progressive.Models.Dto;
 using progressive.Services.Domain;
 
 namespace progressive.Controllers
@@ -44,6 +45,18 @@ namespace progressive.Controllers
             int count = await _domain.SaveAttendance(progressions);
 
             return CreatedAtAction("SaveAttendance", new { count = count });
+        }
+
+        // POST: api/Facade/SendWeeklyStatus
+        [HttpPost]
+        [Route("api/[controller]/SendWeeklyStatus")]
+        public async Task<ActionResult<EmailStatus>> SendWeeklyStatus(ModEmailStatus sws)
+        {
+            if(!sws.SendToday)
+                return Ok(EmailStatus.NotSent);
+            var status = await _domain.ModuleEmailStatus(sws.GMID, sws.Password);
+
+            return Ok(status);
         }
 
         // POST: api/Facade/UploadStudents
@@ -87,10 +100,10 @@ namespace progressive.Controllers
         {
             var score = await _domain.StudAttendanceScoreByModule(id,modid);
 
-            if (score == null)
-            {
-                return BadRequest();
-            }
+            // if (score == null)
+            // {
+            //     return BadRequest();
+            // }
             return score;
         }
 

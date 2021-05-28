@@ -39,6 +39,7 @@
       </vo-mat-fileUpload>
       <button mat-raised-button color="primary" (click)="email(att.studentProgress)">Email</button>
       <button mat-raised-button color="primary" [disabled]="selectAll || !dateSet" (click)="onUpdate(att.studentProgress)">Update</button>
+      <button mat-raised-button color="primary" (click)="sendWeekly(att.groupModule)">Send status mail</button>
   </p>
   </mat-expansion-panel>
 </mat-accordion>

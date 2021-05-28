@@ -11,10 +11,11 @@ import { DomainService } from 'src/app/services/domain.service';
 })
 export class AttendanceReportComponent implements OnInit {
   @Input() attRep!: number;
+  errorloading:boolean=true;
   attendancePivot: any[] =[];
   theDates2: string[] = [];
   theDates: string[] = [];
-  aFmt: string='ddMMMDD';
+  aFmt: string='ddDDMMM';
   displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','Attendance',...['hello','world']];
   columnsToDisplay!: string[]
   toggle:boolean=false;
@@ -54,7 +55,13 @@ export class AttendanceReportComponent implements OnInit {
       // });
       setTimeout(() => {
         this.attendancePivot=this.getData();
-        // console.log(this.attendancePivot);
+        this.errorloading=false;
+      }, 2500);
+      setTimeout(() => {
+        if(this.errorloading)
+          this.rootsvc.dbg.info(" error loading items!");
+        else
+          this.rootsvc.dbg.info(" items loaded!");
       }, 3000);
         this.columnsToDisplay = this.displayedColumns.slice();
     } );
@@ -63,14 +70,14 @@ export class AttendanceReportComponent implements OnInit {
   getStudentAttendance(modid:number){
     let counter:number=0;
     this.attendance.studentProgress.forEach((attRec,ridx)=>{
-      this.rootsvc.getStudAttendanceScoreByModule(attRec.studentId,modid).subscribe(data=>{
+      this.rootsvc.getStudAttendanceScoreByModule(attRec.studentID,modid).subscribe(data=>{
         //console.log(data);
         attRec.attendanceScore=data.toFixed(2);
       });
       this.theDates2.forEach((theDate,i)=>{
         // console.log(attRec.studentId+'_'+theDate);
         if (attRec.student?.startDate && attRec.student?.startDate <=theDate){
-          this.rootsvc.getStudAttendanceByDate(attRec.studentId,theDate).subscribe(data=>{
+          this.rootsvc.getStudAttendanceByDate(attRec.studentID,theDate).subscribe(data=>{
             attRec.attendance?.push(data);
             attRec.attendanceCount++;
           });

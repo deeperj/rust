@@ -2,20 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-// using Microsoft.AspNetCore.Http;
-// using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
+using progressive.Services.Domain.Common;
+using System.Diagnostics;
 
 namespace progressive.Services.Domain.Assessment
 {
     public class AssessmentService
     {
       protected readonly ProgressiveContext _context;
-      public AssessmentService(ProgressiveContext context)
+      protected readonly IDomainEmailService _email;
+
+      public AssessmentService(ProgressiveContext context, IDomainEmailService email)
       {
         _context=context;
+        _email=email;
       }
        
       public async Task<int> SaveAssessmentNOT_USED(Progression[] progressions)
@@ -29,8 +32,8 @@ namespace progressive.Services.Domain.Assessment
       public async Task<int> UpdateAssessmentNOT_USED(Progression[] progressions)
       {
           var a2c =await  _context.Progressions.Where(f=>f.DueDate==progressions[0].DueDate 
-                                          && progressions.Select(p=>p.StudentID).ToList()
-                                          .Contains(f.StudentID)).ToListAsync();
+                          && progressions.Select(p=>p.StudentID).ToList()
+                          .Contains(f.StudentID)).ToListAsync();
           var found = a2c.Count();
           _context.Progressions.RemoveRange(a2c);
           _context.AddRange(progressions);
@@ -73,12 +76,26 @@ namespace progressive.Services.Domain.Assessment
       public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid)
       {
         return await _context.Tasks
-                        .Where(c=>c.ModuleID==modid
-                        && c.RPAGType==RPAGType.Summative)
-                        .ToListAsync();
+              .Where(c=>c.ModuleID==modid
+              && c.RPAGType==RPAGType.Summative)
+              .ToListAsync();
       }
-   
-      public async Task<EmailStatus> EmailSumStatus(int stid, int modid)
+   //GroupModuleEmailStatus
+      public async Task<EmailStatus> DoStatusEmail(int modid,string pass)
+      {
+        var gm= await _context.GroupModules.Where(s=>s.ID==modid)
+                .Include(s => s.Module)
+                .Include(s => s.Group)
+                .Include(s => s.Group.Students)
+                .SingleAsync();
+        Console.WriteLine(gm.Group.Students.Count());
+        foreach(var stud in gm.Group.Students){
+          this.GroupModuleEmailStatus(stud.ID,gm.Module.ModuleID,pass);
+        }
+        return EmailStatus.NotSent;
+      }
+
+      public async Task<EmailStatus> GroupModuleEmailStatus(int stid, int modid,string pass)
       {
         var stud = _context.Students.Find(stid);
         var modtasks=_context.Tasks
@@ -87,9 +104,11 @@ namespace progressive.Services.Domain.Assessment
         var sprog = await _context.Progressions
                         .Where(c=> c.StudentID==stid)
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
-                        .ToListAsync();
-        
-        return EmailStatus.Sent;
+                        .Select(c=>c.ModuleTaskID).ToListAsync();
+        var not_done=modtasks.Where(p => !sprog.Any(p2 => p2 == p.ModuleTaskID)).ToList();
+        _email.Password=pass;
+        // await _email.StudentStatusEmail(not_done,stud);
+        return await _email.LocalSendStatus(not_done,stud);
       }
 
     }

@@ -18,3 +18,11 @@ export interface ProgressRecord{
   attendanceCount: number;
   // attendance: {[k: string]: any}|null;
 }
+
+export interface ModEmailStatus
+{
+    password: string;
+    sendToday: boolean
+    gMID:number
+}
+
