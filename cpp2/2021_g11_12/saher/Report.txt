@@ -1,0 +1,54 @@
+Software Design 
+
+Final Project 
+
+By Saher Amr (U2079360) 
+
+Introduction: 
+
+MyFinalProjectwillbeaboutapuzzlegamethathave2modeseither 3x3(easymode)or 
+4x4(hardmode)wheretheplayer willhavetoalignthenumbersnumericallylike12345678 
+anditworksthatthereisa9or a16gridwherethegridhaveallboxespopulatedexpect1 
+sotheplayer canmovenumberswithitandtrytowin. 
+
+UseCaseDiagram 
+
+
+
+ClassDiagram 
+
+
+
+ActivityDiagram: 
+
+
+
+FlowCharts: 
+
+
+Report: 
+
+
+ThisisaPuzzleGamewheretheplayercan movenumbersto 
+reach acertain goalofhaving thenumbernumericallyorderedlike 
+1 2 3 45 6 7 8aftertheplayercompletethistask thescreen will 
+showhimthathewon andofferhimtoseehispreviousmovesso 
+hecan learn fromit. 
+
+Howitworksisthatwhen thegameisstarteditcallsrun()which 
+then movestoanotherfunction calledPremenu()which isamenu 
+thatshowstheplayerthenumberofblocksin thegridandasks 
+himtopressentersohecan continue,aftertheplayerpresses 
+Enteron hiskeyboardthegameusesafunction called 
+generateRand()whereitgenerate8 numbersin randomorder 
+which makesuseofthecomputer'sinternalclock tocontrolthe 
+choiceoftheseed,aftergenerating the8 numbersthegamenow 
+usesthefunction calledingame()toshowthose8 numbersand 
+askstheplayertocompletethepuzzleallwhileusing ncursesfora 
+graphicalinterfacethereisaloopfunction calledisGoal()that 
+keepschecking iftheplayerhaswon,when theplayerwinsit 
+activateswinscreen()andshowstheplayerthathehaswon andif 
+theplayerclick leftorrightarrowshecan seehispreviousmoves 
+then thegameends. 
+
+

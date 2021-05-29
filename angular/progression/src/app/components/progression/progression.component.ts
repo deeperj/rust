@@ -3,7 +3,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
 import { Student } from 'src/app/models/Student';
-//import { Console } from 'node:console';
 import { MisAttendance, Rpag } from '../../models/enums';
 import { DomainService } from '../../services/domain.service';
 import { DebugService } from '../../services/debug.service';

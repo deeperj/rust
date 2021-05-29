@@ -10,6 +10,7 @@ namespace progressive.Models
         public int BatchID { get; set; }
         public int GroupNumber { get; set; }
         public string GroupCode { get; set; }
+        public string P2PCoach { get; set; }
         public Pathway Pathway { get; set; }
         public Department Department { get; set; }
         public int TaughtTerm { get; set; }
