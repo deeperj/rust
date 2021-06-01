@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
+using progressive.Models.Dto;
 using EmailService;
 
 namespace progressive.Services.Domain.Common
@@ -15,8 +16,8 @@ namespace progressive.Services.Domain.Common
       {
           set;
       }
-      Task<EmailStatus>  StudentStatusEmail (IEnumerable<ModuleTask> tasks, Student stud);      
-      Task<EmailStatus>  LocalSendStatus (IEnumerable<ModuleTask> tasks, Student stud);      
+      Task<EmailStatus>  StudentStatusEmail (ModSendEmail eml);      
+      Task<EmailStatus>  LocalSendStatus (ModSendEmail eml);      
 
     }
 }

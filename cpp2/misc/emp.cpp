@@ -13,10 +13,10 @@ class Employee {
     string name;
     string department;
     int age;
-    Employee( string name, string dept, int age){
+    Employee( string name, string d, int a){
         this->name=name;
-        this->department=dept;
-        this->age=age;
+        department=d;
+        age=a;
     }
     void info(){
         cout << name << " works in " << department << " and is " << age << " years of age" << endl;

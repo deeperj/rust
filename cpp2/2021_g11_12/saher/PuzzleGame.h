@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "grid.h"
-#include <ncurses.h>
+#include <curses.h>
 #include <unistd.h>
 #include <vector>
 #include <queue>

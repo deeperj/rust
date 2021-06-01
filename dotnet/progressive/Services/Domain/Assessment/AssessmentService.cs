@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using progressive.Data;
 using progressive.Models;
+using progressive.Models.Dto;
 using progressive.Services.Domain.Common;
 using System.Diagnostics;
 
@@ -90,7 +91,7 @@ namespace progressive.Services.Domain.Assessment
                 .SingleAsync();
         Console.WriteLine(gm.Group.Students.Count());
         foreach(var stud in gm.Group.Students){
-          this.GroupModuleEmailStatus(stud.ID,gm.Module.ModuleID,pass);
+          await this.GroupModuleEmailStatus(stud.ID,gm.Module.ModuleID,pass);
         }
         return EmailStatus.NotSent;
       }
@@ -107,8 +108,12 @@ namespace progressive.Services.Domain.Assessment
                         .Select(c=>c.ModuleTaskID).ToListAsync();
         var not_done=modtasks.Where(p => !sprog.Any(p2 => p2 == p.ModuleTaskID)).ToList();
         _email.Password=pass;
-        // await _email.StudentStatusEmail(not_done,stud);
-        return await _email.LocalSendStatus(not_done,stud);
+        var dtosend = new ModSendEmail();
+        dtosend.NotDone=not_done;
+        dtosend.Student=stud;
+        dtosend.Total=modtasks.Count();
+        await _email.LocalSendStatus(dtosend);
+        return await _email.StudentStatusEmail(dtosend);
       }
 
     }

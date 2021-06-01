@@ -64,6 +64,7 @@ export class AttendanceReportComponent implements OnInit {
           this.rootsvc.dbg.info(" items loaded!");
       }, 3000);
         this.columnsToDisplay = this.displayedColumns.slice();
+        console.log(JSON.stringify(this.rootsvc.progress));
     } );
   }  
 

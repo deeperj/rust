@@ -28,11 +28,13 @@ PuzzleGame::~PuzzleGame()
   clearGrid();
   instructions.clear();
   dim = instructionIndex = 0;
+  keypad(stdscr,true);
 }
 void PuzzleGame::run()
 {
   while(state != QUIT_GAME)
     {
+      halfdelay(5);
      (this->*menu[state])();
       refresh();
       clear();
@@ -87,7 +89,7 @@ void PuzzleGame::ingame()
     
   switch(input)
     {
-     case 65:    
+     case 2:    
       if(canMoveDown(currState))
         {
           moveDown(currState);
@@ -96,7 +98,7 @@ void PuzzleGame::ingame()
      break;
 
         // Down arrow
-        case 66:    
+        case 3:    
          if(canMoveUp(currState))
             {
               moveUp(currState);
@@ -104,7 +106,7 @@ void PuzzleGame::ingame()
               }
           break;
 
-        case 67:    
+        case 4:    
          if(canMoveLeft(currState))
             {
              moveLeft(currState);
@@ -112,7 +114,7 @@ void PuzzleGame::ingame()
               }
          break;
 
-        case 68:    
+        case 5:    
          if(canMoveRight(currState))
           {
             moveRight(currState);
@@ -149,12 +151,12 @@ void PuzzleGame::winscreen()
     switch(input)
     {
     
-    case 67:    if(instructionIndex < instructions.size()-1)
+    case 4:    if(instructionIndex < instructions.size()-1)
     instructionIndex++;
     break;
 
     
-    case 68:    if(instructionIndex > 0)
+    case 5:    if(instructionIndex > 0)
     instructionIndex--;
     break;
 

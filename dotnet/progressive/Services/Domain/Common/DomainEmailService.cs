@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using progressive.Data;
 using progressive.Models;
+using progressive.Models.Dto;
 using EmailService;
 using Newtonsoft.Json;
 
@@ -28,7 +29,7 @@ namespace progressive.Services.Domain.Common
         _sender = sender;
       }
 
-      public async Task<EmailStatus> LocalSendStatus(IEnumerable<ModuleTask> tasks,Student stud)
+      public async Task<EmailStatus> LocalSendStatus(ModSendEmail eml)
       {
         var sender = new SmtpSender(() => new SmtpClient("localhost")
         {
@@ -36,7 +37,7 @@ namespace progressive.Services.Domain.Common
             DeliveryMethod = SmtpDeliveryMethod.Network,
             Port = 25
         });
-        var msg = PrepareStatus(tasks,stud);
+        var msg = PrepareStatus(eml);
         Email.DefaultSender = sender;
 
         var email = await Email
@@ -48,20 +49,26 @@ namespace progressive.Services.Domain.Common
         return EmailStatus.Sent;
       }
 
-      public async Task<EmailStatus>  StudentStatusEmail (IEnumerable<ModuleTask> tasks,Student stud)
+      public async Task<EmailStatus>  StudentStatusEmail (ModSendEmail eml)
       {
-        var msg=PrepareStatus(tasks,stud);
+        var msg=PrepareStatus(eml);
         await _sender.SendEmailAsync(msg);
         return EmailStatus.Sent;
       }
        
-      Message PrepareStatus(IEnumerable<ModuleTask> tasks,Student stud){
+      Message PrepareStatus(ModSendEmail eml){
+        var (tasks,total,stud)=eml;
+        var completion=(total-tasks.Count())/total;
         StringBuilder sb = new StringBuilder();
         sb.Append($"Dear {stud.OtherNames},{Environment.NewLine}"+Environment.NewLine);
-        sb.Append("As promised, here is your weekly outstanding summative discussions/portfolios:"+Environment.NewLine);
+        sb.Append("As promised, here is your current outstanding summative discussions/portfolios:"+Environment.NewLine);
         foreach(var c in tasks){
           sb.Append(" - " +c.TaskName+Environment.NewLine);
         } 
+        sb.Append(Environment.NewLine);
+        sb.Append(String.Format("% Completion = {0:P1}",completion)+Environment.NewLine);
+        sb.Append(Environment.NewLine);
+        sb.Append($"Please note that you are required to do all discussions, portfolios and course work to have a good pass in Software Design."+Environment.NewLine);
         sb.Append(Environment.NewLine);
         sb.Append("Best wishes,"+Environment.NewLine);
         sb.Append("John"+Environment.NewLine);
