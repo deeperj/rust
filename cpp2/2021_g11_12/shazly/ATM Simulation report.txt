@@ -1,0 +1,261 @@
+ATM Simulation 
+
+
+The aim of the program 
+
+The program aims to accomplish and provide the 
+user with a fully functional simulation of the 
+Automatic Teller Machine (ATM). Which would be 
+considered a great exercise, in addition to sheer 
+implementation of knowledge to achieve such a 
+complex system. The program is implemented using 
+c++ object-oriented paradigm (OOP). Thorough 
+understanding of concepts of object-oriented 
+paradigm was crucial to develop the program using 
+the implementations of classes and the four main 
+concepts of object-oriented paradigm such as 
+polymorphism, abstraction, encapsulation and 
+inheritance. 
+
+The program provides the user with all the 
+functional services found in a regular ATM except 
+deposits since the program is only a simulation. The 
+user can withdraw money from his balance, view his 
+balance, in addition to changing his 4-digit PIN. 
+
+ 
+
+
+Objectives of the program 
+
+1. Implementing a user class 
+
+2. Respecting the general rule of encapsulation 
+
+3. Writing a code that is free of errors both logical 
+and syntax 
+
+4. Providing the correct prompt for the user 
+
+5. Provide the various services of the ATM 
+
+6. Data of the user stored in file system under the 
+name of bank.txt 
+
+7. Implementing knowledge of file handling such as 
+read, write and overwrite. 
+
+8. To authenticate the user through his PIN during a 
+limited number of trials. 
+
+9. Freezing the user’s account should the PIN in 
+incorrectly entered three times 
+
+10. Reflecting changes the user makes upon the 
+data file 
+
+ 
+
+
+Methodology 
+
+1. Data File 
+
+This simulation of the ATM stands on the concept that 
+the card holder is already known to the ATM machine. 
+Similar action occur in the program as the user is pre-
+known the moment a card is inserted into the machine; 
+user’s data is sent from the server of the bank to the 
+ATM and displayed to the user in the case that he enters 
+the correct PIN. Once the user enters his PIN, a method 
+for verification is called, to make sure that the PIN the 
+user has entered matches the PIN stored in the file 
+system. 
+
+2. Authenticating And Banning User 
+
+Taking the real bank into consideration in the following 
+scenario, if the user enters the PIN three times 
+incorrectly; it is considered a suspicious activity and the 
+user’s bank account is frozen. The case in the program is 
+no different; the account is frozen by the program by 
+overwriting the file and adding a special character next to 
+the PIN, which is detected by the program, and displays 
+that the account is frozen to the user and that he is 
+required to call the bank. The process of de-freezing the 
+account would be as simple as deleting the special 
+character and the program would run normally. 
+
+ 
+
+
+3. Menu 
+
+Following granting access to the user, he is prompted 
+with his name that is available in the data file and is given 
+an option of three choices. 
+
+1. Display Balance 
+2. Change PIN 
+3. Withdraw Balance 
+
+
+4. Display Balance 
+
+When the user chooses to display his balance in the 
+account. The program performs a read function on the 
+data file, and reads the user’s balance and then output it 
+on the screen with the proper prompting 
+
+5. Change PIN 
+
+If the user chooses to change his current PIN, a number 
+of criteria should be met. First, his new PIN cannot be the 
+same as his new PIN because it would decrease the 
+system efficiency. Second, his new PIN must consist of 
+numbers only. Lastly, the new PIN cannot contain more 
+or less than four numbers. 
+
+With these rules in mind, the system checks the new PIN 
+of the user, and if all the criteria are achieved, the system 
+begins a function of overwriting in the data file which 
+eventually changes the PIN of the user. 
+
+
+6. Withdrawal 
+
+In order to achieve the withdrawal method, a sheer 
+number of things needed to be taken into consideration 
+in order to avoid errors. 
+
+- The amount entered cannot be more than the 
+
+
+balance 
+
+- The amount entered needs to be a positive number 
+- The user cannot withdraw more than 500 or less than 
+20 in each session 
+- If the user changes his mind and prefer not to 
+withdraw, he can return back to the main menu by 
+entering (-1) 
+
+
+By performing these checks on the amount to withdraw 
+entered, the method runs very flexible and executes as 
+expected and planned. 
+
+After the withdrawal is complete, the current balance of 
+the user is shown after subtracting from the amount and 
+a overwrite function was used to overwrite the balance if 
+the user in the data file. 
+
+
+
+
+
+ 
+
+
+Pseudo codes and flowcharts 
+
+ 
+
+Start function getname() 
+
+Open file (bank.txt) 
+
+Bank>>pin>>name>>balance 
+
+Return name 
+
+Close file 
+
+End 
+
+ 
+
+Start function getpin() 
+
+Open file(bank.txt) 
+
+Bank>>pin>>name>>balance 
+
+Return pin 
+
+Close file 
+
+End 
+
+ 
+
+Start function getBalance() 
+
+Open file (bank.txt) 
+
+Bank>>pin>>name>>balance 
+
+Return balance 
+
+Close file 
+
+Ends 
+
+ 
+
+Start function userban() 
+
+String name, pin 
+
+Int balance 
+
+Open file (bank.txt) 
+
+Bank>>pin>>name>>balance 
+
+Pin=pin+”//” 
+
+Close file 
+
+End 
+
+ 
+
+Start function VerifyPIN() 
+
+If pin==getPIN() 
+
+Cout<< “Authenticated Successfully” 
+
+Return true 
+
+Else 
+
+Cout<<”The PIN you entered is not correct” 
+
+Return false 
+
+End 
+
+
+ 
+
+
+The Output of The Program 
+
+Throughout the program, proper prompting was used to 
+make the user experience feel as real as possible. For 
+example, asking the user to insert his card in the 
+machine at first then starting the program, in addition to 
+asking the user to take his card from the machine at the 
+end of the execution. 
+
+The program runs as planned when the first line of code 
+was being written. In fact, it appeared to be rather better 
+than what was expected. The use of classes through 
+object-oriented paradigm aided the overall structure of 
+the code which made things simpler to find. 
+
+ 
+
+

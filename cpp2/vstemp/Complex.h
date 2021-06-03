@@ -1,10 +1,14 @@
 #pragma once
+#include <iostream>
+
 class Complex
 {
-public:
+private:
 	double real;
 	double imag;
-
+public:
 	Complex(double r, double i);
+	double getReal();
+	double getImag();
 };
 

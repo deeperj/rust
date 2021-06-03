@@ -158,7 +158,7 @@ export class ProgressionComponent implements OnInit {
       this.dbg.info("nothing to do");
       return;
     }
-    let mailto="mailto:";
+    let mailto="mailto:i.alamina2@hud.ac.uk?bcc=";
     students.forEach((student,i)=>{
       if(student.completed){
         mailto=mailto.concat('u'+student.student?.uniCode+"@unimail.hud.ac.uk");

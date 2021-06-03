@@ -1,13 +1,13 @@
-// vstemp.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// aritvs.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "Complex.h"
+#include <iostream>
+#include "Arithmetic.hpp"
 
 int main()
 {
-    Complex a(5,6);
-	std::cout << "a.real = " << a.getReal() << std::endl;
-	std::cout << "a.imag = " << a.getImag();
+    Add a(1, 5);
+    std::cout << "Calculate a, b = " << a.Calculate() << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
