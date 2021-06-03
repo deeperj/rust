@@ -6,5 +6,9 @@ Arithmetic::Arithmetic(float a, float b) {
 }
 
 float Arithmetic::Calculate() {
-	return 0.0;
+	return a*a + b*b;
 }
+
+Arithmetic::Arithmetic(){}
+Sub::Sub(){}
+Div::Div(){}

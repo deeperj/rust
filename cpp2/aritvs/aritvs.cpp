@@ -6,8 +6,8 @@
 
 int main()
 {
-    Add a(1, 5);
-    std::cout << "Calculate a, b = " << a.Calculate() << "\n";
+    Mul c;
+    std::cout << "Calculate a, b = " << c.Calculate() << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
