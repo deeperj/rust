@@ -1,8 +1,5 @@
 
 
-
-
-
 #include "complex.hpp"
 
 double Complex::Real(){
