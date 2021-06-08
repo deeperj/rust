@@ -1,7 +1,7 @@
 #pragma once
 class Arithmetic
 {
-private:
+protected:
 	float a;
 	float b;
 public:
@@ -12,18 +12,23 @@ public:
 
 class Sum:public Arithmetic{
 public:
-	Sum(){};
+	Sum(float, float);
+	float Calculate(void);
 };
 class Sub:public Arithmetic{
 public:
-	Sub();	
+	Sub(float, float);	
+	float Calculate(void);
 };
 
 class Mul:public Arithmetic{
 public:
-	Mul(){}
+	Mul(float a, float);
+	float Calculate(void);
 };
+
 class Div:public Arithmetic{
 public:
-	Div();
+	Div(float a, float b);
+	float Calculate(void);
 };
