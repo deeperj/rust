@@ -165,7 +165,6 @@ export class ProgressionComponent implements OnInit {
         if(i<students.length-1)mailto=mailto.concat(',');
       }
     });
-    mailto=mailto.concat("?subject=Attendance");
     console.log("mail to ref:"+mailto);
     window.location.href = mailto;
   }

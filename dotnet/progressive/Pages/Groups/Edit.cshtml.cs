@@ -37,7 +37,9 @@ namespace progressive.Pages_Groups
             {
                 return NotFound();
             }
-           ViewData["BatchID"] = new SelectList(_context.Batches, "BatchID", "BatchID");
+            ViewData["BatchID"] = new SelectList(_context.Batches, "BatchID", "BatchID");
+            ViewData["Departments"] = Global.GetEnumLookupKey<Department>();
+            ViewData["Pathway"] = Global.GetEnumLookupKey<Pathway>();
             return Page();
         }
 

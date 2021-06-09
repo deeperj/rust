@@ -87,11 +87,11 @@ namespace progressive.Services.Domain.Assessment
         var gm= await _context.GroupModules.Where(s=>s.ID==modid)
                 .Include(s => s.Module)
                 .Include(s => s.Group)
-                .Include(s => s.Group.Students)
+                .Include(s => s.Group.Students) 
                 .SingleAsync();
         Console.WriteLine(gm.Group.Students.Count());
         foreach(var stud in gm.Group.Students){
-          await this.GroupModuleEmailStatus(stud.ID,gm.Module.ModuleID,pass);
+          await this.GroupModuleEmailStatus(stud.ID,modid,pass);
         }
         return EmailStatus.NotSent;
       }

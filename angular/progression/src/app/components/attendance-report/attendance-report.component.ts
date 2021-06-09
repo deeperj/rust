@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
@@ -11,7 +12,6 @@ import { DomainService } from 'src/app/services/domain.service';
 })
 export class AttendanceReportComponent implements OnInit {
   @Input() attRep!: number;
-  errorloading:boolean=true;
   attendancePivot: any[] =[];
   theDates2: string[] = [];
   theDates: string[] = [];
@@ -31,7 +31,14 @@ export class AttendanceReportComponent implements OnInit {
     }
   }
 
-
+  getTitle(col:string){
+    if(col.startsWith('#')){
+      const i:number=Number.parseInt(col.split('#')[1]);
+      return moment(this.theDates2[i-1]).format(this.aFmt)
+    }
+    return 'hi';
+  }
+  
   toggleColumn(col:string) {                             
     this.toggle=!this.toggle
     if (this.toggle) {
@@ -40,64 +47,44 @@ export class AttendanceReportComponent implements OnInit {
       this.columnsToDisplay=this.displayedColumns.slice();
     }
   }
+
   initializeData()   {
     const modid=this.attendance.groupModule.module.moduleID;
     const grpid=this.attendance.groupModule.group.groupID;
     this.rootsvc.getAttendanceDates(modid,grpid)
     .subscribe( data => {
       this.theDates2 = data;
-      this.theDates = data;
-      this.theDates=this.theDates.map((c,i)=>(i+1)+'#'+moment(c).format(this.aFmt));
+      this.theDates=this.theDates2.map((c,i)=>'#'+(i+1));
       this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Attendance',...this.theDates];
       this.getStudentAttendance(modid);
-      // this.rootsvc.pivotReady.subscribe(()=>{
-      //   this.attendancePivot=this.getData();
-      // });
-      setTimeout(() => {
-        this.attendancePivot=this.getData();
-        this.errorloading=false;
-      }, 2500);
-      setTimeout(() => {
-        if(this.errorloading)
-          this.rootsvc.dbg.info(" error loading items!");
-        else
-          this.rootsvc.dbg.info(" items loaded!");
-      }, 3000);
-        this.columnsToDisplay = this.displayedColumns.slice();
-        //console.log(JSON.stringify(this.rootsvc.progress));
-    } );
+      this.columnsToDisplay = this.displayedColumns.slice();
+    });
   }  
 
   getStudentAttendance(modid:number){
     let counter:number=0;
     this.attendance.studentProgress.forEach((attRec,ridx)=>{
-      this.rootsvc.getStudAttendanceScoreByModule(attRec.studentID,modid).subscribe(data=>{
-        //console.log(data);
-        attRec.attendanceScore=data.toFixed(2);
-      });
-      this.theDates2.forEach((theDate,i)=>{
-        // console.log(attRec.studentId+'_'+theDate);
-        if (attRec.student?.startDate && attRec.student?.startDate <=theDate){
-          this.rootsvc.getStudAttendanceByDate(attRec.studentID,theDate).subscribe(data=>{
-            attRec.attendance?.push(data);
-            attRec.attendanceCount++;
-          });
+      // console.log('counter=',counter,'ridx=',ridx);
+      this.rootsvc.getStudAttendanceByModule(attRec.studentID,modid).subscribe(data=>{
+        attRec.attendance=data;
+        attRec.attendanceCount=data.length;
+        counter++;
+        if(counter==this.attendance.studentProgress.length){
+          // console.log('counter=',counter,'ridx=',ridx,this.attRep);
+          this.attendancePivot=this.getData();
+          this.rootsvc.pivotReady.next(this.attRep);  
         }
       });
-      counter++;
-      //console.log(counter,'ridx=',ridx,this.attendance.students.length,'attendance.length=',attRec.attendance.length,'attRep=',this.attRep);
-      //if(counter==this.attendance.students.length)this.rootsvc.pivotReady.next();
-});
+    });
   }
   //     
   //Object.keys(a).forEach(key => console.log(key));
 
   getData(){
-    // console.log('this.rootsvc.groupMods=');
-    // console.log(this.rootsvc.groupMods);
     let el:{[k:string]:string} = {};
     this.theDates.forEach(v=>{el={...el,...{[v]:'** '}}})
     return this.attendance.studentProgress.map((c,i)=>{
+      c.attendanceScore=c.attendance.length>0?c.attendance.map(x=>x.taskAssessment).reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2):'0'
       const score=Number.parseFloat(c.attendanceScore?c.attendanceScore:'0')/c.attendanceCount;
       c.attendanceScore=score.toFixed(2);
       c.attendance.sort((a,b)=>Date.parse(a.dueDate.toString())-Date.parse(b.dueDate.toString()));
@@ -117,7 +104,7 @@ export class AttendanceReportComponent implements OnInit {
           return x.dueDate===theDate});
         let v:number = v2?v2.taskAssessment:-1;
         const attendance:string=v==-1?"--":(v==100?"Y":v==0?"N":"L");
-        const label:string=(j+1)+'#'+moment(theDate).format(this.aFmt);
+        const label:string='#'+(j+1);//moment(theDate).format(this.aFmt);
         el[label]=attendance;
       })
       return {...v1,...el};
