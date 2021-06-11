@@ -82,16 +82,15 @@ namespace progressive.Services.Domain.Assessment
               .ToListAsync();
       }
    //GroupModuleEmailStatus
-      public async Task<EmailStatus> DoStatusEmail(int modid,string pass)
+      public async Task<EmailStatus> DoStatusEmail(int gmid,string pass)
       {
-        var gm= await _context.GroupModules.Where(s=>s.ID==modid)
+        var gm= await _context.GroupModules.Where(s=>s.ID==gmid)
                 .Include(s => s.Module)
                 .Include(s => s.Group)
                 .Include(s => s.Group.Students) 
                 .SingleAsync();
-        Console.WriteLine(gm.Group.Students.Count());
         foreach(var stud in gm.Group.Students){
-          await this.GroupModuleEmailStatus(stud.ID,modid,pass);
+          await this.GroupModuleEmailStatus(stud.ID,gm.Module.ModuleID,pass);
         }
         return EmailStatus.NotSent;
       }
@@ -109,6 +108,9 @@ namespace progressive.Services.Domain.Assessment
         var not_done=modtasks.Where(p => !sprog.Any(p2 => p2 == p.ModuleTaskID)).ToList();
         _email.Password=pass;
         var dtosend = new ModSendEmail();
+        // Console.WriteLine("AssessmentService.GroupModuleEmailStatus: notdone="+not_done.Count());
+        // Console.WriteLine("AssessmentService.GroupModuleEmailStatus: tasks="+_context.Tasks.Where(c=>c.ModuleID==modid).Count());
+        // Console.WriteLine("AssessmentService.GroupModuleEmailStatus: sprogs count="+_context.Progressions.Where(c=> c.StudentID==stid).Count());
         dtosend.NotDone=not_done;
         dtosend.Student=stud;
         dtosend.Total=modtasks.Count();

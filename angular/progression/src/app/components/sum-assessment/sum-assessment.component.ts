@@ -78,9 +78,9 @@ export class SumAssessmentComponent implements OnInit {
         delete v3.task;
         this.rootsvc.editAssessment(v3.progressionID,v3).subscribe(data=>{
           this.rootsvc.dbg.info("Score update "+(data?"complete!":"was not done!"));
-          console.log(v3);
-          console.log(sprog.summatives);
-          console.log(v2);
+          // console.log(v3);
+          // console.log(sprog.summatives);
+          // console.log(v2);
           this.updatePivot();
           return;
         })
