@@ -162,10 +162,9 @@ export class ProgressionComponent implements OnInit {
     students.forEach((student,i)=>{
       if(student.completed){
         mailto=mailto.concat('u'+student.student?.uniCode+"@unimail.hud.ac.uk");
-        if(i<students.length-1)mailto=mailto.concat('?cc=A.Matani@hud.ac.uk,isc@hud.ac.uk,'+gm.group.p2PCoach);
+        if(i<students.length-1)mailto=mailto.concat('&subject=Attendance&cc=A.Matani@hud.ac.uk,isc@hud.ac.uk,'+gm.group.p2PCoach);
       }
     });
-    console.log("mail to ref:"+mailto);
     window.location.href = mailto;
   }
 
