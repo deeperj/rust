@@ -27,7 +27,7 @@ export class DomainService {
   private sumTasksByModuleUrl = 'https://localhost:5001/api/Facade/SumTasksByModule';
   private summativesByGroupUrl = 'https://localhost:5001/api/Facade/SummativesByGroupModule';
   private studAttendanceByDateUrl = 'https://localhost:5001/api/Facade/StudAttendanceByDate';
-  private attendanceScoreByModuleUrl = 'https://localhost:5001/api/Facade/StudAttendanceScoreByModule';
+  private attendanceByModuleUrl = 'https://localhost:5001/api/Facade/StudAttendanceByModule';
   protected httpOptions = {
       headers: new HttpHeaders( { 'Content-Type': 'application/json' })
   };
@@ -106,10 +106,10 @@ export class DomainService {
     );
   }
 
-  getStudAttendanceScoreByModule(sid: number, modid:number) : Observable<number> {
-    const finalUrl = this.attendanceScoreByModuleUrl + "/" + sid + "/" + modid;
+  getStudAttendanceByModule(sid: number, modid:number) : Observable<Progression[]> {
+    const finalUrl = this.attendanceByModuleUrl + "/" + sid + "/" + modid;
     // console.log(finalUrl);
-    return this.httpClient.get<number>(finalUrl, this.httpOptions)
+    return this.httpClient.get<Progression[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
        catchError(this.httpErrorHandler)

@@ -60,9 +60,9 @@ namespace progressive.Services.Domain
             return await _AssessmentService.SumProgressByModuleNOT_USED(id, modid);
         }
 
-        public async Task<float> StudAttendanceScoreByModule(int id, int modid)
+        public async Task<IEnumerable<Progression>> StudAttendanceByModule(int id, int modid)
         {
-            return await _AttendanceService.StudAttendanceScoreByModule(id, modid);
+            return await _AttendanceService.StudAttendanceByModule(id, modid);
         }
  
         public async Task<int> SaveAttendance(Progression[] progressions)

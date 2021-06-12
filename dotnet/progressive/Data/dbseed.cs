@@ -35,7 +35,7 @@ namespace progressive.Data
             {
               new Group{
                 BatchID = 1,
-                GroupNumber = 12,
+                GroupNumber = "12",
                 GroupCode = "J1E-G12",
                 TaughtTerm = 2,
                 Pathway = Pathway.Computing,

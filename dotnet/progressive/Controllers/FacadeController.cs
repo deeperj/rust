@@ -94,17 +94,17 @@ namespace progressive.Controllers
         }
 
         // GET: api/Facade/StudAttendanceByDate/:id/:modid
-        [Route("api/[controller]/StudAttendanceScoreByModule/{id}/{modid}")]
+        [Route("api/[controller]/StudAttendanceByModule/{id}/{modid}")]
         // [HttpGet("{id}")]
-        public async Task<ActionResult<float>> StudAttendanceScoreByModule(int id, int modid)
+        public async Task<ActionResult<IEnumerable<Progression>>> StudAttendanceByModule(int id, int modid)
         {
-            var score = await _domain.StudAttendanceScoreByModule(id,modid);
+            var progressions = await _domain.StudAttendanceByModule(id,modid);
 
-            // if (score == null)
-            // {
-            //     return BadRequest();
-            // }
-            return score;
+            if (progressions == null)
+            {
+                return BadRequest();
+            }
+            return Ok(progressions);
         }
 
         // GET: api/Facade/Summatives/id/modid

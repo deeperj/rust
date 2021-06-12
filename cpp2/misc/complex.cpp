@@ -49,8 +49,8 @@ Complex Complex::Mul(Complex x){
     double b = imag;
     double c = x.real;
     double d = x.imag;
-    double nr=0;
-    double ni=0;
+    double nr=a*c-b*d;
+    double ni=a*d+b*c;
     Complex r(nr,ni);
     return r;
 }

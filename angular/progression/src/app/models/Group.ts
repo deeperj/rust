@@ -8,6 +8,7 @@ export interface Group {
     batchID: number;
     groupNumber: number;
     groupCode: string;
+    p2PCoach:string;
     pathway: Pathway;
     department: Department;
     taughtTerm: number;

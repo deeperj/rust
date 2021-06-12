@@ -152,7 +152,7 @@ export class ProgressionComponent implements OnInit {
   }
 //window.location.href = 'mailto:address@dmail.com?subject=Hello there&body=This is the body';
 
-  email(students:Progression[]){
+  email(students:Progression[],gm:GroupModule){
     //let today: number = Date.now();
     if(students.filter(c=>c.completed).length==0){
       this.dbg.info("nothing to do");
@@ -162,11 +162,9 @@ export class ProgressionComponent implements OnInit {
     students.forEach((student,i)=>{
       if(student.completed){
         mailto=mailto.concat('u'+student.student?.uniCode+"@unimail.hud.ac.uk");
-        if(i<students.length-1)mailto=mailto.concat(',');
+        if(i<students.length-1)mailto=mailto.concat('&subject=Attendance&cc=A.Matani@hud.ac.uk,isc@hud.ac.uk,'+gm.group.p2PCoach);
       }
     });
-    mailto=mailto.concat("?subject=Attendance");
-    console.log("mail to ref:"+mailto);
     window.location.href = mailto;
   }
 

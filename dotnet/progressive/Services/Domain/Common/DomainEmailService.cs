@@ -66,7 +66,7 @@ namespace progressive.Services.Domain.Common
           sb.Append(" - " +c.TaskName+Environment.NewLine);
         } 
         sb.Append(Environment.NewLine);
-        sb.Append(String.Format("% Completion = {0:P1}",completion)+Environment.NewLine);
+        sb.Append(String.Format("Percentage(%) Completion = {0:P1}",completion)+Environment.NewLine);
         sb.Append(Environment.NewLine);
         sb.Append($"Please note that you are required to do all discussions, portfolios and course work to have a good pass in Software Design."+Environment.NewLine);
         sb.Append(Environment.NewLine);
