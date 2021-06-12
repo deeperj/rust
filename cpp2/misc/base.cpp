@@ -65,10 +65,10 @@ string Hex::convert(int cval)
         else
             st="0"+st;
     }
-    // split the string into groups of threes
+    // split the string into groups of fours
     int stl=st.length()/4;
 
-    //use a for loop, supstring and lookup to convert to radix
+    //use a for loop, substring and lookup to convert to radix
     string h;
     for(int i=0;i<stl;i++)
         h+=lookup(st.substr(i*4,4));
