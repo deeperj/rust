@@ -114,8 +114,8 @@ namespace progressive.Services.Domain.Assessment
         dtosend.NotDone=not_done;
         dtosend.Student=stud;
         dtosend.Total=modtasks.Count();
-        await _email.LocalSendStatus(dtosend);
-        return await _email.StudentStatusEmail(dtosend);
+        return await _email.LocalSendStatus(dtosend);
+        //await _email.StudentStatusEmail(dtosend);
       }
 
     }

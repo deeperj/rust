@@ -63,7 +63,7 @@ namespace progressive.Services.Domain.Common
         sb.Append($"Dear {stud.OtherNames},{Environment.NewLine}"+Environment.NewLine);
         sb.Append("As promised, here is your current outstanding summative discussions/portfolios:"+Environment.NewLine);
         foreach(var c in tasks){
-          sb.Append(" - " +c.TaskName+Environment.NewLine);
+          sb.Append($" - {c.TaskName+Environment.NewLine} {}");
         } 
         sb.Append(Environment.NewLine);
         sb.Append(String.Format("Percentage(%) Completion = {0:P1}",completion)+Environment.NewLine);
