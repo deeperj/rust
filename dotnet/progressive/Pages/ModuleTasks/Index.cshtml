@@ -23,10 +23,16 @@
                 @Html.DisplayNameFor(model => model.ModuleTask[0].InSumRPAG)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].Active)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ModuleTask[0].TaskName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ModuleTask[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTask[0].ScreenCastUrl)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ModuleTask[0].DueWeek)
@@ -56,10 +62,16 @@
                 @Html.DisplayFor(modelItem => item.InSumRPAG)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.TaskName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenCastUrl)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DueWeek)

@@ -67,7 +67,7 @@ namespace progressive.Services.Tests.Domain
         public static void TestEmailSender()
         {
             Setup();
-            var result = _domain.ModuleEmailStatus(2, "");
+            var result = _domain.ModuleEmailStatus(1, "");
             string r =JsonConvert.SerializeObject(result);
             Console.WriteLine(r);
             //Assert.False(result, "1 should not be prime");

@@ -13,8 +13,10 @@ namespace progressive.Models
         public TaskType TaskType { get; set; }
         public RPAGType RPAGType { get; set; }
         public bool InSumRPAG { get; set; }
+        public bool Active { get; set; }
         public string TaskName { get; set; }
         public string Url { get; set; }
+        public string ScreenCastUrl { get; set; }
         public int DueWeek { get; set; }
         public int DueLesson { get; set; }
         public DateTime? DueDate { get; set; }

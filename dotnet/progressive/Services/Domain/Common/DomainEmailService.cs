@@ -1,6 +1,7 @@
 using FluentEmail.Core;
 using FluentEmail.Smtp;
 using System;
+using System.IO;
 using System.Net.Mail;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,8 +64,9 @@ namespace progressive.Services.Domain.Common
         sb.Append($"Dear {stud.OtherNames},{Environment.NewLine}"+Environment.NewLine);
         sb.Append("As promised, here is your current outstanding summative discussions/portfolios:"+Environment.NewLine);
         foreach(var c in tasks){
-          sb.Append($" - {c.TaskName+Environment.NewLine} {}");
+          sb.Append($" - {c.TaskName} [{c.Url.Trim()}] {Environment.NewLine} ");
         } 
+        // Console.WriteLine($"curr dir = {Directory.GetCurrentDirectory()}");
         sb.Append(Environment.NewLine);
         sb.Append(String.Format("Percentage(%) Completion = {0:P1}",completion)+Environment.NewLine);
         sb.Append(Environment.NewLine);

@@ -8,8 +8,10 @@ export interface ModuleTask {
     taskType: TaskType;
     rpagType: RPAGType;
     inSumRpag: boolean;
+    active: boolean;
     taskName: string;
     url: string;
+    screenCastUrl: string;
     dueWeek: number;
     dueLesson: number;
     dueDate: Date | string | null;

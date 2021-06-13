@@ -102,6 +102,7 @@ namespace progressive.Services.Domain.Assessment
                         .Where(c=>c.ModuleID==modid)
                         .Where(c=>c.RPAGType==RPAGType.Summative);
         var sprog = await _context.Progressions
+                        // .Include(c=>c.Task)
                         .Where(c=> c.StudentID==stid)
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Select(c=>c.ModuleTaskID).ToListAsync();
@@ -114,8 +115,8 @@ namespace progressive.Services.Domain.Assessment
         dtosend.NotDone=not_done;
         dtosend.Student=stud;
         dtosend.Total=modtasks.Count();
-        return await _email.LocalSendStatus(dtosend);
-        //await _email.StudentStatusEmail(dtosend);
+        await _email.LocalSendStatus(dtosend);
+        return await _email.StudentStatusEmail(dtosend);
       }
 
     }

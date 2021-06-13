@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, JsonpClientBackend } from '@angular/common/http';
 import { GroupModule } from '../models/GroupModule';
 import { ModEmailStatus, Progress, ProgressRecord } from '../models/ui/Progress';
 import { Student } from '../models/Student';
@@ -165,6 +165,7 @@ export class DomainService {
   }
 
   uploadStudents(newStudents: NewStudent[]): Observable<any> {
+    // console.log(JSON.stringify(newStudents));
     return this.httpClient.post<any>(this.addStudentsUrl,  newStudents, this.httpOptions)
     .pipe(
        retry(3),
