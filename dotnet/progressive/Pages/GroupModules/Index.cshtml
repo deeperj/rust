@@ -26,10 +26,10 @@
 @foreach (var item in Model.GroupModule) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Module.ModuleID)
+                @Html.DisplayFor(modelItem => item.Module.ModuleName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Group.GroupID)
+                @Html.DisplayFor(modelItem => item.Group.GroupCode)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

@@ -12,14 +12,23 @@ let sp = StackPanel()
 let t = TextBlock()
 t.Text <- "hello world"
 
+let dp1 = DatePicker()
+
 sp.Children.Add t |> ignore
 
 let b = Button()
 b.Content <- "Click Me"
 
+dp1.SelectedDateChanged.AddHandler(fun s ea -> 
+  do
+    let span = dp1.SelectedDate.Value.Subtract( DateTime.Now)/365.2525
+    t.Text <- span.TotalDays.ToString()
+)
+
 b.Click.AddHandler(fun s ea -> System.Console.Beep())
 sp.Children.Add b |> ignore
 
+sp.Children.Add dp1 |> ignore
 w.Content <- sp
 
 [<STAThread>]

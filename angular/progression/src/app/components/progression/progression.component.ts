@@ -154,16 +154,15 @@ export class ProgressionComponent implements OnInit {
 
   email(students:Progression[],gm:GroupModule){
     //let today: number = Date.now();
-    if(students.filter(c=>c.completed).length==0){
+    const selection:Progression[]=students.filter(c=>c.completed);
+    if(selection.length==0){
       this.dbg.info("nothing to do");
       return;
     }
-    let mailto="mailto:i.alamina2@hud.ac.uk?bcc=";
-    students.forEach((student,i)=>{
-      if(student.completed){
-        mailto=mailto.concat('u'+student.student?.uniCode+"@unimail.hud.ac.uk");
-        if(i<students.length-1)mailto=mailto.concat('&subject=Attendance&cc=A.Matani@hud.ac.uk,isc@hud.ac.uk,'+gm.group.p2PCoach);
-      }
+    let mailto="mailto:";
+    selection.forEach((stud,i)=>{
+        mailto=mailto.concat('u'+stud.student?.uniCode+"@unimail.hud.ac.uk,");
+        if(i===selection.length-1)mailto=mailto.concat('?bcc=i.alamina2@hud.ac.uk&subject=Attendance&cc=A.Matani@hud.ac.uk,isc@hud.ac.uk,'+gm.group.p2PCoach);
     });
     window.location.href = mailto;
   }

@@ -64,11 +64,15 @@ namespace progressive.Services.Domain.Common
         sb.Append($"Dear {stud.OtherNames},{Environment.NewLine}"+Environment.NewLine);
         sb.Append("As promised, here is your current outstanding summative discussions/portfolios:"+Environment.NewLine);
         foreach(var c in tasks){
-          sb.Append($" - {c.TaskName} [{c.Url.Trim()}] {Environment.NewLine} ");
+          sb.Append($" - {c.TaskName} [{c.ScreenCastUrl.Trim()}] {Environment.NewLine} ");
         } 
         // Console.WriteLine($"curr dir = {Directory.GetCurrentDirectory()}");
         sb.Append(Environment.NewLine);
         sb.Append(String.Format("Percentage(%) Completion = {0:P1}",completion)+Environment.NewLine);
+        sb.Append(Environment.NewLine);
+        sb.Append($"All discussions may be found in the following link [https://huddersfield.brightspace.com/d2l/le/content/135410/viewContent/1002096/View]."+Environment.NewLine);
+        sb.Append(Environment.NewLine);
+        sb.Append($"I have also added links to screen casts and Brightspace resources next to each discussion task."+Environment.NewLine);
         sb.Append(Environment.NewLine);
         sb.Append($"Please note that you are required to do all discussions, portfolios and course work to have a good pass in Software Design."+Environment.NewLine);
         sb.Append(Environment.NewLine);
