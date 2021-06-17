@@ -29,7 +29,8 @@ namespace progressive.Models
         Pharmacy,
         Computing,
         SoftwareEngineering,
-        BioMedicalScience
+        BioMedicalScience,
+        Business
     }
     public enum DBStatus{
       NoError,

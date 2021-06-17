@@ -38,8 +38,8 @@ namespace progressive.Pages_GroupModules
             {
                 return NotFound();
             }
-           ViewData["GroupID"] = new SelectList(_context.Groups, "GroupID", "GroupID");
-           ViewData["ModuleID"] = new SelectList(_context.Modules, "ModuleID", "ModuleID");
+           ViewData["GroupID"] = new SelectList(_context.Groups, "GroupID", "GroupCode");
+           ViewData["ModuleID"] = new SelectList(_context.Modules, "ModuleID", "ModuleName");
             return Page();
         }
 
