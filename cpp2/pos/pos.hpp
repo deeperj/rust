@@ -22,11 +22,13 @@ class Rect{
   public:
     Rect(int width, int height, int top, int left);
     Rect(string t, int top, int left);
+    Rect(){}
     void Title(string );
 };
 
 class POS{
   private:
+    Rect test;
     int cycler=0;
     void processEvents();
     void cycletab();

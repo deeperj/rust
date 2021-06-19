@@ -1,4 +1,4 @@
-cd// PuzzleGame.hpp : Defines the entry point for the console application.
+// PuzzleGame.hpp : Defines the entry point for the console application.
 //
 
 #pragma once
