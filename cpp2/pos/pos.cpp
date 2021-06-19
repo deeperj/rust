@@ -34,6 +34,7 @@ void Rect::Title(string t){
 void POS::status(string t){
   move(18,2);clrtoeol();
   mvprintw(18,2, "%s", t.c_str());
+  move(pos[cLoc],10);
 }
 
 POS::POS(){
@@ -43,13 +44,16 @@ POS::POS(){
     Rect amtBx(10,3,6,8);
     mvprintw(11,5,"Enter Pin");
     Rect pinBx(10,3,12,8);
-    //status("welcome to standard bank POS");
-    move(7,10);
+    const char *fmt = "sizeof enum = %d size of elem = %d ";
+    int sz = std::snprintf(nullptr, 0, fmt, sizeof(LOC),sizeof(L_AMT));
+    char buf[sz + 1]; // note +1 for null terminator
+    std::snprintf(&buf[0], sz+1, fmt, sizeof(LOC),sizeof(L_AMT));
+    move(L_AMT,10);
     processEvents();
 }
 void POS::cycletab(){
-  int pos[2]={AMT,PIN};
-  move(pos[cycler++%2],10);
+  cLoc=++cycler%L_SIZE;
+  move(pos[cLoc],10);
 }
 
 void POS::processEvents(){
@@ -57,8 +61,6 @@ void POS::processEvents(){
   halfdelay(5);
   noecho();
   while (char c = getch()) {
-    // if(c==ERR){move(1,1);clrtoeol();continue;}
-    // mvprintw(1,1,"%d",c);
     switch (c) {
       case TAB:
         cycletab();
@@ -66,9 +68,26 @@ void POS::processEvents(){
       case ESC:
         return;
         break;
+      case ERR:
+        break;
       default:
+        switch(cLoc){
+        case L_AMT:
+          status("AMT");
+          break;
+        case L_PIN:
+          status("PIN");
+          break;
+        default:
+          status("pos returning from default");
+          return;
+        }
         break;
     }
   }
 }
 
+
+string POS::getPin(){
+  return "";
+}
