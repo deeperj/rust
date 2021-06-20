@@ -28,6 +28,7 @@ class Transaction{
   public:
     TxnStatus status;
     Transaction(){}
+    TxnType createTransaction(string pin, double amount);
 };
 
 class Bank{
@@ -37,4 +38,6 @@ class Bank{
     void validatePin();
     Account accounts[1]={{}};
 };
+
+
 

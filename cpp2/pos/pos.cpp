@@ -31,32 +31,63 @@ void Rect::Title(string t){
   wrefresh(win);
 }
 
+void POS::status(string fm, int val){
+  const char *fmt = fm.c_str();
+  int sz = std::snprintf(nullptr, 0, fmt,val);
+  char buf[sz + 1]; // note +1 for null terminator
+  std::snprintf(&buf[0], sz+1, fmt, val);
+  status(buf);
+
+}
 void POS::status(string t){
   move(18,2);clrtoeol();
   mvprintw(18,2, "%s", t.c_str());
-  move(pos[cLoc],10);
+  restoreLoc();
+}
+
+void POS::status(TxnType t){
+  switch(t){
+  case L_AMT:
+    move(pos[cLoc],10+amt.length());
+    break;
+  case L_PIN:
+    move(pos[cLoc],10+pin.length());
+    break;
+  default:
+    status("pos returning from POS::status(tx)");
+    return;
+  }
 }
 
 POS::POS(){
-    Rect mainWindow(40,20,1,1);
-    mainWindow.Title("WELCOME TO STANDARD BANK");
-    mvprintw(5,5,"Enter Amount");
-    Rect amtBx(10,3,6,8);
-    mvprintw(11,5,"Enter Pin");
-    Rect pinBx(10,3,12,8);
-    const char *fmt = "sizeof enum = %d size of elem = %d ";
-    int sz = std::snprintf(nullptr, 0, fmt, sizeof(LOC),sizeof(L_AMT));
-    char buf[sz + 1]; // note +1 for null terminator
-    std::snprintf(&buf[0], sz+1, fmt, sizeof(LOC),sizeof(L_AMT));
-    move(L_AMT,10);
-    processEvents();
+  Rect mainWindow(40,20,1,1);
+  mainWindow.Title("WELCOME TO STANDARD BANK");
+  mvprintw(5,5,"Enter Amount");
+  Rect amtBx(10,3,6,8);
+  mvprintw(11,5,"Enter Pin");
+  Rect pinBx(10,3,12,8);
+  move(pos[cLoc],10);
+  getDetails();
 }
 void POS::cycletab(){
   cLoc=++cycler%L_SIZE;
-  move(pos[cLoc],10);
+  restoreLoc();
 }
 
-void POS::processEvents(){
+void POS::restoreLoc(){
+  switch(cLoc){
+  case L_AMT:
+    move(pos[cLoc],10+amt.length());
+    break;
+  case L_PIN:
+    move(pos[cLoc],10+pin.length());
+    break;
+  default:
+    status("pos returning from POS::restoreLoc");
+    return;
+  }
+}
+void POS::getDetails(){
   keypad(stdscr, true);
   halfdelay(5);
   noecho();
@@ -70,13 +101,42 @@ void POS::processEvents(){
         break;
       case ERR:
         break;
+      case ENTER:
+        switch(cLoc){
+        case L_AMT:
+        case L_PIN:
+          float amount=atof(amt);
+          if(amount>0){
+            status(createTransaction(pin,amount));
+          }else{
+            status("Please check amount!");
+          }
+          break;
+        default:
+          status("pos returning from default");
+          return;
+        break;
       default:
         switch(cLoc){
         case L_AMT:
-          status("AMT");
+          if (int(c) != BSP){
+            printw("%c", c);
+            amt.append(1, c);
+          }else{
+            amt.pop_back();
+            restoreLoc();
+            delch();
+          }
           break;
         case L_PIN:
-          status("PIN");
+          if (int(c) != BSP){
+            printw("%c", '*');
+            pin.append(1, c);
+          }else{
+            pin.pop_back();
+            restoreLoc();
+            delch();
+          }
           break;
         default:
           status("pos returning from default");
@@ -87,7 +147,3 @@ void POS::processEvents(){
   }
 }
 
-
-string POS::getPin(){
-  return "";
-}
