@@ -53,8 +53,12 @@ void POS::status(TxnStatus t){
   case InvalidPin:
     status("Invalid Pin");
     break;
+  case Created:
+    status("Account Created");
+    std::this_thread::sleep_for (std::chrono::seconds(1));
+    break;
   default:
-    status("pos returning from POS::status(tx)");
+    status("default at POS::status(tx)");
     return;
   }
 }
@@ -87,6 +91,7 @@ void POS::restoreLoc(){
     return;
   }
 }
+
 void POS::getDetails(){
   keypad(stdscr, true);
   halfdelay(5);
@@ -103,19 +108,20 @@ void POS::getDetails(){
         break;
       case ENTER:
         switch(cLoc){
-        case L_AMT:
-        case L_PIN:
-          float amount=atof(amt);
-          if(amount>0){
-            status(createTransaction(pin,amount));
-          }else{
-            status("Please check amount!");
+          case L_AMT:
+          case L_PIN:{
+            float amount=atof(amt.c_str());
+            if(amount>0){
+              status(createTransaction(pin,amount));
+            }else{
+              status("Please check amount!");
+            }
+            break;
           }
-          break;
-        default:
-          status("pos returning from default");
-          return;
-        break;
+          default:
+            status("pos returning from default");
+            return;
+        }break;
       default:
         switch(cLoc){
         case L_AMT:

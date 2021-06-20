@@ -2,6 +2,8 @@
 
 #include <curses.h>
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include <vector>
 
 using std::cout;
@@ -19,23 +21,31 @@ enum TxnStatus{
 
 class Account{
   private:
+    string pin;
   public:
+    string getPin();
     Account(){}
+    Account(string);
+    void setPin(string);
 };
 
 class Transaction{
   private:
   public:
+    Account toDebit;
+    Account toCredit;
+    double amount;
     TxnStatus status;
     Transaction(){}
-    TxnStatus createTransaction(string pin, double amount);
 };
 
 class Bank{
-  private:
+  protected:
+    Transaction tx;
   public:
     Bank(){}
-    void validatePin();
+    TxnStatus validatePin();
+    TxnStatus createTransaction(string pin, double amount);
     Account accounts[1]={{}};
 };
 
