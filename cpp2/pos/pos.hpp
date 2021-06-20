@@ -36,5 +36,6 @@ class POS: public Bank{
     POS();
     void status(string);
     void status(string,int);
+    void status(TxnStatus);
 };
 

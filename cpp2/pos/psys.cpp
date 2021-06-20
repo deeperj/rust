@@ -4,6 +4,9 @@ void Bank::validatePin(){
 
 }
 
-TxnType Bank::createTransaction(string pin, double amount){
-  return 0;
+TxnStatus Bank::createTransaction(string pin, double amount){
+  if(pin.length()!=4){
+    return InvalidPin
+  }
+  return Success;
 }

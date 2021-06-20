@@ -28,7 +28,7 @@ class Transaction{
   public:
     TxnStatus status;
     Transaction(){}
-    TxnType createTransaction(string pin, double amount);
+    TxnStatus createTransaction(string pin, double amount);
 };
 
 class Bank{

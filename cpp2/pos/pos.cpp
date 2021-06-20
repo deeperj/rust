@@ -45,13 +45,13 @@ void POS::status(string t){
   restoreLoc();
 }
 
-void POS::status(TxnType t){
+void POS::status(TxnStatus t){
   switch(t){
-  case L_AMT:
-    move(pos[cLoc],10+amt.length());
+  case Success:
+    status("Accepted");
     break;
-  case L_PIN:
-    move(pos[cLoc],10+pin.length());
+  case InvalidPin:
+    status("Invalid Pin");
     break;
   default:
     status("pos returning from POS::status(tx)");
