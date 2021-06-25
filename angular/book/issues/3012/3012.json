@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am trying to build the HelloWorldWordTypeProvider in Visual 2012. \n\nBut I get an error at line 1058 of the file  shared/ProvidedTypes-0.1.fs :\n interface ITypeProvider with\n .....\n    override this.GetInvokerExpression(methodBase:MethodBase,parameters:ParameterExpression[]) = \n \nError message : The type 'Quotation.Expr' does not match the type 'ParamterExpression' .\n\nFrom the documentation on ITypeProvider :\nhttp://msdn.microsoft.com/en-us/library/hh323952%28v=vs.110%29.aspx\n\nabstract this.GetInvokerExpression : MethodBase * ParameterExpression [] -> Expression\n\nIn my VS, the version of FSharp.Core is 4.3.0.0, and the signature of GetInvolerExpression is :\nGetInvokerExpression(System.Reflection.MethodBase syntheticMethodBase, Microsoft.FSharp.Quotations.FSharpExpr[ ] parameters)\n\nAm I using a wrong version of FSharp.Core ? \n\nThanks in advance for any assistance !\n\nShing",
+    "LastUpdatedDate": "2014-03-01T13:28:12.243-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2014-03-01T10:48:48.99-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ITypeProvider.GetInvokerExpression signature mismatch",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 3012
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Instead of using the files in folder shared, I used the files in Nuget package FSharp.TypeProvders.StarterPack.\r\n\r\nThe error disappeared. ",
+      "PostedDate": "2014-03-01T13:28:12.243-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

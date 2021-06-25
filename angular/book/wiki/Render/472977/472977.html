@@ -1,0 +1,30 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Partial patterns</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Need to partition only part of the input space. In that case, you write a set of partial patterns each of which match some inputs but fail to match other inputs. Active patterns that do not always produce a value are called partial
+ active patterns; they have a return value that is an option type. To define a partial active pattern, you use a wildcard character (_) at the end of the list of patterns inside the banana clips. The following code illustrates the use of a partial active pattern.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> (|Integer|_|) (str: string) =<br>      <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> intvalue = 0<br>      <span style="color:navy; font-weight:bold"> if</span> System.Int32.TryParse(str, &amp;intvalue)<span style="color:navy; font-weight:bold"> then</span> Some(intvalue)<br>      <span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> (|Float|_|) (str: string) =<br>      <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> floatvalue = 0.0<br>      <span style="color:navy; font-weight:bold"> if</span> System.Double.TryParse(str, &amp;floatvalue)<span style="color:navy; font-weight:bold"> then</span> Some(floatvalue)<br>      <span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> parseNumeric str =<br>      <span style="color:navy; font-weight:bold"> match</span> str<span style="color:navy; font-weight:bold"> with</span> <br>         | Integer i -&gt; printfn &quot;%d : Integer&quot; i<br>         | Float f -&gt; printfn &quot;%f : Floating point&quot; f<br>         | _ -&gt; printfn &quot;%s : Not matched.&quot; str<br>    parseNumeric &quot;1.1&quot;<br>    parseNumeric &quot;0&quot;<br>    parseNumeric &quot;0.0&quot;<br>    parseNumeric &quot;10&quot;<br>    parseNumeric &quot;Something else&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1.100000 : Floating point<br>0 : Integer<br>0.000000 : Floating point<br>10 : Integer<br>Something else : Not matched.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

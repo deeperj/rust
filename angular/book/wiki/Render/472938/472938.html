@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define operator</strong><strong><br>
+<br>
+Category: </strong>Defining Operator<br>
+<strong>Description</strong>: Define operators in a class.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span><span style="color:navy; font-weight:bold"> rec</span> hcf a b =<br> <span style="color:navy; font-weight:bold"> if</span> a = 0u<span style="color:navy; font-weight:bold"> then</span> b<br> <span style="color:navy; font-weight:bold"> elif</span> a then hcf a (b - a)<br> <span style="color:navy; font-weight:bold"> else</span> hcf (a - b) b<br><span style="color:navy; font-weight:bold">type</span> Fraction =<br>   {<br>      <span style="color:#008000">// n: Numerator of fraction.</span><br>      n : uint32<br>      <span style="color:#008000">// d: Denominator of fraction.</span><br>      d : uint32<br>   }<br><br>   <span style="color:#008000">// Produce a string representation. If the</span><br>   <span style="color:#008000">// denominator is &quot;1&quot;, do not display it.</span><br>   override this.ToString() =<br>     <span style="color:navy; font-weight:bold"> if</span> (this.d = 1u)<br>       <span style="color:navy; font-weight:bold"> then</span> this.n.ToString()<br>       <span style="color:navy; font-weight:bold"> else</span> this.n.ToString() &#43; &quot;/&quot; &#43; this.d.ToString()<br><br>   <span style="color:#008000">// Add two fractions.</span><br>   static<span style="color:navy; font-weight:bold"> member</span> (&#43;) (f1 : Fraction, f2 : Fraction) =<br>     <span style="color:navy; font-weight:bold"> let</span> nTemp = f1.n * f2.d &#43; f2.n * f1.d<br>     <span style="color:navy; font-weight:bold"> let</span> dTemp = f1.d * f2.d<br>     <span style="color:navy; font-weight:bold"> let</span> hcfTemp = hcf nTemp dTemp<br>      { n = nTemp / hcfTemp; d = dTemp / hcfTemp }<br><br>   <span style="color:#008000">// Adds a fraction and a positive integer.</span><br>   static<span style="color:navy; font-weight:bold"> member</span> (&#43;) (f1: Fraction, i : uint32) =<br>     <span style="color:navy; font-weight:bold"> let</span> nTemp = f1.n &#43; i * f1.d<br>     <span style="color:navy; font-weight:bold"> let</span> dTemp = f1.d<br>     <span style="color:navy; font-weight:bold"> let</span> hcfTemp = hcf nTemp dTemp<br>      { n = nTemp / hcfTemp; d = dTemp / hcfTemp }<br><br>   <span style="color:#008000">// Adds a positive integer and a fraction.</span><br>   static<span style="color:navy; font-weight:bold"> member</span> (&#43;) (i : uint32, f2: Fraction) =<br>     <span style="color:navy; font-weight:bold"> let</span> nTemp = f2.n &#43; i * f2.d<br>     <span style="color:navy; font-weight:bold"> let</span> dTemp = f2.d<br>     <span style="color:navy; font-weight:bold"> let</span> hcfTemp = hcf nTemp dTemp<br>      { n = nTemp / hcfTemp; d = dTemp / hcfTemp }<br><br><span style="color:navy; font-weight:bold">let</span> DefinteOperator3() = <br>   <span style="color:navy; font-weight:bold"> let</span> fraction1 = { n = 3u; d = 4u }<br>   <span style="color:navy; font-weight:bold"> let</span> fraction2 = { n = 1u; d = 2u }<br>   <span style="color:navy; font-weight:bold"> let</span> result1 = fraction1 &#43; fraction2<br>   <span style="color:navy; font-weight:bold"> let</span> result2 = fraction1 &#43; 1u<br>    printfn &quot;result1 = %s&quot; (result1.ToString())<br>    printfn &quot;result2 = %s&quot; (result2.ToString())<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result1 = 5/4<br>result2 = 7/4<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

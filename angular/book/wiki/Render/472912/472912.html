@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic Iteration</strong><strong><br>
+<br>
+Category: </strong>Sequences<br>
+<strong>Description</strong>: This sample demonstrates basic sequence iteration.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SequenceExample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> squaresSeq = seq {for i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; i*i}<br>    <span style="color:#008000">// iterating a sequence in this manner can cause exceptions/errors with large sequences!</span><br>    printf &quot;squaresSeq = &quot;<br>   <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> squaresSeq<span style="color:navy; font-weight:bold"> do</span> printf &quot;%d &quot; i<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>squaresSeq = 1 4 9 16 25 </pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

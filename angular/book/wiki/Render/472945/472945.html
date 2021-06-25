@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Call .NET functions</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: Invoke other .NET functions</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> InterOpSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> today = DateTime.Today<br>   <span style="color:navy; font-weight:bold"> let</span> tomorrow = today.AddDays(1.0)<br>   <span style="color:navy; font-weight:bold"> let</span> nextWeek = 7.0 |&gt; today.AddDays<br>    printfn &quot;tomorrow = %A&quot; tomorrow<br>    printfn &quot;nextWeek = %A&quot; nextWeek<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>tomorrow = 9/13/2011 12:00:00 AM<br>nextWeek = 9/19/2011 12:00:00 AM<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

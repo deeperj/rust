@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Observer pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: This sample show how a change can notify different subscribers. For more information, please go to http://en.wikipedia.org/wiki/Observer_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Subject() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> notify = fun _ -&gt; ()<br>   <span style="color:navy; font-weight:bold"> member</span> this.Subscribe (notifyFunction) = <br>       <span style="color:navy; font-weight:bold"> let</span> wrap f i = f(i); i<br>        notify &lt;- (wrap notifyFunction) &gt;&gt; notify<br>   <span style="color:navy; font-weight:bold"> member</span> this.Reset() = notify &lt;- fun _ -&gt; ()<br>   <span style="color:navy; font-weight:bold"> member</span> this.SomethingHappen(k) = <br>        notify k<br><br><span style="color:navy; font-weight:bold">type</span> ObserverA() =<br>   <span style="color:navy; font-weight:bold"> member</span> this.NotifyMe(i) = printfn &quot;notified A %A&quot; i<br><span style="color:navy; font-weight:bold">type</span> ObserverB() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.NotifyMeB(i) = printfn &quot;notified B %A&quot; i<br><span style="color:navy; font-weight:bold">let</span> observer() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = ObserverA()<br>   <span style="color:navy; font-weight:bold"> let</span> b = ObserverB()<br>   <span style="color:navy; font-weight:bold"> let</span> subject = Subject()<br>    subject.Subscribe(a.NotifyMe)<br>    subject.Subscribe(b.NotifyMeB)<br>    subject.SomethingHappen(&quot;good&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>notified B &quot;good&quot;<br>notified A &quot;good&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

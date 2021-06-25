@@ -1,0 +1,192 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using interfaces</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: A longer sample showing how to use interfaces to model 'data' objects such as abstract points. Somewhat contrived, since multiple repreentations of points are unlikely practice, but for larger computational objects maintaining
+ flexibility of representation through using interfaces or function values is often crucial.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> IPoint = <br>    abstract X : float<br>    abstract Y : float<br><br><br><span style="color:#008000">/// Implementing an interface with an object expression.</span><br><span style="color:navy; font-weight:bold">let</span> Point(x,y) =<br>    {<span style="color:navy; font-weight:bold"> new</span> IPoint<span style="color:navy; font-weight:bold"> with</span> <br>        <span style="color:navy; font-weight:bold"> member</span> obj.X=x <br>        <span style="color:navy; font-weight:bold"> member</span> obj.Y=y }<br><br><span style="color:#008000">/// Implementing an interface with an object expression that has mutable state</span><br><span style="color:navy; font-weight:bold">let</span> MutablePoint(x,y) =<br>   <span style="color:navy; font-weight:bold"> let</span> currX = ref x <br>   <span style="color:navy; font-weight:bold"> let</span> currY = ref y<br>    {<span style="color:navy; font-weight:bold"> new</span> IPoint<span style="color:navy; font-weight:bold"> with</span> <br>        <span style="color:navy; font-weight:bold"> member</span> obj.X= currX.Value <br>        <span style="color:navy; font-weight:bold"> member</span> obj.Y= currY.Value }<br><br><span style="color:#008000">/// This interface is really just a function since it only has one </span><br><span style="color:#008000">/// member, but we give it a name here as an example. It represents </span><br><span style="color:#008000">/// a function from some variable to (X,Y)</span><br><span style="color:navy; font-weight:bold">type</span> ILine = <br>    abstract Get : float -&gt; IPoint<br><br><span style="color:#008000">/// Implementing an interface with an object expression.</span><br><span style="color:#008000">///</span><br><span style="color:#008000">/// Here a line is specified by gradient/intercept</span><br><span style="color:navy; font-weight:bold">let</span> Line(a:float,c:float) = <br>   <span style="color:navy; font-weight:bold"> let</span> y(x) = a * x &#43; c<br>    {<span style="color:navy; font-weight:bold"> new</span> ILine<span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> l.Get(x) = Point(x, y(x)) }<br> <br><span style="color:#008000">/// Implementing an interface with a class.</span><br><span style="color:#008000">///</span><br><span style="color:#008000">/// Here a line is specified by gradient/intercept</span><br><span style="color:navy; font-weight:bold">type</span> GradientInterceptLine(a:float,c:float) = <br>    <span style="color:#008000">// Some local bindings</span><br>   <span style="color:navy; font-weight:bold"> let</span> y(x) = a * x &#43; c<br><br>    <span style="color:#008000">// Publish additional properties of the object</span><br>   <span style="color:navy; font-weight:bold"> member</span> x.Gradient = a<br>   <span style="color:navy; font-weight:bold"> member</span> x.Intercept = c<br><br>    <span style="color:#008000">// Also implement the interface</span><br>    interface ILine<span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> l.Get(x) = Point (x,y(x))<br><br><span style="color:navy; font-weight:bold">let</span> InterfaceSample3() =<br>    <br>    <span style="color:#008000">// This creates an object using a function</span><br>   <span style="color:navy; font-weight:bold"> let</span> line1 = Line(1.0, 0.344)<br><br>    <span style="color:#008000">// This creates a similar object using a type. </span><br>   <span style="color:navy; font-weight:bold"> let</span> line2 =<span style="color:navy; font-weight:bold"> new</span> GradientInterceptLine(2.0,1.5) :&gt; ILine <br>   <span style="color:navy; font-weight:bold"> let</span> origin =  {<span style="color:navy; font-weight:bold"> new</span> IPoint<span style="color:navy; font-weight:bold"> with</span> <br>                       <span style="color:navy; font-weight:bold"> member</span> p.X =0.0 <br>                       <span style="color:navy; font-weight:bold"> member</span> p.Y = 0.0 }<br>   <span style="color:navy; font-weight:bold"> let</span> point1 = line1.Get(-1.0)<br>   <span style="color:navy; font-weight:bold"> let</span> point2 = line2.Get(0.0)<br>   <span style="color:navy; font-weight:bold"> let</span> point3 = line2.Get(1.0)<br>   <span style="color:navy; font-weight:bold"> let</span> outputPoint os (p:IPoint) = fprintf os &quot;(%f,%f)&quot; p.X p.Y <br>    printfn &quot;origin = %a&quot; outputPoint origin;<br>    printfn &quot;point1 = %a&quot; outputPoint point1;<br>    printfn &quot;point2 = %a&quot; outputPoint point2;<br>    printfn &quot;point3 = %a&quot; outputPoint point3<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>origin = (0.000000,0.000000)<br>point1 = (-1.000000,-0.656000)<br>point2 = (0.000000,1.500000)<br>point3 = (1.000000,3.500000)<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Upcast and downcast</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Use upcast and downcast</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> UpcastDownCastSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = 1<br>   <span style="color:navy; font-weight:bold"> let</span> upcastFunction(x) : obj = upcast x<br>   <span style="color:navy; font-weight:bold"> let</span> downcastFunction(x:obj) : int = downcast x<br>   <span style="color:navy; font-weight:bold"> let</span> objValue = upcastFunction(a)<br>    printfn &quot;name = %A&quot; objValue<br>    printfn &quot;int = %d&quot; (downcastFunction(objValue))<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>name = 1<br>int = 1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Generic Type</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Define a generic type</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> TrackedValue&lt;'Kind&gt;(v : 'Kind) =<br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> value = v <br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> reads  = 0 <br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> writes = 0 <br><br> <span style="color:navy; font-weight:bold"> member</span> this.Value<br>   <span style="color:navy; font-weight:bold"> with</span> get() =<br>      reads &lt;- reads &#43; 1<br>      value<br>   <span style="color:navy; font-weight:bold"> and</span> set newVal =<br>      writes &lt;- writes &#43; 1<br>      value &lt;- newVal<br><br><span style="color:navy; font-weight:bold">let</span> GenericSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = TrackedValue(10)<br>   <span style="color:navy; font-weight:bold"> let</span> b = TrackedValue(20.0)<br>   <span style="color:navy; font-weight:bold"> let</span> c = TrackedValue&lt;_&gt;(&quot;Hello&quot;)<br>    printfn &quot;%d %f %s&quot; a.Value b.Value c.Value<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>10 20.000000 Hello<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Function with type contraints</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Define function with type contraints</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span><span style="color:navy; font-weight:bold"> inline</span> parseFunction&lt; ^T when ^T : (static<span style="color:navy; font-weight:bold"> member</span> Parse: string -&gt; ^T) &gt; s =<br>        (^T: (static<span style="color:navy; font-weight:bold"> member</span> Parse: string -&gt; ^T) s)<br><br><span style="color:navy; font-weight:bold">let</span> TypeConstraintsSample1() =     <br>   <span style="color:navy; font-weight:bold"> let</span> ``seq`` = [ &quot;1&quot;; &quot;2&quot;; &quot;3&quot; ] |&gt; List.map parseFunction<br>    ``seq`` |&gt; Seq.iter (printfn &quot;%d&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1<br>2<br>3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Function with type contraints</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Define function with type contraints</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span><span style="color:navy; font-weight:bold"> inline</span> tryParseFunction&lt; ^T when ^T : (static<span style="color:navy; font-weight:bold"> member</span> TryParse: string * ^T byref -&gt; bool) &gt; s =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> x = Unchecked.defaultof&lt; ^T&gt;<br>   <span style="color:navy; font-weight:bold"> if</span> (^T: (static<span style="color:navy; font-weight:bold"> member</span> TryParse: string * ^T byref -&gt; bool) (s, &amp;x)) <br>   <span style="color:navy; font-weight:bold"> then</span> Some x <br>   <span style="color:navy; font-weight:bold"> else</span> None<br><br><span style="color:navy; font-weight:bold">let</span> TypeConstraintsSample2() =     <br>   <span style="color:navy; font-weight:bold"> let</span> ``seq`` = [ &quot;1&quot;; &quot;2&quot;; &quot;3&quot;; &quot;NotInt&quot; ] |&gt; List.map tryParseFunction<br>    ``seq`` |&gt; Seq.iter (printfn &quot;%A&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Some 1<br>Some 2<br>Some 3<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Function with type contraints</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Define function with type contraints</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span><span style="color:navy; font-weight:bold"> inline</span> tryParseFunction2 s =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> x = Unchecked.defaultof&lt; ^T&gt;<br>   <span style="color:navy; font-weight:bold"> if</span> (^T: (static<span style="color:navy; font-weight:bold"> member</span> TryParse: string * ^T byref -&gt; bool) (s, &amp;x)) <br>   <span style="color:navy; font-weight:bold"> then</span> Some x <br>   <span style="color:navy; font-weight:bold"> else</span> None<br><br><span style="color:navy; font-weight:bold">let</span> TypeConstraintsSample3() =     <br>   <span style="color:navy; font-weight:bold"> let</span> ``seq`` = [ &quot;1&quot;; &quot;2&quot;; &quot;3&quot;; &quot;NotInt&quot; ] |&gt; List.map tryParseFunction2<br>    ``seq`` |&gt; Seq.iter (printfn &quot;%A&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Some 1<br>Some 2<br>Some 3<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Infinite sequence</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Infinite sequence</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> InfiniteSeqSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> evenNumbers:bigint seq = <br>       <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> f n = seq { yield n; yield! f (n&#43;2I) }<br>        f 0I<br>    printfn &quot;infinite seq = %A&quot; evenNumbers<br>        <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>infinite seq = seq [0; 2; 4; 6; ...]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

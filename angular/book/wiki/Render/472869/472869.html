@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>While Loops</strong><strong><br>
+<br>
+Category: </strong>For and While Loops<br>
+<strong>Description</strong>: A simple 'while' loops that busy-waits until the given time-span has passed</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleWhileLoop2() =<br>   <span style="color:navy; font-weight:bold"> let</span> start = DateTime.Now <br>   <span style="color:navy; font-weight:bold"> let</span> duration = System.TimeSpan.FromMilliseconds(8.0)<br>   <span style="color:navy; font-weight:bold"> let</span> diff (a:DateTime) (b:DateTime) = System.DateTime.op_Subtraction(System.DateTime.Now,b) <br>    printfn &quot;Waiting...&quot;<br><br>    <span style="color:#008000">// Here's the loop</span><br>   <span style="color:navy; font-weight:bold"> while</span> diff DateTime.Now start &lt; duration<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;.&quot;<br><br>    <span style="color:#008000">// OK, we're done...</span><br>   <span style="color:navy; font-weight:bold"> let</span> span = diff DateTime.Now start <br>    printfn &quot;\nAttempted<span style="color:navy; font-weight:bold"> to</span> busy-wait 8ms, actually waited %dms&quot; span.Milliseconds<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Waiting...<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br><br>Attempted to busy-wait 8ms, actually waited 8ms<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

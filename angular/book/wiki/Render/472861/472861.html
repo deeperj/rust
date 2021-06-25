@@ -1,0 +1,30 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using interfaces</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: A longer sample showing how to use interfaces to model 'data' objects such as abstract points. Somewhat contrived, since multiple repreentations of points are unlikely practice, but for larger computational objects maintaining
+ flexibility of representation through using interfaces or function values is often crucial.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> IPoint = <br>    abstract X : float<br>    abstract Y : float<br><br><br><span style="color:#008000">/// Implementing an interface with an object expression.</span><br><span style="color:navy; font-weight:bold">let</span> Point(x,y) =<br>    {<span style="color:navy; font-weight:bold"> new</span> IPoint<span style="color:navy; font-weight:bold"> with</span> <br>        <span style="color:navy; font-weight:bold"> member</span> obj.X=x <br>        <span style="color:navy; font-weight:bold"> member</span> obj.Y=y }<br><br><span style="color:#008000">/// Implementing an interface with an object expression that has mutable state</span><br><span style="color:navy; font-weight:bold">let</span> MutablePoint(x,y) =<br>   <span style="color:navy; font-weight:bold"> let</span> currX = ref x <br>   <span style="color:navy; font-weight:bold"> let</span> currY = ref y<br>    {<span style="color:navy; font-weight:bold"> new</span> IPoint<span style="color:navy; font-weight:bold"> with</span> <br>        <span style="color:navy; font-weight:bold"> member</span> obj.X= currX.Value <br>        <span style="color:navy; font-weight:bold"> member</span> obj.Y= currY.Value }<br><br><span style="color:#008000">/// This interface is really just a function since it only has one </span><br><span style="color:#008000">/// member, but we give it a name here as an example. It represents </span><br><span style="color:#008000">/// a function from some variable to (X,Y)</span><br><span style="color:navy; font-weight:bold">type</span> ILine = <br>    abstract Get : float -&gt; IPoint<br><br><span style="color:#008000">/// Implementing an interface with an object expression.</span><br><span style="color:#008000">///</span><br><span style="color:#008000">/// Here a line is specified by gradient/intercept</span><br><span style="color:navy; font-weight:bold">let</span> Line(a:float,c:float) = <br>   <span style="color:navy; font-weight:bold"> let</span> y(x) = a * x &#43; c<br>    {<span style="color:navy; font-weight:bold"> new</span> ILine<span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> l.Get(x) = Point(x, y(x)) }<br> <br><span style="color:#008000">/// Implementing an interface with a class.</span><br><span style="color:#008000">///</span><br><span style="color:#008000">/// Here a line is specified by gradient/intercept</span><br><span style="color:navy; font-weight:bold">type</span> GradientInterceptLine(a:float,c:float) = <br>    <span style="color:#008000">// Some local bindings</span><br>   <span style="color:navy; font-weight:bold"> let</span> y(x) = a * x &#43; c<br><br>    <span style="color:#008000">// Publish additional properties of the object</span><br>   <span style="color:navy; font-weight:bold"> member</span> x.Gradient = a<br>   <span style="color:navy; font-weight:bold"> member</span> x.Intercept = c<br><br>    <span style="color:#008000">// Also implement the interface</span><br>    interface ILine<span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> l.Get(x) = Point (x,y(x))<br><br><span style="color:navy; font-weight:bold">let</span> InterfaceSample3() =<br>    <br>    <span style="color:#008000">// This creates an object using a function</span><br>   <span style="color:navy; font-weight:bold"> let</span> line1 = Line(1.0, 0.344)<br><br>    <span style="color:#008000">// This creates a similar object using a type. </span><br>   <span style="color:navy; font-weight:bold"> let</span> line2 =<span style="color:navy; font-weight:bold"> new</span> GradientInterceptLine(2.0,1.5) :&gt; ILine <br>   <span style="color:navy; font-weight:bold"> let</span> origin =  {<span style="color:navy; font-weight:bold"> new</span> IPoint<span style="color:navy; font-weight:bold"> with</span> <br>                       <span style="color:navy; font-weight:bold"> member</span> p.X =0.0 <br>                       <span style="color:navy; font-weight:bold"> member</span> p.Y = 0.0 }<br>   <span style="color:navy; font-weight:bold"> let</span> point1 = line1.Get(-1.0)<br>   <span style="color:navy; font-weight:bold"> let</span> point2 = line2.Get(0.0)<br>   <span style="color:navy; font-weight:bold"> let</span> point3 = line2.Get(1.0)<br>   <span style="color:navy; font-weight:bold"> let</span> outputPoint os (p:IPoint) = fprintf os &quot;(%f,%f)&quot; p.X p.Y <br>    printfn &quot;origin = %a&quot; outputPoint origin;<br>    printfn &quot;point1 = %a&quot; outputPoint point1;<br>    printfn &quot;point2 = %a&quot; outputPoint point2;<br>    printfn &quot;point3 = %a&quot; outputPoint point3<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>origin = (0.000000,0.000000)<br>point1 = (-1.000000,-0.656000)<br>point2 = (0.000000,1.500000)<br>point3 = (1.000000,3.500000)<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

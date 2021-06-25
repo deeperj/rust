@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Mutual Definitions</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Discriminated unions and records can be defined simultaneously to give mutually recursive collections of types.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:#008000">// define mutually recursive collections with the 'and' keyword</span><br><span style="color:navy; font-weight:bold">type</span> Airport =<br>    { Name: string;<br>      Connections: connection list }<br><span style="color:navy; font-weight:bold">and</span> connection =<br>    | Connection of Airport<br>    | None<br>    <br><span style="color:navy; font-weight:bold">let</span> MutualDefinition() =<br>   <span style="color:navy; font-weight:bold"> let</span> LAX = { Name = &quot;Los Angeles Intl Airport&quot;; Connections = [connection.None] }<br>   <span style="color:navy; font-weight:bold"> let</span> DTW = { Name = &quot;Detroit Metro Wayne County&quot;; Connections = [connection.None] }    <br>   <span style="color:navy; font-weight:bold"> let</span> SEA = { Name = &quot;Seattle-Tacoma Intl Airport&quot;; <br>                Connections = [connection.Connection DTW; connection.Connection LAX] }<br>             <br>    printfn &quot;%A&quot; LAX<br>    printfn &quot;\n%A&quot; DTW<br>    printfn &quot;\n%A&quot; SEA<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>{Name = &quot;Los Angeles Intl Airport&quot;;<br> Connections = [None];}<br><br>{Name = &quot;Detroit Metro Wayne County&quot;;<br> Connections = [None];}<br><br>{Name = &quot;Seattle-Tacoma Intl Airport&quot;;<br> Connections =<br>  [Connection {Name = &quot;Detroit Metro Wayne County&quot;;<br>               Connections = [None];};<br>   Connection {Name = &quot;Los Angeles Intl Airport&quot;;<br>               Connections = [None];}];}<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

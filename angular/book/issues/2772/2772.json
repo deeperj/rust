@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "I've updated Samples.Csv to address the issue you reported (and apply a bug fix)",
+    "ClosedDate": "2013-03-15T14:22:18.327-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "SampleProviders/Sample.Csv Missing:\n* Csv.DesignTime.fsproj\n* DefaultVersionAttrivute.fs\n* There are also source safe (.vssscc) files that mess up the project.\n\nSampleProviders/Sample.MiniCsvProvider Missing:\n* ProvidedTypes-0.2.fsi\n* ProvidedTypes-0.2.fs",
+    "LastUpdatedDate": "2013-05-16T03:49:12.157-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2013-02-07T16:26:01.323-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing files in source code",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 2772
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

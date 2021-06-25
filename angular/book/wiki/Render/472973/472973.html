@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>convert units of measure and LanguagePrimitives</strong><strong><br>
+<br>
+Category: </strong>Units of Measure<br>
+<strong>Description</strong>: convert measure and LanguagePrimitives. The conversion ratio is defined and the conversion is based on the ratio.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Measure&gt;]type litre<br>[&lt;Measure&gt;]type pint<br><br><span style="color:navy; font-weight:bold">let</span> MeasureSample3() = <br>   <span style="color:navy; font-weight:bold"> let</span> l:float = LanguagePrimitives.FloatWithMeasure 10.<br>   <span style="color:navy; font-weight:bold"> let</span> ratio =  1.0 / 1.76056338<br>   <span style="color:navy; font-weight:bold"> let</span> pints = l / ratio<br>    printfn &quot;%A pints = %A liter&quot; pints l<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>17.6056338 pints = 10.0 liter<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

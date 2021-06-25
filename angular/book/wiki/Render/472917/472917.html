@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .choose</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .choose applies a given function to the collection, returning an array of results x where the function evaluates to Some(x).</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample5() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = seq {1..20}<br>   <span style="color:navy; font-weight:bold"> let</span> evens = Seq.choose(fun x -&gt; <br>                               <span style="color:navy; font-weight:bold"> match</span> x<span style="color:navy; font-weight:bold"> with</span> <br>                                | x when x%2=0 -&gt; Some(x)<br>                                | _ -&gt; None ) numbers<br>    printfn &quot;numbers = %A\n&quot; numbers<br>    printfn &quot;evens = %A&quot; evens<br><br><span style="color:#008000">//--------------------------------------------------------  </span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>numbers = seq [1; 2; 3; 4; ...]<br><br>evens = seq [2; 4; 6; 8; ...]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

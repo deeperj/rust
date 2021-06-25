@@ -1,0 +1,110 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Invoke win32 API</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: invoke win23 API to beep on the computer. Please make sure you have sound card installed.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[]<br>extern bool MessageBeep(UInt32 beepType);<br><br><span style="color:navy; font-weight:bold">let</span> InterOpSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> r = MessageBeep(0xFFFFFFFFu)<br>    printfn &quot;message beep result = %A&quot; r<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>message beep result = true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Call .NET functions</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: Invoke other .NET functions</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> InterOpSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> today = DateTime.Today<br>   <span style="color:navy; font-weight:bold"> let</span> tomorrow = today.AddDays(1.0)<br>   <span style="color:navy; font-weight:bold"> let</span> nextWeek = 7.0 |&gt; today.AddDays<br>    printfn &quot;tomorrow = %A&quot; tomorrow<br>    printfn &quot;nextWeek = %A&quot; nextWeek<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>tomorrow = 9/13/2011 12:00:00 AM<br>nextWeek = 9/19/2011 12:00:00 AM<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use List</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: Use List in .NET</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> InterOpSample3() = <br>   <span style="color:navy; font-weight:bold"> let</span> shopping =<span style="color:navy; font-weight:bold"> new</span> System.Collections.Generic.List()<br>    shopping.Add(&quot;eggs&quot;)<br>    shopping.Add(&quot;milk&quot;)<br>    shopping.Add(&quot;bread&quot;)<br>    printfn &quot;List: %A&quot; shopping<br><br>    shopping.Insert(1, &quot;wine&quot;)<br>    printfn &quot;List: %A&quot; shopping<br><br>    shopping.Remove(&quot;milk&quot;)  |&gt; ignore<br>    printfn &quot;List: %A&quot; shopping<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>List: seq [&quot;eggs&quot;; &quot;milk&quot;; &quot;bread&quot;]<br>List: seq [&quot;eggs&quot;; &quot;wine&quot;; &quot;milk&quot;; &quot;bread&quot;]<br>List: seq [&quot;eggs&quot;; &quot;wine&quot;; &quot;bread&quot;]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Parse number and handle out parameter in C#</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: Parse number and handle out parameter in C#</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>#&quot;)&gt;]<br><span style="color:navy; font-weight:bold">let</span> InterOpSample4() =<br>   <span style="color:navy; font-weight:bold"> let</span> parse str =<br>       <span style="color:navy; font-weight:bold"> match</span> System.Decimal.TryParse(str, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)<span style="color:navy; font-weight:bold"> with</span> <br>             | (true, r) -&gt; Some(r)<br>             | (false, _) -&gt; None<br><br>    printfn &quot;%A&quot; (parse &quot;123&quot;)<br>    printfn &quot;%A&quot; (parse &quot;acd&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Some 123M<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

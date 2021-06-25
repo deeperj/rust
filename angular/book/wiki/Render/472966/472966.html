@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use structure format display attribute</strong><strong><br>
+<br>
+Category: </strong>Format<br>
+<strong>Description</strong>: Use structure format display attribute. Use this attribute we can customerize the printf content.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;StructuredFormatDisplayAttribute(&quot;MyType is {Contents}&quot;)&gt;]<br><span style="color:navy; font-weight:bold">type</span> C(elems:int list) =<br>  <span style="color:navy; font-weight:bold"> member</span> x.Contents = elems<br><br><span style="color:navy; font-weight:bold">let</span> pritnfnSample0() = <br>    printfn &quot;%A&quot; (C [1..4])<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>MyType is [1; 2; 3; 4]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

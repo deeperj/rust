@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>take - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Take to get only the first 3 elements of the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ15() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        take 3<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    5 </span><br>    <span style="color:#008000">//    4 </span><br>    <span style="color:#008000">//    1</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>5<br>4<br>1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

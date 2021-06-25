@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Parse number and handle out parameter in C#</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: Parse number and handle out parameter in C#</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>#&quot;)&gt;]<br><span style="color:navy; font-weight:bold">let</span> InterOpSample4() =<br>   <span style="color:navy; font-weight:bold"> let</span> parse str =<br>       <span style="color:navy; font-weight:bold"> match</span> System.Decimal.TryParse(str, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)<span style="color:navy; font-weight:bold"> with</span> <br>             | (true, r) -&gt; Some(r)<br>             | (false, _) -&gt; None<br><br>    printfn &quot;%A&quot; (parse &quot;123&quot;)<br>    printfn &quot;%A&quot; (parse &quot;acd&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Some 123M<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

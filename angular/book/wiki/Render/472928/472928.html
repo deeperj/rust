@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using Structural Hashing</strong><strong><br>
+<br>
+Category: </strong>Equality, Comparison and Hashing<br>
+<strong>Description</strong>: F# supports structural hashing on values. Typically only F# record/union structured terms are traversed, though this can be customized on a per-type basis. This sample shows the results of some simple structural hashing operations.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> HashingSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> show a = printfn &quot;hash(%A) : %d&quot; a (hash a) <br>    show 1;<br>    show 2;<br>    show &quot;1&quot;<br>    show &quot;2&quot;<br>    show &quot;abb&quot; <br>    show &quot;aBc&quot; <span style="color:#008000">// case-sensitive</span><br>    show None;<br>    show (Some 1);<br>    show (Some 0);<br>    show [1;2;3];<br>    show [1;2;3;4;5;6;7;8];<br>    show [1;2;3;4;5;6;7;8;9;10;11];<br>    show [1;2;3;4;5;6;7;8;9;10;11;12;13;14;15]<br>    <br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>hash(1) : 1<br>hash(2) : 2<br>hash(&quot;1&quot;) : -842352753<br>hash(&quot;2&quot;) : -842352754<br>hash(&quot;abb&quot;) : 2103075711<br>hash(&quot;aBc&quot;) : 539088922<br>hash() : 0<br>hash(Some 1) : -1640531462<br>hash(Some 0) : -1640531463<br>hash([1; 2; 3]) : 1956583134<br>hash([1; 2; 3; 4; 5; 6; 7; 8]) : 922428386<br>hash([1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11]) : 1771492728<br>hash([1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12; 13; 14; 15]) : -926589492<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

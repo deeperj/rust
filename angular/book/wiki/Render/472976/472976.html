@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Active pattern: NULL</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Active pattern determines if the input value is null. When sample is executed under debug mode, it throws exception which is expected behavior.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample3() =     <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> inline</span> isNull v = System.Object.ReferenceEquals(v, null)    <br>   <span style="color:navy; font-weight:bold"> let</span> (|Null|_|) value =<span style="color:navy; font-weight:bold"> if</span> isNull value<span style="color:navy; font-weight:bold"> then</span> Some()<span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> check v =<br>       <span style="color:navy; font-weight:bold"> match</span> v<span style="color:navy; font-weight:bold"> with</span> <br>        | Null -&gt; nullArg &quot;v is null&quot;<br>        | _ -&gt; ()<br>    check null<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Exception raised: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.ArgumentNullException: Value cannot be null.<br>Parameter name: v is null<br>   at Microsoft.FSharp.Core.Operators.Raise[T](Exception exn)<br>   at Samples.Others.check@482-1T.Invoke(a v) in C:\MyCode\Samples\SampleProject\SampleProject\Samples.Others.fs:line 484<br>   at Samples.Others.ActivePatternSample3() in C:\MyCode\Samples\SampleProject\SampleProject\Samples.Others.fs:line 486<br>   --- End of inner exception stack trace ---<br>   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)<br>   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)<br>   at Support.Helper.Utils.samples@190-3.Invoke(Unit unitVar0) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 190<br>   at Support.Helper.Utils.getExecutionResult(FSharpOption`1 sampleOption) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 256<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

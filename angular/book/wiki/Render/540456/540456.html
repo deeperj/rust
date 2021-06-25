@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>EDMX Provider</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: define a EDMX type provider on the local SQL server database. You can download the SQL server 2008 Express version for free. Please refer to CreateFSharpSampleDatabase.sql or run Setup project to configure your database.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> T2 = Microsoft.FSharp.Data.TypeProviders.EdmxFile&lt; @&quot;.\Support.Model.edmx&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> typeEdmxProvider() = <br>   <span style="color:navy; font-weight:bold"> let</span> db =<span style="color:navy; font-weight:bold"> new</span> T2.FSharpSampleModel.Entities(&quot;metadata=res:<span style="color:#000000">//*/Support.Model.csdl|res://*/Support.Model.ssdl|res://*/Support.Model.msl;provider=System.Data.SqlClient;provider connection string=\&quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234\&quot;&quot;)</span><br>   <span style="color:navy; font-weight:bold"> let</span> q = query { <br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Students<span style="color:navy; font-weight:bold"> do</span> <br>            select n.Name }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot;<br>&quot;Brent&quot;<br>&quot;Anita&quot;<br>&quot;Ken&quot;<br>&quot;Cathy&quot;<br>&quot;Tom&quot;<br>&quot;Zeoy&quot;<br>&quot;Mark&quot;<br>&quot;John&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

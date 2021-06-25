@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>count - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Count to get the number of unique factors of 300.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ28() =<br>   <span style="color:navy; font-weight:bold"> let</span> factorsOf300 = [2;2;3;5;5]<br><br>   <span style="color:navy; font-weight:bold"> let</span> uniqueFactors = <br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> factorsOf300<span style="color:navy; font-weight:bold"> do</span> <br>            count<br>        } <br>    printfn &quot;There are %A unique factors of 300.&quot; uniqueFactors<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    There are 3 unique factors of 300.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>There are 5 unique factors of 300.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

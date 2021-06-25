@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Choose</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: Project from a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample7() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [(&quot;Cats&quot;,4);<br>                (&quot;Dogs&quot;,5);<br>                (&quot;Mice&quot;,3);<br>                (&quot;Elephants&quot;,2)]<br>   <span style="color:navy; font-weight:bold"> let</span> res = data |&gt; List.choose (fun (nm,x) -&gt;<span style="color:navy; font-weight:bold"> if</span> nm.Length &lt;= 4<span style="color:navy; font-weight:bold"> then</span> Some(x)<span style="color:navy; font-weight:bold"> else</span> None)<br>    printfn &quot;Counts of animals<span style="color:navy; font-weight:bold"> with</span> short names: %A&quot; res<br> <br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Counts of animals with short names: [4; 5; 3]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

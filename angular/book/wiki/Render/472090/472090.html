@@ -1,0 +1,56 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic Use Bindings</strong><strong><br>
+<br>
+Category: </strong>Disposal<br>
+<strong>Description</strong>: The 'use' binding indicates that the IDisposable.Dispose method should be called on the object at the end of its lexical scope. In this case it closes the file deterministically.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> DisposeSample1() =<br>    System.IO.File.WriteAllLines(@&quot;test.txt&quot;, [| &quot;This is a test file.&quot;; <br>                                                 &quot;It is easy<span style="color:navy; font-weight:bold"> to</span> read.&quot; |]);<br><br>    use sr = System.IO.File.OpenText @&quot;test.txt&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> line1 = sr.ReadLine() <br>   <span style="color:navy; font-weight:bold"> let</span> line2 = sr.ReadLine() <br>    printfn &quot;line1 = %s&quot; line1<br>    printfn &quot;line2 = %s&quot; line2<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>line1 = This is a test file.<br>line2 = It is easy to read.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Create disposal function</strong><strong><br>
+<br>
+Category: </strong>Disposal<br>
+<strong>Description</strong>: Create disposal function</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> DisposalSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> createDisposable f =<br>         {<br>           <span style="color:navy; font-weight:bold"> new</span> IDisposable<span style="color:navy; font-weight:bold"> with</span> <br>               <span style="color:navy; font-weight:bold"> member</span> x.Dispose() = f()<br>         }<br>   <span style="color:navy; font-weight:bold"> let</span> test () = <br>        using (createDisposable (fun _ -&gt; printfn &quot;disposed&quot; )) (fun _ -&gt; printfn &quot;inside&quot;)<br>    test()<br>    printfn &quot;finished&quot;<br><br><span style="color:#008000">//--------------------------------------------------------</span><br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>inside<br>disposed<br>finished<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

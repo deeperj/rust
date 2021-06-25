@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The WMI Type provider fails with an exception when trying to instantiate the HyperV WMI class Msvm_VirtualSystemManagementService.\n\n__Repro script__\n\n```\n#r @\"System.Management.dll\"\n#r @\"fsharpsample\\SampleProviders\\Debug\\net45\\Samples.Management.TypeProvider.dll\"\nopen Samples.Management.TypeProvider\nopen System.Management\ntype Local = WmiProvider<\"localhost\", @\"root\\virtualization\\v2\">\nlet local = Local.GetDataContext()\nlet hyperv = local.Msvm_VirtualSystemManagementService\n```\n\n__Result__\n```\nhyperv.fsx(7,14): error FS3021: Unexpected exception from provided type 'Samples.Management.TypeProvider.WmiProvider,MachineName=\"localhost\",Namespace=\"root\\\\virtualization\\\\v2\"+ServiceTypes+Msvm_VirtualSystemManagementService' member 'GetMethods': The type provider 'Samples.Management.TypeProvider.DesignTime.WmiExtender' reported an error: Not found \n> \n```\n\n__Source__\nThe exception is thrown by the failwith at line 71 of file WmiProvider.DesignTime.fs\n```\n| CimType.Reference when tyName.StartsWith(\"ref:\") ->\n            if wmiProp.IsArray then\n                failwith (sprintf \"Unexpected type: %A array\" wmiProp.Qualifiers.[\"cim_type\"].Value)\n```",
+    "LastUpdatedDate": "2013-10-28T12:32:35.903-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2013-10-28T12:32:35.903-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bug in WMI Type provider: exception when instantiating Msvm_VirtualSystemManagementService",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 2934
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

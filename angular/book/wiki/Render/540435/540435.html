@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider average</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: TypeProvider average</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider16() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span>        <br>       <span style="color:navy; font-weight:bold"> let</span> f = float(n.Age.GetValueOrDefault())<br>        averageBy f<br>        }<br>    q |&gt; printfn &quot;average age = %A&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>average age = 19.0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

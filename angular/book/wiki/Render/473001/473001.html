@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Serialization and Deserialization</strong><strong><br>
+<br>
+Category: </strong>Others<br>
+<strong>Description</strong>: Use Jason serializer to serialize and deserialize data.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SerailizationAndDeserialization() = <br>   <span style="color:navy; font-weight:bold"> let</span> serializeAndDeserialize (originalValue:'T) = <br>        <span style="color:#008000">// Create a serializer, an output stream and serialzie the value</span><br>       <span style="color:navy; font-weight:bold"> let</span> serializer = DataContractJsonSerializer(typeof&lt;'T&gt;)<br>       <span style="color:navy; font-weight:bold"> let</span> out  =<span style="color:navy; font-weight:bold"> new</span> System.IO.MemoryStream()<br>        printfn &quot;input: %A&quot; originalValue<br>        serializer.WriteObject(out, originalValue)<br><br>        <span style="color:#008000">// Get the serialized text</span><br>       <span style="color:navy; font-weight:bold"> let</span> text = out.ToArray() |&gt; System.Text.Encoding.UTF8.GetString<br>        out.Seek(0L, System.IO.SeekOrigin.Begin) |&gt; ignore<br>        printfn &quot;serialized as: %s&quot; text<br>            <br>       <span style="color:navy; font-weight:bold"> let</span> deserialziedValue = serializer.ReadObject out<br>        printfn &quot;deserialized as: %A&quot; deserialziedValue<br><br>    serializeAndDeserialize (1,2) <br>    serializeAndDeserialize [| 1;2;3 |] <br>    serializeAndDeserialize 1.01   <br>    <br>   <span style="color:navy; font-weight:bold"> let</span> dict =<span style="color:navy; font-weight:bold"> new</span> System.Collections.Generic.Dictionary()<br>    dict.Add(2, &quot;two&quot;)<br>    dict.Add(3, &quot;three&quot;)<br>    serializeAndDeserialize dict<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>input: (1, 2)<br>serialized as: {&quot;m_Item1&quot;:1,&quot;m_Item2&quot;:2}<br>deserialized as: (1, 2)<br>input: [|1; 2; 3|]<br>serialized as: [1,2,3]<br>deserialized as: [|1; 2; 3|]<br>input: 1.01<br>serialized as: 1.01<br>deserialized as: 1.01<br>input: seq [[2, two]; [3, three]]<br>serialized as: [{&quot;Key&quot;:2,&quot;Value&quot;:&quot;two&quot;},{&quot;Key&quot;:3,&quot;Value&quot;:&quot;three&quot;}]<br>deserialized as: seq [[2, two]; [3, three]]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

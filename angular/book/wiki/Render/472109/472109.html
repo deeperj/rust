@@ -1,0 +1,137 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Read Two Lines, .NET-style</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Line-directed text file input using .NET Stream/StreamReader/StreamWriter abstractions.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LineDirectedInputSample2() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.txt&quot;, [| &quot;This is a test file.&quot;; <br>                                                 &quot;It is easy<span style="color:navy; font-weight:bold"> to</span> read.&quot; |]);<br><br>    <span style="color:#008000">// Now read it.  We use  to ensure the file is closed even if an exception occurs</span><br>    <span style="color:#008000">// during reading.  </span><br>   <span style="color:navy; font-weight:bold"> let</span> line1,line2 = <br>        use sr = System.IO.File.OpenText @&quot;test.txt&quot;<br>       <span style="color:navy; font-weight:bold"> let</span> line1 = sr.ReadLine() <br>       <span style="color:navy; font-weight:bold"> let</span> line2 = sr.ReadLine() <br>        (line1,line2)<br>    printfn &quot;line1=%s\nline2=%s&quot; line1 line2<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>line1=This is a test file.<br>line2=It is easy to read.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Read Two Lines, .NET-style</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Line-directed text file input using .NET Stream/StreamReader/StreamWriter abstractions.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LineDirectedInputSample3() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.txt&quot;, [| &quot;This is a test file.&quot;; <br>                                                 &quot;It is easy<span style="color:navy; font-weight:bold"> to</span> read.&quot; |]);<br>    <span style="color:#008000">// Now read it </span><br>   <span style="color:navy; font-weight:bold"> let</span> lines = System.IO.File.ReadAllLines @&quot;test.txt&quot;  <br>    printfn &quot;%s&quot; (sprintf &quot;%A&quot; lines)<br>     <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[|&quot;This is a test file.&quot;; &quot;It is easy to read.&quot;|]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Read Entire File, .NET-style</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Read an entire text file as a string using .NET I/O utilities and abstractions.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> EntireFileInputSample2() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.txt&quot;, [| &quot;This is a test file.&quot;; <br>                                                 &quot;It is easy<span style="color:navy; font-weight:bold"> to</span> read.&quot; |]);<br>    <span style="color:#008000">// Now read it </span><br>   <span style="color:navy; font-weight:bold"> let</span> res = System.IO.File.ReadAllText(@&quot;test.txt&quot;)  <br>    printfn &quot;%s&quot; res<br>        <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>This is a test file.<br>It is easy to read.<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Read Entire CSV File, .NET-style</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Read an entire text file as a string using .NET I/O utilities and abstractions.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ReadCSVFile1() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.csv&quot;, [| &quot;Desmond, Barrow, Market Place, 2&quot;; <br>                                                 &quot;Molly, Singer, Band, 12&quot; |]);<br>    <span style="color:#008000">// Now read it </span><br>   <span style="color:navy; font-weight:bold"> let</span> linesSplitIntoWords = <br>        System.IO.File.ReadAllLines(@&quot;test.csv&quot;)<br>        |&gt; Array.map (fun line -&gt; line.Split [|',';' ';'\t'|])<br>    printfn &quot;%A&quot; linesSplitIntoWords</pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[|[|&quot;Desmond&quot;; &quot;&quot;; &quot;Barrow&quot;; &quot;&quot;; &quot;Market&quot;; &quot;Place&quot;; &quot;&quot;; &quot;2&quot;|];<br>  [|&quot;Molly&quot;; &quot;&quot;; &quot;Singer&quot;; &quot;&quot;; &quot;Band&quot;; &quot;&quot;; &quot;12&quot;|]|]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lazily Enumerate CSV File</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Build an IEnumerable for on-demand reading of a CSV file using .NET I/O utilities and abstractions</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> EnumerateCSVFile1() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.csv&quot;, [| &quot;Desmond, Barrow, Market Place, 2&quot;; <br>                                                 &quot;Molly, Singer, Band, 12&quot; |]);<br><br>    <span style="color:#008000">/// This function builds an IEnumerable object that enumerates the CSV-split</span><br>    <span style="color:#008000">/// lines of the given file on-demand </span><br>   <span style="color:navy; font-weight:bold"> let</span> CSVFileEnumerator(fileName) = <br><br>        <span style="color:#008000">// The function is implemented using a sequence expression</span><br>        seq { use sr = System.IO.File.OpenText(fileName)<br>             <span style="color:navy; font-weight:bold"> while</span> not sr.EndOfStream<span style="color:navy; font-weight:bold"> do</span> <br>                <span style="color:navy; font-weight:bold"> let</span> line = sr.ReadLine() <br>                <span style="color:navy; font-weight:bold"> let</span> words = line.Split [|',';' ';'\t'|] <br>                 yield words }<br><br>    <span style="color:#008000">// Now test this out on our test file, iterating the entire file</span><br>   <span style="color:navy; font-weight:bold"> let</span> test = CSVFileEnumerator(@&quot;test.csv&quot;)  <br>    printfn &quot;-------Enumeration 1------&quot;;<br>    test |&gt; Seq.iter (string &gt;&gt; printfn &quot;line %s&quot;);<br>    <span style="color:#008000">// Now do it again, this time determining the numer of entries on each line.</span><br>    <span style="color:#008000">// Note how the file is read from the start again, since each enumeration is </span><br>    <span style="color:#008000">// independent.</span><br>    printfn &quot;-------Enumeration 2------&quot;;<br>    test |&gt; Seq.iter (Array.length &gt;&gt; printfn &quot;line has %d entries&quot;);<br>    <span style="color:#008000">// Now do it again, this time determining the numer of entries on each line.</span><br>    <span style="color:#008000">// Note how the file is read from the start again, since each enumeration is </span><br>    <span style="color:#008000">// independent.</span><br>    printfn &quot;-------Enumeration 3------&quot;;<br>    test |&gt; Seq.iter (Array.map (fun s -&gt; s.Length) &gt;&gt; string &gt;&gt; printfn &quot;lengths of entries: %s&quot;)<br>        <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>-------Enumeration 1------<br>line System.String[]<br>line System.String[]<br>-------Enumeration 2------<br>line has 8 entries<br>line has 7 entries<br>-------Enumeration 3------<br>lengths of entries: System.Int32[]<br>lengths of entries: System.Int32[]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

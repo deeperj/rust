@@ -1,0 +1,56 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use mail box processor to process simple message</strong><strong><br>
+<br>
+Category: </strong>Mailbox Processor<br>
+<strong>Description</strong>: Use mail box processor to process simple message</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Agent&lt;'T&gt; = MailboxProcessor&lt;'T&gt;<br><br><span style="color:navy; font-weight:bold">let</span> agentSample0() = <br>   <span style="color:navy; font-weight:bold"> let</span> agent =<br>       Agent.Start(fun inbox -&gt;<br>         async {<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> [1..3]<span style="color:navy; font-weight:bold"> do</span> <br>                   let! msg = inbox.Receive()<br>                   printfn &quot;got message '%s'&quot; msg } )<br>    printfn &quot;because the message is running on the background thread, please see the result at the console window behind&quot;<br>    agent.Post(&quot;msg1&quot;);<br>    agent.Post(&quot;msg2&quot;);<br>    agent.Post(&quot;msg3&quot;);<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>because the message is running on the background thread, please see the result at the console window behind<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use mail box processor and isolation</strong><strong><br>
+<br>
+Category: </strong>Mailbox Processor<br>
+<strong>Description</strong>: Use mail box processor and isolation.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Agent&lt;'T&gt; = MailboxProcessor&lt;'T&gt;<br><br><span style="color:navy; font-weight:bold">let</span> agentSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> agent =<br>       Agent.Start(fun inbox -&gt;<br>         async {<span style="color:navy; font-weight:bold"> let</span> strings = Dictionary()<br>                <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> [1..5]<span style="color:navy; font-weight:bold"> do</span> <br>                   let! msg = inbox.Receive()<br>                  <span style="color:navy; font-weight:bold"> if</span> strings.ContainsKey msg<span style="color:navy; font-weight:bold"> then</span> <br>                       strings.[msg] &lt;- strings.[msg] &#43; 1<br>                  <span style="color:navy; font-weight:bold"> else</span> <br>                       strings.[msg] &lt;- 0<br>                   printfn &quot;message '%s' now seen '%d' times&quot; msg strings.[msg] } )<br>    printfn &quot;because the message is running on the background thread, please see the result at the console window behind&quot;<br>    agent.Post(&quot;msg1&quot;);<br>    agent.Post(&quot;msg2&quot;);<br>    agent.Post(&quot;msg3&quot;);<br>    agent.Post(&quot;msg1&quot;);<br>    agent.Post(&quot;msg2&quot;);</pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>because the message is running on the background thread, please see the result at the console window behind<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

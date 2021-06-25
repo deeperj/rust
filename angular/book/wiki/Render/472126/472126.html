@@ -1,0 +1,164 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use the resx type provider</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: Use the resx type provider. The string1 and string2 are defined in the resource file.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><span style="color:navy; font-weight:bold">type</span> T = Microsoft.FSharp.Data.TypeProviders.ResxFile&lt; @&quot;Support_Resource.resx&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> typeResxProviderTest() = <br>   <span style="color:navy; font-weight:bold"> let</span> string1 = T.Support_Resource.String1<br>   <span style="color:navy; font-weight:bold"> let</span> string2 = T.Support_Resource.String2<br>    printfn &quot;string1 from resource is %s&quot; string1<br>    printfn &quot;string2 from resource is %s&quot; string2<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>string1 from resource is aa<br>string2 from resource is MyString2<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>DBML Provider</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: Use DBML provider for FSharpSample database. You can download the SQL server 2008 Express version for free. Please refer to CreateFSharpSampleDatabase.sql or run Setup project to configure your database.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T1 = Microsoft.FSharp.Data.TypeProviders.DbmlFile&lt; @&quot;.\Support.DataClasses.dbml&quot; &gt;<br><span style="color:navy; font-weight:bold">let</span> typeDBMLProvider() = <br>   <span style="color:navy; font-weight:bold"> let</span> db =<span style="color:navy; font-weight:bold"> new</span> T1.DataClasses1DataContext(&quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot;)    <br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Students<span style="color:navy; font-weight:bold"> do</span> <br>        select n.Name }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;student name = %s&quot; n)    <br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>student name = Lisa<br>student name = Brent<br>student name = Anita<br>student name = Ken<br>student name = Cathy<br>student name = Tom<br>student name = Zeoy<br>student name = Mark<br>student name = John<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>DBML Provider - Console.Out as output</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: Use Console.Out to log the underlying query. You can download the SQL server 2008 Express version for free. Please refer to CreateFSharpSampleDatabase.sql or run Setup project to configure your database.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T1 = Microsoft.FSharp.Data.TypeProviders.DbmlFile&lt; @&quot;.\Support.DataClasses.dbml&quot; &gt;<br><span style="color:navy; font-weight:bold">let</span> typeDBMLProvider2() = <br>   <span style="color:navy; font-weight:bold"> let</span> db =<span style="color:navy; font-weight:bold"> new</span> T1.DataClasses1DataContext(&quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot;)    <br>    db.Log &lt;- Console.Out<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Students<span style="color:navy; font-weight:bold"> do</span> <br>        select n.Name }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;student name = %s&quot; n)<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>SELECT [t0].[Name]<br>FROM [dbo].[Student] AS [t0]<br>-- Context: SqlProvider(Sql2008) Model: AttributedMetaModel Build: 4.0.30319.17281<br><br>student name = Lisa<br>student name = Brent<br>student name = Anita<br>student name = Ken<br>student name = Cathy<br>student name = Tom<br>student name = Zeoy<br>student name = Mark<br>student name = John<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>EDMX Provider</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: define a EDMX type provider on the local SQL server database. You can download the SQL server 2008 Express version for free. Please refer to CreateFSharpSampleDatabase.sql or run Setup project to configure your database.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T2 = Microsoft.FSharp.Data.TypeProviders.EdmxFile&lt; @&quot;.\Support.Model.edmx&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> typeEdmxProvider() = <br>   <span style="color:navy; font-weight:bold"> let</span> db =<span style="color:navy; font-weight:bold"> new</span> T2.FSharpSampleModel.Entities(&quot;metadata=res:<span style="color:#008000">//*/Support.Model.csdl|res://*/Support.Model.ssdl|res://*/Support.Model.msl;provider=System.Data.SqlClient;provider connection string=\&quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234\&quot;&quot;)</span><br>   <span style="color:navy; font-weight:bold"> let</span> q = query { <br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Students<span style="color:navy; font-weight:bold"> do</span> <br>            select n.Name }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot;<br>&quot;Brent&quot;<br>&quot;Anita&quot;<br>&quot;Ken&quot;<br>&quot;Cathy&quot;<br>&quot;Tom&quot;<br>&quot;Zeoy&quot;<br>&quot;Mark&quot;<br>&quot;John&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>WsdlService - w3cschools temperature conversion</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: define a WSDL type provider and do temperature conversion from w3cschools web site.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T3 = Microsoft.FSharp.Data.TypeProviders.WsdlService&lt; &quot;http:<span style="color:#008000">//www.w3schools.com/webservices/tempconvert.asmx?WSDL&quot; &gt;</span><br><br><span style="color:navy; font-weight:bold">let</span> WsdlSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T3.GetHttpTempConvertSoapClient()<br>   <span style="color:navy; font-weight:bold"> let</span> a = db.CelsiusToFahrenheit(&quot;0&quot;)<br>    printfn &quot;%s&quot; a<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>32<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>WsdlService - Bing Map rounting service</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: Using Bing Map API routing service to calculate the driving distance between two addresses. For more information, please goto http://www.microsoft.com/maps/developers/mapapps.aspx. Please make sure you setup the correct credential.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> G = Microsoft.FSharp.Data.TypeProviders.WsdlService//dev.virtualearth.net/webservices/v1/geocodeservice/geocodeservice.svc?wsdl&quot;&gt;<br>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> R = Microsoft.FSharp.Data.TypeProviders.WsdlService//dev.virtualearth.net/webservices/v1/routeservice/routeservice.svc?wsdl&quot;&gt;<br><br><span style="color:navy; font-weight:bold">type</span> GeoCommon = G.ServiceTypes.dev.virtualearth.net.webservices.v1.common<br><span style="color:navy; font-weight:bold">type</span> Geocode = G.ServiceTypes.dev.virtualearth.net.webservices.v1.geocode<br><span style="color:navy; font-weight:bold">type</span> RouteCommon = R.ServiceTypes.dev.virtualearth.net.webservices.v1.common<br><span style="color:navy; font-weight:bold">type</span> Route = R.ServiceTypes.dev.virtualearth.net.webservices.v1.route<br><br><span style="color:navy; font-weight:bold">let</span> WsdlBingMap() = <br>   <span style="color:navy; font-weight:bold"> let</span> geoClient = G.GetHttpGeocodeServiceClient()<br>   <span style="color:navy; font-weight:bold"> let</span> geoReq =<span style="color:navy; font-weight:bold"> new</span> Geocode.GeocodeRequest()<br>    <span style="color:#008000">//To sign up for a Bing service developer account @ https://www.bingmapsportal.com/application/index/1034110</span><br>    geoReq.Credentials &lt;-<span style="color:navy; font-weight:bold"> new</span> GeoCommon.Credentials(ApplicationId = Utils.BING_APP_ID)<br><br>    geoReq.Query &lt;- &quot;One Microsoft Way, Redmond, WA 98052&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> response = geoClient.Geocode(geoReq)<br>   <span style="color:navy; font-weight:bold"> let</span> work = response.Results.[0]<br><br>    geoReq.Query &lt;- &quot;400 Broad St Seattle, WA 98109&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> response2 = geoClient.Geocode(geoReq)<br>   <span style="color:navy; font-weight:bold"> let</span> home = response2.Results.[0]<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> startPoint =<span style="color:navy; font-weight:bold"> new</span> Route.Waypoint()<br>    startPoint.Location &lt;-<span style="color:navy; font-weight:bold"> new</span> RouteCommon.Location(Latitude = work.Locations.[0].Latitude,<br>                                                    Longitude = work.Locations.[0].Longitude)<br>   <span style="color:navy; font-weight:bold"> let</span> endPoint =<span style="color:navy; font-weight:bold"> new</span> Route.Waypoint()<br>    endPoint.Location &lt;-<span style="color:navy; font-weight:bold"> new</span> RouteCommon.Location(Latitude = home.Locations.[0].Latitude,<br>                                                  Longitude = home.Locations.[0].Longitude)<br><br>   <span style="color:navy; font-weight:bold"> let</span> routReq1 =<span style="color:navy; font-weight:bold"> new</span> Route.RouteRequest(Waypoints = [|startPoint; endPoint|])<br>    routReq1.Credentials &lt;-<span style="color:navy; font-weight:bold"> new</span> RouteCommon.Credentials(ApplicationId = Utils.BING_APP_ID)<br>    <br>    printfn &quot;Driving Distance = %A (miles)&quot; (R.GetHttpRouteServiceClient().CalculateRoute(routReq1).Result.Summary.Distance)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    Driving Distance = 22.998 (miles)</span><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Driving Distance = 22.998 (miles)<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

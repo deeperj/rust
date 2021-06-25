@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Bank account</strong><strong><br>
+<br>
+Category: </strong>Application<br>
+<strong>Description</strong>: Bank account with threadsafe deposit and withdraw feature. This implementation generates the object according to its internal state.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> IAccount = <br>    abstract Withdraw : int -&gt; unit<br>    abstract Deposit : int -&gt; unit<br><span style="color:navy; font-weight:bold">type</span> AccountInfo = {<br>    Balance: int<br>}<br><br><span style="color:navy; font-weight:bold">type</span> BankAccount (initialBalance) = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> accountInfo = { Balance = initialBalance }<br>   <span style="color:navy; font-weight:bold"> member</span> this.AccountInfo<br>       <span style="color:navy; font-weight:bold"> with</span> get() = accountInfo<br>   <span style="color:navy; font-weight:bold"> member</span> this.GetCommand() = <br>       <span style="color:navy; font-weight:bold"> if</span> accountInfo.Balance &gt;= 0<span style="color:navy; font-weight:bold"> then</span> <br>             {<span style="color:navy; font-weight:bold"> new</span> IAccount<span style="color:navy; font-weight:bold"> with</span> <br>                <span style="color:navy; font-weight:bold"> member</span> this.Withdraw(amount) = <br>                   <span style="color:navy; font-weight:bold"> if</span> (amount &gt; accountInfo.Balance)<span style="color:navy; font-weight:bold"> then</span> printfn &quot;cannot withdraw&quot;<br>                   <span style="color:navy; font-weight:bold"> else</span> accountInfo &lt;- { accountInfo<span style="color:navy; font-weight:bold"> with</span> Balance = accountInfo.Balance - amount }<br>                <span style="color:navy; font-weight:bold"> member</span> this.Deposit(amount) = <br>                    accountInfo &lt;- { accountInfo<span style="color:navy; font-weight:bold"> with</span> Balance = accountInfo.Balance &#43; amount } }<br>       <span style="color:navy; font-weight:bold"> else</span> <br>             {<span style="color:navy; font-weight:bold"> new</span> IAccount<span style="color:navy; font-weight:bold"> with</span> <br>                <span style="color:navy; font-weight:bold"> member</span> this.Withdraw(amount) = <br>                    printfn &quot;not enough fund&quot;<br>                <span style="color:navy; font-weight:bold"> member</span> this.Deposit(amount) = <br>                    accountInfo &lt;- { accountInfo<span style="color:navy; font-weight:bold"> with</span> Balance = accountInfo.Balance &#43; amount } }<br><br><span style="color:navy; font-weight:bold">let</span> Application1() = <br>   <span style="color:navy; font-weight:bold"> let</span> account = BankAccount(-1)<br>    account.GetCommand().Withdraw(1)<br>    account.GetCommand().Deposit(100)<br>    account.GetCommand().Withdraw(5)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>not enough fund<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

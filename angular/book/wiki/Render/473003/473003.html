@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Bank account and access control</strong><strong><br>
+<br>
+Category: </strong>Application<br>
+<strong>Description</strong>: This is a Factory Pattern usage. The function returns different types of object when given different access control level.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> private BankBase() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> accountInfo = { Balance = 0 }<br>   <span style="color:navy; font-weight:bold"> member</span> this.AccountInfo <br>       <span style="color:navy; font-weight:bold"> with</span> get() = accountInfo<br>   <span style="color:navy; font-weight:bold"> member</span> this.Deposit(amount) = <br>        printfn &quot;will deposit %A&quot; amount<br>        accountInfo &lt;- { this.AccountInfo<span style="color:navy; font-weight:bold"> with</span> Balance = this.AccountInfo.Balance &#43; amount }<br>   <span style="color:navy; font-weight:bold"> member</span> this.Withdraw(amount) = <br>        printfn &quot;will withdraw %A&quot; amount<br>        accountInfo &lt;- { this.AccountInfo<span style="color:navy; font-weight:bold"> with</span> Balance = this.AccountInfo.Balance - amount }<br><br><span style="color:navy; font-weight:bold">type</span> IQueryAccount = <br>    abstract Query : unit -&gt; AccountInfo<br><span style="color:navy; font-weight:bold">type</span> IFullControlAccount =<br>   <span style="color:navy; font-weight:bold"> inherit</span> IQueryAccount<br>    abstract Deposit : int -&gt; unit<br>    abstract Withdraw : int -&gt; unit<br><span style="color:navy; font-weight:bold">type</span> AccessType = <br>    | QueryOnly<br>    | Full<br><br><span style="color:navy; font-weight:bold">let</span> private createAccess(account:BankBase, ``access type``) = <br>       <span style="color:navy; font-weight:bold"> match</span> ``access type``<span style="color:navy; font-weight:bold"> with</span> <br>            | QueryOnly -&gt; {<span style="color:navy; font-weight:bold"> new</span> IQueryAccount<span style="color:navy; font-weight:bold"> with</span> <br>                               <span style="color:navy; font-weight:bold"> member</span> this.Query() = account.AccountInfo }<br>            | Full -&gt; {<span style="color:navy; font-weight:bold"> new</span> IFullControlAccount<span style="color:navy; font-weight:bold"> with</span> <br>                           <span style="color:navy; font-weight:bold"> member</span> this.Deposit(amount) = account.Deposit(amount)<br>                           <span style="color:navy; font-weight:bold"> member</span> this.Withdraw(amount) = account.Withdraw(amount)<br>                           <span style="color:navy; font-weight:bold"> member</span> this.Query() = account.AccountInfo } :&gt; IQueryAccount<br><br><span style="color:navy; font-weight:bold">let</span> Application2() =     <br>   <span style="color:navy; font-weight:bold"> let</span> account = BankBase()<br>   <span style="color:navy; font-weight:bold"> let</span> access = createAccess(account, AccessType.Full) :?&gt; IFullControlAccount<br>   <span style="color:navy; font-weight:bold"> let</span> queryOnly = createAccess(account, AccessType.QueryOnly)<br>    printfn &quot;balance is %d&quot; (queryOnly.Query().Balance)<br>    access.Deposit(100)<br>    printfn &quot;balance is %d&quot; (queryOnly.Query().Balance)<br>    <br><br>                                <br>    <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>balance is 0<br>will deposit 100<br>balance is 100<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

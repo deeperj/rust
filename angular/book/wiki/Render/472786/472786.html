@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>minBy - Projection</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Min to get the length of the shortest word in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ33() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> shortestWord = <br>        query {<br>            <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>             minBy w.Length<br>         }<br>    printfn &quot;The shortest word is %A characters long.&quot; shortestWord<br><br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The shortest word is 5 characters long.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The shortest word is 5 characters long.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

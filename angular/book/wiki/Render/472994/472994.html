@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Proxy pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Proxy pattern provides a placeholder to expose different methods. For more information, please go to http://en.wikipedia.org/wiki/Proxy_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CoreComputation() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.Add(x) = x &#43; 1<br>   <span style="color:navy; font-weight:bold"> member</span> this.Sub(x) = x - 1<br>   <span style="color:navy; font-weight:bold"> member</span> this.GetProxy(name) = <br>       <span style="color:navy; font-weight:bold"> match</span> name<span style="color:navy; font-weight:bold"> with</span> <br>        | &quot;Add&quot; -&gt; (this.Add, &quot;add&quot;)<br>        | &quot;Sub&quot; -&gt; (this.Sub, &quot;sub&quot;)<br>        | _ -&gt; failwith &quot;not supported&quot;<br><br><span style="color:navy; font-weight:bold">let</span> proxy() = <br>   <span style="color:navy; font-weight:bold"> let</span> core = CoreComputation()<br>   <span style="color:navy; font-weight:bold"> let</span> proxy = core.GetProxy(&quot;Add&quot;)<br>    printfn &quot;result = %d&quot; ((fst proxy) 1)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 2<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

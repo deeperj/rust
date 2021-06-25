@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lawyers.com - Consumer Legal Articles</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: Consume Azure Marketplace data from Lawyers.com Consumer Legal Articles. For more information, please goto https://datamarket.azure.com/dataset/4306e828-ad35-4049-b9a9-4e4824cc37e8</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span><a></a> Lawyers = Microsoft.FSharp.Data.TypeProviders.ODataService&lt; <span style="font-family:Consolas; font-size:x-small"><span style="font-family:Consolas; font-size:x-small">ServiceUri = </span></span><span style="font-family:Consolas; color:#800000; font-size:x-small"><span style="font-family:Consolas; color:#800000; font-size:x-small"><span style="font-family:Consolas; color:#800000; font-size:x-small">@&quot;https://api.datamarket.azure.com/LexisNexis/ConsumerLegalArticles/&quot;</span></span></span> &gt;<br><br><span style="color:navy; font-weight:bold">let</span> LawyersDotCom() = <br>   <span style="color:navy; font-weight:bold"> let</span> articles = Lawyers.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    articles.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> a<span style="color:navy; font-weight:bold"> in</span> articles.Articles<span style="color:navy; font-weight:bold"> do</span> <br>        where (a.State = &quot;Washington&quot;)<br>        select a<br>    } |&gt; Seq.iter(fun i -&gt; printfn &quot;%A&quot; i.Title)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;WA Witnesses at a Small Claims Trial&quot;</span><br>    <span style="color:#008000">//    &quot;WA Alternatives to Small Claims Court&quot;</span><br>    <span style="color:#008000">//    &quot;WA After Small Claims Court&quot;</span><br>    <span style="color:#008000">//    &quot;Estate Planning in Washington State (WA)&quot;</span><br>    <span style="color:#008000">//    &quot;Washington Expungement and Record Sealing&quot;</span><br>    <span style="color:#008000">//    &quot;Selling a House in Washington&quot;</span><br>    <span style="color:#008000">//    &quot;Washington Statutes of Limitations&quot;</span><br>    <span style="color:#008000">//    &quot;Criminal Process in Washington State (WA)&quot;</span><br>    <span style="color:#008000">//    ...</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;WA Witnesses at a Small Claims Trial&quot;<br>&quot;WA Alternatives to Small Claims Court&quot;<br>&quot;WA After Small Claims Court&quot;<br>&quot;Estate Planning in Washington State (WA)&quot;<br>&quot;Washington Expungement and Record Sealing&quot;<br>&quot;Selling a House in Washington&quot;<br>&quot;Washington Statutes of Limitations&quot;<br>&quot;Criminal Process in Washington State (WA)&quot;<br>&quot;Personal Injury in the State of Washington (WA)&quot;<br>&quot;WA Collecting the Judgment&quot;<br>&quot;Divorce in Washington State (WA)&quot;<br>&quot;Washington Traffic Violations&quot;<br>&quot;Buying a House in Washington (WA)&quot;<br>&quot;WA Small Claims Trials&quot;<br>&quot;WA What Is Small Claims Court?&quot;<br>&quot;WA Filing a Small Claims Suit&quot;<br>&quot;Washington Small Claims&quot;<br>&quot;Employment Law in Washington State&quot;<br>&quot;Bankruptcy in Washington State&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

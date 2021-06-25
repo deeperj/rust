@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Create disposal function</strong><strong><br>
+<br>
+Category: </strong>Disposal<br>
+<strong>Description</strong>: Create disposal function</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> DisposalSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> createDisposable f =<br>         {<br>           <span style="color:navy; font-weight:bold"> new</span> IDisposable<span style="color:navy; font-weight:bold"> with</span> <br>               <span style="color:navy; font-weight:bold"> member</span> x.Dispose() = f()<br>         }<br>   <span style="color:navy; font-weight:bold"> let</span> test () = <br>        using (createDisposable (fun _ -&gt; printfn &quot;disposed&quot; )) (fun _ -&gt; printfn &quot;inside&quot;)<br>    test()<br>    printfn &quot;finished&quot;<br><br><span style="color:#008000">//--------------------------------------------------------</span><br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>inside<br>disposed<br>finished<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

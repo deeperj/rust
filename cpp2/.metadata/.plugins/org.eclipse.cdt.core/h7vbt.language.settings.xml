@@ -22,9 +22,6 @@
 					<entry kind="macro" name="__ACCUM_IBIT__" value="16">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__ACCUM_MAX__" value="0X7FFFFFFFP-15K">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__ACCUM_MIN__" value="(-0X1P15K-0X1P15K)">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -325,6 +322,9 @@
 					<entry kind="macro" name="__FLT64_DIG__" value="15">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__FLT64_DIG__" value="0X7FFFFFFFP-15K">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__FLT64_EPSILON__" value="2.2204460492503131e-16F64">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -379,6 +379,9 @@
 					<entry kind="macro" name="__FLT_HAS_DENORM__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__FLT_HAS_DENORM__" value="15">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__FLT_HAS_INFINITY__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -410,9 +413,6 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__FRACT_EPSILON__" value="0x1P-15R">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="macro" name="__FRACT_FBIT__" value="15">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__FRACT_IBIT__" value="0">

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use quotation to get function name and parameters</strong><strong><br>
+<br>
+Category: </strong>Quotation<br>
+<strong>Description</strong>: Use quotation to get function name and parameters</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;ReflectedDefinition&gt;]<br><span style="color:navy; font-weight:bold">let</span> myFunction p0 p2 =<br>    printf &quot;hello quotation&quot;<br><br><span style="color:navy; font-weight:bold">let</span> QuotationSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> get_parms exp =<br>       <span style="color:navy; font-weight:bold"> match</span> exp<span style="color:navy; font-weight:bold"> with</span> <br>        | Lambda (var,body) -&gt;<br>           <span style="color:navy; font-weight:bold"> let</span> index =<span style="color:navy; font-weight:bold"> if</span> (var.Name.IndexOf(&quot;@&quot;) - 1) &lt; 0<span style="color:navy; font-weight:bold"> then</span> var.Name.Length-1<span style="color:navy; font-weight:bold"> else</span> (var.Name.IndexOf(&quot;@&quot;) - 1)<br>           <span style="color:navy; font-weight:bold"> let</span> name = [var.Name.[..index]]<br>           <span style="color:navy; font-weight:bold"> let</span> p = get_parms body<br>            name @ p        <br>        | _ -&gt; []<br> <br>    List.iter (printf &quot;%A\r\n&quot;) (get_parms &lt;@ myFunction @&gt;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;p0&quot;<br>&quot;p2&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

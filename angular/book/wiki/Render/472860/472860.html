@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>typedefof operator</strong><strong><br>
+<br>
+Category: </strong>Data Types<br>
+<strong>Description</strong>: Demostrate how to use typedefof operator to create generic type.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleTypeDefof() = <br>   <span style="color:navy; font-weight:bold"> let</span> intType = typeof<br>   <span style="color:navy; font-weight:bold"> let</span> listType = typedefof&gt;<br>   <span style="color:navy; font-weight:bold"> let</span> listIntType = listType.MakeGenericType(intType) <br>    printfn &quot;make a List<span style="color:navy; font-weight:bold"> type</span> using typedefof operator.&quot;<br>    printfn &quot;the newly created type's full name is %s&quot; (listIntType.FullName)<br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>make a List type using typedefof operator.<br>the newly created type's full name is System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

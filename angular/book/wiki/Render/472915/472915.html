@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .reduce</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .reduce applies a given function to the collection, threading an accumulator argument through and returning a single value.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample3() =<br>   <span style="color:navy; font-weight:bold"> let</span> aoList2 = [<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; i*i ]<br>   <span style="color:navy; font-weight:bold"> let</span> add acc item = acc &#43; item       <span style="color:#008000">// accumulator function </span><br>   <span style="color:navy; font-weight:bold"> let</span> sum = List.reduce add aoList2<br><br>   <span style="color:navy; font-weight:bold"> let</span> names = [| &quot;A&quot;; &quot;man&quot;; &quot;landed&quot;; &quot;on&quot;; &quot;the&quot;; &quot;moon&quot; |]<br>   <span style="color:navy; font-weight:bold"> let</span> insertComma (acc: string) item = acc &#43; &quot; &quot; &#43; item<br>   <span style="color:navy; font-weight:bold"> let</span> sentence = Array.reduce insertComma names<br>    <br>    printfn &quot;sum = %d&quot; sum<br>    printfn &quot;\nsentence = %s&quot; sentence<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>sum = 55<br><br>sentence = A man landed on the moon<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

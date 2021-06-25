@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use List</strong><strong><br>
+<br>
+Category: </strong>InterOp<br>
+<strong>Description</strong>: Use List in .NET</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> InterOpSample3() = <br>   <span style="color:navy; font-weight:bold"> let</span> shopping =<span style="color:navy; font-weight:bold"> new</span> System.Collections.Generic.List()<br>    shopping.Add(&quot;eggs&quot;)<br>    shopping.Add(&quot;milk&quot;)<br>    shopping.Add(&quot;bread&quot;)<br>    printfn &quot;List: %A&quot; shopping<br><br>    shopping.Insert(1, &quot;wine&quot;)<br>    printfn &quot;List: %A&quot; shopping<br><br>    shopping.Remove(&quot;milk&quot;)  |&gt; ignore<br>    printfn &quot;List: %A&quot; shopping<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>List: seq [&quot;eggs&quot;; &quot;milk&quot;; &quot;bread&quot;]<br>List: seq [&quot;eggs&quot;; &quot;wine&quot;; &quot;milk&quot;; &quot;bread&quot;]<br>List: seq [&quot;eggs&quot;; &quot;wine&quot;; &quot;bread&quot;]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

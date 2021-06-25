@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I've downloaded the latest source, opened the solution in VS2013, I got the errors in the attached log file. The one that I don't know what to do about is that there is a file called ..\\Shared\\SerDes.fs that does not appear to be checked in to source control so I can't compile the Hadoop samples.\n\nThere were two other missing files ProvidedTypes-head__d__.fs and ProvidedTypes-head__d__.fsi, but it looks like those files may have just been renamed to ProvidedTypes-head.fs and ProvidedTypes-head.fsi",
+    "LastUpdatedDate": "2014-06-12T13:57:15.28-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2014-06-12T13:57:10.123-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing SerDes.fs",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 3053
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1245,
+      "FileName": "UpgradeLog.htm",
+      "DownloadUrl": ".\\1245"
+    }
+  ],
+  "Comments": []
+}

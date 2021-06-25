@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern with variable in a class</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: After define a variable in the class-like structure, use a property to retrieve the result back when comptation is finished. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> IA&lt;'T&gt; =<br>        abstract<span style="color:navy; font-weight:bold"> member</span> Do : 'T -&gt; unit<br>        abstract<span style="color:navy; font-weight:bold"> member</span> Result : unit -&gt; 'T<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample3() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> wrapper = <br>       <span style="color:navy; font-weight:bold"> let</span> result = ref 0<br>        {<span style="color:navy; font-weight:bold"> new</span> IA<span style="color:navy; font-weight:bold"> with</span>                <br>               <span style="color:navy; font-weight:bold"> member</span> this.Do(n) = <br>                    result := !result &#43; n<br>               <span style="color:navy; font-weight:bold"> member</span> this.Result() = !result<br>        }<br>    tree.PreOrder (wrapper.Do)<br>    printfn &quot;result = %d&quot; (wrapper.Result())<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 39<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

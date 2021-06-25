@@ -1,0 +1,1055 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>where - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses where to find all elements of an array less than 5.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ01() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br> <br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        where (n &lt; 5)<br>        select n;<br>    } |&gt;Seq.iter(fun n -&gt; printfn &quot;%A&quot; n)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    4 </span><br>    <span style="color:#008000">//    1 </span><br>    <span style="color:#008000">//    3 </span><br>    <span style="color:#008000">//    2 </span><br>    <span style="color:#008000">//    0</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>got message 'msg1'<br>got message 'msg2'<br>got message 'msg3'<br>message 'msg1' now seen '0' times<br>message 'msg2' now seen '0' times<br>message 'msg3' now seen '0' times<br>message 'msg1' now seen '1' times<br>message 'msg2' now seen '1' times<br>4<br>1<br>3<br>2<br>0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>where - Indexed</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample demonstrates an indexed Where clause that returns digits whose name is shorter than their value.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ02() =<br>   <span style="color:navy; font-weight:bold"> let</span> digits = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> d<span style="color:navy; font-weight:bold"> in</span> digits<span style="color:navy; font-weight:bold"> do</span> <br>        select d<br>    } <br>    |&gt; Seq.mapi (fun i d -&gt;<span style="color:navy; font-weight:bold"> if</span> d.Length &lt; i<span style="color:navy; font-weight:bold"> then</span> Some(d)<span style="color:navy; font-weight:bold"> else</span> None) <br>    |&gt; Seq.choose id<br>    |&gt; Seq.iter(fun n -&gt; printfn &quot;The word %s is shorter than its value.&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The word five is shorter than its value. </span><br>    <span style="color:#008000">//    The word six is shorter than its value. </span><br>    <span style="color:#008000">//    The word seven is shorter than its value. </span><br>    <span style="color:#008000">//    The word eight is shorter than its value. </span><br>    <span style="color:#008000">//    The word nine is shorter than its value.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The word five is shorter than its value.<br>The word six is shorter than its value.<br>The word seven is shorter than its value.<br>The word eight is shorter than its value.<br>The word nine is shorter than its value.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>distinct - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Distinct to remove duplicate elements in a sequence.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ03() =<br>   <span style="color:navy; font-weight:bold"> let</span> factorsOf300 = [2;2;3;5;5]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> factorsOf300<span style="color:navy; font-weight:bold"> do</span> <br>        distinct<br>    } |&gt;Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    5</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>2<br>3<br>5<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Union - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Union to create one sequence that contains the unique values from both arrays.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ04() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [ 0; 2; 4; 5; 6; 8; 9 ]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [ 1; 3; 5; 7; 8 ]<br><br>    numbersA.Union(numbersB) |&gt;Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    8</span><br>    <span style="color:#008000">//    9</span><br>    <span style="color:#008000">//    1</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    7</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0<br>2<br>4<br>5<br>6<br>8<br>9<br>1<br>3<br>7<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Intersect - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Intersect to create one sequence that contains the common values shared by both arrays.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ05() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [ 0; 2; 4; 5; 6; 8; 9 ]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [ 1; 3; 5; 7; 8 ]<br><br>    numbersA.Intersect(numbersB) |&gt;Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    8</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>5<br>8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Except - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Except to create a sequence that contains the values from numbersAthat are not also in numbersB.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ06() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [ 0; 2; 4; 5; 6; 8; 9 ]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [ 1; 3; 5; 7; 8 ]<br><br>    numbersA.Except(numbersB) |&gt;Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    9</span><br><br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0<br>2<br>4<br>6<br>9<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses select to produce a sequence of ints one higher than those in an existing array of integers.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ07() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br>    <br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        select (n &#43; 1)<br>    } |&gt;Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    10</span><br>    <span style="color:#008000">//    9</span><br>    <span style="color:#008000">//    7</span><br>    <span style="color:#008000">//    8</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    1</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>6<br>5<br>2<br>4<br>10<br>9<br>7<br>8<br>3<br>1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Transformation</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses select to produce a sequence of strings representing the text version of a sequence of integers.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ08() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            select (strings.[n])<br>    }|&gt;Seq.iter(fun e -&gt; printfn &quot;%s&quot; e)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Number strings:</span><br>    <span style="color:#008000">//    five</span><br>    <span style="color:#008000">//    four</span><br>    <span style="color:#008000">//    one</span><br>    <span style="color:#008000">//    three</span><br>    <span style="color:#008000">//    nine</span><br>    <span style="color:#008000">//    eight</span><br>    <span style="color:#008000">//    six</span><br>    <span style="color:#008000">//    seven</span><br>    <span style="color:#008000">//    two</span><br>    <span style="color:#008000">//    zero</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>five<br>four<br>one<br>three<br>nine<br>eight<br>six<br>seven<br>two<br>zero<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Record Types 1</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses select to produce a sequence of the uppercase and lowercase versions of each word in the original array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Record = {Upper :string; Lower:string}<br><span style="color:navy; font-weight:bold">let</span> LINQ09() =<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;aPPLE&quot;; &quot;BlUeBeRrY&quot;; &quot;cHeRry&quot; ]<br>                    <br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>            select {Upper = w.ToUpper(); Lower =w.ToLower()}<br>    } |&gt;Seq.iter(fun r -&gt; printfn &quot;Uppercase: %s, Lowercase: %s&quot; r.Upper r.Lower)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Uppercase: APPLE, Lowercase: apple</span><br>    <span style="color:#008000">//    Uppercase: BLUEBERRY, Lowercase: blueberry</span><br>    <span style="color:#008000">//    Uppercase: CHERRY, Lowercase: cherry</span><br><br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Uppercase: APPLE, Lowercase: apple<br>Uppercase: BLUEBERRY, Lowercase: blueberry<br>Uppercase: CHERRY, Lowercase: cherry<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Record Types 2</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses select to produce a sequence containing text representations of digits and whether their length is even or odd.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> REcord2 ={ Digit:string; Even:bool}<br><br><span style="color:navy; font-weight:bold">let</span> LINQ10() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]    <br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br>    <br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            select {Digit = strings.[n]; Even = (n % 2) = 0}<br>    }|&gt;Seq.iter(fun r -&gt; printfn &quot;The digit %s is %s.&quot; r.Digit (match r.Even<span style="color:navy; font-weight:bold"> with</span> |true-&gt; &quot;even&quot; |_ -&gt;&quot;odd&quot;))<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The digit five is odd.</span><br>    <span style="color:#008000">//    The digit four is even.</span><br>    <span style="color:#008000">//    The digit one is odd.</span><br>    <span style="color:#008000">//    The digit three is odd.</span><br>    <span style="color:#008000">//    The digit nine is odd.</span><br>    <span style="color:#008000">//    The digit eight is even.</span><br>    <span style="color:#008000">//    The digit six is even.</span><br>    <span style="color:#008000">//    The digit seven is odd.</span><br>    <span style="color:#008000">//    The digit two is even.</span><br>    <span style="color:#008000">//    The digit zero is even.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The digit five is odd.<br>The digit four is even.<br>The digit one is odd.<br>The digit three is odd.<br>The digit nine is odd.<br>The digit eight is even.<br>The digit six is even.<br>The digit seven is odd.<br>The digit two is even.<br>The digit zero is even.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Filtered</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample combines select and where to make a simple query that returns the text form of each digit less than 5.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ11() =    <br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br>   <span style="color:navy; font-weight:bold"> let</span> digits = strings<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            where (n &lt; 5)<br>            select digits.[n]<br>    } |&gt;Seq.iter(fun n -&gt; printfn &quot;%s&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    four</span><br>    <span style="color:#008000">//    one</span><br>    <span style="color:#008000">//    three</span><br>    <span style="color:#008000">//    two</span><br>    <span style="color:#008000">//    zero</span><br><br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>four<br>one<br>three<br>two<br>zero<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Compound</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses a compound from clause to make a query that returns all pairs of numbers from both arrays such that the number from numbersA is less than the number from numbersB.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ12() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [0; 2; 4; 5; 6; 8; 9]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [1; 3; 5; 7; 8]<br><br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> a<span style="color:navy; font-weight:bold"> in</span> numbersA<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> b<span style="color:navy; font-weight:bold"> in</span> numbersB<span style="color:navy; font-weight:bold"> do</span> <br>            where (a &lt; b)<br>            select (a,b)<br>    } |&gt;Seq.iter(fun (n,e) -&gt; printfn &quot;%d is less than %d&quot; n e)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0 is less than 1</span><br>    <span style="color:#008000">//    0 is less than 3</span><br>    <span style="color:#008000">//    0 is less than 5</span><br>    <span style="color:#008000">//    0 is less than 7</span><br>    <span style="color:#008000">//    0 is less than 8</span><br>    <span style="color:#008000">//    2 is less than 3</span><br>    <span style="color:#008000">//    2 is less than 5</span><br>    <span style="color:#008000">//    2 is less than 7</span><br>    <span style="color:#008000">//    2 is less than 8</span><br>    <span style="color:#008000">//    4 is less than 5</span><br>    <span style="color:#008000">//    4 is less than 7</span><br>    <span style="color:#008000">//    4 is less than 8</span><br>    <span style="color:#008000">//    5 is less than 7</span><br>    <span style="color:#008000">//    5 is less than 8</span><br>    <span style="color:#008000">//    6 is less than 7</span><br>    <span style="color:#008000">//    6 is less than 8</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0 is less than 1<br>0 is less than 3<br>0 is less than 5<br>0 is less than 7<br>0 is less than 8<br>2 is less than 3<br>2 is less than 5<br>2 is less than 7<br>2 is less than 8<br>4 is less than 5<br>4 is less than 7<br>4 is less than 8<br>5 is less than 7<br>5 is less than 8<br>6 is less than 7<br>6 is less than 8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>exists - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Any to determine if any of the words in the array contain the substring 'ei'.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ13() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;believe&quot;; &quot;relief&quot;; &quot;receipt&quot;; &quot;field&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> iAfterE =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>            exists (w.Contains(&quot;ei&quot;))<br>        }<br>    printfn &quot;There is a word that contains<span style="color:navy; font-weight:bold"> in</span> the list that contains 'ei': %A&quot; iAfterE<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    There is a word that contains in the list that contains 'ei': true</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>There is a word that contains in the list that contains 'ei': true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>all - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses All to determine whether an array contains only odd numbers.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ14() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [1;11;3;19;41;65;19]<br><br>   <span style="color:navy; font-weight:bold"> let</span> onlyOdd =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            all (n % 2 = 1)<br>        }<br>    printfn &quot;The list contains only odd numbers: %A&quot; onlyOdd<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The list contains only odd numbers: true</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The list contains only odd numbers: true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>take - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Take to get only the first 3 elements of the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ15() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        take 3<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    5 </span><br>    <span style="color:#008000">//    4 </span><br>    <span style="color:#008000">//    1</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>5<br>4<br>1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>skip - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Skip to get all but the first 4 elements of the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ16() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        skip 4<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%A&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    9 </span><br>    <span style="color:#008000">//    8 </span><br>    <span style="color:#008000">//    6 </span><br>    <span style="color:#008000">//    7 </span><br>    <span style="color:#008000">//    2 </span><br>    <span style="color:#008000">//    0</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>9<br>8<br>6<br>7<br>2<br>0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>takeWhile - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses TakeWhile to return elements starting from the beginning of the array until a number is hit that is not less than 6.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ17() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        takeWhile (n &lt; 6)<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%A&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    1</span><br>    <span style="color:#008000">//    3</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>5<br>4<br>1<br>3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>skipWhile - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses SkipWhile to get the elements of the array starting from the first element divisible by 3.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ18() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        skipWhile (n % 3 &lt;&gt; 0)<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%A&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    9</span><br>    <span style="color:#008000">//    8</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    7</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    0</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>3<br>9<br>8<br>6<br>7<br>2<br>0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>sortBy - Simple 1</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses orderby to sort a list of words alphabetically.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ19() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>        sortBy w<br>        select w<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%s&quot; n)<br>    <br>    <span style="color:#008000">//samples output</span><br>    <span style="color:#008000">//    apple</span><br>    <span style="color:#008000">//    blueberry</span><br>    <span style="color:#008000">//    cherry</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>apple<br>blueberry<br>cherry<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>sortBy - Simple 2</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses orderby to sort a list of words by length.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ20() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>        sortBy (w.Length)<br>        select w<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%s&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    apple</span><br>    <span style="color:#008000">//    cherry</span><br>    <span style="color:#008000">//    blueberry</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>apple<br>cherry<br>blueberry<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>sortByDescending - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses orderby and descending to sort a list of doubles from highest to lowest.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ21() =<br>   <span style="color:navy; font-weight:bold"> let</span> doubles = [1.7M; 2.3M; 1.9M; 4.1M; 2.9M]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> d<span style="color:navy; font-weight:bold"> in</span> doubles<span style="color:navy; font-weight:bold"> do</span> <br>        sortByDescending d<br>        select d<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%M&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    4.1</span><br>    <span style="color:#008000">//    2.9</span><br>    <span style="color:#008000">//    2.3</span><br>    <span style="color:#008000">//    1.9</span><br>    <span style="color:#008000">//    1.7</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>4.1<br>2.9<br>2.3<br>1.9<br>1.7<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>thenBy - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses a compound orderby to sort a list of digits, first by length of their name, and then alphabetically by the name itself.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ22() =<br>   <span style="color:navy; font-weight:bold"> let</span> digits = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> d<span style="color:navy; font-weight:bold"> in</span> digits<span style="color:navy; font-weight:bold"> do</span> <br>        sortBy d.Length<br>        thenBy d<br>        select d<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%s&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    one</span><br>    <span style="color:#008000">//    six</span><br>    <span style="color:#008000">//    two</span><br>    <span style="color:#008000">//    five</span><br>    <span style="color:#008000">//    four</span><br>    <span style="color:#008000">//    nine</span><br>    <span style="color:#008000">//    zero</span><br>    <span style="color:#008000">//    eight</span><br>    <span style="color:#008000">//    seven</span><br>    <span style="color:#008000">//    three</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>one<br>six<br>two<br>five<br>four<br>nine<br>zero<br>eight<br>seven<br>three<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>groupValBy - Simple 1</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses group by to partition a list of numbers by their remainder when divided by 5.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ23() =<br>   <span style="color:navy; font-weight:bold"> let</span> digits = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {       <br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        groupValBy n (n % 5) into g<br>        select (g.Key, g.ToArray())<br>    } <br>    |&gt; Seq.iter(fun (n,e) -&gt; printfn &quot;Numbers<span style="color:navy; font-weight:bold"> with</span> a remainder of %A when divided by 5:&quot; n; (e|&gt;Seq.iter(fun x -&gt; printfn&quot;%d&quot; x)))<br>    <br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Numbers with a remainder of 0 when divided by 5:</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    0</span><br>    <span style="color:#008000">//    Numbers with a remainder of 4 when divided by 5:</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    9</span><br>    <span style="color:#008000">//    Numbers with a remainder of 1 when divided by 5:</span><br>    <span style="color:#008000">//    1</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    Numbers with a remainder of 3 when divided by 5:</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    8</span><br>    <span style="color:#008000">//    Numbers with a remainder of 2 when divided by 5:</span><br>    <span style="color:#008000">//    7</span><br>    <span style="color:#008000">//    2</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Numbers with a remainder of 0 when divided by 5:<br>5<br>0<br>Numbers with a remainder of 4 when divided by 5:<br>4<br>9<br>Numbers with a remainder of 1 when divided by 5:<br>1<br>6<br>Numbers with a remainder of 3 when divided by 5:<br>3<br>8<br>Numbers with a remainder of 2 when divided by 5:<br>7<br>2<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>groupValBy - Simple 2</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses group by to partition a list of words by their first letter.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ24() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;blueberry&quot;; &quot;chimpanzee&quot;; &quot;abacus&quot;; &quot;banana&quot;; &quot;apple&quot;; &quot;cheese&quot; ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>        groupValBy w (w.[0]) into g<br>        select (g.Key, g.ToArray())<br>    } |&gt; Seq.iter(fun (n,e) -&gt; printfn &quot;Words that start<span style="color:navy; font-weight:bold"> with</span> the letter '%A'&quot; n; (e|&gt;Seq.iter(fun x -&gt; printfn&quot;%s&quot; x)))<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Words that start with the letter 'b':</span><br>    <span style="color:#008000">//    blueberry</span><br>    <span style="color:#008000">//    banana</span><br>    <span style="color:#008000">//    Words that start with the letter 'c':</span><br>    <span style="color:#008000">//    chimpanzee</span><br>    <span style="color:#008000">//    cheese</span><br>    <span style="color:#008000">//    Words that start with the letter 'a':</span><br>    <span style="color:#008000">//    abacus</span><br>    <span style="color:#008000">//    apple</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Words that start with the letter ''b''<br>blueberry<br>banana<br>Words that start with the letter ''c''<br>chimpanzee<br>cheese<br>Words that start with the letter ''a''<br>abacus<br>apple<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>head - Condition</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses First to find the first element in the array that starts with 'o'.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ25() =<br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> startsWithO =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> s<span style="color:navy; font-weight:bold"> in</span> strings<span style="color:navy; font-weight:bold"> do</span> <br>            where (s.[0] = 'o')<br>            head<br>        }<br>    printfn &quot;A string starting<span style="color:navy; font-weight:bold"> with</span> 'o': %s&quot; startsWithO<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    A string starting with 'o': one</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>A string starting with 'o': one<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>headOrDefault - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses FirstOrDefault to try to return the first element of the sequence, unless there are no elements, in which case the default value for that type is returned.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ26() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers : int list = []<br>   <span style="color:navy; font-weight:bold"> let</span> firstNumOrDefault =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            headOrDefault<br>        }<br>    printfn &quot;%A&quot; firstNumOrDefault<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>nth</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses ElementAt to retrieve the second number greater than 5 from an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ27() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers2 = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> fourthLowNum = <br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers2<span style="color:navy; font-weight:bold"> do</span> <br>            where (n &gt; 5)<br>            nth 1<br>        }<br>    printfn &quot;Second number &gt; 5: %A&quot; fourthLowNum<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Second number &gt; 5: 8</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Second number &gt; 5: 8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>count - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Count to get the number of unique factors of 300.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ28() =<br>   <span style="color:navy; font-weight:bold"> let</span> factorsOf300 = [2;2;3;5;5]<br><br>   <span style="color:navy; font-weight:bold"> let</span> uniqueFactors = <br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> factorsOf300<span style="color:navy; font-weight:bold"> do</span> <br>            count<br>        } <br>    printfn &quot;There are %A unique factors of 300.&quot; uniqueFactors<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    There are 3 unique factors of 300.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>There are 5 unique factors of 300.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>count - Conditional</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Count to get the number of odd ints in the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ29() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> oddNumbers  = numbers.Count(fun n -&gt; n % 2 = 1)<br>    printfn &quot;There are %A odd numbers<span style="color:navy; font-weight:bold"> in</span> the list.&quot; oddNumbers<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  There are 5 odd numbers in the list.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>There are 5 odd numbers in the list.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>sumBy - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Sum to get the total of the numbers in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ30() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> numSum = <br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            sumBy n<br>        }<br>    printfn &quot;The sum of the numbers is %A.&quot; numSum<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The sum of the numbers is 45.</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The sum of the numbers is 45.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>sumBy - Projection</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Sum to get the total number of characters of all words in the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ31() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br><br>   <span style="color:navy; font-weight:bold"> let</span> totalChars = <br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>            sumBy (w.Length)<br>        }<br>    printfn &quot;There are a total of %A characters<span style="color:navy; font-weight:bold"> in</span> these words.&quot; totalChars<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  There are a total of 20 characters in these words.</span><br>    <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>There are a total of 20 characters in these words.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>minBy - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Min to get the lowest number in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ32() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br>   <span style="color:navy; font-weight:bold"> let</span> minNum = <br>        query { <br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            minBy n <br>        }<br>    printfn &quot;The minimum number is %A.&quot; minNum<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The minimum number is 0.</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The minimum number is 0.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>minBy - Projection</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Min to get the length of the shortest word in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ33() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> shortestWord = <br>        query {<br>            <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>             minBy w.Length<br>         }<br>    printfn &quot;The shortest word is %A characters long.&quot; shortestWord<br><br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The shortest word is 5 characters long.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The shortest word is 5 characters long.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>maxBy - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Max to get the highest number in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ34() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br>   <span style="color:navy; font-weight:bold"> let</span> maxNum = <br>        query { <br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            maxBy n <br>        }<br>    printfn &quot;The maximum number is %A.&quot; maxNum<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The maximum number is 9.</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The maximum number is 9.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>maxBy - Projection</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Max to get the length of the longest word in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ35() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> longestLength = <br>        query {<br>            <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>             maxBy w.Length <br>        }<br>    printfn &quot;The longest word is %A characters long.&quot; longestLength<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The longest word is 9 characters long.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The longest word is 9 characters long.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>averageBy - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Average to get the average of all numbers in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ36() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers2 = [5.0; 4.0; 1.0; 3.0; 9.0; 8.0; 6.0; 7.0; 2.0; 0.0]<br>   <span style="color:navy; font-weight:bold"> let</span> averageNum =<br>         query { <br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers2<span style="color:navy; font-weight:bold"> do</span> <br>            averageBy n<br>         }<br>    printfn &quot;The average number is %A.&quot; averageNum<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The average number is 4.5.</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The average number is 4.5.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>averageBy - Projection</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Average to get the average length of the words in the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ37() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> averageLength = <br>        query { <br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> let</span> wl = w.Length |&gt; float<br>            averageBy wl<br>        }<br>    printfn &quot;The average word length is %A characters.&quot; averageLength<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The average word length is 6.666666667 characters.</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The average word length is 6.666666667 characters.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Concat - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Concat to create one sequence that contains each array's values, one after the other.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ38() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [0; 2; 4; 5; 6; 8; 9 ]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [ 1; 3; 5; 7; 8 ]<br> <br>    numbersA.Concat(numbersB)|&gt;Seq.iter(fun n -&gt; printfn &quot;%A&quot; n)<br><br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0 </span><br>    <span style="color:#008000">//    2 </span><br>    <span style="color:#008000">//    4 </span><br>    <span style="color:#008000">//    5 </span><br>    <span style="color:#008000">//    6 </span><br>    <span style="color:#008000">//    8 </span><br>    <span style="color:#008000">//    9 </span><br>    <span style="color:#008000">//    1 </span><br>    <span style="color:#008000">//    3 </span><br>    <span style="color:#008000">//    5 </span><br>    <span style="color:#008000">//    7 </span><br>    <span style="color:#008000">//    8</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0<br>2<br>4<br>5<br>6<br>8<br>9<br>1<br>3<br>5<br>7<br>8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>SequenceEqual - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses SequenceEqual to see if two sequences match on all elements in the same order.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ39() =<br>   <span style="color:navy; font-weight:bold"> let</span> wordsA = [ &quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot; ]<br>   <span style="color:navy; font-weight:bold"> let</span> wordsB = [ &quot;apple&quot;; &quot;blueberry&quot;; &quot;cherry&quot; ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> isMatch = wordsA.SequenceEqual(wordsB)<br><br>    printfn &quot;The sequences match: %A&quot; isMatch<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The sequences match: false</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The sequences match: false<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic Records</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Records are concrete type definitions that hold data in an unordered, named structure.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Point = { x: float; y: float}<br><span style="color:navy; font-weight:bold">type</span> Triangle = { p1: Point; p2: Point; p3: Point }<br><span style="color:navy; font-weight:bold">type</span> Vector = { dx: float; dy: float}<br><br><span style="color:navy; font-weight:bold">let</span> origin = { x = 0.0; y = 0.0 }<br><span style="color:navy; font-weight:bold">let</span> onex = { x = 1.0; y = 0.0 }<br><span style="color:navy; font-weight:bold">let</span> oney = { x = 0.0; y = 1.0 }<br><span style="color:navy; font-weight:bold">let</span> diff p1 p2 = { dx = p2.x - p1.x; dy = p2.y - p1.y }<br><span style="color:navy; font-weight:bold">let</span> sides tri = <br>    diff tri.p2 tri.p1, <br>    diff tri.p3 tri.p2, <br>    diff tri.p1 tri.p3<br><br><span style="color:navy; font-weight:bold">let</span> RecordSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> triangle1 = { p1=origin;p2=onex;p3=oney } <br>    printfn &quot;triangle1 = \n%A&quot; triangle1;<br>    printfn &quot;sides(triangle1) = \n%A&quot; (sides triangle1)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>triangle1 = <br>{p1 = {x = 0.0;<br>       y = 0.0;};<br> p2 = {x = 1.0;<br>       y = 0.0;};<br> p3 = {x = 0.0;<br>       y = 1.0;};}<br>sides(triangle1) = <br>({dx = -1.0;<br>  dy = 0.0;}, {dx = 1.0;<br>               dy = -1.0;}, {dx = 0.0;<br>                             dy = 1.0;})<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

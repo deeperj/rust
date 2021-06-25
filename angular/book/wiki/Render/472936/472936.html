@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define operator - inline function</strong><strong><br>
+<br>
+Category: </strong>Defining Operator<br>
+<strong>Description</strong>: Define operator using inline function</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> DefineOperator() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> inline</span> (&#43;&#43;) x y = x&#43;y*2<br>   <span style="color:navy; font-weight:bold"> let</span> a = 9<br>   <span style="color:navy; font-weight:bold"> let</span> r = (a&#43;&#43;4)<br>    printfn &quot;%d&quot; r<br>    Assert.AreEqual(r, 17)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>17<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

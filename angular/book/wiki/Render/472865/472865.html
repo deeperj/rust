@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define function</strong><strong><br>
+<br>
+Category: </strong>Defining Operator<br>
+<strong>Description</strong>: define a function and composite functions and pipeline</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> DefineFunction1() =<br>   <span style="color:navy; font-weight:bold"> let</span> f1 a = a &#43; 1<br>   <span style="color:navy; font-weight:bold"> let</span> f2 a = a * 10<br>   <span style="color:navy; font-weight:bold"> let</span> ff = f1 &gt;&gt; f2<br>   <span style="color:navy; font-weight:bold"> let</span> r = ff 3<br>   <span style="color:navy; font-weight:bold"> let</span> r1 = 3 |&gt; f1 |&gt; f2<br>    printfn &quot;result = %d<span style="color:navy; font-weight:bold"> and</span> result1 = %d&quot; r r1<br>    Assert.AreEqual(r, r1)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 40 and result1 = 40<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

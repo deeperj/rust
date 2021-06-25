@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Filtered</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample combines select and where to make a simple query that returns the text form of each digit less than 5.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ11() =    <br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br>   <span style="color:navy; font-weight:bold"> let</span> digits = strings<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            where (n &lt; 5)<br>            select digits.[n]<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%s&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    four</span><br>    <span style="color:#008000">//    one</span><br>    <span style="color:#008000">//    three</span><br>    <span style="color:#008000">//    two</span><br>    <span style="color:#008000">//    zero</span><br><br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>four<br>one<br>three<br>two<br>zero<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

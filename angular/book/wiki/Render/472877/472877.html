@@ -1,0 +1,30 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Constructing Classes</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Classes are custom types containing data (known as 'fields'), methods, and properties ( methods without parameters). Classes are reference types and are stored on the Heap. Classes must be constructed and instantiated to use. Unlike
+ C#, no default constructor is provided, one must be defined.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Circle (r: float) =<br>   <span style="color:navy; font-weight:bold"> let</span> area = System.Math.PI * r * r<br>   <span style="color:navy; font-weight:bold"> do</span> printfn &quot;Initialized a circle<span style="color:navy; font-weight:bold"> with</span> radius %f\n&quot; r<br>    <br>   <span style="color:navy; font-weight:bold"> member</span> this.R = r<br>   <span style="color:navy; font-weight:bold"> member</span> this.Area = area<br>    <br>   <span style="color:navy; font-weight:bold"> new</span> () = new Circle(1.0)<br>    <br>    new(text: string) = <br>       <span style="color:navy; font-weight:bold"> if</span> text = null<span style="color:navy; font-weight:bold"> then</span> <br>            raise &lt;|<span style="color:navy; font-weight:bold"> new</span> System.Exception(&quot;text&quot;)<br>        <br>       <span style="color:navy; font-weight:bold"> let</span> (successR, r) = System.Double.TryParse(text)<br>       <span style="color:navy; font-weight:bold"> if</span> not successR<span style="color:navy; font-weight:bold"> then</span> <br>            raise &lt;|<span style="color:navy; font-weight:bold"> new</span> System.Exception(&quot;text&quot;)<br>       <span style="color:navy; font-weight:bold"> new</span> Circle(r: float)<br>        <br>          <br><span style="color:navy; font-weight:bold">let</span> ClassesSupport() =<br>   <span style="color:navy; font-weight:bold"> let</span> c1 =<span style="color:navy; font-weight:bold"> new</span> Circle()<br>   <span style="color:navy; font-weight:bold"> let</span> area1 = c1.Area<br><br>   <span style="color:navy; font-weight:bold"> let</span> c2 =<span style="color:navy; font-weight:bold"> new</span> Circle(6.0)<br>   <span style="color:navy; font-weight:bold"> let</span> area2 = c2.Area<br><br>   <span style="color:navy; font-weight:bold"> let</span> c3 =<span style="color:navy; font-weight:bold"> new</span> Circle(&quot;3&quot;)<br>   <span style="color:navy; font-weight:bold"> let</span> area3 = c3.Area<br>    <br>    printfn &quot;area1 = %f\n&quot; area1<br>    printfn &quot;area2 = %f\n&quot; area2<br>    printfn &quot;area3 = %f\n&quot; area3<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Initialized a circle with radius 1.000000<br><br>Initialized a circle with radius 6.000000<br><br>Initialized a circle with radius 3.000000<br><br>area1 = 3.141593<br><br>area2 = 113.097336<br><br>area3 = 28.274334<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

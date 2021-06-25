@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Decorate pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Decorate pattern implementation shows how we can add new functionality (check zero) dynamically. For more information, please go to http://en.wikipedia.org/wiki/Decorator_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Divide() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> divide = fun (a,b) -&gt; a / b<br>   <span style="color:navy; font-weight:bold"> member</span> this.Function<br>       <span style="color:navy; font-weight:bold"> with</span> get() = divide<br>       <span style="color:navy; font-weight:bold"> and</span> set(v) = divide &lt;- v<br>   <span style="color:navy; font-weight:bold"> member</span> this.Invoke(a,b) = divide (a,b)<br><br><span style="color:navy; font-weight:bold">let</span> decorate() = <br>   <span style="color:navy; font-weight:bold"> let</span> d = Divide()<br>   <span style="color:navy; font-weight:bold"> let</span> checkZero (a,b) =<span style="color:navy; font-weight:bold"> if</span> b = 0<span style="color:navy; font-weight:bold"> then</span> failwith &quot;a/b<span style="color:navy; font-weight:bold"> and</span> b is 0&quot;<span style="color:navy; font-weight:bold"> else</span> (a,b)<br>    try <br>        d.Invoke(1, 0) |&gt; ignore<br>   <span style="color:navy; font-weight:bold"> with</span> e -&gt; printfn &quot;without check, the error is = %s&quot; e.Message<br>    d.Function &lt;- checkZero &gt;&gt; d.Function <br>    try<br>        d.Invoke(1,0) |&gt; ignore<br>   <span style="color:navy; font-weight:bold"> with</span> e -&gt; printfn &quot;after add check, error is = %s&quot; e.Message<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>without check, the error is = Attempted to divide by zero.<br>after add check, error is = a/b and b is 0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

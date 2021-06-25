@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using the Map type</strong><strong><br>
+<br>
+Category: </strong>Data Types<br>
+<strong>Description</strong>: Create a histogram of the occurrences of particular unicode characters using a Microsoft.FSharp.Collections.Map.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleMap1() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = &quot;The quick brown fox jumps over the lazy dog&quot; <br>   <span style="color:navy; font-weight:bold"> let</span> histogram = <br>        data.ToCharArray()<br>        |&gt; Seq.groupBy (fun c -&gt; c)<br>        |&gt; Map.ofSeq<br>        |&gt; Map.map (fun k v -&gt; Seq.length v)<br>   <span style="color:navy; font-weight:bold"> for</span> (KeyValue(c,n))<span style="color:navy; font-weight:bold"> in</span> histogram<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;Number of '%c' characters = %d&quot; c n <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Number of ' ' characters = 8<br>Number of 'T' characters = 1<br>Number of 'a' characters = 1<br>Number of 'b' characters = 1<br>Number of 'c' characters = 1<br>Number of 'd' characters = 1<br>Number of 'e' characters = 3<br>Number of 'f' characters = 1<br>Number of 'g' characters = 1<br>Number of 'h' characters = 2<br>Number of 'i' characters = 1<br>Number of 'j' characters = 1<br>Number of 'k' characters = 1<br>Number of 'l' characters = 1<br>Number of 'm' characters = 1<br>Number of 'n' characters = 1<br>Number of 'o' characters = 4<br>Number of 'p' characters = 1<br>Number of 'q' characters = 1<br>Number of 'r' characters = 2<br>Number of 's' characters = 1<br>Number of 't' characters = 1<br>Number of 'u' characters = 2<br>Number of 'v' characters = 1<br>Number of 'w' characters = 1<br>Number of 'x' characters = 1<br>Number of 'y' characters = 1<br>Number of 'z' characters = 1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

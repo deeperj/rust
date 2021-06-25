@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using KeyNotFoundException and exception patterns</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: Raising a 'KeyNotFoundException' exception, and using exception patterns</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample3() =<br>    try <br>        printfn &quot;About<span style="color:navy; font-weight:bold"> to</span> raise an exception...&quot;<br>       <span style="color:navy; font-weight:bold"> match</span> DateTime.Now.DayOfWeek<span style="color:navy; font-weight:bold"> with</span> <br>        | DayOfWeek.Monday -&gt; raise(KeyNotFoundException()) <br>        | _                -&gt; failwith &quot;it's not Monday&quot;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>        | :? KeyNotFoundException -&gt; <br>            printfn &quot;Caught a 'KeyNotFoundException' exception, it must be Monday&quot;<br>        | Failure msg-&gt; <br>            printfn &quot;Caught a 'Failure' exception: %s&quot; msg<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>About to raise an exception...<br>Caught a 'KeyNotFoundException' exception, it must be Monday<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

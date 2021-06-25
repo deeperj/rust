@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TPL</strong><strong><br>
+<br>
+Category: </strong>Parallel<br>
+<strong>Description</strong>: Task Parallel Library (TPL) is applied in this sample to manipulate matrix. Code originally from Chris Smith's book</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ParallelSample3() = <br>    <span style="color:#008000">// multiply two matrices using the PFX</span><br>   <span style="color:navy; font-weight:bold"> let</span> matrixMultiply (a: float[,]) (b: float[,]) =<br>       <span style="color:navy; font-weight:bold"> let</span> aRow, aCol = Array2D.length1 a,<br>                         Array2D.length2 a<br>       <span style="color:navy; font-weight:bold"> let</span> bRow, bCol = Array2D.length1 b,<br>                         Array2D.length2 b<br>       <span style="color:navy; font-weight:bold"> if</span> aCol &lt;&gt; bRow<span style="color:navy; font-weight:bold"> then</span> <br>            failwith &quot;Array dimension mismatch.&quot;<br><br>        <span style="color:#008000">// Allocate space for the resulting matrix, c</span><br>       <span style="color:navy; font-weight:bold"> let</span> c = Array2D.create aCol bRow 0.0<br>       <span style="color:navy; font-weight:bold"> let</span> cRow, cCol = aCol, bRow<br><br>        <span style="color:#008000">// compute each row of the resulting matrix</span><br>       <span style="color:navy; font-weight:bold"> let</span> rowTask rowIdx =<br>          <span style="color:navy; font-weight:bold"> for</span> colIdx = 0<span style="color:navy; font-weight:bold"> to</span> cCol - 1<span style="color:navy; font-weight:bold"> do</span> <br>              <span style="color:navy; font-weight:bold"> for</span> x = 0<span style="color:navy; font-weight:bold"> to</span> aRow - 1<span style="color:navy; font-weight:bold"> do</span> <br>                   c.[colIdx, rowIdx] &lt;-<br>                      c.[colIdx, rowIdx] &#43;<br>                      a.[x, colIdx] * b.[rowIdx, x]<br>           ()<br><br>       <span style="color:navy; font-weight:bold"> let</span> _ = Parallel.For(0, cRow,<span style="color:navy; font-weight:bold"> new</span> Action(rowTask))<br>        c<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> n = 10  <span style="color:#008000">// we use n*n matrices</span><br>   <span style="color:navy; font-weight:bold"> let</span> unitMatrix = Array2D.create n n 0.0<br>   <span style="color:navy; font-weight:bold"> for</span> i = 0<span style="color:navy; font-weight:bold"> to</span> n - 1<span style="color:navy; font-weight:bold"> do</span> <br>        unitMatrix.[i,i] &lt;- 1.0<br>    <span style="color:#008000">// display what should be a n by n unit matrix</span><br>   <span style="color:navy; font-weight:bold"> let</span> result = matrixMultiply unitMatrix unitMatrix<br>    printfn &quot;%A&quot; result<br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[[1.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0]<br> [0.0; 1.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0]<br> [0.0; 0.0; 1.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0]<br> [0.0; 0.0; 0.0; 1.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0]<br> [0.0; 0.0; 0.0; 0.0; 1.0; 0.0; 0.0; 0.0; 0.0; 0.0]<br> [0.0; 0.0; 0.0; 0.0; 0.0; 1.0; 0.0; 0.0; 0.0; 0.0]<br> [0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 1.0; 0.0; 0.0; 0.0]<br> [0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 1.0; 0.0; 0.0]<br> [0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 1.0; 0.0]<br> [0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 1.0]]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

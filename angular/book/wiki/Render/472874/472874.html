@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Structs</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Structs are lightweight data structures, stored on the Stack. They use value equality comparison.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Struct&gt;]<br><span style="color:navy; font-weight:bold">type</span> StructBox (width: float, height: float, depth: float) =<br>   <span style="color:navy; font-weight:bold"> member</span> box.Width = width<br>   <span style="color:navy; font-weight:bold"> member</span> box.Height = height<br>   <span style="color:navy; font-weight:bold"> member</span> box.Depth = depth<br>    <br><span style="color:navy; font-weight:bold">type</span> StructVector2D (dx: float, dy: float) =<br>   <span style="color:navy; font-weight:bold"> struct</span>     <br>       <span style="color:navy; font-weight:bold"> member</span> v.DX = dx<br>       <span style="color:navy; font-weight:bold"> member</span> v.DY = dy<br>       <span style="color:navy; font-weight:bold"> member</span> v.Length = sqrt (v.DX * v.DX &#43; v.DY * v.DY)<br>   <span style="color:navy; font-weight:bold"> end</span> <br>    <br><span style="color:navy; font-weight:bold">let</span> structSample() =<br>    <span style="color:#008000">// a simple struct - must use [] attribute tag or 'struct' 'end' keywords to define as struct</span><br>    <span style="color:#008000">// [] </span><br>    <span style="color:#008000">// type StructBox (width: float, height: float, depth: float) =</span><br>    <span style="color:#008000">//     member box.Width = width</span><br>    <span style="color:#008000">//     member box.Height = height</span><br>    <span style="color:#008000">//     member box.Depth = depth</span><br>        <br>    <span style="color:#008000">// type StructVector2D (dx: float, dy: float) =</span><br>    <span style="color:#008000">//     struct     </span><br>    <span style="color:#008000">//         member v.DX = dx</span><br>    <span style="color:#008000">//         member v.DY = dy</span><br>    <span style="color:#008000">//         member v.Length = sqrt (v.DX * v.DX &#43; v.DY * v.DY)</span><br>    <span style="color:#008000">//     end</span><br>    <br>   <span style="color:navy; font-weight:bold"> let</span> b1 = StructBox(2.0, 3.0, 6.0)    <br>   <span style="color:navy; font-weight:bold"> let</span> v1 = StructVector2D(3.0, 4.0)    <br>   <span style="color:navy; font-weight:bold"> let</span> v2 = StructVector2D(3.0, 4.0)<br>    <br>    printfn &quot;b1.Width = %A&quot; b1.Width<br>    printfn&quot;\nv1.Length = %A&quot; v1.Length<br>    printfn&quot;\nv1 = v2?\t%A&quot; (v1=v2)<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>b1.Width = 2.0<br><br>v1.Length = 5.0<br><br>v1 = v2?	true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

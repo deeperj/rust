@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>averageBy - Projection</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Average to get the average length of the words in the array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ37() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> averageLength = <br>        query { <br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> let</span> wl = w.Length |&gt; float<br>            averageBy wl<br>        }<br>    printfn &quot;The average word length is %A characters.&quot; averageLength<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The average word length is 6.666666667 characters.</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The average word length is 6.666666667 characters.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

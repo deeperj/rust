@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>groupValBy - Simple 1</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses group by to partition a list of numbers by their remainder when divided by 5.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ23() =<br>   <span style="color:navy; font-weight:bold"> let</span> digits = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>    query {       <br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>        groupValBy n (n % 5) into g<br>        select (g.Key, g.ToArray())<br>    } <br>    |&gt; Seq.iter(fun (n,e) -&gt; printfn &quot;Numbers<span style="color:navy; font-weight:bold"> with</span> a remainder of %A when divided by 5:&quot; n; (e|&gt;Seq.iter(fun x -&gt; printfn&quot;%d&quot; x)))<br>    <br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Numbers with a remainder of 0 when divided by 5:</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    0</span><br>    <span style="color:#008000">//    Numbers with a remainder of 4 when divided by 5:</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    9</span><br>    <span style="color:#008000">//    Numbers with a remainder of 1 when divided by 5:</span><br>    <span style="color:#008000">//    1</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    Numbers with a remainder of 3 when divided by 5:</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    8</span><br>    <span style="color:#008000">//    Numbers with a remainder of 2 when divided by 5:</span><br>    <span style="color:#008000">//    7</span><br>    <span style="color:#008000">//    2</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Numbers with a remainder of 0 when divided by 5:<br>5<br>0<br>Numbers with a remainder of 4 when divided by 5:<br>4<br>9<br>Numbers with a remainder of 1 when divided by 5:<br>1<br>6<br>Numbers with a remainder of 3 when divided by 5:<br>3<br>8<br>Numbers with a remainder of 2 when divided by 5:<br>7<br>2<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

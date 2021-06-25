@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Generic Type</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Define a generic type</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> TrackedValue&lt;'Kind&gt;(v : 'Kind) =<br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> value = v <br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> reads  = 0 <br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> writes = 0 <br><br> <span style="color:navy; font-weight:bold"> member</span> this.Value<br>   <span style="color:navy; font-weight:bold"> with</span> get() =<br>      reads &lt;- reads &#43; 1<br>      value<br>   <span style="color:navy; font-weight:bold"> and</span> set newVal =<br>      writes &lt;- writes &#43; 1<br>      value &lt;- newVal<br><br><span style="color:navy; font-weight:bold">let</span> GenericSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = TrackedValue(10)<br>   <span style="color:navy; font-weight:bold"> let</span> b = TrackedValue(20.0)<br>   <span style="color:navy; font-weight:bold"> let</span> c = TrackedValue&lt;_&gt;(&quot;Hello&quot;)<br>    printfn &quot;%d %f %s&quot; a.Value b.Value c.Value<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>10 20.000000 Hello<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

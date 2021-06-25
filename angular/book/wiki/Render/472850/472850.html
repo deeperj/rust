@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Bitwise Integer Operations</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: This sample shows how to use the bitwise integer operations</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> Sample4() =<br>    <span style="color:#008000">// Operators over integers:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x1 = 0xAB7F3456 &amp;&amp;&amp; 0xFFFF0000 <br>   <span style="color:navy; font-weight:bold"> let</span> x2 = 0xAB7F3456 ||| 0xFFFF0000 <br>   <span style="color:navy; font-weight:bold"> let</span> x3 = 0x12343456 ^^^ 0xFFFF0000 <br>   <span style="color:navy; font-weight:bold"> let</span> x4 = 0x1234ABCD &lt;&lt;&lt; 1 <br>   <span style="color:navy; font-weight:bold"> let</span> x5 = 0x1234ABCD &gt;&gt;&gt; 16 <br><br>    <span style="color:#008000">// Also over other integral types, e.g. Int64:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x6 = 0x0A0A0A0A012343456L &amp;&amp;&amp; 0x00000000FFFF0000L <br><br>    <span style="color:#008000">// Also over other integral types, e.g. unsigned Int64:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x6u = 0x0A0A0A0A012343456UL &amp;&amp;&amp; 0x0000FFFF00000000UL <br><br>    <span style="color:#008000">// And bytes:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x7 = 0x13uy &amp;&amp;&amp; 0x11uy <br><br>    <span style="color:#008000">// Now print the results:</span><br>    printfn &quot;x1 = 0x%08x&quot; x1;<br>    printfn &quot;x2 = 0x%08x&quot; x2;<br>    printfn &quot;x3 = 0x%08x&quot; x3;<br>    printfn &quot;x4 = 0x%08x&quot; x4;<br>    printfn &quot;x5 = 0x%08x&quot; x5;<br>    printfn &quot;x6 = 0x%016x&quot; x6;<br>    printfn &quot;x6u = 0x%016x&quot; x6u;<br>    printfn &quot;x7 = 0x%02x&quot; (int x7)<br>  <br>  <br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>x1 = 0xab7f0000<br>x2 = 0xffff3456<br>x3 = 0xedcb3456<br>x4 = 0x2469579a<br>x5 = 0x00001234<br>x6 = 0x0000000012340000<br>x6u = 0x0000a0a000000000<br>x7 = 0x11<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

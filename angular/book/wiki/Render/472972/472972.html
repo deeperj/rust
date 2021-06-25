@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>convert units of measure to float</strong><strong><br>
+<br>
+Category: </strong>Units of Measure<br>
+<strong>Description</strong>: convert measure unit to float.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Measure&gt;]type litre<br>[&lt;Measure&gt;]type pint<br><br><span style="color:navy; font-weight:bold">let</span> MeasureSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = 1.<br>   <span style="color:navy; font-weight:bold"> let</span> (b:float) = float(a)<br>    printfn &quot;measure unit %A&quot; a<br>    printfn &quot;float value %f&quot; b<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>measure unit 1.0<br>float value 1.000000<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

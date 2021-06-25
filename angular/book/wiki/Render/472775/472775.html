@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>thenBy - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses a compound orderby to sort a list of digits, first by length of their name, and then alphabetically by the name itself.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ22() =<br>   <span style="color:navy; font-weight:bold"> let</span> digits = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> d<span style="color:navy; font-weight:bold"> in</span> digits<span style="color:navy; font-weight:bold"> do</span> <br>        sortBy d.Length<br>        thenBy d<br>        select d<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%s&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    one</span><br>    <span style="color:#008000">//    six</span><br>    <span style="color:#008000">//    two</span><br>    <span style="color:#008000">//    five</span><br>    <span style="color:#008000">//    four</span><br>    <span style="color:#008000">//    nine</span><br>    <span style="color:#008000">//    zero</span><br>    <span style="color:#008000">//    eight</span><br>    <span style="color:#008000">//    seven</span><br>    <span style="color:#008000">//    three</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>one<br>six<br>two<br>five<br>four<br>nine<br>zero<br>eight<br>seven<br>three<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

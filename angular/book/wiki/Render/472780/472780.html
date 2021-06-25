@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>nth</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses ElementAt to retrieve the second number greater than 5 from an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ27() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers2 = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> fourthLowNum = <br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers2<span style="color:navy; font-weight:bold"> do</span> <br>            where (n &gt; 5)<br>            nth 1<br>        }<br>    printfn &quot;Second number &gt; 5: %A&quot; fourthLowNum<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Second number &gt; 5: 8</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Second number &gt; 5: 8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

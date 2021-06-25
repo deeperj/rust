@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>distinct - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Distinct to remove duplicate elements in a sequence.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ03() =<br>   <span style="color:navy; font-weight:bold"> let</span> factorsOf300 = [2;2;3;5;5]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> factorsOf300<span style="color:navy; font-weight:bold"> do</span> <br>        distinct<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    5</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>2<br>3<br>5<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

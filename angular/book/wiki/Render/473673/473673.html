@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Record Types 1</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses select to produce a sequence of the uppercase and lowercase versions of each word in the original array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Record = {Upper :string; Lower:string}<br><span style="color:navy; font-weight:bold">let</span> LINQ09() =<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;aPPLE&quot;; &quot;BlUeBeRrY&quot;; &quot;cHeRry&quot; ]<br>                    <br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>            select {Upper = w.ToUpper(); Lower =w.ToLower()}<br>    } |&gt; Seq.iter(fun r -&gt; printfn &quot;Uppercase: %s, Lowercase: %s&quot; r.Upper r.Lower)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Uppercase: APPLE, Lowercase: apple</span><br>    <span style="color:#008000">//    Uppercase: BLUEBERRY, Lowercase: blueberry</span><br>    <span style="color:#008000">//    Uppercase: CHERRY, Lowercase: cherry</span><br><br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Uppercase: APPLE, Lowercase: apple<br>Uppercase: BLUEBERRY, Lowercase: blueberry<br>Uppercase: CHERRY, Lowercase: cherry<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

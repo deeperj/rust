@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Read Entire CSV File, .NET-style</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Read an entire text file as a string using .NET I/O utilities and abstractions.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ReadCSVFile1() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.csv&quot;, [| &quot;Desmond, Barrow, Market Place, 2&quot;; <br>                                                 &quot;Molly, Singer, Band, 12&quot; |]);<br>    <span style="color:#008000">// Now read it </span><br>   <span style="color:navy; font-weight:bold"> let</span> linesSplitIntoWords = <br>        System.IO.File.ReadAllLines(@&quot;test.csv&quot;)<br>        |&gt; Array.map (fun line -&gt; line.Split [|',';' ';'\t'|])<br>    printfn &quot;%A&quot; linesSplitIntoWords</pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[|[|&quot;Desmond&quot;; &quot;&quot;; &quot;Barrow&quot;; &quot;&quot;; &quot;Market&quot;; &quot;Place&quot;; &quot;&quot;; &quot;2&quot;|];<br>  [|&quot;Molly&quot;; &quot;&quot;; &quot;Singer&quot;; &quot;&quot;; &quot;Band&quot;; &quot;&quot;; &quot;12&quot;|]|]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

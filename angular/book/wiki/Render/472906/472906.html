@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and 'map'</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: String23'</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [1;2;3;4]<br>   <span style="color:navy; font-weight:bold"> let</span> r1 = data |&gt; List.map (fun x -&gt; x &#43; 1)<br>    printfn &quot;Adding '1' using map = %A&quot; r1<br>   <span style="color:navy; font-weight:bold"> let</span> r2 = data |&gt; List.map string<br>    printfn &quot;Converting<span style="color:navy; font-weight:bold"> to</span> strings using map = %A&quot; r2<br>   <span style="color:navy; font-weight:bold"> let</span> r3 = data |&gt; List.map (fun x -&gt; (x,x))<br>    printfn &quot;Tupling up using map = %A&quot; r3<br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Adding '1' using map = [2; 3; 4; 5]<br>Converting to strings using map = [&quot;1&quot;; &quot;2&quot;; &quot;3&quot;; &quot;4&quot;]<br>Tupling up using map = [(1, 1); (2, 2); (3, 3); (4, 4)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

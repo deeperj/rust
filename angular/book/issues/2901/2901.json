@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The code in the book \"F# for C# developer\" for the chapter 9: GPGPU with F# does not match the  FSharpGPU.zip: the current zip file is for CUDA 4.0 whereas the code in the book supports CUDA 4.2.  \n\nPlease update the FSharpGPU.zip with the code used for the book, for CUDA 4.2.",
+    "LastUpdatedDate": "2013-09-09T07:51:15.383-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2013-09-09T07:51:15.383-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Update FSharpGPU.zip to match book code CUDA 4.2.9",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 2901
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

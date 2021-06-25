@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Chain of responsibility pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Chain of responsibility pattern implementation shows how a request can go through different function (responsibility) by using pipeline. For more information, please go to http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ChainOfResponsibility2() = <br>   <span style="color:navy; font-weight:bold"> let</span> chainTemplate processFunction canContinue s = <br>       <span style="color:navy; font-weight:bold"> if</span> canContinue s<span style="color:navy; font-weight:bold"> then</span> processFunction s<br>       <span style="color:navy; font-weight:bold"> else</span> s<br><br>   <span style="color:navy; font-weight:bold"> let</span> canContinueF _ = true<br>   <span style="color:navy; font-weight:bold"> let</span> processF x = x &#43; 1<br><br>   <span style="color:navy; font-weight:bold"> let</span> chainFunction = chainTemplate processF canContinueF   <span style="color:#008000">//combine two functions to get a chainFunction</span><br>   <span style="color:navy; font-weight:bold"> let</span> s = 1 |&gt; chainFunction |&gt; chainFunction<br>    printfn &quot;%A&quot; s<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

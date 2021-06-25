@@ -1,0 +1,461 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: For more information about composite pattern, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CompositeNode&lt;'T&gt; = <br>    | Node of 'T<br>    | Tree of 'T * CompositeNode&lt;'T&gt; * CompositeNode&lt;'T&gt;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> this.InOrder f = <br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.InOrder(f)<br>                f(n)<br>                right.InOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PreOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt;                 <br>                f(n)<br>                left.PreOrder(f)<br>                right.PreOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PostOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.PostOrder(f)<br>                right.PostOrder(f)<br>                f(n)<br>            | Node(n) -&gt; f(n)<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> nodeAccessFunc = printf &quot;%A,&quot;<br><br>    printf &quot;in order process: &quot;<br>    tree.InOrder nodeAccessFunc<br>    printfn &quot;&quot;<br><br>    printf &quot;pre order process: &quot;<br>    tree.PreOrder nodeAccessFunc<br>    printfn &quot;&quot;<br><br>    printf &quot;post order process: &quot;<br>    tree.PostOrder nodeAccessFunc<br>    printfn &quot;&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>in order process: 12,11,13,1,2,<br>pre order process: 1,11,12,13,2,<br>post order process: 12,13,11,2,1,<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern with variable</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: This implementation uses a global variable resultRef to hold the result. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CompositeNode&lt;'T&gt; = <br>    | Node of 'T<br>    | Tree of 'T * CompositeNode&lt;'T&gt; * CompositeNode&lt;'T&gt;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> this.InOrder f = <br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.InOrder(f)<br>                f(n)<br>                right.InOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PreOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt;                 <br>                f(n)<br>                left.PreOrder(f)<br>                right.PreOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PostOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.PostOrder(f)<br>                right.PostOrder(f)<br>                f(n)<br>            | Node(n) -&gt; f(n)<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> resultRef = ref 0<br>   <span style="color:navy; font-weight:bold"> let</span> nodeAccessFunc n = resultRef := !resultRef &#43; n<br>    tree.PreOrder nodeAccessFunc<br>    printfn &quot;result = %d&quot; !resultRef<br><br>    Assert.AreEqual(!resultRef, 39)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 39<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern with variable in a class</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: After define a variable in the class-like structure, use a property to retrieve the result back when comptation is finished. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> IA&lt;'T&gt; =<br>        abstract<span style="color:navy; font-weight:bold"> member</span> Do : 'T -&gt; unit<br>        abstract<span style="color:navy; font-weight:bold"> member</span> Result : unit -&gt; 'T<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample3() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> wrapper = <br>       <span style="color:navy; font-weight:bold"> let</span> result = ref 0<br>        {<span style="color:navy; font-weight:bold"> new</span> IA<span style="color:navy; font-weight:bold"> with</span>                <br>               <span style="color:navy; font-weight:bold"> member</span> this.Do(n) = <br>                    result := !result &#43; n<br>               <span style="color:navy; font-weight:bold"> member</span> this.Result() = !result<br>        }<br>    tree.PreOrder (wrapper.Do)<br>    printfn &quot;result = %d&quot; (wrapper.Result())<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 39<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern with variable in a class-like structure</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Composite pattern with variable in a class-like structure. The computation result will be brought back by the class-like structure. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> IA2&lt;'T&gt; =<br>    abstract<span style="color:navy; font-weight:bold"> member</span> Do : 'T -&gt; unit        <br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample4() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> wrapper = <br>       <span style="color:navy; font-weight:bold"> let</span> result = ref 0<br>        ({<span style="color:navy; font-weight:bold"> new</span> IA2<span style="color:navy; font-weight:bold"> with</span>                <br>               <span style="color:navy; font-weight:bold"> member</span> this.Do(n) = <br>                    result := !result &#43; n                <br>        }, result)<br>    tree.PreOrder (fst wrapper).Do<br>    printfn &quot;result = %d&quot; !(snd wrapper)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 39<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern &amp; continuation</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Composite pattern with continuation implementation to get the sum of all tree nodes. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> TreeStructure&lt;'a&gt; = <br>    | Node of 'a * TreeStructure&lt;'a&gt; * TreeStructure&lt;'a&gt; <br>    | Leaf<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample5() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Node(4, Node(2, Node(1, Leaf, Leaf), Node(3, Leaf, Leaf)), <br>                    Node(6, Node(5, Leaf, Leaf), Node(7, Leaf, Leaf)))<br>   <span style="color:navy; font-weight:bold"> let</span> FoldTree nodeF leafV t = <br>       <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> Loop t cont = <br>           <span style="color:navy; font-weight:bold"> match</span> t<span style="color:navy; font-weight:bold"> with</span> <br>            | Node(x,left,right) -&gt; Loop left  (fun lacc -&gt;  <br>                                    Loop right (fun racc -&gt; <br>                                    cont (nodeF x lacc racc))) <br>            | Leaf -&gt; cont leafV <br>        Loop t (fun x -&gt; x)<br> <br>   <span style="color:navy; font-weight:bold"> let</span> SumTree = FoldTree (fun x l r -&gt; x &#43; l &#43; r)   0 <br>   <span style="color:navy; font-weight:bold"> let</span> InOrder = FoldTree (fun x l r -&gt; l @ [x] @ r) [] <br>   <span style="color:navy; font-weight:bold"> let</span> Height  = FoldTree (fun _ l r -&gt; 1 &#43; max l r) 0<br>    printfn &quot;sum = %d&quot; (SumTree(tree))<br>    printfn &quot;inorder = %A&quot; (InOrder(tree))<br>    printfn &quot;height = %d&quot; (Height(tree))<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>sum = 28<br>inorder = [1; 2; 3; 4; 5; 6; 7]<br>height = 3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Command pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Command pattern to demostrate a redo-undo framework. Each command contains both Do and Undo section. For more information, please go to http://en.wikipedia.org/wiki/Command_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Command = { Redo: unit-&gt;unit<br>                 Undo: unit-&gt;unit }<br><br><span style="color:navy; font-weight:bold">let</span> CommandPatternSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> result = ref 7<br>   <span style="color:navy; font-weight:bold"> let</span> add n = { Redo = (fun _ -&gt; result:= !result &#43; n); Undo = (fun _ -&gt; result := !result - n) }<br>   <span style="color:navy; font-weight:bold"> let</span> minus n = { Redo = (fun _ -&gt; result:= !result - n); Undo = (fun _ -&gt; result := !result &#43; n) }<br>   <span style="color:navy; font-weight:bold"> let</span> cmd = (add 3)<br>    printfn &quot;current state = %d&quot; !result<br>    cmd.Redo()<br>    printfn &quot;after redo: %d&quot; !result<br>    cmd.Undo()<br>    printfn &quot;after undo: %d&quot; !result <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>current state = 7<br>after redo: 10<br>after undo: 7<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Command pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Command pattern to demostrate a redo-undo framework. This implementation group the commands under Do/Undo category. For more information, please go to http://en.wikipedia.org/wiki/Command_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CommandType = <br>    | Deposit<br>    | Withdraw<br><span style="color:navy; font-weight:bold">type</span> TCommand = <br>    | Command of CommandType * int<br><br><span style="color:navy; font-weight:bold">let</span> CommandPatternSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> result = ref 7<br>   <span style="color:navy; font-weight:bold"> let</span> deposit x = result := !result &#43; x<br>   <span style="color:navy; font-weight:bold"> let</span> withdraw x = result := !result - x<br>   <span style="color:navy; font-weight:bold"> let</span> Do = fun (cmd:TCommand) -&gt;<br>       <span style="color:navy; font-weight:bold"> match</span> cmd<span style="color:navy; font-weight:bold"> with</span> <br>        | Command(CommandType.Deposit, n) -&gt; deposit n<br>        | Command(CommandType.Withdraw,n) -&gt; withdraw n<br>   <span style="color:navy; font-weight:bold"> let</span> Undo = fun (cmd:TCommand) -&gt;<br>       <span style="color:navy; font-weight:bold"> match</span> cmd<span style="color:navy; font-weight:bold"> with</span> <br>        | Command(CommandType.Deposit, n) -&gt; withdraw n<br>        | Command(CommandType.Withdraw,n) -&gt; deposit n<br>    printfn &quot;current balance %d&quot; !result<br>   <span style="color:navy; font-weight:bold"> let</span> depositCmd = Command(Deposit, 3)<br>    Do depositCmd<br>    printfn &quot;after deposit: %d&quot; !result<br>    Undo depositCmd<br>    printfn &quot;after undo: %d&quot; !result<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>current balance 7<br>after deposit: 10<br>after undo: 7<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Singleton pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: The key point is the private constructor which makes sure only one instance is created. For more information, please go to http://en.wikipedia.org/wiki/Singleton_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> A private () =<br>    static<span style="color:navy; font-weight:bold"> let</span> instance = A()<br>    static<span style="color:navy; font-weight:bold"> member</span> Instance = instance<br>   <span style="color:navy; font-weight:bold"> member</span> this.Action() = printfn &quot;action&quot;<br><br><span style="color:navy; font-weight:bold">let</span> DesignPatter1() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = A.Instance;<br>    a.Action()<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>action<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Factory pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Factory pattern implementation: it returns different types based on inputs. For more information, please go to http://en.wikipedia.org/wiki/Factory_method_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> factorySample() = <br>   <span style="color:navy; font-weight:bold"> let</span> factory = function<br>      | TypeA -&gt; {<span style="color:navy; font-weight:bold"> new</span> IA<span style="color:navy; font-weight:bold"> with</span> <br>                      <span style="color:navy; font-weight:bold"> member</span> this.Action() = printfn &quot;type A&quot; }<br>      | TypeB -&gt; {<span style="color:navy; font-weight:bold"> new</span> IA<span style="color:navy; font-weight:bold"> with</span> <br>                     <span style="color:navy; font-weight:bold"> member</span> this.Action() = printfn &quot;type B&quot; }<br>   <span style="color:navy; font-weight:bold"> let</span> output = factory Type.TypeA<br>    output.Action()<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>type A<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>State pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: State pattern implementation shows how a class's internal state can change its behavior. For more information, please go to http://en.wikipedia.org/wiki/Factory_method_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> AccountState = <br>    | Overdrawn<br>    | Silver<br>    | Gold<br>[]<span style="color:navy; font-weight:bold"> type</span> USD<br><span style="color:navy; font-weight:bold">type</span> Account&lt;[] 'u&gt;() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> balance = 0.0&lt;_&gt;   <br>   <span style="color:navy; font-weight:bold"> member</span> this.State<br>       <span style="color:navy; font-weight:bold"> with</span> get() = <br>           <span style="color:navy; font-weight:bold"> match</span> balance<span style="color:navy; font-weight:bold"> with</span> <br>            | _ when balance &lt;= 0.0&lt;_&gt; -&gt; Overdrawn<br>            | _ when balance &gt; 0.0&lt;_&gt; &amp;&amp; balance &lt; 10000.0&lt;_&gt; -&gt; Silver<br>            | _ -&gt; Gold<br>   <span style="color:navy; font-weight:bold"> member</span> this.PayInterest() = <br>       <span style="color:navy; font-weight:bold"> let</span> interest = <br>           <span style="color:navy; font-weight:bold"> match</span> this.State<span style="color:navy; font-weight:bold"> with</span> <br>                | Overdrawn -&gt; 0.<br>                | Silver -&gt; 0.01<br>                | Gold -&gt; 0.02<br>        interest * balance<br>   <span style="color:navy; font-weight:bold"> member</span> this.Deposit(x:float&lt;_&gt;) =  <br>       <span style="color:navy; font-weight:bold"> let</span> (a:float&lt;_&gt;) = x<br>        balance &lt;- balance &#43; a<br>   <span style="color:navy; font-weight:bold"> member</span> this.Withdraw(x:float&lt;_&gt;) = balance &lt;- balance - x<br><br><span style="color:navy; font-weight:bold">let</span> state() = <br>   <span style="color:navy; font-weight:bold"> let</span> account = Account()<br>    account.Deposit(10000.)<br>    printfn &quot;interest = %A&quot; (account.PayInterest())<br>    account.Withdraw(20000.)<br>    printfn &quot;interest = %A&quot; (account.PayInterest())<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>interest = 200.0<br>interest = 0.0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Strategy pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Strategy pattern shows the underlying algorithm can be changed dynamically by setting the function from outside. For more information, please go to http://en.wikipedia.org/wiki/Strategy_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> quicksort l = <br>    printfn &quot;quick sort&quot;<br><span style="color:navy; font-weight:bold">let</span> shellsort l = <br>    printfn &quot;shell short&quot;<br><span style="color:navy; font-weight:bold">let</span> bubblesort l = <br>    printfn &quot;bubble sort&quot;<br><span style="color:navy; font-weight:bold">type</span> Strategy() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> sortFunction = fun _ -&gt; ()<br>   <span style="color:navy; font-weight:bold"> member</span> this.SetStrategy(f) = sortFunction &lt;- f<br>   <span style="color:navy; font-weight:bold"> member</span> this.Execute(n) = sortFunction(n)<br><br><span style="color:navy; font-weight:bold">let</span> stragegy() = <br>   <span style="color:navy; font-weight:bold"> let</span> s = Strategy()<br>    s.SetStrategy(quicksort)<br>    s.Execute([1..6])<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>quick sort<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Proxy pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Proxy pattern provides a placeholder to expose different methods. For more information, please go to http://en.wikipedia.org/wiki/Proxy_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CoreComputation() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.Add(x) = x &#43; 1<br>   <span style="color:navy; font-weight:bold"> member</span> this.Sub(x) = x - 1<br>   <span style="color:navy; font-weight:bold"> member</span> this.GetProxy(name) = <br>       <span style="color:navy; font-weight:bold"> match</span> name<span style="color:navy; font-weight:bold"> with</span> <br>        | &quot;Add&quot; -&gt; (this.Add, &quot;add&quot;)<br>        | &quot;Sub&quot; -&gt; (this.Sub, &quot;sub&quot;)<br>        | _ -&gt; failwith &quot;not supported&quot;<br><br><span style="color:navy; font-weight:bold">let</span> proxy() = <br>   <span style="color:navy; font-weight:bold"> let</span> core = CoreComputation()<br>   <span style="color:navy; font-weight:bold"> let</span> proxy = core.GetProxy(&quot;Add&quot;)<br>    printfn &quot;result = %d&quot; ((fst proxy) 1)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 2<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Adapter pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Adapter pattern make incompatible types work (walk) together without changing existing code. In the sample the dog and cat are imcompatible types. For more information, please go to http://en.wikipedia.org/wiki/Adapter_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Cat() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.Walk() = printfn &quot;cat walk&quot;<br><span style="color:navy; font-weight:bold">type</span> Dog() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.Walk() = printfn &quot;dog walk&quot;<br><br><span style="color:navy; font-weight:bold">let</span> adapter() = <br>   <span style="color:navy; font-weight:bold"> let</span> cat = Cat()<br>   <span style="color:navy; font-weight:bold"> let</span> dog = Dog()<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> inline</span> walk (x : ^T) = (^T : (member Walk : unit-&gt;unit) (x))<br>    walk(cat)<br>    walk(dog)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>cat walk<br>dog walk<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Chain of responsibility pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Chain of responsibility pattern shows how a request can go through different function (responsibility) by using function composition. For more information, please go to http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Record = {<br>    Name : string;<br>    Age : int;<br>    Weight: float;<br>    Height: float;<br>}<br><span style="color:navy; font-weight:bold">let</span> ChainOfResponsibility() = <br>   <span style="color:navy; font-weight:bold"> let</span> validAge (record:Record) = <br>        record.Age &lt; 65 &amp;&amp; record.Age &gt; 18<br>   <span style="color:navy; font-weight:bold"> let</span> validWeight (record:Record) = <br>        record.Weight &lt; 200.<br>   <span style="color:navy; font-weight:bold"> let</span> validHeight (record:Record) = <br>        record.Height &gt; 120.<br><br>   <span style="color:navy; font-weight:bold"> let</span> check (f:Record-&gt;bool) (record:Record, result:bool) = <br>       <span style="color:navy; font-weight:bold"> if</span> result=false<span style="color:navy; font-weight:bold"> then</span> (record, false)<br>       <span style="color:navy; font-weight:bold"> else</span> (record, f(record))<br><br>   <span style="color:navy; font-weight:bold"> let</span> chainOfResponsibility = check(validAge) &gt;&gt; check(validWeight) &gt;&gt; check(validHeight)<br><br>   <span style="color:navy; font-weight:bold"> let</span> john = { Name = &quot;John&quot;; Age = 80; Weight = 180.; Height=180. }<br>   <span style="color:navy; font-weight:bold"> let</span> dan = { Name = &quot;Dan&quot;; Age = 20; Weight = 160.; Height=190. }<br><br>    printfn &quot;john result = %b&quot; ((chainOfResponsibility (john, true)) |&gt; snd)<br>    printfn &quot;dan result = %b&quot; ((chainOfResponsibility (dan, true)) |&gt; snd)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>john result = false<br>dan result = true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Chain of responsibility pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Chain of responsibility pattern implementation shows how a request can go through different function (responsibility) by using pipeline. For more information, please go to http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ChainOfResponsibility2() = <br>   <span style="color:navy; font-weight:bold"> let</span> chainTemplate processFunction canContinue s = <br>       <span style="color:navy; font-weight:bold"> if</span> canContinue s<span style="color:navy; font-weight:bold"> then</span> processFunction s<br>       <span style="color:navy; font-weight:bold"> else</span> s<br><br>   <span style="color:navy; font-weight:bold"> let</span> canContinueF _ = true<br>   <span style="color:navy; font-weight:bold"> let</span> processF x = x &#43; 1<br><br>   <span style="color:navy; font-weight:bold"> let</span> chainFunction = chainTemplate processF canContinueF   <span style="color:#008000">//combine two functions to get a chainFunction</span><br>   <span style="color:navy; font-weight:bold"> let</span> s = 1 |&gt; chainFunction |&gt; chainFunction<br>    printfn &quot;%A&quot; s<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Decorate pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Decorate pattern implementation shows how we can add new functionality (check zero) dynamically. For more information, please go to http://en.wikipedia.org/wiki/Decorator_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Divide() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> divide = fun (a,b) -&gt; a / b<br>   <span style="color:navy; font-weight:bold"> member</span> this.Function<br>       <span style="color:navy; font-weight:bold"> with</span> get() = divide<br>       <span style="color:navy; font-weight:bold"> and</span> set(v) = divide &lt;- v<br>   <span style="color:navy; font-weight:bold"> member</span> this.Invoke(a,b) = divide (a,b)<br><br><span style="color:navy; font-weight:bold">let</span> decorate() = <br>   <span style="color:navy; font-weight:bold"> let</span> d = Divide()<br>   <span style="color:navy; font-weight:bold"> let</span> checkZero (a,b) =<span style="color:navy; font-weight:bold"> if</span> b = 0<span style="color:navy; font-weight:bold"> then</span> failwith &quot;a/b<span style="color:navy; font-weight:bold"> and</span> b is 0&quot;<span style="color:navy; font-weight:bold"> else</span> (a,b)<br>    try <br>        d.Invoke(1, 0) |&gt; ignore<br>   <span style="color:navy; font-weight:bold"> with</span> e -&gt; printfn &quot;without check, the error is = %s&quot; e.Message<br>    d.Function &lt;- checkZero &gt;&gt; d.Function <br>    try<br>        d.Invoke(1,0) |&gt; ignore<br>   <span style="color:navy; font-weight:bold"> with</span> e -&gt; printfn &quot;after add check, error is = %s&quot; e.Message<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>without check, the error is = Attempted to divide by zero.<br>after add check, error is = a/b and b is 0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Observer pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: This sample show how a change can notify different subscribers. For more information, please go to http://en.wikipedia.org/wiki/Observer_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Subject() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> notify = fun _ -&gt; ()<br>   <span style="color:navy; font-weight:bold"> member</span> this.Subscribe (notifyFunction) = <br>       <span style="color:navy; font-weight:bold"> let</span> wrap f i = f(i); i<br>        notify &lt;- (wrap notifyFunction) &gt;&gt; notify<br>   <span style="color:navy; font-weight:bold"> member</span> this.Reset() = notify &lt;- fun _ -&gt; ()<br>   <span style="color:navy; font-weight:bold"> member</span> this.SomethingHappen(k) = <br>        notify k<br><br><span style="color:navy; font-weight:bold">type</span> ObserverA() =<br>   <span style="color:navy; font-weight:bold"> member</span> this.NotifyMe(i) = printfn &quot;notified A %A&quot; i<br><span style="color:navy; font-weight:bold">type</span> ObserverB() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.NotifyMeB(i) = printfn &quot;notified B %A&quot; i<br><span style="color:navy; font-weight:bold">let</span> observer() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = ObserverA()<br>   <span style="color:navy; font-weight:bold"> let</span> b = ObserverB()<br>   <span style="color:navy; font-weight:bold"> let</span> subject = Subject()<br>    subject.Subscribe(a.NotifyMe)<br>    subject.Subscribe(b.NotifyMeB)<br>    subject.SomethingHappen(&quot;good&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>notified B &quot;good&quot;<br>notified A &quot;good&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

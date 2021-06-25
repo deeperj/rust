@@ -2696,9 +2696,6 @@
 					<entry kind="macro" name="__CHAR16_TYPE__" value="short unsigned int">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__CHAR32_TYPE__" value="long unsigned int">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__CHAR_BIT__" value="8">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -2900,9 +2897,6 @@
 					<entry kind="macro" name="__FLT32_HAS_QUIET_NAN__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__FLT32_MANT_DIG__" value="24">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__FLT32_MAX_10_EXP__" value="38">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3014,6 +3008,9 @@
 					<entry kind="macro" name="__FLT_RADIX__" value="2">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__FRACT_EPSILON__" value="24">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__FRACT_EPSILON__" value="0x1P-15R">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3110,6 +3107,9 @@
 					<entry kind="macro" name="__INT32_C(c)" value="c ## L">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__INT32_MAX__" value="long unsigned int">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__INT32_MAX__" value="0x7fffffffL">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3162,9 +3162,6 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__INT_FAST16_WIDTH__" value="32">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="macro" name="__INT_FAST32_MAX__" value="0x7fffffff">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__INT_FAST32_TYPE__" value="int">
@@ -3395,6 +3392,9 @@
 					<entry kind="macro" name="__SACCUM_MIN__" value="(-0X1P7HK-0X1P7HK)">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__SA_FBIT__" value="(-0.5HR-0.5HR)">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__SA_FBIT__" value="15">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3417,9 +3417,6 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__SFRACT_MAX__" value="0X7FP-7HR">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="macro" name="__SFRACT_MIN__" value="(-0.5HR-0.5HR)">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__SHRT_MAX__" value="0x7fff">

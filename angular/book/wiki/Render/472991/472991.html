@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Factory pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Factory pattern implementation: it returns different types based on inputs. For more information, please go to http://en.wikipedia.org/wiki/Factory_method_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> factorySample() = <br>   <span style="color:navy; font-weight:bold"> let</span> factory = function<br>      | TypeA -&gt; {<span style="color:navy; font-weight:bold"> new</span> IA<span style="color:navy; font-weight:bold"> with</span> <br>                      <span style="color:navy; font-weight:bold"> member</span> this.Action() = printfn &quot;type A&quot; }<br>      | TypeB -&gt; {<span style="color:navy; font-weight:bold"> new</span> IA<span style="color:navy; font-weight:bold"> with</span> <br>                     <span style="color:navy; font-weight:bold"> member</span> this.Action() = printfn &quot;type B&quot; }<br>   <span style="color:navy; font-weight:bold"> let</span> output = factory Type.TypeA<br>    output.Action()<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>type A<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

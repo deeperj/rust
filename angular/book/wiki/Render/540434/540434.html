@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Cartesian product</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: Cartesian product on two tables</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider14() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>       <span style="color:navy; font-weight:bold"> for</span> m<span style="color:navy; font-weight:bold"> in</span> db.Course<span style="color:navy; font-weight:bold"> do</span> <br>        select (n, m)<br>        }<br>    q |&gt; Seq.iter (fun (student, course) -&gt; printfn &quot;%A %A&quot; student.Name course.CourseName)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot; &quot;Math&quot;<br>&quot;Brent&quot; &quot;Math&quot;<br>&quot;Anita&quot; &quot;Math&quot;<br>&quot;Ken&quot; &quot;Math&quot;<br>&quot;Cathy&quot; &quot;Math&quot;<br>&quot;Tom&quot; &quot;Math&quot;<br>&quot;Zeoy&quot; &quot;Math&quot;<br>&quot;Mark&quot; &quot;Math&quot;<br>&quot;John&quot; &quot;Math&quot;<br>&quot;Lisa&quot; &quot;Physics&quot;<br>&quot;Brent&quot; &quot;Physics&quot;<br>&quot;Anita&quot; &quot;Physics&quot;<br>&quot;Ken&quot; &quot;Physics&quot;<br>&quot;Cathy&quot; &quot;Physics&quot;<br>&quot;Tom&quot; &quot;Physics&quot;<br>&quot;Zeoy&quot; &quot;Physics&quot;<br>&quot;Mark&quot; &quot;Physics&quot;<br>&quot;John&quot; &quot;Physics&quot;<br>&quot;Lisa&quot; &quot;Biology&quot;<br>&quot;Brent&quot; &quot;Biology&quot;<br>&quot;Anita&quot; &quot;Biology&quot;<br>&quot;Ken&quot; &quot;Biology&quot;<br>&quot;Cathy&quot; &quot;Biology&quot;<br>&quot;Tom&quot; &quot;Biology&quot;<br>&quot;Zeoy&quot; &quot;Biology&quot;<br>&quot;Mark&quot; &quot;Biology&quot;<br>&quot;John&quot; &quot;Biology&quot;<br>&quot;Lisa&quot; &quot;English&quot;<br>&quot;Brent&quot; &quot;English&quot;<br>&quot;Anita&quot; &quot;English&quot;<br>&quot;Ken&quot; &quot;English&quot;<br>&quot;Cathy&quot; &quot;English&quot;<br>&quot;Tom&quot; &quot;English&quot;<br>&quot;Zeoy&quot; &quot;English&quot;<br>&quot;Mark&quot; &quot;English&quot;<br>&quot;John&quot; &quot;English&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

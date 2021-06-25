@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Function with type contraints</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Define function with type contraints</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span><span style="color:navy; font-weight:bold"> inline</span> tryParseFunction2 s =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> x = Unchecked.defaultof&lt; ^T&gt;<br>   <span style="color:navy; font-weight:bold"> if</span> (^T: (static<span style="color:navy; font-weight:bold"> member</span> TryParse: string * ^T byref -&gt; bool) (s, &amp;x)) <br>   <span style="color:navy; font-weight:bold"> then</span> Some x <br>   <span style="color:navy; font-weight:bold"> else</span> None<br><br><span style="color:navy; font-weight:bold">let</span> TypeConstraintsSample3() =     <br>   <span style="color:navy; font-weight:bold"> let</span> ``seq`` = [ &quot;1&quot;; &quot;2&quot;; &quot;3&quot;; &quot;NotInt&quot; ] |&gt; List.map tryParseFunction2<br>    ``seq`` |&gt; Seq.iter (printfn &quot;%A&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Some 1<br>Some 2<br>Some 3<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

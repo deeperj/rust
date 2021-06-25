@@ -1,0 +1,24 @@
+<div class="wikidoc">
+<p>let connect conStr =</p>
+<p>&nbsp;&nbsp;&nbsp; printfn &quot;connect to database: %s&quot; conStr</p>
+<p>let query queryStr =</p>
+<p>&nbsp;&nbsp;&nbsp; printfn &quot;query database %s&quot; queryStr</p>
+<p>let disconnect ()&nbsp; =</p>
+<p>&nbsp;&nbsp;&nbsp; printfn &quot;disconnect&quot;</p>
+<p>type Template(connF, queryF, disconnF) =&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; member this.Execute(conStr, queryStr) =</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.TemplateF conStr queryStr</p>
+<p>&nbsp;&nbsp;&nbsp; member this.TemplateF</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with get() =</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let f conStr queryStr =</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connF conStr</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queryF queryStr</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; disconnF ()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f</p>
+<p>&nbsp;</p>
+<p>let template() =</p>
+<p>&nbsp;&nbsp;&nbsp; let s = Template(connect, query, disconnect)&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; s.Execute(&quot;&lt;connection string&gt;&quot;, &quot;select * from tableA&quot;)</p>
+<p>&nbsp;</p>
+<p>template()</p>
+</div><div class="ClearBoth"></div>

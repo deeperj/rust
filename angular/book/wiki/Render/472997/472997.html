@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>State pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: State pattern implementation shows how a class's internal state can change its behavior. For more information, please go to http://en.wikipedia.org/wiki/Factory_method_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> AccountState = <br>    | Overdrawn<br>    | Silver<br>    | Gold<br>[]<span style="color:navy; font-weight:bold"> type</span> USD<br><span style="color:navy; font-weight:bold">type</span> Account&lt;[] 'u&gt;() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> balance = 0.0&lt;_&gt;   <br>   <span style="color:navy; font-weight:bold"> member</span> this.State<br>       <span style="color:navy; font-weight:bold"> with</span> get() = <br>           <span style="color:navy; font-weight:bold"> match</span> balance<span style="color:navy; font-weight:bold"> with</span> <br>            | _ when balance &lt;= 0.0&lt;_&gt; -&gt; Overdrawn<br>            | _ when balance &gt; 0.0&lt;_&gt; &amp;&amp; balance &lt; 10000.0&lt;_&gt; -&gt; Silver<br>            | _ -&gt; Gold<br>   <span style="color:navy; font-weight:bold"> member</span> this.PayInterest() = <br>       <span style="color:navy; font-weight:bold"> let</span> interest = <br>           <span style="color:navy; font-weight:bold"> match</span> this.State<span style="color:navy; font-weight:bold"> with</span> <br>                | Overdrawn -&gt; 0.<br>                | Silver -&gt; 0.01<br>                | Gold -&gt; 0.02<br>        interest * balance<br>   <span style="color:navy; font-weight:bold"> member</span> this.Deposit(x:float&lt;_&gt;) =  <br>       <span style="color:navy; font-weight:bold"> let</span> (a:float&lt;_&gt;) = x<br>        balance &lt;- balance &#43; a<br>   <span style="color:navy; font-weight:bold"> member</span> this.Withdraw(x:float&lt;_&gt;) = balance &lt;- balance - x<br><br><span style="color:navy; font-weight:bold">let</span> state() = <br>   <span style="color:navy; font-weight:bold"> let</span> account = Account()<br>    account.Deposit(10000.)<br>    printfn &quot;interest = %A&quot; (account.PayInterest())<br>    account.Withdraw(20000.)<br>    printfn &quot;interest = %A&quot; (account.PayInterest())<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>interest = 200.0<br>interest = 0.0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

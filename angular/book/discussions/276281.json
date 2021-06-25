@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "685707",
+    "ThreadId": "276281",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I'm an avid F# 2.0 user as well as some prior experiences with Java, where I used design patterns quite&nbsp;aggressively.&nbsp;</p>\r\n<p>While looking at the design patterns proposed in this project, I see that most of them (if not all of them) are implemented using pattern matching. While this might seem natural and easy to read in a language like F#, it is generally not recommended when\r\n designing software in general, since pattern matching violates the open/closed principle (see&nbsp;<a href=\"http://en.wikipedia.org/wiki/Open/closed_principle\">http://en.wikipedia.org/wiki/Open/closed_principle</a>).</p>\r\n<p><span style=\"direction:ltr\">For instance, the command pattern example posted in this project (<a href=\"http://fsharp3sample.codeplex.com/wikipage?title=Command%20pattern\">http://fsharp3sample.codeplex.com/wikipage?title=Command%20pattern</a>) defines a CommandType\r\n as an enumerate with two values Deposit and Withdraw. The Do and Undo functions pattern match on these enumerate values to decide what to do.\r\n</span></p>\r\n<p><span style=\"direction:ltr\">While this achieves the desired functionality, it provides no extensibility at all. If I wanted to add a third operation (say PrintBalance), I would have to manually change all of the places where the CommandType is pattern matched\r\n (I have to admit that the F# compiler would warn if one such pattern matching expression is not updated, but still..).&nbsp;</span></p>\r\n<p>In my opinion, this design pattern would be better implemented if the TCommand type is defined as follows:</p>\r\n<p></p>\r\n<pre>type TCommand =\r\n   { Amount : int\r\n      Do: int -&gt; int -&gt; int;\r\n      Undo: int -&gt; int -&gt; int;\r\n      Name: string }\r\n\r\nlet withdraw x = { Amount = x; Do = (-); Undo = (&#43;); Name = &quot;Withdraw&quot; }\r\n\r\nlet deposit x = { Amount = x; Do = (&#43;); Undo = (-); Name = &quot;deposit&quot; }\r\n\r\nlet operate (balance: int) (c: TCommand) =\r\n  printfn &quot;Doing a %s operation&quot; c.Name\r\n  let newBalance = c.Do c.Amount balance\r\n  printfn &quot;New balance is %O&quot; newBalance \r\n  newBalance</pre>\r\n<p></p>\r\n<p>Excuse me if it does not compile, I have no access to an F# compiler right now (not even\r\n<a href=\"http://www.tryfsharp.org/\">http://www.tryfsharp.org</a>, due to browser plug-in requirements).</p>\r\n<p>Thanks,</p>\r\n<p>Guido</p>\r\n",
+    "PostedDate": "2011-10-18T05:34:56.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815871",
+    "ThreadId": "276281",
+    "Html": "<p><br />Design Patterns are common \"best practice\" ways to manage object-oriented problems that doesn't exist in functional language. While it is nice to have some sample code here, I think OO-patterns may noy be the best thing.</p>\n<hr />\n<p>Why would you use ICommand anyway? Next you need some IHasPermission to check that no-one can't inject your code. And so on. While you could use the function as type in the first place.</p>\n<p>Or if you absolutely want to just execute:</p>\n<pre>let Do f = f()</pre>\n<p>(silly method) or maybe:</p>\n<pre>let Do hasPermissions f = \r\n    if hasPermissions() then f()</pre>\n<hr />\n<p>Generally I would say extensibility is not the problem in functional programming as it is in OO-world. The reason is that with OO you try to bottom-up model the whole world. In functional programming you can use partial application and compose things with top-down design.</p>\n<p>I could make:</p>\n<pre>let myProcess = Save &gt;&gt; Validate &gt;&gt; Send</pre>\n<p>without even yet defining the parameter, the object x, when in OO I should first define every property of this x.</p>\n<hr />\n<p>Usually business logic is messy unstructured if-jungle.<br />You can solve this with pattern matching which keeps your complex logic clean.</p>\n<p>I discussed this with a Java-architect and here are some examples of his sample Java-code&nbsp;as F#:<br /><a href=\"http://pastebin.com/2uKMDRsx\">http://pastebin.com/2uKMDRsx</a><br /><a href=\"http://pastebin.com/BQfCu0fS\">http://pastebin.com/BQfCu0fS</a></p>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-26T21:01:04.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830040",
+    "ThreadId": "276281",
+    "Html": "<p>Great suggestion, Gdecaso..&nbsp;</p>\r\n<p>we will make a change according to your suggestion.</p>",
+    "PostedDate": "2012-04-29T21:05:16.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

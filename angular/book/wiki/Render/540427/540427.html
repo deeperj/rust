@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query DISTINCT COUNT case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: DISTINCT COUNT. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider10() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        join (for e<span style="color:navy; font-weight:bold"> in</span> db.CourseSelection -&gt; n.StudentID = e.StudentID)<br>        distinct<br>        count       <br>    }<br>    printfn &quot;distinct count = %d&quot; q<br>    Assert.AreEqual(q, 6)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>distinct count = 6<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,380 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using Tuples</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of tuples</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> TupleSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = 1,2,3<br>    printfn &quot;data = \n%A&quot; data<br>   <span style="color:navy; font-weight:bold"> let</span> f (a,b,c) = (a&#43;b,b&#43;c,c&#43;a) <br>   <span style="color:navy; font-weight:bold"> let</span> res = f(f(f(data))) <br>    printfn &quot;res = \n%A&quot; res<br>   <span style="color:navy; font-weight:bold"> let</span> r1,r2,r3 = res <br>    printfn &quot;r1 = %d, r2 = %d, r3 = %d&quot; r1 r2 r3<br>   <span style="color:navy; font-weight:bold"> let</span> r4,r5,r6 = f(res) <br>    printfn &quot;r4 = %d, r5 = %d, r6 = %d&quot; r4 r5 r6<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data = <br>(1, 2, 3)<br>res = <br>(17, 16, 15)<br>r1 = 17, r2 = 16, r3 = 15<br>r4 = 33, r5 = 31, r6 = 32<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Tuple to list</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample converts a tuple to a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> TupleToList() = <br>   <span style="color:navy; font-weight:bold"> let</span> tupleToList t = <br>       <span style="color:navy; font-weight:bold"> if</span> Microsoft.FSharp.Reflection.FSharpType.IsTuple(t.GetType()) <br>       <span style="color:navy; font-weight:bold"> then</span> Some (Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields t |&gt; Array.toList)<br>       <span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> r = tupleToList (1,2,3,4)<br>   <span style="color:navy; font-weight:bold"> match</span> r<span style="color:navy; font-weight:bold"> with</span> <br>    | Some(x) -&gt; x |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    | None -&gt; printfn &quot;no element&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1<br>2<br>3<br>4<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>List to Tuple</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample convert a list to a tuple</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListToTuple() = <br>   <span style="color:navy; font-weight:bold"> let</span> listToTuple l =<br>       <span style="color:navy; font-weight:bold"> let</span> l' = List.toArray l<br>       <span style="color:navy; font-weight:bold"> let</span> types = l' |&gt; Array.map (fun o -&gt; o.GetType())<br>       <span style="color:navy; font-weight:bold"> let</span> tupleType = Microsoft.FSharp.Reflection.FSharpType.MakeTupleType types<br>        Microsoft.FSharp.Reflection.FSharpValue.MakeTuple (l' , tupleType)<br>   <span style="color:navy; font-weight:bold"> let</span> r = (listToTuple [1,2,3,4]) |&gt; Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields<br>    r.[0] |&gt; printfn &quot;%A&quot;<br>    <br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(1, 2, 3, 4)<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic List Construction</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample demonstrates basic list construction</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListConstruction() =<br><br>    <span style="color:#008000">// Create an empty list</span><br>   <span style="color:navy; font-weight:bold"> let</span> emptyL = []<br><br>    <span style="color:#008000">// Create a simple floating-point number list</span><br>   <span style="color:navy; font-weight:bold"> let</span> smallFloatsL = [1.0; 2.0; 3.0; 4.0]<br><br>    <span style="color:#008000">// Create a list using a range expression - same rules as with arrays, step is optional</span><br>   <span style="color:navy; font-weight:bold"> let</span> listRngExp = [0..2..10]<br><br>    <span style="color:#008000">// Create a list using a function based on index</span><br>   <span style="color:navy; font-weight:bold"> let</span> listByInit = List.init 5 (fun i -&gt; i*i*i)<br><br>    <span style="color:#008000">// Create a list using list comprehension</span><br>   <span style="color:navy; font-weight:bold"> let</span> listLC = [<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5<span style="color:navy; font-weight:bold"> do</span> yield (i * 2) ]<br>       <br>    <span style="color:#008000">// Another example of list comprehension</span><br>   <span style="color:navy; font-weight:bold"> let</span> listLC2 = [<span style="color:navy; font-weight:bold"> for</span> p<span style="color:navy; font-weight:bold"> in</span> [(0,0); (1,1); (2,4); (3,9); (4,16); (5,25); (6, 36)]<span style="color:navy; font-weight:bold"> do</span> <br>                       <span style="color:navy; font-weight:bold"> match</span> p<span style="color:navy; font-weight:bold"> with</span> <br>                        | (a,_) when a%2=0 -&gt; yield p<br>                        | (_,_) -&gt; () ]<br>                        <br>    printfn &quot;emptyL = %A&quot; emptyL<br>    printfn &quot;\nsmallFloatsL = %A&quot; smallFloatsL<br>    printfn &quot;\nlistRngExp = %A&quot; listRngExp<br>    printfn &quot;\nlistByInit = %A&quot; listByInit<br>    printfn &quot;\nlistLC = %A&quot; listLC<br>    printfn &quot;\nlistLC2 = %A&quot; listLC2<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>emptyL = []<br><br>smallFloatsL = [1.0; 2.0; 3.0; 4.0]<br><br>listRngExp = [0; 2; 4; 6; 8; 10]<br><br>listByInit = [0; 1; 8; 27; 64]<br><br>listLC = [2; 4; 6; 8; 10]<br><br>listLC2 = [(0, 0); (2, 4); (4, 16); (6, 36)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic List Construction 2</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample demonstrates a simple generative list comprehension to specify lists</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SequenceExpressionSample1() =<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> data1 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..20 -&gt; x, x * x ]<br><br>    <span style="color:#008000">// This uses a nested loop</span><br>   <span style="color:navy; font-weight:bold"> let</span> data2 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                   <span style="color:navy; font-weight:bold"> for</span> y<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                      yield x, y, x * y ]<br><br>    <span style="color:#008000">// This uses a filter</span><br>   <span style="color:navy; font-weight:bold"> let</span> data3 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                   <span style="color:navy; font-weight:bold"> for</span> y<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                     <span style="color:navy; font-weight:bold"> if</span> x &gt; y<span style="color:navy; font-weight:bold"> then</span> <br>                        yield (x, y, x * y) ]<br><br>    <span style="color:#008000">// This uses an internal let-binding</span><br>   <span style="color:navy; font-weight:bold"> let</span> data4 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                   <span style="color:navy; font-weight:bold"> for</span> y<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                     <span style="color:navy; font-weight:bold"> if</span> x &gt; y<span style="color:navy; font-weight:bold"> then</span> <br>                       <span style="color:navy; font-weight:bold"> let</span> z = x * y <br>                        yield (x, y, z) ]<br>    <br>    printfn &quot;data1 = \n%A\n\n&quot; data1<br>    printfn &quot;data2 = \n%A\n\n&quot; data2<br>    printfn &quot;data3 = \n%A\n\n&quot; data3<br>    printfn &quot;data4 = \n%A\n\n&quot; data4<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data1 = <br>[(0, 0); (1, 1); (2, 4); (3, 9); (4, 16); (5, 25); (6, 36); (7, 49); (8, 64);<br> (9, 81); (10, 100); (11, 121); (12, 144); (13, 169); (14, 196); (15, 225);<br> (16, 256); (17, 289); (18, 324); (19, 361); (20, 400)]<br><br><br>data2 = <br>[(0, 0, 0); (0, 1, 0); (0, 2, 0); (0, 3, 0); (0, 4, 0); (0, 5, 0); (1, 0, 0);<br> (1, 1, 1); (1, 2, 2); (1, 3, 3); (1, 4, 4); (1, 5, 5); (2, 0, 0); (2, 1, 2);<br> (2, 2, 4); (2, 3, 6); (2, 4, 8); (2, 5, 10); (3, 0, 0); (3, 1, 3); (3, 2, 6);<br> (3, 3, 9); (3, 4, 12); (3, 5, 15); (4, 0, 0); (4, 1, 4); (4, 2, 8); (4, 3, 12);<br> (4, 4, 16); (4, 5, 20); (5, 0, 0); (5, 1, 5); (5, 2, 10); (5, 3, 15);<br> (5, 4, 20); (5, 5, 25)]<br><br><br>data3 = <br>[(1, 0, 0); (2, 0, 0); (2, 1, 2); (3, 0, 0); (3, 1, 3); (3, 2, 6); (4, 0, 0);<br> (4, 1, 4); (4, 2, 8); (4, 3, 12); (5, 0, 0); (5, 1, 5); (5, 2, 10); (5, 3, 15);<br> (5, 4, 20)]<br><br><br>data4 = <br>[(1, 0, 0); (2, 0, 0); (2, 1, 2); (3, 0, 0); (3, 1, 3); (3, 2, 6); (4, 0, 0);<br> (4, 1, 4); (4, 2, 8); (4, 3, 12); (5, 0, 0); (5, 1, 5); (5, 2, 10); (5, 3, 15);<br> (5, 4, 20)]<br><br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Pattern Matching</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of lists and functions that pattern match on them.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [1;2;3;4]<br>    printfn &quot;data = \n%A&quot; data<br>    printfn &quot;List.head data = %d&quot; (List.head data)<br>    printfn &quot;List.tail data = \n%A&quot; (List.tail data)<br>    printfn &quot;List.length data = %d&quot; (List.length data)<br>   <span style="color:navy; font-weight:bold"> let</span> consume data = <br>       <span style="color:navy; font-weight:bold"> match</span> data<span style="color:navy; font-weight:bold"> with</span> <br>        | 1::rest    -&gt; printfn &quot;matched a 1&quot;;       rest<br>        | 2::3::rest -&gt; printfn &quot;matched a 2<span style="color:navy; font-weight:bold"> and</span> 3&quot;; rest <br>        | [4]        -&gt; printfn &quot;matched a 4&quot;;       []<br>        | _          -&gt; printfn &quot;unexpected!&quot;;         [] <br>   <span style="color:navy; font-weight:bold"> let</span> data = consume data <br>   <span style="color:navy; font-weight:bold"> let</span> data = consume data <br>   <span style="color:navy; font-weight:bold"> let</span> data = consume data <br>    printfn &quot;At<span style="color:navy; font-weight:bold"> end</span> of list? %b&quot; (data = [])<br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data = <br>[1; 2; 3; 4]<br>List.head data = 1<br>List.tail data = <br>[2; 3; 4]<br>List.length data = 4<br>matched a 1<br>matched a 2 and 3<br>matched a 4<br>At end of list? true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and 'map'</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: String23'</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [1;2;3;4]<br>   <span style="color:navy; font-weight:bold"> let</span> r1 = data |&gt; List.map (fun x -&gt; x &#43; 1)<br>    printfn &quot;Adding '1' using map = %A&quot; r1<br>   <span style="color:navy; font-weight:bold"> let</span> r2 = data |&gt; List.map string<br>    printfn &quot;Converting<span style="color:navy; font-weight:bold"> to</span> strings using map = %A&quot; r2<br>   <span style="color:navy; font-weight:bold"> let</span> r3 = data |&gt; List.map (fun x -&gt; (x,x))<br>    printfn &quot;Tupling up using map = %A&quot; r3<br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Adding '1' using map = [2; 3; 4; 5]<br>Converting to strings using map = [&quot;1&quot;; &quot;2&quot;; &quot;3&quot;; &quot;4&quot;]<br>Tupling up using map = [(1, 1); (2, 2); (3, 3); (4, 4)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Iteration</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of 'iter'</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample3() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [&quot;Cats&quot;;&quot;Dogs&quot;;&quot;Mice&quot;;&quot;Elephants&quot;]<br>    data |&gt; List.iter (fun x -&gt; printfn &quot;item: %s&quot; x)<br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>item: Cats<br>item: Dogs<br>item: Mice<br>item: Elephants<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Indexed Iteration</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of 'iteri'</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample4() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [&quot;Cats&quot;;&quot;Dogs&quot;;&quot;Mice&quot;;&quot;Elephants&quot;]<br>    data |&gt; List.iteri (fun i x -&gt; printfn &quot;item %d: %s&quot; i x)<br> <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>item 0: Cats<br>item 1: Dogs<br>item 2: Mice<br>item 3: Elephants<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Folding</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of 'fold' to accumulate a result over a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample5() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [(&quot;Cats&quot;,4);<br>                (&quot;Dogs&quot;,5);<br>                (&quot;Mice&quot;,3);<br>                (&quot;Elephants&quot;,2)]<br>   <span style="color:navy; font-weight:bold"> let</span> count = List.fold (fun acc (nm,x) -&gt; acc&#43;x) 0 data<br>    printfn &quot;Total number of animals: %d&quot; count<br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Total number of animals: 14<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Filter</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows how to filter a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample6() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [(&quot;Cats&quot;,4);<br>                (&quot;Dogs&quot;,5);<br>                (&quot;Mice&quot;,3);<br>                (&quot;Elephants&quot;,2)]<br>   <span style="color:navy; font-weight:bold"> let</span> res = data |&gt; List.filter (fun (nm,x) -&gt; nm.Length &lt;= 4)<br>    printfn &quot;Animals<span style="color:navy; font-weight:bold"> with</span> short names: %A&quot; res<br> <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Animals with short names: [(&quot;Cats&quot;, 4); (&quot;Dogs&quot;, 5); (&quot;Mice&quot;, 3)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Choose</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: Project from a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample7() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [(&quot;Cats&quot;,4);<br>                (&quot;Dogs&quot;,5);<br>                (&quot;Mice&quot;,3);<br>                (&quot;Elephants&quot;,2)]<br>   <span style="color:navy; font-weight:bold"> let</span> res = data |&gt; List.choose (fun (nm,x) -&gt;<span style="color:navy; font-weight:bold"> if</span> nm.Length &lt;= 4<span style="color:navy; font-weight:bold"> then</span> Some(x)<span style="color:navy; font-weight:bold"> else</span> None)<br>    printfn &quot;Counts of animals<span style="color:navy; font-weight:bold"> with</span> short names: %A&quot; res<br> <br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Counts of animals with short names: [4; 5; 3]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Simple options</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: Create some optional values, print them and match on them.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> OptionsSample2() =<br><br>   <span style="color:navy; font-weight:bold"> let</span> data = Some(1,3)<br>    printfn &quot;data = %A&quot; data;<br>    printfn &quot;data.IsSome = %b&quot; data.IsSome<br>    printfn &quot;data.IsNone = %b&quot; data.IsNone<br>    printfn &quot;data.Value = %A&quot; data.Value<br><br>   <span style="color:navy; font-weight:bold"> let</span> data2 = None<br>    printfn &quot;data2.IsSome = %b&quot; data2.IsSome<br>    printfn &quot;data2.IsNone = %b&quot; data2.IsNone<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data = Some (1, 3)<br>data.IsSome = true<br>data.IsNone = false<br>data.Value = (1, 3)<br>data2.IsSome = false<br>data2.IsNone = true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using options for data</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: Here we return an option from a function indicating the opening hours of a shop, if any.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> OptionsSample3() =<br><br>   <span style="color:navy; font-weight:bold"> let</span> openingHours day = <br>       <span style="color:navy; font-weight:bold"> match</span> day<span style="color:navy; font-weight:bold"> with</span> <br>        | DayOfWeek.Monday <br>        | DayOfWeek.Tuesday <br>        | DayOfWeek.Thursday <br>        | DayOfWeek.Friday    -&gt; Some(9,17)<br>        | DayOfWeek.Wednesday -&gt; Some(9,19) <span style="color:#008000">// extended hours on Wednesday</span><br>        | _ -&gt; None <br><br>   <span style="color:navy; font-weight:bold"> let</span> today = DateTime.Now.DayOfWeek <br><br>   <span style="color:navy; font-weight:bold"> match</span> openingHours today<span style="color:navy; font-weight:bold"> with</span> <br>    | None -&gt; printfn &quot;The shop's not open today&quot;<br>    | Some(s,f) -&gt; printfn &quot;The shop's open today from %02d:00-%d:00&quot; s f<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The shop's open today from 09:00-17:00<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

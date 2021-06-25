@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Varaible name with space</strong><strong><br>
+<br>
+Category: </strong>Others<br>
+<strong>Description</strong>: Unlike other programming language, F# support a way to specify a variable name with space inside.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> VariableNameSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> ``good one`` = 3<br>    printfn &quot;%d&quot; ``good one``<br>    Assert.AreEqual(``good one``, 3) <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>3<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

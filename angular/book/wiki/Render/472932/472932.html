@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>More Basic Records</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Examples of cloning records using 'with' keyword and accessing record fields using . (dot).</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> simpleRecord = {Name: string; Job: string; Wage: int}<br><br><span style="color:navy; font-weight:bold">let</span> RecordSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> worker = { Name = &quot;Bill&quot;; Job = &quot;Cashier&quot;; Wage = 20 }<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> worker2 = { worker<span style="color:navy; font-weight:bold"> with</span> Name = &quot;John&quot;; Wage = 15 }<br>    <br>    printfn &quot;%s is a %s<span style="color:navy; font-weight:bold"> and</span> makes $%d per hour&quot; worker.Name worker.Job worker.Wage<br>    printfn &quot;\n%s is a %s<span style="color:navy; font-weight:bold"> and</span> makes $%d per hour&quot; worker2.Name worker2.Job worker2.Wage<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Bill is a Cashier and makes $20 per hour<br><br>John is a Cashier and makes $15 per hour<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using arrays</strong><strong><br>
+<br>
+Category: </strong>Arrays, Hash Tables and Dictionaries<br>
+<strong>Description</strong>: Create a histogram of the occurrences of particular letters</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleArray2() =<br>   <span style="color:navy; font-weight:bold"> let</span> numLetters = 26 <br>   <span style="color:navy; font-weight:bold"> let</span> results = Array.create numLetters 0 <br>   <span style="color:navy; font-weight:bold"> let</span> data = &quot;The quick brown fox jumps over the lazy dog&quot; <br>   <span style="color:navy; font-weight:bold"> for</span> i = 0<span style="color:navy; font-weight:bold"> to</span> data.Length - 1<span style="color:navy; font-weight:bold"> do</span> <br>       <span style="color:navy; font-weight:bold"> let</span> c = data.Chars(i) <br>       <span style="color:navy; font-weight:bold"> let</span> c = Char.ToUpper(c)  <br>       <span style="color:navy; font-weight:bold"> if</span> c &gt;= 'A' &amp;&amp; c &lt;= 'Z'<span style="color:navy; font-weight:bold"> then</span> <br>           <span style="color:navy; font-weight:bold"> let</span> i = int c - int 'A' <br>            results.[i] &lt;- results.[i] &#43; 1<br>   <span style="color:navy; font-weight:bold"> for</span> i = 0<span style="color:navy; font-weight:bold"> to</span> numLetters - 1<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;Number of '%c' characters = %d&quot; (char (i &#43; int 'A')) results.[i]<br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Number of 'A' characters = 1<br>Number of 'B' characters = 1<br>Number of 'C' characters = 1<br>Number of 'D' characters = 1<br>Number of 'E' characters = 3<br>Number of 'F' characters = 1<br>Number of 'G' characters = 1<br>Number of 'H' characters = 2<br>Number of 'I' characters = 1<br>Number of 'J' characters = 1<br>Number of 'K' characters = 1<br>Number of 'L' characters = 1<br>Number of 'M' characters = 1<br>Number of 'N' characters = 1<br>Number of 'O' characters = 4<br>Number of 'P' characters = 1<br>Number of 'Q' characters = 1<br>Number of 'R' characters = 2<br>Number of 'S' characters = 1<br>Number of 'T' characters = 2<br>Number of 'U' characters = 2<br>Number of 'V' characters = 1<br>Number of 'W' characters = 1<br>Number of 'X' characters = 1<br>Number of 'Y' characters = 1<br>Number of 'Z' characters = 1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

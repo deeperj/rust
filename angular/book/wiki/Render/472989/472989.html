@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: For more information about composite pattern, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CompositeNode&lt;'T&gt; = <br>    | Node of 'T<br>    | Tree of 'T * CompositeNode&lt;'T&gt; * CompositeNode&lt;'T&gt;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> this.InOrder f = <br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.InOrder(f)<br>                f(n)<br>                right.InOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PreOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt;                 <br>                f(n)<br>                left.PreOrder(f)<br>                right.PreOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PostOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.PostOrder(f)<br>                right.PostOrder(f)<br>                f(n)<br>            | Node(n) -&gt; f(n)<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> nodeAccessFunc = printf &quot;%A,&quot;<br><br>    printf &quot;in order process: &quot;<br>    tree.InOrder nodeAccessFunc<br>    printfn &quot;&quot;<br><br>    printf &quot;pre order process: &quot;<br>    tree.PreOrder nodeAccessFunc<br>    printfn &quot;&quot;<br><br>    printf &quot;post order process: &quot;<br>    tree.PostOrder nodeAccessFunc<br>    printfn &quot;&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>in order process: 12,11,13,1,2,<br>pre order process: 1,11,12,13,2,<br>post order process: 12,13,11,2,1,<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>
