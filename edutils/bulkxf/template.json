@@ -1,0 +1,17 @@
+{
+  "source": "",
+  "rootDest": "",
+  "commands": [],
+  "undo": [],
+  "redo": [],
+  "supportedCommands":[
+    "copy",
+    "rename",
+    "move",
+    "deleteSrc",
+    "deleteDest",
+    "deleteRootDest",
+    "createByDate",
+    "createByMonthYear"
+  ]
+}

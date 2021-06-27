@@ -9,11 +9,16 @@ module commands
   open ui2
 
 
-  type Command(dependency: Command) =
-    let depends = dependency
-    let completed : bool = false
+  // type Command(dependency: Command option) =
+  //   let depends = dependency
+  //   let completed : bool = false
 
-  type ModelJson = JsonProvider<"../model.json", ResolutionFolder=__SOURCE_DIRECTORY__>
+  type Command(dependency: Command option) =
+    member val depends:Command option = dependency with get,set
+    member val completed : bool = false with get,set
+    new() = Command(None)
+
+  type ModelJson = JsonProvider<"../template.json", ResolutionFolder=__SOURCE_DIRECTORY__>
   type JsonModel() = 
     member val source:string = "" with get,set
     member val rootDest:string = "" with get,set
@@ -22,16 +27,17 @@ module commands
     member val redo:Command array = [||] with get,set
     member val supportedCommands:string array = [||] with get, set
 
-  type CopyCommand(dependency: Command) =
+  type CopyCommand(dependency: Command option) =
+    inherit Command(dependency)
+    new() = CopyCommand(None)
+
+  type MoveCommand(dependency: Command option) =
     inherit Command(dependency)
 
-  type MoveCommand(dependency: Command) =
+  type RenameCommand(dependency: Command option) =
     inherit Command(dependency)
 
-  type RenameCommand(dependency: Command) =
-    inherit Command(dependency)
-
-  type DeleteCommand(dependency: Command) =
+  type DeleteCommand(dependency: Command option) =
     inherit Command(dependency)
 
   let runCommands() :string = 
@@ -40,5 +46,9 @@ module commands
     let model2= JsonSerializer.Deserialize<JsonModel> (sample.ToString())
     let st=openFD()
     model2.source <- st
-    
-    JsonSerializer.Serialize model2
+    model2.rootDest <- Path.GetDirectoryName(st)
+    let cmd = new CopyCommand()
+    model2.commands <- ( model2.commands |> Array.append [|cmd|])
+    let new_model = JsonSerializer.Serialize (new CopyCommand())
+    File.WriteAllText("../model.json", new_model)
+    new_model
