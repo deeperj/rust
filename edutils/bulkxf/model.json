@@ -1,4 +1,17 @@
 {
-  "name": "Tomas",
-  "age": 4
+  "source": "",
+  "rootDest": "",
+  "commands": [],
+  "undo": [],
+  "redo": [],
+  "supportedCommands":[
+    "copy",
+    "rename",
+    "move",
+    "deleteSrc",
+    "deleteDest",
+    "deleteRootDest",
+    "createByDate",
+    "createByMonthYear"
+  ]
 }

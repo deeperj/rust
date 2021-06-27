@@ -1,42 +1,10 @@
 ﻿open System
 open System.Windows
 open System.Windows.Controls
-open FD
-
-let a = Application()
-
-let w = Window()
-w.SizeToContent <- SizeToContent.WidthAndHeight
-
-let sp = StackPanel()
-
-let t = TextBlock()
-t.Text <- "hello world"
-
-let dp1 = DatePicker()
-
-sp.Children.Add t |> ignore
-
-let b = Button()
-b.Content <- "Click Me"
-
-dp1.SelectedDateChanged.AddHandler(fun s ea -> 
-  do
-    let span = dp1.SelectedDate.Value.Subtract( DateTime.Now)/365.2525
-    t.Text <- span.TotalDays.ToString()
-)
-
-b.Click.AddHandler(fun s ea -> 
-  let st=openFD()
-  t.Text <- st
-)
-sp.Children.Add b |> ignore
-
-sp.Children.Add dp1 |> ignore
-w.Content <- sp
+open ui
 
 [<STAThread>]
-do a.Run(w) |> ignore
+do RunApp() |> ignore
 
 
 (*
@@ -48,11 +16,20 @@ dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
 // Show open file dialog box
 Nullable<bool> result = dlg.ShowDialog();
 
+let removeAt index list =
+    list |> List.indexed |> List.filter (fun (i, _) -> i <> index) |> List.map snd
+
 // Process open file dialog box results
 if (result == true)
 {
     // Open document
     string filename = dlg.FileName;
 }
-
+type Student(name, studentID : int) =
+   inherit Person(name)
+   let mutable _GPA = 0.0
+   member x.StudentID = studentID
+   member x.GPA
+      with get() = _GPA
+      and set value = _GPA <- value
 *)
