@@ -30,6 +30,7 @@
     b.Content <- "Select"
 
     b.Click.AddHandler(fun s ea -> 
+      t.Text <- System.Environment.CurrentDirectory.ToString()
       if not state.Undo then
         t.Text <- runCommands()
         b.Content <- "Undo"

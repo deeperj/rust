@@ -1,1 +1,1 @@
-{"depends":null,"completed":false}
+{"source":"","rootDest":null,"commands":["copy"],"undo":[],"redo":[],"supportedCommands":["copy","rename","move","deleteSrc","deleteDest","deleteRootDest","createByDate","createByMonthYear"]}

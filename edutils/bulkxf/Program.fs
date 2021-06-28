@@ -1,12 +1,14 @@
 ﻿open System
+open System.Diagnostics
 open System.Windows
-open System.Windows.Controls
-open ui
+// open System.Windows.Controls
+// open ui
 
-[<STAThread>]
-do RunApp() |> ignore
-
-
+//[<STAThread>]
+//do RunApp() |> ignore
+Debug.WriteLine "hello world"
+System.Windows.Forms.Clipboard.SetText  "hello world"
+ 
 (*
 Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 dlg.FileName = "Document"; // Default file name

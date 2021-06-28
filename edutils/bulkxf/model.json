@@ -1,7 +1,8 @@
 {
-  "source": "",
-  "rootDest": "",
-  "commands": [],
+  "source": "C:/Users/User/tmp.txt",
+  "rootDestFileName": "tmp - copy.txt",
+  "rootDest": "c:/Users/User",
+  "commands": ["copy"],
   "undo": [],
   "redo": [],
   "supportedCommands":[

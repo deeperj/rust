@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ui/openFD.fs" />
+    <!-- <Compile Include="ui/openFD.fs" />
     <Compile Include="cmds/commands.fs" />
-    <Compile Include="ui/xfProgram.fs" />
+    <Compile Include="ui/xfProgram.fs" /> -->
     <Compile Include="Program.fs" />
   </ItemGroup>
 
