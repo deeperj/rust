@@ -6,8 +6,8 @@ export async function processCommands(){
   const model = JSON.parse(Deno.readTextFileSync('./model.json'));
   //console.log(model)
   try{
-    for(const element of model.commands){
-      switch(element){
+    for(const cmd of model.commands){
+      switch(cmd){
         case command(Cmd.Copy, model.supportedCommands):
           const dest:string = model.rootDest + "/" + model.rootDestFileName
           await Deno.copyFile(model.source, dest);
@@ -19,13 +19,3 @@ export async function processCommands(){
     Deno.exit(1);
   }
 }
-
-interface Person {
-  name: string;
-  age: number;
-}
-
-function greet(person: Person) {
-  return "Hello " + person.name;
-}
-
