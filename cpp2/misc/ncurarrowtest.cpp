@@ -21,29 +21,7 @@ int main()
   eventloop();
   endwin(); //clean up
 }
-void cycletab(){
-  int pos[3]={UPOS,PPOS,OPOS};
-  move(pos[cycler++%3],20);
-}
-void eventloop() {
-  keypad(stdscr, true);
-  halfdelay(5);
-  noecho();
-  while (char c = getch()) {
-    // if(c==ERR){move(1,1);clrtoeol();continue;}
-    // mvprintw(1,1,"%d",c);
-    switch (c) {
-      case TAB:
-        cycletab();
-        break;
-      case ESC:
-        return;
-        break;
-      default:
-        break;
-    }
-  }
-}
+
 void drawLogin(){
   //Big Rectangle 
   drawWin(24,60,0,0);
@@ -70,4 +48,28 @@ void drawWin(int h, int w, int y, int x)
   refresh();
   box(win,0,0);
   wrefresh(win);
+}
+
+void cycletab(){
+  int pos[3]={UPOS,PPOS,OPOS};
+  move(pos[cycler++%3],20);
+}
+void eventloop() {
+  keypad(stdscr, true);
+  halfdelay(5);
+  noecho();
+  while (char c = getch()) {
+    // if(c==ERR){move(1,1);clrtoeol();continue;}
+    // mvprintw(1,1,"%d",c);
+    switch (c) {
+      case TAB:
+        cycletab();
+        break;
+      case ESC:
+        return;
+        break;
+      default:
+        break;
+    }
+  }
 }
