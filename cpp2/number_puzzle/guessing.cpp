@@ -1,21 +1,24 @@
 #include <iostream>
 #include <ctime>
+#include <vector>
+
 //Start
 using std::cout;
 using std::cin;
 using std::endl;
+using std::vector;
 
 int main(void) {
     cout << "Welcome to the guessing game!" << endl;
     cout << "-----------------------------" << endl;
     //    :input rounds;
     cout << "How many times would you like to play: ";
-    const int rounds;
+    int rounds;
     cin >> rounds;
     srand(time(0));  //seed generator
       //cout << "You are playing " << rounds << " times" << endl;
       //:create array to store number of guesses for each round 
-    int rguesses[rounds];
+    vector<int> rguesses(rounds);
     //: Initialise counter and do rounds loop
     //while (round < rounds) is yes then
     for (int round = 0; round < rounds; round++) {
