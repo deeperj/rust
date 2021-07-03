@@ -18,5 +18,5 @@ features = ["crossterm-backend"]
 # a binary target name and path.
 [[bin]]
 name = "cursive"
-path = "src/edit.rs"
+path = "src/resel.rs"
 #cargo run -v --no-default-features --features crossterm-backend --example select
