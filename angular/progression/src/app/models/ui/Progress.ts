@@ -15,6 +15,7 @@ export interface ProgressRecord{
   attendanceRpag: Rpag |null;
   attendance: Progression[];
   summatives: Progression[];
+  formatives: Progression[];
   attendanceCount: number;
   // attendance: {[k: string]: any}|null;
 }

@@ -1,0 +1,17 @@
+
+<table mat-table [dataSource]="displayPivot" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef>
+      <button mat-raised-button (click)="toggleColumn(column)"> {{column}} </button>
+    </th>
+    <td mat-cell *matCellDef="let element"> 
+      <!-- <mat-checkbox
+        *ng-if="element[column]=='--'"
+      ></mat-checkbox> -->
+      <button (click)="updateScore(element['Student'],element[column], column)" mat-flat-button> {{element[column]}}</button>
+  </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table>

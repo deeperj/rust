@@ -9,7 +9,7 @@ import { DebugService } from './debug.service';
 import { Progression } from '../models/Progression';
 import { NewStudent } from '../models/ui/NewStudent';
 import {Subject} from 'rxjs';
-import { Rpag } from '../models/enums';
+import { Rpag, RPAGType } from '../models/enums';
 import { ModuleTask } from '../models/ModuleTask';
 import { JSDocTagName } from '@angular/compiler/src/output/output_ast';
 
@@ -88,8 +88,8 @@ export class DomainService {
     );
   }
 
-  getSummativesByGroup(modid: number, grpid:number) : Observable<Progression[]> {
-    const finalUrl = this.summativesByGroupUrl + "/" + modid + "/" + grpid;
+  getSummativesByGroup(modid: number, grpid:number, rpag:RPAGType) : Observable<Progression[]> {
+    const finalUrl = this.summativesByGroupUrl + "/" + modid + "/" + grpid + "/" + rpag;
     return this.httpClient.get<Progression[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
@@ -97,8 +97,8 @@ export class DomainService {
     );
   }
 
-  getSumTasksByModule(modid: number) : Observable<ModuleTask[]> {
-    const finalUrl = this.sumTasksByModuleUrl + "/" + modid;
+  getSumTasksByModule(modid: number, rpag:RPAGType) : Observable<ModuleTask[]> {
+    const finalUrl = this.sumTasksByModuleUrl + "/" + modid + "/" + rpag;
     return this.httpClient.get<ModuleTask[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),

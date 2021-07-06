@@ -19,8 +19,8 @@ namespace progressive.Services.Domain
         Task<Progression> StudAttendanceByDate(int id, DateTime param);
         Task<IEnumerable<Progression>> StudAttendanceByModule(int id, int module);
         Task<IEnumerable<Progression>> SummativesNOT_USED(int id, int modid);
-        Task<IEnumerable<Progression>> SummativesByModuleGroup(int mid, int gid);
-        Task<IEnumerable<ModuleTask>> SumTasksByModule(int mid);
+        Task<IEnumerable<Progression>> SummativesByModuleGroup(int mid, int gid, RPAGType rtype);
+        Task<IEnumerable<ModuleTask>> SumTasksByModule(int mid, RPAGType rtype);
         Task<EmailStatus> ModuleEmailStatus(int gmid, string password);
     }
 }

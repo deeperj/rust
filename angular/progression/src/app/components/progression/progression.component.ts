@@ -70,6 +70,7 @@ export class ProgressionComponent implements OnInit {
               student: stud,
               attendance: [],
               summatives: [],
+              formatives: [],
               attendanceScore: null,
               attendanceCount: 0,
               attendanceRpag: null

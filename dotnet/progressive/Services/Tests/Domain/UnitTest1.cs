@@ -9,6 +9,7 @@ using Xunit;
 using progressive.Services.Domain;
 using progressive.Services.Domain.Common;
 using progressive.Data;
+using progressive.Models;
 using Microsoft.EntityFrameworkCore;
 using EmailService;
 using System.Diagnostics;
@@ -76,7 +77,7 @@ namespace progressive.Services.Tests.Domain
         public static void TestSumByGroup()
         {
             Setup();
-            var result = _domain.SummativesByModuleGroup(1, 2);
+            var result = _domain.SummativesByModuleGroup(1, 2, RPAGType.Summative);
             string r =JsonConvert.SerializeObject(result);
             Console.WriteLine(r);
             //Assert.False(result, "1 should not be prime");

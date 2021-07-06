@@ -7,8 +7,34 @@ using std::cout;
 using std::cin;
 using std::endl;
 using std::vector;
+using std::string;
 
-int main(void) {
+int find(int haystack[], int needle, int size);
+
+
+int main() {
+    const int size = 3;
+    string animal[size];//array having 3 elements
+    animal[0] = "dog";
+    animal[1] = "cat";
+    animal[2] = "mouse";
+
+    string needle = "duck";
+    bool found = false;
+    for (int i = 0; i < size; i++) {
+        cout << "in animal[" << i << "] address we have " << animal[i] << endl;;
+        if (needle == animal[i]) {
+            cout << "found " << needle << " at index " << i << endl;
+            found = true; // return i
+        }
+    }if(!found)cout << needle << " not found (-1)" << endl; //return -1
+}
+
+
+
+
+
+int main1(void) {
     cout << "Welcome to the guessing game!" << endl;
     cout << "-----------------------------" << endl;
     //    :input rounds;

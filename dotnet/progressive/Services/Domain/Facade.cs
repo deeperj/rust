@@ -37,17 +37,17 @@ namespace progressive.Services.Domain
         {
             return await _AttendanceService.GetAsyncUniqueProgressDatesForModuleGroup(modid, grpid);
         }
-        public async Task<IEnumerable<Progression>> SummativesByModuleGroup(int modid, int grpid)
+        public async Task<IEnumerable<Progression>> SummativesByModuleGroup(int modid, int grpid, RPAGType rtype)
         {
-            return await _AssessmentService.GetAsyncProgressByModuleGroup(modid, grpid);
+            return await _AssessmentService.GetAsyncProgressByModuleGroup(modid, grpid, rtype);
         }
         public async Task<EmailStatus> ModuleEmailStatus(int gmid, string pass )
         {
             return await _AssessmentService.DoStatusEmail (gmid, pass);
         }
-        public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid)
+        public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid, RPAGType rtype)
         {
-            return await _AssessmentService.SumTasksByModule(modid);
+            return await _AssessmentService.SumTasksByModule(modid, rtype);
         }
 
         public async Task<Progression> StudAttendanceByDate(int id, DateTime param)

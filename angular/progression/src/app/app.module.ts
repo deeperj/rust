@@ -31,6 +31,7 @@ import { AttendanceReportComponent } from './components/attendance-report/attend
 import { FileuploadComponent } from './widgets/fileupload.component';
 import { AssessmentComponent } from './components/assessment/assessment.component';
 import { SumAssessmentComponent } from './components/sum-assessment/sum-assessment.component';
+import { FormAssessmentComponent } from './components/form-assessment/form-assessment.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SumAssessmentComponent } from './components/sum-assessment/sum-assessme
     FileuploadComponent,
     AssessmentComponent,
     SumAssessmentComponent,
+    FormAssessmentComponent,
     
   ],
   imports: [

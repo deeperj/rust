@@ -18,8 +18,8 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-selection-list #studatt>
-        <app-sum-assessment [attRep]="i">
-        </app-sum-assessment>
+        <app-form-assessment [attRep]="i">
+        </app-form-assessment>
       </mat-selection-list>
       <p>
         <button mat-raised-button color="primary" (click)="rootsvc.refresh()">Refresh Page</button>
