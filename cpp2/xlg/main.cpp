@@ -4,11 +4,12 @@
 
 
 int main() {
-  // srand(time(NULL));
-  // for(int i=0;i<4;i++){
-  //   cout << (i+1) << " ";
-  //   int j= rand()%5;
-  //   cout << j << endl;
-  // }
-  test_find();
+  string array[30];
+  int length=getNames("data.txt",array);
+  int x, y;
+  cout << "how  many lists: ";
+  cin >> x;
+  cout << "how  many groups: ";
+  cin >> y;
+  xlg(x,y,array,length);
 }
