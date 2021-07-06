@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using ArgumentException and exception patterns</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: Raising an 'ArgumentException' exception, and filtering for .NET exceptions</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample4() =<br>    try <br>        printfn &quot;About<span style="color:navy; font-weight:bold"> to</span> raise an ArgumentException exception...&quot;<br>       <span style="color:navy; font-weight:bold"> if</span> DateTime.Now.DayOfWeek = DayOfWeek.Tuesday<span style="color:navy; font-weight:bold"> then</span> <br>            raise (new System.ArgumentException(&quot;Not today, it's Tuesday&quot;))<br>       <span style="color:navy; font-weight:bold"> else</span> <br>            raise (new System.ApplicationException(&quot;Hey, it's not Tuesday...&quot;))<br>   <span style="color:navy; font-weight:bold"> with</span> <br>        | :? System.ArgumentException as e -&gt; <br>            printfn &quot;Caught an ArgumentException, e.Message = %s&quot; e.Message<br>        | :? System.ApplicationException as e -&gt; <br>            printfn &quot;Caught an ApplicationException, e.Message = %s&quot; e.Message<br>        | _ -&gt; <br>            printfn &quot;Some other exception was caught&quot;<br>  <br><span style="color:#008000">//--------------------------------------------------------</span><br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>About to raise an ArgumentException exception...<br>Caught an ApplicationException, e.Message = Hey, it's not Tuesday...<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

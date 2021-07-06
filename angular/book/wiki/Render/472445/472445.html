@@ -1,0 +1,490 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using the type provider sample</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider1() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q2 = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Course<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">select</span> n.CourseName<br>    }<br>    q2 |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    Assert.AreEqual(q2 |&gt; Seq.length, 4)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Math&quot;<br>&quot;Physics&quot;<br>&quot;Biology&quot;<br>&quot;English&quot;<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query IN case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample using IN. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider2() =     <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q2 = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Course<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">join</span> (for e<span style="color:navy; font-weight:bold"> in</span> db.CourseSelection -&gt; n.CourseID = e.CourseID.Value)<br>        <span style="color:navy; font-weight:bold">select</span> (n.CourseName, e.StudentID)<br>    }<br>   <span style="color:navy; font-weight:bold"> let</span> names = [|&quot;Lisa&quot;;&quot;Brent&quot;;&quot;Jimmy&quot;|]<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>       <span style="color:navy; font-weight:bold"> if</span> names.Contains (n.Name)<span style="color:navy; font-weight:bold"> then</span> select n <br>        } <br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n.Name) <br>    Assert.AreEqual(q |&gt; Seq.length, 2)   <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot;<br>&quot;Brent&quot;<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query EXISTS case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample using <span style="color:navy; font-weight:bold">
+exists</span> . Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider3() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <br>        <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">where</span> (<span style="color:navy; font-weight:bold">query</span> {<span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> db.CourseSelection<span style="color:navy; font-weight:bold"> do</span> <br>                       <span style="color:navy; font-weight:bold">exists</span> (c.StudentID = 1) })<br>        <span style="color:navy; font-weight:bold">select</span> i }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n.Name)<br>    Assert.AreEqual(q |&gt; Seq.length, 9)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot;<br>&quot;Brent&quot;<br>&quot;Anita&quot;<br>&quot;Ken&quot;<br>&quot;Cathy&quot;<br>&quot;Tom&quot;<br>&quot;Zeoy&quot;<br>&quot;Mark&quot;<br>&quot;John&quot;<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query GroupBy case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample using GroupBy. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider4() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>            <span style="color:navy; font-weight:bold">groupby</span> n.Age into g<br>            <span style="color:navy; font-weight:bold">where</span> (g.Key.HasValue &amp;&amp; g.Key.Value &gt; 1)<br>            <span style="color:navy; font-weight:bold">select</span> (g.Key, g.Count())<br>    }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    Assert.AreEqual(q |&gt; Seq.length, 4)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(20, 2)<br>(21, 2)<br>(22, 3)<br>(23, 1)<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query GroupBy and OrderBy DESC case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample using GroupBy and OrderBy DESC. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider5() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">groupby</span> n.Age into g<br>        <span style="color:navy; font-weight:bold">where</span> (g.Count() &gt; 1)<br>        <span style="color:navy; font-weight:bold">sortByDescending</span> ( g.Count() )<br>        <span style="color:navy; font-weight:bold">select</span> (g.Key, g.Count())        <br>    }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    Assert.AreEqual(q |&gt; Seq.length, 3)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(22, 3)<br>(20, 2)<br>(21, 2)<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query TOP case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample using TOP. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider6() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">where</span> (SqlMethods.Like( n.Name, &quot;_a&quot;) )<br>        <span style="color:navy; font-weight:bold">select</span> n <br>        <span style="color:navy; font-weight:bold">take</span> 2   <br>        }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%s&quot; n.Name)<br>    Assert.AreEqual(q |&gt; Seq.length, 0)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query LEFT join case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: LEFT <span style="color:navy; font-weight:bold">
+join</span>. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider7() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q2 = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">join</span> (for e<span style="color:navy; font-weight:bold"> in</span> db.Course -&gt; n.StudentID = e.CourseID)<br>        <span style="color:navy; font-weight:bold">select</span> n<br>    }<br><br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> q2.DefaultIfEmpty()<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">select</span> n    <br>    }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%s&quot; n.Name)<br>    Assert.AreEqual(q |&gt; Seq.length, 4)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Lisa<br>Brent<br>Anita<br>Ken<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query COUNT case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: COUNT. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider8() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span>        <br>        count<br>    }<br>    printfn &quot;count is %d&quot; q<br>    Assert.AreEqual(q, 9)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>count is 9<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query DISTINCT case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: DISTINCT. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider9() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">join</span> (for e<span style="color:navy; font-weight:bold"> in</span> db.CourseSelection -&gt; n.StudentID = e.StudentID)<br>        <span style="color:navy; font-weight:bold">distinct</span>        <br>    }<br>    q |&gt; Seq.iter (fun (s, c) -&gt; printfn &quot;(Name=%s, CourseID=%d)&quot; s.Name c.CourseID.Value)<br>    Assert.AreEqual(q |&gt; Seq.length, 6)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(Name=Lisa, CourseID=1)<br>(Name=Brent, CourseID=1)<br>(Name=Brent, CourseID=2)<br>(Name=Anita, CourseID=1)<br>(Name=Anita, CourseID=2)<br>(Name=Anita, CourseID=3)<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query DISTINCT COUNT case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: DISTINCT COUNT. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider10() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">join</span> (for e<span style="color:navy; font-weight:bold"> in</span> db.CourseSelection -&gt; n.StudentID = e.StudentID)<br>        <span style="color:navy; font-weight:bold">distinct</span><br>        count       <br>    }<br>    printfn &quot;distinct count = %d&quot; q<br>    Assert.AreEqual(q, 6)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>distinct count = 6<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query TOP and Nullable case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: TOP and nullable. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider11() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">where</span> ((n.Age.HasValue &amp;&amp; n.Age.Value =21) || (n.Age.HasValue &amp;&amp; n.Age.Value=22))<br>        <span style="color:navy; font-weight:bold">select</span> n.Name<br>        <span style="color:navy; font-weight:bold">take</span> 2<br>    }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%s&quot; n)<br>    Assert.AreEqual(q |&gt; Seq.length, 2)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Lisa<br>Brent<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query UNION case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: UNION. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider12() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">select</span> (n.Name, n.Age)<br>    }<br>   <span style="color:navy; font-weight:bold"> let</span> q2 = query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>            <span style="color:navy; font-weight:bold">select</span> (n.Name, n.Age)<br>            }<br>   <span style="color:navy; font-weight:bold"> let</span> q3 = q.Union (q2)<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    Assert.AreEqual(q |&gt; Seq.length, 9)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(&quot;Lisa&quot;, 21)<br>(&quot;Brent&quot;, 22)<br>(&quot;Anita&quot;, 20)<br>(&quot;Ken&quot;, 22)<br>(&quot;Cathy&quot;, 22)<br>(&quot;Tom&quot;, 20)<br>(&quot;Zeoy&quot;, 21)<br>(&quot;Mark&quot;, 23)<br>(&quot;John&quot;, null)<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query CASE</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: CASE. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider13() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">select</span> (if n.Age.HasValue &amp;&amp; n.Age.Value=1 <span style="color:navy; font-weight:bold"> then</span> (n.StudentID, System.Nullable(n.Age.Value*100), n.Age)<span style="color:navy; font-weight:bold"> else</span> (n.StudentID, n.Age, n.Age))<br>    }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    Assert.AreEqual(q |&gt; Seq.length, 9)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(1, 21, 21)<br>(2, 22, 22)<br>(3, 20, 20)<br>(4, 22, 22)<br>(5, 22, 22)<br>(6, 20, 20)<br>(7, 21, 21)<br>(8, 23, 23)<br>(9, null, null)<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Having and groupby</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: Use having and groupby clause</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider15() =<br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">groupby</span> n.Age into g<br>        <span style="color:navy; font-weight:bold">where</span> (g.Count()&gt;1)<br>        <span style="color:navy; font-weight:bold">select</span> (g.Key, g.Count())<br>    }<br>    q |&gt; Seq.iter (fun (key, count) -&gt; printfn &quot;key=%A count=%d&quot; key count)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>key=20 count=2<br>key=21 count=2<br>key=22 count=3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Cartesian product</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: Cartesian product on two tables</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider14() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>       <span style="color:navy; font-weight:bold"> for</span> m<span style="color:navy; font-weight:bold"> in</span> db.Course<span style="color:navy; font-weight:bold"> do</span> <br>        <span style="color:navy; font-weight:bold">select</span> (n, m)<br>        }<br>    q |&gt; Seq.iter (fun (student, course) -&gt; printfn &quot;%A %A&quot; student.Name course.CourseName)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot; &quot;Math&quot;<br>&quot;Brent&quot; &quot;Math&quot;<br>&quot;Anita&quot; &quot;Math&quot;<br>&quot;Ken&quot; &quot;Math&quot;<br>&quot;Cathy&quot; &quot;Math&quot;<br>&quot;Tom&quot; &quot;Math&quot;<br>&quot;Zeoy&quot; &quot;Math&quot;<br>&quot;Mark&quot; &quot;Math&quot;<br>&quot;John&quot; &quot;Math&quot;<br>&quot;Lisa&quot; &quot;Physics&quot;<br>&quot;Brent&quot; &quot;Physics&quot;<br>&quot;Anita&quot; &quot;Physics&quot;<br>&quot;Ken&quot; &quot;Physics&quot;<br>&quot;Cathy&quot; &quot;Physics&quot;<br>&quot;Tom&quot; &quot;Physics&quot;<br>&quot;Zeoy&quot; &quot;Physics&quot;<br>&quot;Mark&quot; &quot;Physics&quot;<br>&quot;John&quot; &quot;Physics&quot;<br>&quot;Lisa&quot; &quot;Biology&quot;<br>&quot;Brent&quot; &quot;Biology&quot;<br>&quot;Anita&quot; &quot;Biology&quot;<br>&quot;Ken&quot; &quot;Biology&quot;<br>&quot;Cathy&quot; &quot;Biology&quot;<br>&quot;Tom&quot; &quot;Biology&quot;<br>&quot;Zeoy&quot; &quot;Biology&quot;<br>&quot;Mark&quot; &quot;Biology&quot;<br>&quot;John&quot; &quot;Biology&quot;<br>&quot;Lisa&quot; &quot;English&quot;<br>&quot;Brent&quot; &quot;English&quot;<br>&quot;Anita&quot; &quot;English&quot;<br>&quot;Ken&quot; &quot;English&quot;<br>&quot;Cathy&quot; &quot;English&quot;<br>&quot;Tom&quot; &quot;English&quot;<br>&quot;Zeoy&quot; &quot;English&quot;<br>&quot;Mark&quot; &quot;English&quot;<br>&quot;John&quot; &quot;English&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider average</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: TypeProvider average</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider16() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span>        <br>       <span style="color:navy; font-weight:bold"> let</span> f = float(n.Age.GetValueOrDefault())<br>        averageBy f<br>        }<br>    q |&gt; printfn &quot;average age = %A&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>average age = 19.0<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider sum</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: Use sum to get the total age for all the students</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider17() =<br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span>        <br>        sumByNullable n.Age<br>        }<br>    q |&gt; printfn &quot;sum of age = %A&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>sum of age = 171<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider min/max</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: use min and max to get the youngest and oldest students.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider18() =<br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        minByNullable n.Age<br>        }<br>    q |&gt; printfn &quot;min age = %A&quot;<br><br>   <span style="color:navy; font-weight:bold"> let</span> q = <span style="color:navy; font-weight:bold">query</span> {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        maxByNullable n.Age<br>        }<br>    q |&gt; printfn &quot;max age = %A&quot;<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>min age = 20<br>max age = 23<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

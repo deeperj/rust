@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>groupValBy - Simple 2</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses group by to partition a list of words by their first letter.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ24() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;blueberry&quot;; &quot;chimpanzee&quot;; &quot;abacus&quot;; &quot;banana&quot;; &quot;apple&quot;; &quot;cheese&quot; ]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>        groupValBy w (w.[0]) into g<br>        select (g.Key, g.ToArray())<br>    } |&gt; Seq.iter(fun (n,e) -&gt; printfn &quot;Words that start<span style="color:navy; font-weight:bold"> with</span> the letter '%A'&quot; n; (e|&gt;Seq.iter(fun x -&gt; printfn&quot;%s&quot; x)))<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    Words that start with the letter 'b':</span><br>    <span style="color:#008000">//    blueberry</span><br>    <span style="color:#008000">//    banana</span><br>    <span style="color:#008000">//    Words that start with the letter 'c':</span><br>    <span style="color:#008000">//    chimpanzee</span><br>    <span style="color:#008000">//    cheese</span><br>    <span style="color:#008000">//    Words that start with the letter 'a':</span><br>    <span style="color:#008000">//    abacus</span><br>    <span style="color:#008000">//    apple</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Words that start with the letter ''b''<br>blueberry<br>banana<br>Words that start with the letter ''c''<br>chimpanzee<br>cheese<br>Words that start with the letter ''a''<br>abacus<br>apple<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

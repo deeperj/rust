@@ -1,0 +1,137 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>For Loops</strong><strong><br>
+<br>
+Category: </strong>For and While Loops<br>
+<strong>Description</strong>: Some simple 'for' loops</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleForLoop1() =<br>   <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> [&quot;quick&quot;; &quot;brown&quot;; &quot;fox&quot; ] <span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;i = %s&quot; i<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>i = quick<br>i = brown<br>i = fox<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>For Loops</strong><strong><br>
+<br>
+Category: </strong>For and While Loops<br>
+<strong>Description</strong>: Some simple 'for' loops</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleForLoop2() =<br>   <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1 .. 10<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;In a for-loop, i = %d&quot; i<br>     <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>In a for-loop, i = 1<br>In a for-loop, i = 2<br>In a for-loop, i = 3<br>In a for-loop, i = 4<br>In a for-loop, i = 5<br>In a for-loop, i = 6<br>In a for-loop, i = 7<br>In a for-loop, i = 8<br>In a for-loop, i = 9<br>In a for-loop, i = 10<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>For Loops</strong><strong><br>
+<br>
+Category: </strong>For and While Loops<br>
+<strong>Description</strong>: Some simple nested 'for' loops</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleForLoop3() =<br>   <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 0 .. 9<span style="color:navy; font-weight:bold"> do</span> <br>       <span style="color:navy; font-weight:bold"> for</span> j = 0<span style="color:navy; font-weight:bold"> to</span> i-1<span style="color:navy; font-weight:bold"> do</span> <br>            printfn &quot; &quot;<br>       <span style="color:navy; font-weight:bold"> for</span> j = i<span style="color:navy; font-weight:bold"> to</span> 9<span style="color:navy; font-weight:bold"> do</span> <br>            printfn &quot;%d&quot; j<br>        printfn &quot;&quot;<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br><br> <br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br><br> <br> <br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br><br> <br> <br> <br>3<br>4<br>5<br>6<br>7<br>8<br>9<br><br> <br> <br> <br> <br>4<br>5<br>6<br>7<br>8<br>9<br><br> <br> <br> <br> <br> <br>5<br>6<br>7<br>8<br>9<br><br> <br> <br> <br> <br> <br> <br>6<br>7<br>8<br>9<br><br> <br> <br> <br> <br> <br> <br> <br>7<br>8<br>9<br><br> <br> <br> <br> <br> <br> <br> <br> <br>8<br>9<br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br>9<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>While Loops</strong><strong><br>
+<br>
+Category: </strong>For and While Loops<br>
+<strong>Description</strong>: A simple 'while' loop that counts, skipping by 2</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleWhileLoop1() =<br>   <span style="color:navy; font-weight:bold"> let</span> count = ref 0<br>   <span style="color:navy; font-weight:bold"> while</span> (!count &lt; 10)<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;Counting, skipping by 2, count = %d...&quot; !count;<br>        count := !count &#43; 2<br>    printfn &quot;Done counting!&quot;<br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Counting, skipping by 2, count = 0...<br>Counting, skipping by 2, count = 2...<br>Counting, skipping by 2, count = 4...<br>Counting, skipping by 2, count = 6...<br>Counting, skipping by 2, count = 8...<br>Done counting!<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>While Loops</strong><strong><br>
+<br>
+Category: </strong>For and While Loops<br>
+<strong>Description</strong>: A simple 'while' loops that busy-waits until the given time-span has passed</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleWhileLoop2() =<br>   <span style="color:navy; font-weight:bold"> let</span> start = DateTime.Now <br>   <span style="color:navy; font-weight:bold"> let</span> duration = System.TimeSpan.FromMilliseconds(8.0)<br>   <span style="color:navy; font-weight:bold"> let</span> diff (a:DateTime) (b:DateTime) = System.DateTime.op_Subtraction(System.DateTime.Now,b) <br>    printfn &quot;Waiting...&quot;<br><br>    <span style="color:#008000">// Here's the loop</span><br>   <span style="color:navy; font-weight:bold"> while</span> diff DateTime.Now start &lt; duration<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;.&quot;<br><br>    <span style="color:#008000">// OK, we're done...</span><br>   <span style="color:navy; font-weight:bold"> let</span> span = diff DateTime.Now start <br>    printfn &quot;\nAttempted<span style="color:navy; font-weight:bold"> to</span> busy-wait 8ms, actually waited %dms&quot; span.Milliseconds<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Waiting...<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>Attempted to busy-wait 8ms, actually waited 8ms<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

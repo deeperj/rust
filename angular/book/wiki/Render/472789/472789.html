@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>averageBy - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Average to get the average of all numbers in an array.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ36() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers2 = [5.0; 4.0; 1.0; 3.0; 9.0; 8.0; 6.0; 7.0; 2.0; 0.0]<br>   <span style="color:navy; font-weight:bold"> let</span> averageNum =<br>         query { <br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers2<span style="color:navy; font-weight:bold"> do</span> <br>            averageBy n<br>         }<br>    printfn &quot;The average number is %A.&quot; averageNum<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The average number is 4.5.</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The average number is 4.5.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

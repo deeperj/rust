@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>SequenceEqual - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses SequenceEqual to see if two sequences match on all elements in the same order.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ39() =<br>   <span style="color:navy; font-weight:bold"> let</span> wordsA = [ &quot;cherry&quot;; &quot;apple&quot;; &quot;blueberry&quot; ]<br>   <span style="color:navy; font-weight:bold"> let</span> wordsB = [ &quot;apple&quot;; &quot;blueberry&quot;; &quot;cherry&quot; ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> isMatch = wordsA.SequenceEqual(wordsB)<br><br>    printfn &quot;The sequences match: %A&quot; isMatch<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//  The sequences match: false</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The sequences match: false<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

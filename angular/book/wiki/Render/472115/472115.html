@@ -1,0 +1,77 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Excel</strong><strong><br>
+<br>
+Category: </strong>Office Interop<br>
+<strong>Description</strong>: Reading and writing from and to Excel. Please make sure you have Excel 2010 installed on your computer.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> openExcel() = <br><br>    try<br>        <span style="color:#008000">// Start Excel, Open a exiting file for input and create a new file output.xlsx</span><br>       <span style="color:navy; font-weight:bold"> let</span> xlApp =<span style="color:navy; font-weight:bold"> new</span> Excel.ApplicationClass()<br>       <span style="color:navy; font-weight:bold"> let</span> currentPath = System.IO.Path.GetFullPath(@&quot;.\Support.ExcelFile.xlsx&quot;);<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkBookInput = xlApp.Workbooks.Open(currentPath)<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkBookOutput = xlApp.Workbooks.Add()<br>        xlApp.Visible &lt;- true<br>        <span style="color:#008000">// Open input's 'Sheet1' and create a new worksheet in output.xlsx</span><br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkSheetInput = xlWorkBookInput.Worksheets.[&quot;Sheet1&quot;] :?&gt; Excel.Worksheet<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkSheetOutput = xlWorkBookOutput.Worksheets.[1] :?&gt; Excel.Worksheet<br>        xlWorkSheetOutput.Name &lt;- &quot;OutputSheet1&quot;<br>        <span style="color:#008000">// Reading\Writing a cell value using cell index</span><br>       <span style="color:navy; font-weight:bold"> let</span> value1 = xlWorkSheetInput.Cells.[10,5]<br>        xlWorkSheetOutput.Cells.[10,5] &lt;- value1 <br>        <span style="color:#008000">// Reading\Writing a cell value using range</span><br>       <span style="color:navy; font-weight:bold"> let</span> value2 = xlWorkSheetInput.Cells.Range(&quot;E10&quot;,&quot;E10&quot;).Value2<br>        xlWorkSheetOutput.Cells.Range(&quot;E10&quot;,&quot;E10&quot;).Value2 &lt;- value2<br>        <span style="color:#008000">// Reading\Writing a row</span><br>       <span style="color:navy; font-weight:bold"> let</span> row = xlWorkSheetInput.Cells.Rows.[1] :?&gt; Excel.Range<br>        (xlWorkSheetOutput.Cells.Rows.[1] :?&gt; Excel.Range).Value2 &lt;- row.Value2<br>        <span style="color:#008000">// Reading\Writing a column</span><br>       <span style="color:navy; font-weight:bold"> let</span> column1 = xlWorkSheetInput.Cells.Range(&quot;A:A&quot;)<br>        xlWorkSheetOutput.Cells.Range(&quot;A:A&quot;).Value2 &lt;- column1.Value2<br>        <span style="color:#008000">// Reading\Writing a Range</span><br>       <span style="color:navy; font-weight:bold"> let</span> inputRange = xlWorkSheetInput.Cells.Range(&quot;A1&quot;,&quot;E10&quot;)<br>       <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1 .. inputRange.Cells.Rows.Count<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> j<span style="color:navy; font-weight:bold"> in</span> 1 .. inputRange.Cells.Columns.Count <span style="color:navy; font-weight:bold"> do</span> <br>                xlWorkSheetOutput.Cells.[i,j] &lt;- inputRange.[i,j]    <br>        <span style="color:#008000">//write jagged array</span><br>       <span style="color:navy; font-weight:bold"> let</span> data =  [|  [|0 .. 1 .. 2|];<br>                    [|0 .. 1 .. 4|];<br>                    [|0 .. 1 .. 6|] |] <br>       <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1 .. data.Length<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> j<span style="color:navy; font-weight:bold"> in</span> 1 .. data.[i-1].Length<span style="color:navy; font-weight:bold"> do</span> <br>                xlWorkSheetOutput.Cells.[j, i] &lt;- data.[i-1].[j-1]<br>   <span style="color:navy; font-weight:bold"> with</span> _ -&gt; printfn &quot;please check Excel installation&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Excel Chart</strong><strong><br>
+<br>
+Category: </strong>Office Interop<br>
+<strong>Description</strong>: Creating Excel charts. Please make sure you have Excel 2010 installed on your computer.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> excelChart() = <br>    try<br>       <span style="color:navy; font-weight:bold"> let</span> dataX = [|0.0 .. 0.1 .. 10.|]<br>       <span style="color:navy; font-weight:bold"> let</span> dataY = [|  [|for f<span style="color:navy; font-weight:bold"> in</span> dataX -&gt; cos f|];<br>                        [|for f<span style="color:navy; font-weight:bold"> in</span> dataX -&gt; sin f|] |] <br>        <span style="color:#008000">// Update the excel charting object</span><br>       <span style="color:navy; font-weight:bold"> let</span> xlApp =<span style="color:navy; font-weight:bold"> new</span> Excel.ApplicationClass()<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkBook = xlApp.Workbooks.Add()<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkSheet = xlWorkBook.Worksheets.[1] :?&gt; Excel.Worksheet<br>       <span style="color:navy; font-weight:bold"> let</span> xlCharts = xlWorkSheet.ChartObjects() :?&gt; Excel.ChartObjects<br>       <span style="color:navy; font-weight:bold"> let</span> xlChart = xlCharts.Add(1., 1., 460., 380.)<br>       <span style="color:navy; font-weight:bold"> let</span> myChart = xlChart.Chart <br>        <span style="color:#008000">// Fill in a excel worksheet with data from dataY[][]</span><br>       <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1 .. dataY.Length<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> j<span style="color:navy; font-weight:bold"> in</span> 1 .. dataY.[i-1].Length<span style="color:navy; font-weight:bold"> do</span> <br>                xlWorkSheet.Cells.[j, i] &lt;- dataY.[i-1].[j-1]<br>       <span style="color:navy; font-weight:bold"> let</span> xlRange = xlWorkSheet.Cells.CurrentRegion<br>        myChart.SetSourceData(xlRange) <br>        <span style="color:#008000">// Set Plot type and show chart</span><br>        myChart.ChartType &lt;- Excel.XlChartType.xlXYScatterLines<br>        xlApp.Visible &lt;- true<br>   <span style="color:navy; font-weight:bold"> with</span> _ -&gt; printfn &quot;%s&quot; &quot;please check your Excel installation&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Word</strong><strong><br>
+<br>
+Category: </strong>Office Interop<br>
+<strong>Description</strong>: This sample create a Word instance, insert text, table, and chart into a word document. Please make sure Word 2010 installed on your computer.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> wordSample() = <br>    try<br>        <span style="color:#008000">// open a new Word document</span><br>       <span style="color:navy; font-weight:bold"> let</span> word = Word.ApplicationClass()<br>        word.Visible &lt;- true<br>       <span style="color:navy; font-weight:bold"> let</span> doc = word.Documents.Add()<br>        <span style="color:#008000">// insert a sentence</span><br>       <span style="color:navy; font-weight:bold"> let</span> paragraph = doc.Content.Paragraphs.Add()<br>        paragraph.Range.Text &lt;- &quot;F# sample&quot;<br>        paragraph.Range.Font.Bold &lt;- 1<br>        paragraph.Format.SpaceAfter &lt;- 24.0F   <span style="color:#008000">//24 pt sapcing</span><br>        paragraph.Range.InsertParagraphAfter();<br>        <span style="color:#008000">//insert a table</span><br>       <span style="color:navy; font-weight:bold"> let</span> oEndOfDoc = &quot;\\endofdoc&quot; :&gt; obj<br>       <span style="color:navy; font-weight:bold"> let</span> wrdRng = doc.Bookmarks.get_Item(ref oEndOfDoc).Range<br>       <span style="color:navy; font-weight:bold"> let</span> table = doc.Tables.Add(wrdRng, 3, 5)    <br>        table.Range.ParagraphFormat.SpaceAfter &lt;- 6.F<br>       <span style="color:navy; font-weight:bold"> for</span> r<span style="color:navy; font-weight:bold"> in</span> [1..3]<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> [1..5]<span style="color:navy; font-weight:bold"> do</span> <br>                table.Cell(r, c).Range.Text &lt;- sprintf &quot;row %d col %d&quot; r c<br>        table.Rows.[1].Range.Font.Bold &lt;- 0<br>        table.Rows.[1].Range.Font.Italic &lt;- 1<br>        <span style="color:#008000">//insert chart</span><br>       <span style="color:navy; font-weight:bold"> let</span> classType = &quot;MSGraph.Chart.8&quot; :&gt; obj    <br>       <span style="color:navy; font-weight:bold"> let</span> wrdRng = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;<br>       <span style="color:navy; font-weight:bold"> let</span> shape = wrdRng.InlineShapes.AddOLEObject(ref classType)<br>       <span style="color:navy; font-weight:bold"> let</span> chart = shape.OLEFormat.Object<br>       <span style="color:navy; font-weight:bold"> let</span> chartApp = chart.GetType().InvokeMember(&quot;Application&quot;, Reflection.BindingFlags.GetProperty, null, chart, null)<br>       <span style="color:navy; font-weight:bold"> let</span> parameters = [|4|] |&gt; Array.map (fun n -&gt; n :&gt; obj)<br>        chart.GetType().InvokeMember(&quot;ChartType&quot;, Reflection.BindingFlags.SetProperty, null, chart, parameters) |&gt; ignore<br>   <span style="color:navy; font-weight:bold"> with</span> _ -&gt; printfn &quot;%s&quot; &quot;please check your Word installation&quot;<br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

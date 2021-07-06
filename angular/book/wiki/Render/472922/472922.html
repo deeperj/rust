@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic Construction</strong><strong><br>
+<br>
+Category: </strong>Sequences<br>
+<strong>Description</strong>: This sample demonstrates basic sequence construction.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SequenceExample1() =<br>    <span style="color:#008000">// Create an empty sequence</span><br>   <span style="color:navy; font-weight:bold"> let</span> emptySeq = Seq.empty<br><br>    <span style="color:#008000">// Create a simple sequence</span><br>   <span style="color:navy; font-weight:bold"> let</span> simpleSeq = seq{1..50}      <br>        <span style="color:#008000">// sequence terms are not evaluated until needed</span><br><br>    <span style="color:#008000">// Create a sequence using a sequence expression</span><br>   <span style="color:navy; font-weight:bold"> let</span> squaresSeq = seq {<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5<span style="color:navy; font-weight:bold"> do</span> yield i*i }              <br><br>    <span style="color:#008000">// Alternate form of the previous sequence expression</span><br>   <span style="color:navy; font-weight:bold"> let</span> squaresSeq2 = seq {<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; i*i }      <br>        <span style="color:#008000">// '-&gt;' is equivalent to 'do yield'</span><br><br>    <span style="color:#008000">// Another sequence expression example</span><br>   <span style="color:navy; font-weight:bold"> let</span> getDirs dir = seq {<span style="color:navy; font-weight:bold"> for</span> folder<span style="color:navy; font-weight:bold"> in</span> System.IO.Directory.GetDirectories(dir) -&gt; folder }<br>    <br>    printfn &quot;emptySeq = %A&quot; emptySeq<br>    printfn &quot;\nsimpleSeq = %A&quot; simpleSeq<br>    printfn &quot;\nsquaresSeq = %A&quot; squaresSeq<br>    printfn &quot;\nsquaresSeq2 = %A&quot; squaresSeq2<br>    printfn &quot;\nget directories<span style="color:navy; font-weight:bold"> in</span> C: %A&quot; (getDirs @&quot;C:\&quot;)       <br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>emptySeq = seq []<br><br>simpleSeq = seq [1; 2; 3; 4; ...]<br><br>squaresSeq = seq [1; 4; 9; 16; ...]<br><br>squaresSeq2 = seq [1; 4; 9; 16; ...]<br><br>get directories in C: seq<br>  [&quot;C:\$ASITEMP$&quot;; &quot;C:\$Recycle.Bin&quot;; &quot;C:\Boot&quot;; &quot;C:\Documents and Settings&quot;;<br>   ...]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,27 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Word</strong><strong><br>
+<br>
+Category: </strong>Office Interop<br>
+<strong>Description</strong>: This sample create a Word instance, insert text, table, and chart into a word document. Please make sure Word 2010 installed on your computer.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> wordSample() = <br>    try<br>        <span style="color:#008000">// open a new Word document</span><br>       <span style="color:navy; font-weight:bold"> let</span> word = Word.ApplicationClass()<br>        word.Visible &lt;- true<br>       <span style="color:navy; font-weight:bold"> let</span> doc = word.Documents.Add()<br>        <span style="color:#008000">// insert a sentence</span><br>       <span style="color:navy; font-weight:bold"> let</span> paragraph = doc.Content.Paragraphs.Add()<br>        paragraph.Range.Text &lt;- &quot;F# sample&quot;<br>        paragraph.Range.Font.Bold &lt;- 1<br>        paragraph.Format.SpaceAfter &lt;- 24.0F   <span style="color:#008000">//24 pt sapcing</span><br>        paragraph.Range.InsertParagraphAfter();<br>        <span style="color:#008000">//insert a table</span><br>       <span style="color:navy; font-weight:bold"> let</span> oEndOfDoc = &quot;\\endofdoc&quot; :&gt; obj<br>       <span style="color:navy; font-weight:bold"> let</span> wrdRng = doc.Bookmarks.get_Item(ref oEndOfDoc).Range<br>       <span style="color:navy; font-weight:bold"> let</span> table = doc.Tables.Add(wrdRng, 3, 5)    <br>        table.Range.ParagraphFormat.SpaceAfter &lt;- 6.F<br>       <span style="color:navy; font-weight:bold"> for</span> r<span style="color:navy; font-weight:bold"> in</span> [1..3]<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> [1..5]<span style="color:navy; font-weight:bold"> do</span> <br>                table.Cell(r, c).Range.Text &lt;- sprintf &quot;row %d col %d&quot; r c<br>        table.Rows.[1].Range.Font.Bold &lt;- 0<br>        table.Rows.[1].Range.Font.Italic &lt;- 1<br>        <span style="color:#008000">//insert chart</span><br>       <span style="color:navy; font-weight:bold"> let</span> classType = &quot;MSGraph.Chart.8&quot; :&gt; obj    <br>       <span style="color:navy; font-weight:bold"> let</span> wrdRng = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;<br>       <span style="color:navy; font-weight:bold"> let</span> shape = wrdRng.InlineShapes.AddOLEObject(ref classType)<br>       <span style="color:navy; font-weight:bold"> let</span> chart = shape.OLEFormat.Object<br>       <span style="color:navy; font-weight:bold"> let</span> chartApp = chart.GetType().InvokeMember(&quot;Application&quot;, Reflection.BindingFlags.GetProperty, null, chart, null)<br>       <span style="color:navy; font-weight:bold"> let</span> parameters = [|4|] |&gt; Array.map (fun n -&gt; n :&gt; obj)<br>        chart.GetType().InvokeMember(&quot;ChartType&quot;, Reflection.BindingFlags.SetProperty, null, chart, parameters) |&gt; ignore<br>   <span style="color:navy; font-weight:bold"> with</span> _ -&gt; printfn &quot;%s&quot; &quot;please check your Word installation&quot;<br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

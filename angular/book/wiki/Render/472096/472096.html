@@ -1,0 +1,83 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define extension methods</strong><strong><br>
+<br>
+Category: </strong>Extension Methods<br>
+<strong>Description</strong>: Define extension methods</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> System.String<span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> this.ToSecureString() = <br>           <span style="color:navy; font-weight:bold"> let</span> r =<span style="color:navy; font-weight:bold"> new</span> System.Security.SecureString()<br>            this |&gt; Seq.iter (fun c -&gt; r.AppendChar(c))<br>            r<br><span style="color:navy; font-weight:bold">let</span> ExtensionSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = &quot;password&quot;;<br>   <span style="color:navy; font-weight:bold"> let</span> secureString = a.ToSecureString()<br>    Assert.AreEqual(secureString.Length, a.Length)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define extension methods</strong><strong><br>
+<br>
+Category: </strong>Extension Methods<br>
+<strong>Description</strong>: Define extension methods to get version list from string</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> System.String<span style="color:navy; font-weight:bold"> with</span> <br>   <span style="color:navy; font-weight:bold"> member</span> this.Versions =<br>       <span style="color:navy; font-weight:bold"> if</span> System.String.IsNullOrEmpty(this)<span style="color:navy; font-weight:bold"> then</span> <br>            failwith &quot;empty or null string&quot;<br>       <span style="color:navy; font-weight:bold"> else</span> <br>            this.Split([|'.'|], System.StringSplitOptions.RemoveEmptyEntries)<br><br><span style="color:navy; font-weight:bold">let</span> ExtensionSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = &quot;1.2.4&quot;;<br>   <span style="color:navy; font-weight:bold"> let</span> versions = a.Versions<br>    versions |&gt; Seq.iter (fun n -&gt; printfn &quot;%s&quot; n)<br>    Assert.AreEqual(versions.Length, 3)<br>    Assert.AreEqual(versions.[0], &quot;1&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1<br>2<br>4<br>both elements are equal<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define C# extension method</strong><strong><br>
+<br>
+Category: </strong>Extension Methods<br>
+<strong>Description</strong>: Define C# extension methods</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[]<br><span style="color:navy; font-weight:bold">let</span> GetVersion(version:string) = version.Versions<br># extension methods&quot;)&gt;]<br><span style="color:navy; font-weight:bold">let</span> ExtensionSample3() = <br>   <span style="color:navy; font-weight:bold"> let</span> version = &quot;1.2.10&quot;;<br>   <span style="color:navy; font-weight:bold"> let</span> versions = version.Versions<br>    printfn &quot;version list = %A&quot; versions<br>    Assert.AreEqual(versions.Length, 3)<br>    Assert.AreEqual(versions.[0], &quot;1&quot;) <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>version list = [|&quot;1&quot;; &quot;2&quot;; &quot;10&quot;|]<br>both elements are equal<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

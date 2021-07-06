@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>MSTest</strong><strong><br>
+<br>
+Category: </strong>MSTest<br>
+<strong>Description</strong>: Define and execute a unit test. You can use mstest.exe /testcontainer:SampleProject.exe to execute the test case.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:#008000">// To use MSTest, please make sure to</span><br><span style="color:#008000">//  * include Microsoft.VisualStudio.QualityTools.UnitTestFramework reference </span><br><span style="color:#008000">//  * open Microsoft.VisualStudio.TestTools.UnitTesting namespace</span><br><br>[&lt;TestClass&gt;]<br><span style="color:navy; font-weight:bold">type</span> Test() = <br><br>    [&lt;TestMethod&gt;]<br>   <span style="color:navy; font-weight:bold"> member</span> this.Test1() =<br>        Assert.AreEqual(1, 1)<br><br>    [&lt;TestMethod&gt;]<br>   <span style="color:navy; font-weight:bold"> member</span> this.Test2() =<br>        Assert.Greater(2,1)<br><br><span style="color:navy; font-weight:bold">let</span> msTest() = <br>   <span style="color:navy; font-weight:bold"> let</span> T = Test()<br>    T.Test1()<br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

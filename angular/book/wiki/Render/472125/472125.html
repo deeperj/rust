@@ -1,0 +1,56 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use the OData service to access Azure data market data source</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.ODataService<br>
+<strong>Description</strong>: Use the OData service to access Azure data market data source. For this sample, we access the UK travel information data from Azure data market. You need Azure data maket user name and credential to access this free data.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><span style="color:navy; font-weight:bold">type</span> TOData = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/Uk.Gov/TravelAdvisoryService/&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> typeProviderODataSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> travelInfo = TOData.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account @ https://datamarket.azure.com/account/info</span><br>   <span style="color:navy; font-weight:bold"> do</span> travelInfo.Credentials &lt;-<span style="color:navy; font-weight:bold"> new</span> NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)  <br>    <br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> travelInfo.BritishEmbassiesAndHighCommissions<span style="color:navy; font-weight:bold"> do</span> <br>        select n<br>        take 2<br>    }|&gt; Seq.iter (fun n -&gt; printfn &quot;%s\n&quot; n.Address)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    1A Brisbane Street</span><br>    <span style="color:#008000">//    Hobart</span><br>    <span style="color:#008000">//    Tasmania</span><br>    <span style="color:#008000">//    7000</span><br>    <span style="color:#008000">//    ,Hobart</span><br>    <span style="color:#008000">//</span><br>    <span style="color:#008000">//    444-446 Pulteney Street</span><br>    <span style="color:#008000">//    Adelaide</span><br>    <span style="color:#008000">//    SA 5000</span><br>    <span style="color:#008000">//    ,Adelaide</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1A Brisbane Street<br>Hobart<br>Tasmania<br>7000<br>,Hobart<br><br>444-446 Pulteney Street<br>Adelaide<br>SA 5000<br>,Adelaide<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Northwind public OData Service</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.ODataService<br>
+<strong>Description</strong>: Consume Northwind public OData Service published by http://www.odata.org</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> Northwind = Microsoft.FSharp.Data.TypeProviders.ODataService&lt;&quot;http:<span style="color:#008000">//services.odata.org/Northwind/Northwind.svc/&quot;&gt;</span><br><br><span style="color:navy; font-weight:bold">let</span> typeProviderODataSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = Northwind.GetDataContext()  <br>    <br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Customers<span style="color:navy; font-weight:bold"> do</span> <br>        select n<br>        take 2<br>    }|&gt; Seq.iter (fun n -&gt; printfn &quot;%s\n&quot; n.ContactName)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    Maria Anders</span><br>    <span style="color:#008000">//    Ana Trujillo</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Maria Anders<br><br>Ana Trujillo<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

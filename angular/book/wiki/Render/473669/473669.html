@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Intersect - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Intersect to create one sequence that contains the common values shared by both arrays.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ05() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [ 0; 2; 4; 5; 6; 8; 9 ]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [ 1; 3; 5; 7; 8 ]<br><br>    numbersA.Intersect(numbersB) |&gt; Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    8</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>5<br>8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

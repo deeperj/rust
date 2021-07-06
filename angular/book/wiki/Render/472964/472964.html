@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Use structure format display complex structure</strong><strong><br>
+<br>
+Category: </strong>Format<br>
+<strong>Description</strong>: Use structure format display complex structure</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;StructuredFormatDisplayAttribute(&quot;Tree {Contents}&quot;)&gt;]<br><span style="color:navy; font-weight:bold">type</span> Tree(node: int, elems: Tree list) =<br>  <span style="color:navy; font-weight:bold"> member</span> x.Contents = (node, elems)<br><br><span style="color:navy; font-weight:bold">let</span> printfnSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> c = Tree (1, [ Tree (2, []); Tree (3, [ Tree (4, []) ]) ])<br>   <span style="color:navy; font-weight:bold"> let</span> c2 = Tree (1, [ c; c])<br>   <span style="color:navy; font-weight:bold"> let</span> c3 = Tree (1, [ c2; c2])<br>    printfn &quot;%A&quot; c3<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Tree (1,<br>      [Tree (1,<br>             [Tree (1, [Tree (2, []); Tree (3, [Tree (4, [])])]);<br>              Tree (1, [Tree (2, []); Tree (3, [Tree (4, [])])])]);<br>       Tree (1,<br>             [Tree (1, [Tree (2, []); Tree (3, [Tree (4, [])])]);<br>              Tree (1, [Tree (2, []); Tree (3, [Tree (4, [])])])])])<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

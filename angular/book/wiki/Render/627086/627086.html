@@ -1,0 +1,89 @@
+<div class="wikidoc">
+<div>
+<h1>F# 3.0 Sample Readme</h1>
+<h2>Prerequisites and Machine Setup&nbsp;</h2>
+<p>This sample package requires&nbsp;<strong>Visual Studio 2012 RTM</strong>&nbsp;.</p>
+<h3>SQL Server (Optional)</h3>
+<p>Because the SQL sample requires the local database to be setup. You need to set up a local SQL database named FSharpSample with sa password = FSharpSample1234. You can use CreateFSharpSampleDatabase.sql or setup.exe to setup your database tables and populate
+ sample data. If you decide not to setup the database, some of the samples won't be compiled into the final binary result.</p>
+<p>If you see a security dialog about trusting type provider, please click &quot;Yes&quot; to trust the type provider in order to make the sample run correctly.</p>
+<h3>Web Service Access (Optional)</h3>
+<p>You need to sign up for a free account on&nbsp;<a href="https://datamarket.azure.com/account/info">https://datamarket.azure.com/account/info</a>&nbsp;and&nbsp;<a href="https://www.bingmapsportal.com/application/index/1034110">https://www.bingmapsportal.com/application/index/1034110</a>&nbsp;if
+ you intend to run the web service samples. After you sign up on both web sites, you can replace the ADM user ID, ADM account ID, and Bing developer account information at the end of Support.Helper.fs.</p>
+<h3>Office Setup (Optional)</h3>
+<p>In order to run the office interop samples, you need to setup Word and Excel 2010 on your computer.</p>
+<h2>Description</h2>
+<p>This program allows the user to view and execute many short blocks of code that demonstrate many of the language features for F# and some of the library functionality in FSharp.Core.dll.</p>
+<h2>Files</h2>
+<ul>
+<li><strong>Setup.exe</strong>&nbsp;- is the program to help you setup the database. This file has the same functionality as&nbsp;CreateFSharpSampleDatabase.sql.
+</li><li><strong>CreateFSharpSampleDatabase.sql</strong>&nbsp;- is the file used to setup the database. This file has the same functionality as setup.exe. If you have already executed setup.exe, you do not have to run this SQL script again.<br>
+<br>
+</li><li><strong>sample.fs -</strong>&nbsp;Defines attributes to mark samples in code and provides the functionality to build the list of samples by searching through the .fs files in the project folder for correctly attributed methods.
+</li><li><strong>program.fs -</strong>&nbsp;Generates the list of samples and checks the command line arguments to determine whether to run all of the samples automatically or the display the UI for the sample browser.
+</li><li><strong>sampleform.fs -</strong>&nbsp;Contains the UI code for the window that presents the list of samples to be browsed and executed.
+</li><li><strong>Support.Helper.fs</strong>&nbsp;- util functions for sample package. </li><li><strong>Samples.Beginners.fs -</strong>&nbsp;Defines samples demonstrating much of the basic functionality in F#.
+</li><li><strong>Samples.Intermediate.fs -</strong>&nbsp;Defines samples demonstrating built-in data structures like Set and Map as well as more advanced object oriented constructs like interfaces.
+</li><li><strong>Samples.LinQ.fs&nbsp;</strong>- LINQ query samples </li><li><strong>Samples.UnitTestSample.fs&nbsp;</strong>- Unit test sample </li><li><strong>Samples.ParallelComputation.fs</strong>&nbsp;- shows how F# can make parallel computation.
+</li><li><strong>Samples.TypeProviders.SQL.fs</strong>&nbsp;- Type Provider samples, including SQL datbase, web service, and resource file.
+</li><li><strong>Samples.OfficeInteropSample.fs</strong>&nbsp;- shows how to use F# to interact with Office applications, such as MS Word 2010.
+</li><li><strong>Samples.TypeProviders.AzureMarketPlace.fs</strong>&nbsp;- Azure Data market samples
+</li><li><strong>Samples.Others.fs</strong>&nbsp;- Defines samples demostrating some other topics, such as design patterns, active patterns.
+</li><li><strong>SampleForm.resx -</strong>&nbsp;Resource file containing serialized icon and image data for the UI.
+</li><li><strong>Support.DataClasses.dbml</strong>,&nbsp;<strong>Support_Resource.resx</strong>,&nbsp;<strong>Support.Model.edmx</strong>, and&nbsp;<strong>Support.ExcelFile.xlsx</strong>&nbsp;are files used by sample code.
+</li></ul>
+<h3>License:&nbsp;<span><a>Apache License, Version 2.0</a></span></h3>
+</div>
+<p>&nbsp;</p>
+<p>You can also access the sample by using the following link:</p>
+<ul>
+<li><strong>Basic and Intermediate topics</strong> </li></ul>
+<p style="padding-left:60px"><a title="Arithmetic" href="http://fsharp3sample.codeplex.com/wikipage?title=Arithmetic">Arithmetic</a>&nbsp;&nbsp;<a title="Exceptions" href="http://fsharp3sample.codeplex.com/wikipage?title=Exceptions">Exceptions</a>&nbsp;
+<a title="For and While Loops" href="http://fsharp3sample.codeplex.com/wikipage?title=For and While Loops">
+For and While Loops</a>&nbsp; <a title="Recursion" href="http://fsharp3sample.codeplex.com/wikipage?title=Recursion">
+Recursion</a> <br>
+<a title="Data Types" href="http://fsharp3sample.codeplex.com/wikipage?title=Data Types">Data Types</a>, and more detailed&nbsp;information on: (1)<a title="Arrays, Hash Tables and Dictionaries" href="http://fsharp3sample.codeplex.com/wikipage?title=Arrays, Hash Tables and Dictionaries">Arrays,
+ Hash Tables and Dictionaries</a>&nbsp; (2) <a title="Lists, Tuples and Options" href="http://fsharp3sample.codeplex.com/wikipage?title=Lists, Tuples and Options">
+Lists, Tuples and Options</a>&nbsp; (3) <a title="Sequences" href="http://fsharp3sample.codeplex.com/wikipage?title=Sequences">
+Sequences</a> <br>
+<a title="Functions" href="http://fsharp3sample.codeplex.com/wikipage?title=Functions">Functions</a>&nbsp;and
+<a title="Functions - Arrays, Lists, Seqs" href="http://fsharp3sample.codeplex.com/wikipage?title=Functions - Arrays, Lists, Seqs">
+Functions - Arrays, Lists, Seqs</a>&nbsp; <br>
+<a title="Equality, Comparison and Hashing" href="http://fsharp3sample.codeplex.com/wikipage?title=Equality, Comparison and Hashing">Equality, Comparison and Hashing</a>
+<br>
+<a title="Defining Types" href="http://fsharp3sample.codeplex.com/wikipage?title=Defining Types">Defining Types</a>,
+<a title="Defining Operator" href="http://fsharp3sample.codeplex.com/wikipage?title=Defining Operator">
+Defining Operator</a>, and more advanced <a title="Defining Types and Functions" href="http://fsharp3sample.codeplex.com/wikipage?title=Defining Types and Functions">
+Defining Types and Functions</a>&nbsp;samples<br>
+<a title="Disposal" href="http://fsharp3sample.codeplex.com/wikipage?title=Disposal">Disposal</a>&nbsp;interface<br>
+<a title="Input/Output" href="http://fsharp3sample.codeplex.com/wikipage?title=Input/Output">Input/Output</a><br>
+<a title="Event" href="http://fsharp3sample.codeplex.com/wikipage?title=Event">Event</a>&nbsp;to define an event.&nbsp;<br>
+<a title="Extension Methods" href="http://fsharp3sample.codeplex.com/wikipage?title=Extension Methods">Extension Methods</a>&nbsp;to extend current F# types&nbsp;
+<br>
+<a title="Units of Measure" href="http://fsharp3sample.codeplex.com/wikipage?title=Units of Measure">Units of Measure</a> usage and samples about how to write a bank system<br>
+<a title="Quotation" href="http://fsharp3sample.codeplex.com/wikipage?title=Quotation">Quotation</a><br>
+<a title="Format" href="http://fsharp3sample.codeplex.com/wikipage?title=Format">Format</a>&nbsp;output sample<br>
+General <a title="InterOp" href="http://fsharp3sample.codeplex.com/wikipage?title=InterOp">
+InterOp</a>&nbsp;and <a title="Office Interop" href="http://fsharp3sample.codeplex.com/wikipage?title=Office Interop">
+Office Interop</a>&nbsp;is about how to invoke MS Word and Excel</p>
+<ul>
+<li><strong>Advanced topics</strong> </li></ul>
+<p style="padding-left:60px"><a title="Design patterns" href="http://fsharp3sample.codeplex.com/wikipage?title=Design patterns">Design patterns</a>&nbsp;present F# way implement design patterns&nbsp;&nbsp;<br>
+<a title="Active patterns" href="http://fsharp3sample.codeplex.com/wikipage?title=Active patterns">Active patterns</a>&nbsp;
+<br>
+<a title="Parallel" href="http://fsharp3sample.codeplex.com/wikipage?title=Parallel">Parallel</a>&nbsp;and
+<a title="Mailbox Processor" href="http://fsharp3sample.codeplex.com/wikipage?title=Mailbox Processor">
+Mailbox Processor</a>&nbsp;are about async and parallel process</p>
+<ul>
+<li><strong>Type Provider and LINQ query samples</strong> </li></ul>
+<p style="padding-left:60px"><a title="TypeProviders.SqlDataConnection" href="http://fsharp3sample.codeplex.com/wikipage?title=TypeProviders.SqlDataConnection">TypeProviders.SqlDataConnection</a>&nbsp;samples are about how to connect to and query SQL database<br>
+<a title="TypeProviders.ODataService" href="http://fsharp3sample.codeplex.com/wikipage?title=TypeProviders.ODataService">TypeProviders.ODataService</a>&nbsp;samples are about how to connect to OData service<br>
+<a title="TypeProviders.Others" href="http://fsharp3sample.codeplex.com/wikipage?title=TypeProviders.Others">TypeProviders.Others</a>&nbsp;contains other type provider samples<br>
+<a title="TypeProviders.AzureMarketPlace" href="http://fsharp3sample.codeplex.com/wikipage?title=TypeProviders.AzureMarketPlace">TypeProviders.AzureMarketPlace</a>&nbsp;are samples access Azure data market<br>
+<a title="LINQ" href="http://fsharp3sample.codeplex.com/wikipage?title=LINQ">LINQ</a>&nbsp;query samples shows how to use F# to do in-memory query</p>
+<ul>
+<li><strong>Others:</strong> </li></ul>
+<p style="padding-left:60px"><a title="MSTest" href="http://fsharp3sample.codeplex.com/wikipage?title=MSTest">MSTest</a>&nbsp;provides a sample on how to define MSTest.<br>
+<a title="Application" href="http://fsharp3sample.codeplex.com/wikipage?title=Application">Application</a><br>
+<a title="Others" href="http://fsharp3sample.codeplex.com/wikipage?title=Others">Others</a></p>
+</div><div class="ClearBoth"></div>

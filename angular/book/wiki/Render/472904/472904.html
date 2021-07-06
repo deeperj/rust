@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic List Construction 2</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample demonstrates a simple generative list comprehension to specify lists</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SequenceExpressionSample1() =<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> data1 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..20 -&gt; x, x * x ]<br><br>    <span style="color:#008000">// This uses a nested loop</span><br>   <span style="color:navy; font-weight:bold"> let</span> data2 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                   <span style="color:navy; font-weight:bold"> for</span> y<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                      yield x, y, x * y ]<br><br>    <span style="color:#008000">// This uses a filter</span><br>   <span style="color:navy; font-weight:bold"> let</span> data3 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                   <span style="color:navy; font-weight:bold"> for</span> y<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                     <span style="color:navy; font-weight:bold"> if</span> x &gt; y<span style="color:navy; font-weight:bold"> then</span> <br>                        yield (x, y, x * y) ]<br><br>    <span style="color:#008000">// This uses an internal let-binding</span><br>   <span style="color:navy; font-weight:bold"> let</span> data4 = [<span style="color:navy; font-weight:bold"> for</span> x<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                   <span style="color:navy; font-weight:bold"> for</span> y<span style="color:navy; font-weight:bold"> in</span> 0..5<span style="color:navy; font-weight:bold"> do</span> <br>                     <span style="color:navy; font-weight:bold"> if</span> x &gt; y<span style="color:navy; font-weight:bold"> then</span> <br>                       <span style="color:navy; font-weight:bold"> let</span> z = x * y <br>                        yield (x, y, z) ]<br>    <br>    printfn &quot;data1 = \n%A\n\n&quot; data1<br>    printfn &quot;data2 = \n%A\n\n&quot; data2<br>    printfn &quot;data3 = \n%A\n\n&quot; data3<br>    printfn &quot;data4 = \n%A\n\n&quot; data4<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data1 = <br>[(0, 0); (1, 1); (2, 4); (3, 9); (4, 16); (5, 25); (6, 36); (7, 49); (8, 64);<br> (9, 81); (10, 100); (11, 121); (12, 144); (13, 169); (14, 196); (15, 225);<br> (16, 256); (17, 289); (18, 324); (19, 361); (20, 400)]<br><br><br>data2 = <br>[(0, 0, 0); (0, 1, 0); (0, 2, 0); (0, 3, 0); (0, 4, 0); (0, 5, 0); (1, 0, 0);<br> (1, 1, 1); (1, 2, 2); (1, 3, 3); (1, 4, 4); (1, 5, 5); (2, 0, 0); (2, 1, 2);<br> (2, 2, 4); (2, 3, 6); (2, 4, 8); (2, 5, 10); (3, 0, 0); (3, 1, 3); (3, 2, 6);<br> (3, 3, 9); (3, 4, 12); (3, 5, 15); (4, 0, 0); (4, 1, 4); (4, 2, 8); (4, 3, 12);<br> (4, 4, 16); (4, 5, 20); (5, 0, 0); (5, 1, 5); (5, 2, 10); (5, 3, 15);<br> (5, 4, 20); (5, 5, 25)]<br><br><br>data3 = <br>[(1, 0, 0); (2, 0, 0); (2, 1, 2); (3, 0, 0); (3, 1, 3); (3, 2, 6); (4, 0, 0);<br> (4, 1, 4); (4, 2, 8); (4, 3, 12); (5, 0, 0); (5, 1, 5); (5, 2, 10); (5, 3, 15);<br> (5, 4, 20)]<br><br><br>data4 = <br>[(1, 0, 0); (2, 0, 0); (2, 1, 2); (3, 0, 0); (3, 1, 3); (3, 2, 6); (4, 0, 0);<br> (4, 1, 4); (4, 2, 8); (4, 3, 12); (5, 0, 0); (5, 1, 5); (5, 2, 10); (5, 3, 15);<br> (5, 4, 20)]<br><br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define a class with mutable variable</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Define a class with mutable variable</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> BuilderState =<br>  | None<br>  | Active<br>  | Completed<br><br><span style="color:navy; font-weight:bold">type</span> Builder() =<br> <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> state = None<br> <span style="color:navy; font-weight:bold"> member</span> this.CurrentState<br>   <span style="color:navy; font-weight:bold"> with</span> get() = state<br><br> <span style="color:navy; font-weight:bold"> member</span> this.Begin() =<br>      state &lt;- Active<br><br> <span style="color:navy; font-weight:bold"> member</span> this.End() =<br>    <span style="color:#008000">// complete the build process...</span><br>    state &lt;- Completed<br><br><span style="color:navy; font-weight:bold">let</span> ClassSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> b = Builder()<br>    printfn &quot;current state = %A&quot; b.CurrentState<br>    b.Begin();<br>    printfn &quot;current state = %A&quot; b.CurrentState<br>    b.End();<br>    printfn &quot;current state = %A&quot; b.CurrentState<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>current state = None<br>current state = Active<br>current state = Completed<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

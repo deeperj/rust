@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "815860",
+    "ThreadId": "350140",
+    "Html": "\r\n<p>GoF Design patterns described by this sample pack are not advanced F# but object oriented programming.</p>\r\n<p>They should be under&nbsp;some other topic than &quot;Advanced&quot;.</p>\r\n<p>How about &quot;Avoid&quot;?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-03-26T19:58:45.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "828659",
+    "ThreadId": "350140",
+    "Html": "<p>In my opinion advanced F# would be language specific features like:</p>\n<p>- Builder pattern (computational expressions)</p>\n<p>- MailboxProcessor</p>\n<p>- Numeric literals</p>\n<p>- Active pattern (not very useful, but is already...nice!)</p>\n<p>- Quotations</p>\n<p>- ...</p>",
+    "PostedDate": "2012-04-25T14:47:39.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,137 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .iter</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .iter applies a given function to each element in the collection, returning a value of unit ().</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> aoList = [<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; (i, i*i) ]<br>   <span style="color:navy; font-weight:bold"> let</span> aoArray = [|<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; (i, i*i) |]<br>   <span style="color:navy; font-weight:bold"> let</span> aoSeq = seq {<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; (i, i*i) }<br>    <br>    printf &quot;aoList: &quot;<br>    List.iter (fun (a,b) -&gt; printf &quot;(%d, %d) &quot; a b) aoList<br>    printf &quot;\naoArray: &quot;<br>    Array.iter (fun (a,b) -&gt; printf &quot;(%d, %d) &quot; a b) aoArray<br>    printf &quot;\naoSeq: &quot;<br>    Seq.iter (fun (a,b) -&gt; printf &quot;(%d, %d) &quot; a b) aoSeq<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>aoList: (1, 1) (2, 4) (3, 9) (4, 16) (5, 25) <br>aoArray: (1, 1) (2, 4) (3, 9) (4, 16) (5, 25) <br>aoSeq: (1, 1) (2, 4) (3, 9) (4, 16) (5, 25) </pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .map</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .map applies a given function to each element in the collection, returning a new collection.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample2() =<br>    <span style="color:#008000">// can be applied to arrays and sequences as well</span><br>   <span style="color:navy; font-weight:bold"> let</span> aoList2 = List.map (fun (a,b,c) -&gt; <br>           <span style="color:navy; font-weight:bold"> let</span> date =<span style="color:navy; font-weight:bold"> new</span> System.DateTime(c, a, b)<br>            date.ToString(&quot;F&quot;)) [(1,1,2001); (2,2,2004); (6,17,2009)]<br>            <br>   <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> aoList2<span style="color:navy; font-weight:bold"> do</span> printfn &quot;%A&quot; i<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Monday, January 01, 2001 12:00:00 AM&quot;<br>&quot;Monday, February 02, 2004 12:00:00 AM&quot;<br>&quot;Wednesday, June 17, 2009 12:00:00 AM&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .reduce</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .reduce applies a given function to the collection, threading an accumulator argument through and returning a single value.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample3() =<br>   <span style="color:navy; font-weight:bold"> let</span> aoList2 = [<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; i*i ]<br>   <span style="color:navy; font-weight:bold"> let</span> add acc item = acc &#43; item       <span style="color:#008000">// accumulator function </span><br>   <span style="color:navy; font-weight:bold"> let</span> sum = List.reduce add aoList2<br><br>   <span style="color:navy; font-weight:bold"> let</span> names = [| &quot;A&quot;; &quot;man&quot;; &quot;landed&quot;; &quot;on&quot;; &quot;the&quot;; &quot;moon&quot; |]<br>   <span style="color:navy; font-weight:bold"> let</span> insertComma (acc: string) item = acc &#43; &quot; &quot; &#43; item<br>   <span style="color:navy; font-weight:bold"> let</span> sentence = Array.reduce insertComma names<br>    <br>    printfn &quot;sum = %d&quot; sum<br>    printfn &quot;\nsentence = %s&quot; sentence<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>sum = 55<br><br>sentence = A man landed on the moon<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .filter</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .filter applies a given function to the collection, returning only those elements for which the given predicate returns true.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample4() =<br>   <span style="color:navy; font-weight:bold"> let</span> names = [|&quot;Bob&quot;; &quot;Jim&quot;; &quot;Stephen&quot;; &quot;James&quot;; &quot;Fred&quot;; &quot;Will&quot;; &quot;Brian&quot;; &quot;David&quot;; &quot;Mark&quot;; &quot;Jonathan&quot;|]<br>   <span style="color:navy; font-weight:bold"> let</span> longNames = Array.filter (fun (x: string) -&gt; x.Length &gt; 4) names<br>    <br>    printfn &quot;names = %A\n&quot; names<br>    printfn &quot;longNames = %A&quot; longNames<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>names = [|&quot;Bob&quot;; &quot;Jim&quot;; &quot;Stephen&quot;; &quot;James&quot;; &quot;Fred&quot;; &quot;Will&quot;; &quot;Brian&quot;; &quot;David&quot;; &quot;Mark&quot;;<br>  &quot;Jonathan&quot;|]<br><br>longNames = [|&quot;Stephen&quot;; &quot;James&quot;; &quot;Brian&quot;; &quot;David&quot;; &quot;Jonathan&quot;|]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .choose</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .choose applies a given function to the collection, returning an array of results x where the function evaluates to Some(x).</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample5() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = seq {1..20}<br>   <span style="color:navy; font-weight:bold"> let</span> evens = Seq.choose(fun x -&gt; <br>                               <span style="color:navy; font-weight:bold"> match</span> x<span style="color:navy; font-weight:bold"> with</span> <br>                                | x when x%2=0 -&gt; Some(x)<br>                                | _ -&gt; None ) numbers<br>    printfn &quot;numbers = %A\n&quot; numbers<br>    printfn &quot;evens = %A&quot; evens<br><br><span style="color:#008000">//--------------------------------------------------------  </span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>numbers = seq [1; 2; 3; 4; ...]<br><br>evens = seq [2; 4; 6; 8; ...]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

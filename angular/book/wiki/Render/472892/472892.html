@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Raising and catching a 'Failure' exception</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: How to raise and catch a 'Failure' exception</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample2() =<br>    try <br>        printfn &quot;About<span style="color:navy; font-weight:bold"> to</span> raise a simple 'Failure' exception...&quot;<br>        failwith &quot;Whoa!&quot;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>        Failure msg -&gt; <br>            printfn &quot;Caught a simple 'Failure' exception, msg = '%s'&quot; msg<br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>About to raise a simple 'Failure' exception...<br>Caught a simple 'Failure' exception, msg = 'Whoa!'<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

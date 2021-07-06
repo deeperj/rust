@@ -1,0 +1,22 @@
+<div class="wikidoc">
+<p>&nbsp;</p>
+<div>type Result&lt;'T&gt; =&nbsp;</div>
+<div>&nbsp; &nbsp; | Success of 'T</div>
+<div>&nbsp; &nbsp; | Failure&nbsp;</div>
+<div>type MaybeBuilder() =&nbsp;</div>
+<div>&nbsp; &nbsp; member this.Return x = Success x</div>
+<div>&nbsp; &nbsp; member this.Bind (x:Result&lt;'T&gt;, f: 'T-&gt;Result&lt;'u&gt;) =&nbsp;</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; match x with</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; | Success(x) -&gt; f x</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; | Failure -&gt; Failure</div>
+<div>let maybe = MaybeBuilder()</div>
+<div>let a =&nbsp;</div>
+<div>&nbsp; &nbsp; maybe&nbsp;{</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; let! b = Success(4);</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; let! y = Success true</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; return b, y</div>
+<div>&nbsp; &nbsp; }</div>
+<div></div>
+<div>// the above expression equals the following one:</div>
+<div>let r = maybe.Bind(Success 6, fun b -&gt; maybe.Bind(Success true, fun y -&gt; maybe.Return(b, y)))</div>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Following, I think, the instructions in the readme.html of the March 2012 download, I get an authorization exception on the following query. I am unfamiliar with ADM security model. ADM_USER_ID is clearly indicated as the user's email; ADM_ACCOUNT_ID is less clear. Is it the \"Customer ID\", or the \"Primary Account Key\". Instructions could be clearer. Probably self-explanatory for most seasoned ADM users, but not obvious to others what to do to get the sample working.\n \n    query {\n        for n in travelInfo.BritishEmbassiesAndHighCommissions do \n        select n\n        take 2\n    }|> Seq.iter (fun n -> printfn \"%s\\n\" n.Address)\n \nusing \"Customer ID\":\n  InnerException: System.Data.Services.Client.DataServiceClientException\n       HResult=-2146233079\n       Message=The authorization type you provided is not supported.  Only Basic and OAuth are supported\n \nusing \"Primary Account Key\":\n<h2>403 - Forbidden: Access is denied.</h2>\n  <h3>You do not have permission to view this directory or page using the credentials that you supplied.</h3>",
+    "LastUpdatedDate": "2013-02-21T16:36:11.833-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2012-08-29T17:35:26.08-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TypeProvider.OData.Sample0 : issue with azure marketplace authentication",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 2654
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "For information, after a bit of trial and error:\r\n- One needs to use his/her \"Primary Account Key\" for the ADM_ACCOUNT_ID\r\n- You need to subscribe to the \"UK Foreign and Commonwealth Office Travel Advisory Service\" data.\r\n\r\nAnd then the sample works.\r\n",
+      "PostedDate": "2012-08-29T17:47:48.49-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:36:11.833-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

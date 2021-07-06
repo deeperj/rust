@@ -66,10 +66,14 @@ int expect_find_negative(){
 }
 
 void test_find(){
-    describe("test postive and negative h_find()", [] {
+    describe("test postive and negative h_find()", [=] {
         describe("test positive h_find(hstack,len,needle) and returns an index or -1", [] {
-          it("should return the index of 0 for h_ind(hs,hsl,3) ",[] {
-              expect(expect_find_positive()).toBe(0);
+          // 1. Arrange
+          int hs[]={1,2,3,4};
+          int hsl=sizeof(hs)/sizeof(hs[0]);
+          it("should return the index of 0 for h_ind(hs,hsl,3) ",[=] {
+          // 2. Act and assert
+              expect(h_find(hs,hsl,5)).toBe(-1);
           });
         });
         describe("test negative h_find(hstack,len,needle) and returns an index or -1", [] {

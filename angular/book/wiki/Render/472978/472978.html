@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Adapter pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Adapter pattern make incompatible types work (walk) together without changing existing code. In the sample the dog and cat are imcompatible types. For more information, please go to http://en.wikipedia.org/wiki/Adapter_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Cat() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.Walk() = printfn &quot;cat walk&quot;<br><span style="color:navy; font-weight:bold">type</span> Dog() = <br>   <span style="color:navy; font-weight:bold"> member</span> this.Walk() = printfn &quot;dog walk&quot;<br><br><span style="color:navy; font-weight:bold">let</span> adapter() = <br>   <span style="color:navy; font-weight:bold"> let</span> cat = Cat()<br>   <span style="color:navy; font-weight:bold"> let</span> dog = Dog()<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> inline</span> walk (x : ^T) = (^T : (member Walk : unit-&gt;unit) (x))<br>    walk(cat)<br>    walk(dog)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>cat walk<br>dog walk<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

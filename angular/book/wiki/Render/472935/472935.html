@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define a mutable record</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Define a mutable record</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Employee = <br>    { Name : string;<br>      StartDate : string;<br>     <span style="color:navy; font-weight:bold"> mutable</span> Salary : float }<br><br><span style="color:navy; font-weight:bold">let</span> TypeRecordSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> steve = { Name = &quot;Steve&quot;; StartDate = &quot;01 Jan 2000&quot;; Salary = 30000.0 }<br>   <span style="color:navy; font-weight:bold"> let</span> joe   = { Name = &quot;Joe&quot;;   StartDate = &quot;25 Dec 2001&quot;; Salary = 45000.0 }<br><br>   <span style="color:navy; font-weight:bold"> let</span> giveRaise (emp : Employee, increase : float ) =<br>        emp.Salary &lt;- (1.0 &#43; increase)*emp.Salary<br>        printfn &quot;%s: Salary=%f&quot; emp.Name emp.Salary<br><br>    giveRaise (steve, 0.05)<br>    giveRaise (joe,   0.10)<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Steve: Salary=31500.000000<br>Joe: Salary=49500.000000<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

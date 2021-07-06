@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern with variable</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: This implementation uses a global variable resultRef to hold the result. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> CompositeNode&lt;'T&gt; = <br>    | Node of 'T<br>    | Tree of 'T * CompositeNode&lt;'T&gt; * CompositeNode&lt;'T&gt;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>       <span style="color:navy; font-weight:bold"> member</span> this.InOrder f = <br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.InOrder(f)<br>                f(n)<br>                right.InOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PreOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt;                 <br>                f(n)<br>                left.PreOrder(f)<br>                right.PreOrder(f)<br>            | Node(n) -&gt; f(n)<br>       <span style="color:navy; font-weight:bold"> member</span> this.PostOrder f =<br>           <span style="color:navy; font-weight:bold"> match</span> this<span style="color:navy; font-weight:bold"> with</span> <br>            | Tree(n, left, right) -&gt; <br>                left.PostOrder(f)<br>                right.PostOrder(f)<br>                f(n)<br>            | Node(n) -&gt; f(n)<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Tree(1, Tree(11, Node(12), Node(13)), Node(2))<br>   <span style="color:navy; font-weight:bold"> let</span> resultRef = ref 0<br>   <span style="color:navy; font-weight:bold"> let</span> nodeAccessFunc n = resultRef := !resultRef &#43; n<br>    tree.PreOrder nodeAccessFunc<br>    printfn &quot;result = %d&quot; !resultRef<br><br>    Assert.AreEqual(!resultRef, 39)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>result = 39<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

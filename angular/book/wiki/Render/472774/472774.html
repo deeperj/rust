@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>sortByDescending - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses orderby and descending to sort a list of doubles from highest to lowest.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ21() =<br>   <span style="color:navy; font-weight:bold"> let</span> doubles = [1.7M; 2.3M; 1.9M; 4.1M; 2.9M]<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> d<span style="color:navy; font-weight:bold"> in</span> doubles<span style="color:navy; font-weight:bold"> do</span> <br>        sortByDescending d<br>        select d<br>    } |&gt; Seq.iter(fun n -&gt; printfn &quot;%M&quot; n)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    4.1</span><br>    <span style="color:#008000">//    2.9</span><br>    <span style="color:#008000">//    2.3</span><br>    <span style="color:#008000">//    1.9</span><br>    <span style="color:#008000">//    1.7</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>4.1<br>2.9<br>2.3<br>1.9<br>1.7<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

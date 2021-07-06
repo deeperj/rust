@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Composite pattern &amp; continuation</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Composite pattern with continuation implementation to get the sum of all tree nodes. For more information, please go to http://en.wikipedia.org/wiki/Composite_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> TreeStructure&lt;'a&gt; = <br>    | Node of 'a * TreeStructure&lt;'a&gt; * TreeStructure&lt;'a&gt; <br>    | Leaf<br><br><span style="color:navy; font-weight:bold">let</span> OtherCompositePatternSample5() = <br>   <span style="color:navy; font-weight:bold"> let</span> tree = Node(4, Node(2, Node(1, Leaf, Leaf), Node(3, Leaf, Leaf)), <br>                    Node(6, Node(5, Leaf, Leaf), Node(7, Leaf, Leaf)))<br>   <span style="color:navy; font-weight:bold"> let</span> FoldTree nodeF leafV t = <br>       <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> Loop t cont = <br>           <span style="color:navy; font-weight:bold"> match</span> t<span style="color:navy; font-weight:bold"> with</span> <br>            | Node(x,left,right) -&gt; Loop left  (fun lacc -&gt;  <br>                                    Loop right (fun racc -&gt; <br>                                    cont (nodeF x lacc racc))) <br>            | Leaf -&gt; cont leafV <br>        Loop t (fun x -&gt; x)<br> <br>   <span style="color:navy; font-weight:bold"> let</span> SumTree = FoldTree (fun x l r -&gt; x &#43; l &#43; r)   0 <br>   <span style="color:navy; font-weight:bold"> let</span> InOrder = FoldTree (fun x l r -&gt; l @ [x] @ r) [] <br>   <span style="color:navy; font-weight:bold"> let</span> Height  = FoldTree (fun _ l r -&gt; 1 &#43; max l r) 0<br>    printfn &quot;sum = %d&quot; (SumTree(tree))<br>    printfn &quot;inorder = %A&quot; (InOrder(tree))<br>    printfn &quot;height = %d&quot; (Height(tree))<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>sum = 28<br>inorder = [1; 2; 3; 4; 5; 6; 7]<br>height = 3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

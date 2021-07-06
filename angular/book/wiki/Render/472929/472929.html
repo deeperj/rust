@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic Discriminated Unions</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Discriminated unions give a way of building types from the disjoint union of two or more existing types. This sample shows how to build one such type and how to decompose its values.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> wheel = Wheel of float  <span style="color:#008000">// radius of wheel, inches</span><br><span style="color:navy; font-weight:bold">type</span> cycle = <br>    | Unicycle of wheel<br>    | Bicycle of wheel * wheel <br><br><span style="color:navy; font-weight:bold">let</span> veryBigWheel = Wheel(26.0)<br><span style="color:navy; font-weight:bold">let</span> bigWheel     = Wheel(13.0)<br><span style="color:navy; font-weight:bold">let</span> smallWheel   = Wheel(6.0)<br><br><span style="color:navy; font-weight:bold">let</span> pennyFarthing = Bicycle(veryBigWheel, smallWheel)<br><span style="color:navy; font-weight:bold">let</span> racer         = Bicycle(bigWheel, bigWheel)<br><span style="color:navy; font-weight:bold">let</span> kidsBike      = Bicycle(smallWheel, smallWheel)<br><br><span style="color:navy; font-weight:bold">let</span> UnionSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> show bike = <br>       <span style="color:navy; font-weight:bold"> match</span> bike<span style="color:navy; font-weight:bold"> with</span> <br>        | Unicycle (Wheel r) -&gt; printfn &quot;Unicycle, one wheel, radius = %f&quot; r<br>        | Bicycle (Wheel r1,Wheel r2) -&gt; printfn &quot;Bicycle, two wheels, front = %f, back = %f&quot; r1 r2 <br>    show pennyFarthing;<br>    show racer;<br>    show kidsBike<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Bicycle, two wheels, front = 26.000000, back = 6.000000<br>Bicycle, two wheels, front = 13.000000, back = 13.000000<br>Bicycle, two wheels, front = 6.000000, back = 6.000000<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

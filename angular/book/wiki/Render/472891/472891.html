@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Raising a 'Failure' exception</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: How to raise a simple exception</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample1() : unit =<br>    failwith &quot;Here's how<span style="color:navy; font-weight:bold"> to</span> raise a simple 'Failure' exception&quot;<br>  <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Exception raised: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.Exception: Here's how to raise a simple 'Failure' exception<br>   at Microsoft.FSharp.Core.Operators.FailWith[T](String message)<br>   at Samples.Beginners.ExceptionSample1() in C:\MyCode\Samples\SampleProject\SampleProject\Samples.Beginners.fs:line 148<br>   --- End of inner exception stack trace ---<br>   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)<br>   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)<br>   at Support.Helper.Utils.samples@190-3.Invoke(Unit unitVar0) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 190<br>   at Support.Helper.Utils.getExecutionResult(FSharpOption`1 sampleOption) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 256<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

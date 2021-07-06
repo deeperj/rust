@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Filter</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows how to filter a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample6() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [(&quot;Cats&quot;,4);<br>                (&quot;Dogs&quot;,5);<br>                (&quot;Mice&quot;,3);<br>                (&quot;Elephants&quot;,2)]<br>   <span style="color:navy; font-weight:bold"> let</span> res = data |&gt; List.filter (fun (nm,x) -&gt; nm.Length &lt;= 4)<br>    printfn &quot;Animals<span style="color:navy; font-weight:bold"> with</span> short names: %A&quot; res<br> <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Animals with short names: [(&quot;Cats&quot;, 4); (&quot;Dogs&quot;, 5); (&quot;Mice&quot;, 3)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

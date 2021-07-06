@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Compound</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses a compound from clause to make a query that returns all pairs of numbers from both arrays such that the number from numbersA is less than the number from numbersB.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ12() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [0; 2; 4; 5; 6; 8; 9]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [1; 3; 5; 7; 8]<br><br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> a<span style="color:navy; font-weight:bold"> in</span> numbersA<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> b<span style="color:navy; font-weight:bold"> in</span> numbersB<span style="color:navy; font-weight:bold"> do</span> <br>            where (a &lt; b)<br>            select (a,b)<br>    } |&gt; Seq.iter(fun (n,e) -&gt; printfn &quot;%d is less than %d&quot; n e)<br>    <br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0 is less than 1</span><br>    <span style="color:#008000">//    0 is less than 3</span><br>    <span style="color:#008000">//    0 is less than 5</span><br>    <span style="color:#008000">//    0 is less than 7</span><br>    <span style="color:#008000">//    0 is less than 8</span><br>    <span style="color:#008000">//    2 is less than 3</span><br>    <span style="color:#008000">//    2 is less than 5</span><br>    <span style="color:#008000">//    2 is less than 7</span><br>    <span style="color:#008000">//    2 is less than 8</span><br>    <span style="color:#008000">//    4 is less than 5</span><br>    <span style="color:#008000">//    4 is less than 7</span><br>    <span style="color:#008000">//    4 is less than 8</span><br>    <span style="color:#008000">//    5 is less than 7</span><br>    <span style="color:#008000">//    5 is less than 8</span><br>    <span style="color:#008000">//    6 is less than 7</span><br>    <span style="color:#008000">//    6 is less than 8</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0 is less than 1<br>0 is less than 3<br>0 is less than 5<br>0 is less than 7<br>0 is less than 8<br>2 is less than 3<br>2 is less than 5<br>2 is less than 7<br>2 is less than 8<br>4 is less than 5<br>4 is less than 7<br>4 is less than 8<br>5 is less than 7<br>5 is less than 8<br>6 is less than 7<br>6 is less than 8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

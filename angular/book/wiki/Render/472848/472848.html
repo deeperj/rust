@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Converting between numeric types</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: This sample shows how to convert between various numeric types</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleArithmetic3() =<br>    <span style="color:#008000">// Manipulating double-precision (64-bit) floating point numbers</span><br>   <span style="color:navy; font-weight:bold"> let</span> pi1 = float 3  &#43; 0.1415   <span style="color:#008000">// 'float' is an overloaded conversion operator</span><br>   <span style="color:navy; font-weight:bold"> let</span> pi2 = double 3 &#43; 0.1415   <span style="color:#008000">// identical - 'double' is a synonym for 'float'</span><br>    printfn &quot;pi1 = %f, pi2 = %f&quot; pi1 pi2<br>  <br>   <span style="color:navy; font-weight:bold"> let</span> i1 = int 3.1415 <br>   <span style="color:navy; font-weight:bold"> let</span> i2 = int64   3.1415 <br>    printfn &quot;i1 = %d, i2 = %d&quot; i1 i2<br>  <br>    <span style="color:#008000">// Manipulating single-precision (32-bit) floating point numbers</span><br>   <span style="color:navy; font-weight:bold"> let</span> f32a = 2.1415f &#43; 1.0f            <span style="color:#008000">// float32 (System.Single)</span><br>   <span style="color:navy; font-weight:bold"> let</span> f32b = 2.1415f &#43; float32 1       <span style="color:#008000">// float32 - identical </span><br>    printfn &quot;f32a = %f, f32b = %G&quot; f32a f32b<br>  <br>    <span style="color:#008000">// Manipulating bytes</span><br>   <span style="color:navy; font-weight:bold"> let</span> byteA = byte (3&#43;4)          <span style="color:#008000">// byte </span><br>   <span style="color:navy; font-weight:bold"> let</span> byteB = 255uy               <span style="color:#008000">// byte </span><br>   <span style="color:navy; font-weight:bold"> let</span> byteC = 0xFFuy              <span style="color:#008000">// byte </span><br>   <span style="color:navy; font-weight:bold"> let</span> byteD = byte 0xFF           <span style="color:#008000">// byte </span><br>    printfn &quot;byteA = %d, byteB = %d&quot; byteA byteB<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>pi1 = 3.141500, pi2 = 3.141500<br>i1 = 3, i2 = 3<br>f32a = 3.141500, f32b = 3.1415<br>byteA = 7, byteB = 255<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

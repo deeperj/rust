@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .iter</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .iter applies a given function to each element in the collection, returning a value of unit ().</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> aoList = [<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; (i, i*i) ]<br>   <span style="color:navy; font-weight:bold"> let</span> aoArray = [|<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; (i, i*i) |]<br>   <span style="color:navy; font-weight:bold"> let</span> aoSeq = seq {<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5 -&gt; (i, i*i) }<br>    <br>    printf &quot;aoList: &quot;<br>    List.iter (fun (a,b) -&gt; printf &quot;(%d, %d) &quot; a b) aoList<br>    printf &quot;\naoArray: &quot;<br>    Array.iter (fun (a,b) -&gt; printf &quot;(%d, %d) &quot; a b) aoArray<br>    printf &quot;\naoSeq: &quot;<br>    Seq.iter (fun (a,b) -&gt; printf &quot;(%d, %d) &quot; a b) aoSeq<br>    <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>aoList: (1, 1) (2, 4) (3, 9) (4, 16) (5, 25) <br>aoArray: (1, 1) (2, 4) (3, 9) (4, 16) (5, 25) <br>aoSeq: (1, 1) (2, 4) (3, 9) (4, 16) (5, 25) </pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

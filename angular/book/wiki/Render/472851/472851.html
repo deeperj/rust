@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Declaring and calling inner functions</strong><strong><br>
+<br>
+Category: </strong>Functions<br>
+<strong>Description</strong>: Declaring and calling functions within the body of another function</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> FunctionSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> even n = (n%2 = 0) <br>   <span style="color:navy; font-weight:bold"> let</span> tick x = printfn &quot;tick %d&quot; x <br>   <span style="color:navy; font-weight:bold"> let</span> tock x = printfn &quot;tock %d&quot; x <br>   <span style="color:navy; font-weight:bold"> let</span> choose f g h x =<span style="color:navy; font-weight:bold"> if</span> f x<span style="color:navy; font-weight:bold"> then</span> g x<span style="color:navy; font-weight:bold"> else</span> h x <br>   <span style="color:navy; font-weight:bold"> let</span> ticktock = choose even tick tock  <span style="color:#008000">// ticktock is a function built out of other functions using 'choose'</span><br>   <span style="color:navy; font-weight:bold"> for</span> i = 0<span style="color:navy; font-weight:bold"> to</span> 10<span style="color:navy; font-weight:bold"> do</span> <br>        ticktock i<br>    <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>tick 0<br>tock 1<br>tick 2<br>tock 3<br>tick 4<br>tock 5<br>tick 6<br>tock 7<br>tick 8<br>tock 9<br>tick 10<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

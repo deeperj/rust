@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The resource file access code in Samples.DataAccess.SQL.fs is commented out and the ResxFile type provider appears to no longer exist:\n\n```\n//type T = Microsoft.FSharp.Data.TypeProviders.ResxFile< @\"Support_Resource.resx\" >\n//\n//[]\n//let typeResxProviderTest() = \n//    let string1 = T.Support_Resource.String1\n//    let string2 = T.Support_Resource.String2\n//    printfn \"string1 from resource is %s\" string1\n//    printfn \"string2 from resource is %s\" string2\n```",
+    "LastUpdatedDate": "2013-10-21T06:32:34.237-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2013-02-05T01:57:31.45-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ResxFile Type Provider missing",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 2771
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,33 @@
+<div class="wikidoc">
+<p><span style="font-size:10pt">&nbsp;</span><span style="font-size:10pt; color:blue">let</span><span style="font-size:10pt"> createCommand action canExecute=</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:10pt; color:blue">let</span><span style="font-size:10pt"> event1
+</span><span style="font-size:10pt; color:blue">=</span><span style="font-size:10pt"> Event&lt;_, _&gt;()</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:10pt; color:blue">new</span><span style="font-size:10pt"> ICommand
+</span><span style="font-size:10pt; color:blue">with</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:10pt; color:blue">member</span><span style="font-size:10pt"> this.CanExecute(obj)
+</span><span style="font-size:10pt; color:blue">=</span><span style="font-size:10pt"> canExecute(obj)</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:10pt; color:blue">member</span><span style="font-size:10pt"> this.Execute(obj)
+</span><span style="font-size:10pt; color:blue">=</span><span style="font-size:10pt"> action(obj)</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:10pt; color:blue">member</span><span style="font-size:10pt"> this.add_CanExecuteChanged(handler)
+</span><span style="font-size:10pt; color:blue">=</span><span style="font-size:10pt"> event1.Publish.AddHandler(handler)</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:10pt; color:blue">member</span><span style="font-size:10pt"> this.remove_CanExecuteChanged(handler)
+</span><span style="font-size:10pt; color:blue">=</span><span style="font-size:10pt"> event1.Publish.AddHandler(handler)</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span style="font-size:10pt">&nbsp;</span><span style="font-size:10pt; color:blue">let</span><span style="font-size:10pt"> myCommand
+</span><span style="font-size:10pt; color:blue">=</span><span style="font-size:10pt"> createCommand</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span><span style="font-size:10pt; color:blue">fun</span><span style="font-size:10pt">
+ _ </span><span style="font-size:10pt; color:blue">-&gt;</span><span style="font-size:10pt"> ())</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span><span style="font-size:10pt; color:blue">fun</span><span style="font-size:10pt">
+ _ </span><span style="font-size:10pt; color:blue">-&gt;</span><span style="font-size:10pt">
+</span><span style="font-size:10pt; color:blue">true</span><span style="font-size:10pt">)</span></p>
+<p><span style="font-size:10pt">&nbsp;</span><span style="font-size:10pt; color:blue">let</span><span style="font-size:10pt"> ObjectExpression()
+</span><span style="font-size:10pt; color:blue">=</span></p>
+<p><span style="font-size:10pt">&nbsp;&nbsp;&nbsp; printfn &quot;WPF command using object expression&quot;</span></p>
+</div><div class="ClearBoth"></div>

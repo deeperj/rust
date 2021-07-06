@@ -1,0 +1,301 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lawyers.com - Consumer Legal Articles</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: Consume Azure Marketplace data from Lawyers.com Consumer Legal Articles. For more information, please goto https://datamarket.azure.com/dataset/4306e828-ad35-4049-b9a9-4e4824cc37e8</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><span style="color:navy; font-weight:bold">type</span> Lawyers = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/LexisNexis/ConsumerLegalArticles/&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> LawyersDotCom() = <br>   <span style="color:navy; font-weight:bold"> let</span> articles = Lawyers.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    articles.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> a<span style="color:navy; font-weight:bold"> in</span> articles.Articles<span style="color:navy; font-weight:bold"> do</span> <br>        where (a.State = &quot;Washington&quot;)<br>        select a<br>    }|&gt; Seq.iter(fun i -&gt; printfn &quot;%A&quot; i.Title)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;WA Witnesses at a Small Claims Trial&quot;</span><br>    <span style="color:#008000">//    &quot;WA Alternatives to Small Claims Court&quot;</span><br>    <span style="color:#008000">//    &quot;WA After Small Claims Court&quot;</span><br>    <span style="color:#008000">//    &quot;Estate Planning in Washington State (WA)&quot;</span><br>    <span style="color:#008000">//    &quot;Washington Expungement and Record Sealing&quot;</span><br>    <span style="color:#008000">//    &quot;Selling a House in Washington&quot;</span><br>    <span style="color:#008000">//    &quot;Washington Statutes of Limitations&quot;</span><br>    <span style="color:#008000">//    &quot;Criminal Process in Washington State (WA)&quot;</span><br>    <span style="color:#008000">//    ...</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;WA Witnesses at a Small Claims Trial&quot;<br>&quot;WA Alternatives to Small Claims Court&quot;<br>&quot;WA After Small Claims Court&quot;<br>&quot;Estate Planning in Washington State (WA)&quot;<br>&quot;Washington Expungement and Record Sealing&quot;<br>&quot;Selling a House in Washington&quot;<br>&quot;Washington Statutes of Limitations&quot;<br>&quot;Criminal Process in Washington State (WA)&quot;<br>&quot;Personal Injury in the State of Washington (WA)&quot;<br>&quot;WA Collecting the Judgment&quot;<br>&quot;Divorce in Washington State (WA)&quot;<br>&quot;Washington Traffic Violations&quot;<br>&quot;Buying a House in Washington (WA)&quot;<br>&quot;WA Small Claims Trials&quot;<br>&quot;WA What Is Small Claims Court?&quot;<br>&quot;WA Filing a Small Claims Suit&quot;<br>&quot;Washington Small Claims&quot;<br>&quot;Employment Law in Washington State&quot;<br>&quot;Bankruptcy in Washington State&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>MarketBank - Retail Financial Services Demand &amp; Potential</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: Consume Azure Marketplace data from MarketBank Retail Financial Services Demand &amp; Potential. For more information, please goto https://datamarket.azure.com/dataset/13d66793-c703-4efb-9198-ca95802c0d13</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> MarketBank = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/RpmConsulting/MarketBank/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> MarketBank() = <br>   <span style="color:navy; font-weight:bold"> let</span> data = MarketBank.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    data.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> b<span style="color:navy; font-weight:bold"> in</span> data.MarketBank2010<span style="color:navy; font-weight:bold"> do</span> <br>        where (b.StateAbbreviation = &quot;WA&quot;)<br>        sortBy (b.Id)<br>        select b<br>    }|&gt;  Seq.iter(fun i -&gt; printfn &quot;%A - %A&quot; i.Id i.AnnuitiesPenetrationIndex)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;530019501001&quot; - 113</span><br>    <span style="color:#008000">//    &quot;530019501002&quot; - 116</span><br>    <span style="color:#008000">//    &quot;530019501003&quot; - 78</span><br>    <span style="color:#008000">//    &quot;530019501004&quot; - 122</span><br>    <span style="color:#008000">//    &quot;530019502001&quot; - 132</span><br>    <span style="color:#008000">//    &quot;530019502002&quot; - 113</span><br>    <span style="color:#008000">//    &quot;530019502003&quot; - 77</span><br>    <span style="color:#008000">//    &quot;530019503001&quot; - 124</span><br>    <span style="color:#008000">//    ...</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;530019501001&quot; - 113<br>&quot;530019501002&quot; - 116<br>&quot;530019501003&quot; - 78<br>&quot;530019501004&quot; - 122<br>&quot;530019502001&quot; - 132<br>&quot;530019502002&quot; - 113<br>&quot;530019502003&quot; - 77<br>&quot;530019503001&quot; - 124<br>&quot;530019503002&quot; - 88<br>&quot;530019503003&quot; - 77<br>&quot;530019503004&quot; - 82<br>&quot;530019503005&quot; - 60<br>&quot;530019503006&quot; - 66<br>&quot;530019504001&quot; - 70<br>&quot;530019504002&quot; - 73<br>&quot;530019505001&quot; - 89<br>&quot;530019505002&quot; - 66<br>&quot;530039801001&quot; - 103<br>&quot;530039801002&quot; - 91<br>&quot;530039801003&quot; - 120<br>&quot;530039802001&quot; - 122<br>&quot;530039802002&quot; - 121<br>&quot;530039802003&quot; - 117<br>&quot;530039802004&quot; - 121<br>&quot;530039803001&quot; - 65<br>&quot;530039803002&quot; - 90<br>&quot;530039803003&quot; - 77<br>&quot;530039803004&quot; - 91<br>&quot;530039804001&quot; - 97<br>&quot;530039804002&quot; - 81<br>&quot;530039805001&quot; - 87<br>&quot;530039805002&quot; - 78<br>&quot;530039805003&quot; - 95<br>&quot;530039805004&quot; - 112<br>&quot;530039806001&quot; - 83<br>&quot;530039806002&quot; - 117<br>&quot;530039806003&quot; - 102<br>&quot;530039806004&quot; - 119<br>&quot;530050101001&quot; - 0<br>&quot;530050101002&quot; - 195<br>&quot;530050101003&quot; - 142<br>&quot;530050102011&quot; - 167<br>&quot;530050102012&quot; - 123<br>&quot;530050102013&quot; - 129<br>&quot;530050102021&quot; - 102<br>&quot;530050102022&quot; - 141<br>&quot;530050102023&quot; - 147<br>&quot;530050102024&quot; - 86<br>&quot;530050102025&quot; - 76<br>&quot;530050103001&quot; - 120<br>&quot;530050103002&quot; - 127<br>&quot;530050103003&quot; - 143<br>&quot;530050103004&quot; - 94<br>&quot;530050104001&quot; - 87<br>&quot;530050104002&quot; - 76<br>&quot;530050104003&quot; - 76<br>&quot;530050105001&quot; - 92<br>&quot;530050105002&quot; - 108<br>&quot;530050105003&quot; - 87<br>&quot;530050106001&quot; - 91<br>&quot;530050106002&quot; - 71<br>&quot;530050106003&quot; - 65<br>&quot;530050106004&quot; - 115<br>&quot;530050106005&quot; - 207<br>&quot;530050107001&quot; - 83<br>&quot;530050107002&quot; - 98<br>&quot;530050107003&quot; - 101<br>&quot;530050107004&quot; - 108<br>&quot;530050107005&quot; - 123<br>&quot;530050108011&quot; - 151<br>&quot;530050108012&quot; - 148<br>&quot;530050108013&quot; - 125<br>&quot;530050108014&quot; - 141<br>&quot;530050108015&quot; - 137<br>&quot;530050108031&quot; - 137<br>&quot;530050108032&quot; - 71<br>&quot;530050108033&quot; - 132<br>&quot;530050108041&quot; - 164<br>&quot;530050108042&quot; - 139<br>&quot;530050108043&quot; - 128<br>&quot;530050108044&quot; - 64<br>&quot;530050108045&quot; - 92<br>&quot;530050108046&quot; - 171<br>&quot;530050108047&quot; - 88<br>&quot;530050109011&quot; - 104<br>&quot;530050109012&quot; - 169<br>&quot;530050109013&quot; - 132<br>&quot;530050109014&quot; - 73<br>&quot;530050109015&quot; - 66<br>&quot;530050109016&quot; - 35<br>&quot;530050109021&quot; - 57<br>&quot;530050109022&quot; - 72<br>&quot;530050109023&quot; - 57<br>&quot;530050109024&quot; - 130<br>&quot;530050110011&quot; - 130<br>&quot;530050110012&quot; - 83<br>&quot;530050110013&quot; - 144<br>&quot;530050110014&quot; - 157<br>&quot;530050110015&quot; - 48<br>&quot;530050110016&quot; - 55<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>BranchInfo - U.S. Bank Branch Locations, History &amp; Performance Database</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: BranchInfo&trade; 2011 is a historical database of every bank branch location in the U.S. containing information matched by institution and site, across a five-year timeframe. For more information, please goto https://datamarket.azure.com/dataset/36c385f2-5903-4335-af09-294e3043839f</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> BankInfo = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/RpmConsulting/BranchInfo&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> BranchInfo() = <br>   <span style="color:navy; font-weight:bold"> let</span> bank = BankInfo.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    bank.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> b<span style="color:navy; font-weight:bold"> in</span> bank.BranchInfo2011<span style="color:navy; font-weight:bold"> do</span> <br>        where (b.BranchState = &quot;WA&quot;)<br>        where (b.BranchZip = &quot;98052&quot;)<br>        select b<br>    }|&gt;  Seq.iter(fun i -&gt; printfn &quot;%A - %A&quot; i.BranchName i.BranchDeposits)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;Washington Federal S &amp; L Association    &quot; - 1000788M</span><br>    <span style="color:#008000">//    &quot;Redmond Branch                          &quot; - 1000788M</span><br>    <span style="color:#008000">//    &quot;Overlake Safeway Branch                 &quot; - 925095M</span><br>    <span style="color:#008000">//    &quot;Overlake Park Branch                    &quot; - 883017M</span><br>    <span style="color:#008000">//    &quot;Redmond Branch                          &quot; - 1000788M</span><br>    <span style="color:#008000">//    &quot;North Redmond Branch                    &quot; - 965031M</span><br>    <span style="color:#008000">//    &quot;Bel-Red Branch                          &quot; - 987997M</span><br>    <span style="color:#008000">//    ...</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Washington Federal S &amp; L Association    &quot; - 1000788M<br>&quot;Washington Federal S &amp; L Association    &quot; - 1000788M<br>&quot;Redmond Branch                          &quot; - 1000788M<br>&quot;Overlake Safeway Branch                 &quot; - 925095M<br>&quot;Overlake Park Branch                    &quot; - 883017M<br>&quot;Redmond Branch                          &quot; - 1000788M<br>&quot;North Redmond Branch                    &quot; - 965031M<br>&quot;Bel-Red Branch                          &quot; - 987997M<br>&quot;Bear Creek Branch                       &quot; - 1000788M<br>&quot;Redmond Branch                          &quot; - 965031M<br>&quot;Overlake Park Branch                    &quot; - 925095M<br>&quot;Redmond Branch                          &quot; - 987102M<br>&quot;Redmond Branch                          &quot; - 987102M<br>&quot;Redmond                                 &quot; - 965031M<br>&quot;Redmond Branch                          &quot; - 987102M<br>&quot;Avondale Branch                         &quot; - 754616M<br>&quot;Redmond                                 &quot; - 883017M<br>&quot;Redmond Branch                          &quot; - 987102M<br>&quot;Redmond Branch                          &quot; - 546681M<br>&quot;Redmond Branch                          &quot; - 965031M<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Data.Gov - 2006-2008 Crime in the United States (Data.gov)</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: Consume Azure Marketplace crime data from Data.gov. For more information, please goto https://datamarket.azure.com/dataset/c663117f-db6d-49e1-bc83-b05390bb3c70</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> C = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/data.gov/Crimes&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> DataGov() = <br>   <span style="color:navy; font-weight:bold"> let</span> crime =<span style="color:navy; font-weight:bold"> new</span> C.ServiceTypes.datagovCrimesContainer()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    crime.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    <span style="color:#008000">// compare different property crime rates for cities around microsoft</span><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> m<span style="color:navy; font-weight:bold"> in</span> crime.CityCrime<span style="color:navy; font-weight:bold"> do</span> <br>        where (m.City = &quot;Redmond&quot; || m.City = &quot;Kirkland&quot; || m.City = &quot;Bellevue&quot; || m.City = &quot;Seattle&quot; )<br>        where (m.State = &quot;Washington&quot;)<br>        where (m.Year = 2008)<br>        sortBy (m.City)<br>    } |&gt; Seq.map ( fun c -&gt; (c.City, (float c.Burglary &#43; float c.PropertyCrime) / float c.Population * 100.0)) <br>      |&gt; Seq.sortBy(fun d -&gt; snd d )<br>      |&gt; Seq.toList <br>      |&gt; printfn &quot;%A&quot; <br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    [(&quot;Redmond&quot;, 3.717874241); (&quot;Bellevue&quot;, 4.063400812); (&quot;Kirkland&quot;, 4.584304584);</span><br>    <span style="color:#008000">//     (&quot;Seattle&quot;, 6.574905907)]</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[(&quot;Redmond&quot;, 3.717874241); (&quot;Bellevue&quot;, 4.063400812); (&quot;Kirkland&quot;, 4.584304584);<br> (&quot;Seattle&quot;, 6.574905907)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>ESRI - 2010 Key US Demographics by ZIP Code, Place and County (Trial)</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: 2010 Key US Demographics by ZIP Code, Place, and County Data is a select offering of the demographic data required to understand a market. For more information, please goto https://datamarket.azure.com/dataset/c7154924-7cab-47ac-97fb-7671376ff656</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> D = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/Esri/KeyUSDemographicsTrial/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> Esri() = <br>   <span style="color:navy; font-weight:bold"> let</span> pl = D.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    pl.Credentials &lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> pl.demog1<span style="color:navy; font-weight:bold"> do</span> <br>        where (c.StateName = &quot;Washington&quot;)<br>        where (c.CountyName = &quot;King County&quot;)<br>        sortBy c.GeographyId<br>    } |&gt; Seq.filter (fun i -&gt;<span style="color:navy; font-weight:bold"> match</span> i.GeographyName.Trim().ToLower()<span style="color:navy; font-weight:bold"> with</span> <br>                              | &quot;redmond&quot; -&gt; true <br>                              | &quot;bellevue&quot; -&gt; true<br>                              | &quot;kirkland&quot; -&gt; true<br>                              | _ -&gt; false) <br>      |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; i.GeographyId i.PerCapitaIncome2010.Value )<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;98004&quot; - 58631</span><br>    <span style="color:#008000">//    &quot;98005&quot; - 44672</span><br>    <span style="color:#008000">//    &quot;98006&quot; - 51553</span><br>    <span style="color:#008000">//    &quot;98007&quot; - 36689</span><br>    <span style="color:#008000">//    &quot;98008&quot; - 43038</span><br>    <span style="color:#008000">//    &quot;98033&quot; - 55849</span><br>    <span style="color:#008000">//    &quot;98034&quot; - 39577</span><br>    <span style="color:#008000">//    &quot;98052&quot; - 47359</span><br>    <span style="color:#008000">//    &quot;98053&quot; - 47164</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;98004&quot; - 58631<br>&quot;98005&quot; - 44672<br>&quot;98006&quot; - 51553<br>&quot;98007&quot; - 36689<br>&quot;98008&quot; - 43038<br>&quot;98033&quot; - 55849<br>&quot;98034&quot; - 39577<br>&quot;98052&quot; - 47359<br>&quot;98053&quot; - 47164<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>LexisNexis - Legal Communities</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: Content from the LexisNexis Legal Communities including expert commentary on current legal issues as well as timely podcasts. For more information, please goto https://datamarket.azure.com/dataset/101eb297-c17f-4f22-a844-16ca2e52252d</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> L = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/LexisNexis/LegalCommunities/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> LexisNexis() = <br>   <span style="color:navy; font-weight:bold"> let</span> legal =<span style="color:navy; font-weight:bold"> new</span> L.ServiceTypes.LexisNexisLegalCommunitiesContainer()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    legal.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> m<span style="color:navy; font-weight:bold"> in</span> legal.CommunityContent<span style="color:navy; font-weight:bold"> do</span> <br>        where (m.DatePublished  &gt; System.DateTime(2011, 1, 1))<br>        select m <br>    } |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; i.Author i.Title  )<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;Ted Connolly&quot; - &quot;What Do Credit Scores Tell Lenders About Us That We Don&rsquo;t Know?&quot;</span><br>    <span style="color:#008000">//    &quot;Patrick McCraney&quot; - &quot;Distressed Investors May Feel a Chill in the Air&quot;</span><br>    <span style="color:#008000">//    &quot;Arina Shulga&quot; - &quot;Doing Business in Russia&quot;</span><br>    <span style="color:#008000">//    &quot;George Pressly&quot; - &quot;SEC Whistleblowers can Help Uncover &quot;Soft Dollar&quot; Practices&quot;</span><br>    <span style="color:#008000">//    &quot;Francis G.X. Pileggi&quot; - &quot;Key Delaware Corporate and Commercial Decisions in 2010 &quot;</span><br>    <span style="color:#008000">//    &quot;Thomas O. Gorman&quot; - &quot;SEC Enforcement Trends 2011&quot;</span><br>    <span style="color:#008000">//    ...</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Ted Connolly&quot; - &quot;What Do Credit Scores Tell Lenders About Us That We Don&rsquo;t Know?&quot;<br>&quot;Patrick McCraney&quot; - &quot;Distressed Investors May Feel a Chill in the Air&quot;<br>&quot;Arina Shulga&quot; - &quot;Doing Business in Russia&quot;<br>&quot;George Pressly&quot; - &quot;SEC Whistleblowers can Help Uncover &quot;Soft Dollar&quot; Practices&quot;<br>&quot;Francis G.X. Pileggi&quot; - &quot;Key Delaware Corporate and Commercial Decisions in 2010 &quot;<br>&quot;Thomas O. Gorman&quot; - &quot;SEC Enforcement Trends 2011&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;A Closer Look at the 2010 Securities Lawsuit Filings &quot;<br>&quot;Thomas Fox&quot; - &quot;Private Equity and the FCPA&quot;<br>&quot;Jonathan Zavin&quot; - &quot;Architecture firm allowed to use projected future profits in calculating copyright/design infringement award: Looney Ricks Kiss Architects, Inc. v. Bryan&quot;<br>&quot;Norman Clark&quot; - &quot;I hope that I am wrong, but&hellip;&quot;<br>&quot;Jayne Navarre&quot; - &quot;Navigating The Social Web | A Very Large Marketplace&quot;<br>&quot;Jim Hassett&quot; - &quot;Six steps to better budgets (Part 1 of 2)&quot;<br>&quot;Thomas H. Clarke, Jr.&quot; - &quot;California's OEHHA sets a Public Health Goal for Chrome-6 at 0.02 ppb&quot;<br>&quot;Stephen Sather&quot; - &quot;Supreme Court Grapples With the Meaning of the Means Test&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;FDIC's Bid to Intervene in Bank Investors' Suit Denied &quot;<br>&quot;Thomas O. Gorman&quot; - &quot;SEC Enforcement Trends 2011: Market Reform&quot;<br>&quot;Thomas Fox&quot; - &quot;Questions, Questions and More Questions: Foreign Courts and the FCPA&quot;<br>&quot;Doug Cornelius&quot; - &quot;Private Equity Portfolio Companies and Bribery Charges&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;Under Morrison, Section 10(b) Does Not Apply to Swap Transactions in U.S Referencing Non-U.S. Securities &quot;<br>&quot;Arina Shulga&quot; - &quot;SEC Inquires Into Secondary Trading Activities By Large Private Companies &quot;<br>&quot;David R. Schoenhaar&quot; - &quot;Gifting in 2011&quot;<br>&quot;Thomas O. Gorman&quot; - &quot;The N.Y. Attorney General&rsquo;s Lawsuit Against E&amp;Y: Substance vs. Form&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;Some Questions About the N.Y. AG's Lehman-Related Complaint Against E&amp;Y &quot;<br>&quot;Randy J. Maniloff&quot; - &quot;For Insurers In Pennsylvania, Courts Continue to Sing The Praises Of Kvaerner And Gambone&quot;<br>&quot;Scott A. McKeown&quot; - &quot;CAFC Slates Patent Reexamination/Reissue Disputes for Early 2011 Resolution&quot;<br>&quot;Scott A. McKeown&quot; - &quot;Admissions &amp; Patent Reexamination Requests&quot;<br>&quot;Stephen Sather&quot; - &quot;Judge Rules That Home is Where the Heart Is &quot;<br>&quot;Vetstein Law Group, P.C. &quot; - &quot;Massachusetts Real Estate Law Year In Review &amp; Outlook For 2011&quot;<br>&quot;Norman Clark&quot; - &quot;Oops&hellip;ouch!&quot;<br>&quot;Sunstein Kann Murphy &amp; Timbers LLP&quot; - &quot;Business Method Claims after Bilski: The Federal Circuit Weighs in on Abstractness&quot;<br>&quot;Jayne Navarre&quot; - &quot;Content and Community | What I&rsquo;m doing with social media in 2011&quot;<br>&quot;Thomas O. Gorman&quot; - &quot;Dodd-Frank: Too Many Regulations Too Fast?&quot;<br>&quot;Jim Hassett&quot; - &quot;Six steps to better budgets (Part 2 of 2)&quot;<br>&quot;Doug Cornelius&quot; - &quot;The SEC, Funding, and Rulemaking&quot;<br>&quot;Thomas Fox&quot; - &quot;Franchising and the FCPA&quot;<br>&quot;Sunstein Kann Murphy &amp; Timbers LLP&quot; - &quot;Jingle All the Way&hellip;To the Tune of $1.3 Billion: Oracle Wins Largest-Ever Copyright Infringement Award&quot;<br>&quot;Deirdre R. Wheatley-Liss&quot; - &quot;Transfer Taxes--Now on &quot;Sale&quot;&quot;<br>&quot;Randy J. Maniloff&quot; - &quot;If You Build It, He Will Come (And Sue You)&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;The Top Ten D&amp;O Stories of 2010&quot;<br>&quot;Thomas O. Gorman&quot; - &quot;Alcantel-Lucent Settles FCPA Cases&quot;<br>&quot;Randy J. Maniloff&quot; - &quot;If You Build It, He Will Come (And Sue You)&quot;<br>&quot;Bullivant Houser Bailey PC&quot; - &quot;Theft of Money is not &quot;Loss of Use&quot; Under a Commercial General Liability Policy&quot;<br>&quot;Thomas H. Clarke, Jr.&quot; - &quot;California sets forth indicators of disproportionate impacts of climate change on environmental justice communities&quot;<br>&quot;E. Lynn Grayson&quot; - &quot;Vermont Law Top 10 Environmental Watch List 2011&quot;<br>&quot;Stephen Sather&quot; - &quot;Diocese of Milwaukee Seeks Chapter 11 Protection From Sexual Abuse Claims &quot;<br>&quot;Thomas O. Gorman&quot; - &quot;SEC Enforcement Trends 2011: Reogranization&quot;<br>&quot;Doug Cornelius&quot; - &quot;Facebook, Capital and Liquidity&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;News Updates for the New Year &quot;<br>&quot;Thomas Fox&quot; - &quot;More Than Just the FCPA and Bribery Act &ndash; The Local Battle Against Corruption&quot;<br>&quot;LexisNexis Patent Law Center Staff&quot; - &quot;President signs legislation to establish a pilot program in certain United States district courts to encourage enhancement of expertise in patent cases among district judges&quot;<br>&quot;Bullivant Houser Bailey PC&quot; - &quot;New Year's Resolution: Protect Your Confidential Shipping Data at U.S. Ports of Entry&quot;<br>&quot;Randy J. Maniloff&quot; - &quot;For Insurers In Pennsylvania, Courts Continue to Sing The Praises Of Kvaerner And Gambone&quot;<br>&quot;LexisNexis Environmental Law Community Staff&quot; - &quot;2010 Ends with a Flurry of Activity on Greenhouse Gas Regulatory &amp; Litigation Fronts&quot;<br>&quot;Keller and Heckman LLP&quot; - &quot;Advertising and Food and Drug Law Report: Consent Orders Provoke Debate Over FTC and FDA Substantiation Standards&quot;<br>&quot;Cassandra Roberts&quot; - &quot;Permanency in Delaware: Rodgers is from Venus, Gelman from Mars&quot;<br>&quot;LexisNexis Workers' Comp Fraud Team&quot; - &quot;Workers' Comp Fraud Blotter - Recent Arrests, Charges, Convictions, and Investigations (1/6/2011)&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;Barclays' Subprime Related Securities Suit Dismissed &quot;<br>&quot;Francis G.X. Pileggi&quot; - &quot;Delaware Supreme Court Dismisses Claims Against PricewaterhouseCoopers &quot;<br>&quot;Francine McKenna&quot; - &quot;PricewaterhouseCoopers Prevails In Decision On AIG &ldquo;In Pari Delicto&rdquo; Case&quot;<br>&quot;Jayne Navarre&quot; - &quot;Facebook | Does the goldrush mentality on Wall Street have implications for law firm marketing?&quot;<br>&quot;Keller and Heckman LLP&quot; - &quot;Telecom Business Alert -- Vol. VIII Issue 1&quot;<br>&quot;LexisNexis Environmental Law Community Staff&quot; - &quot;EPA Issues First Ever Numeric Nutrient Water Quality Criteria and Standards for Florida Lakes and Rivers &quot;<br>&quot;J. Wylie Donald&quot; - &quot;Looking Forward and Looking Back - Some Climate Change Response Perspectives and Predictions&quot;<br>&quot;J. Wylie Donald&quot; - &quot;Looking Back to 2010 and Forward to 2011 and Beyond - Perspectives and Predictions on Climate Change&quot;<br>&quot;J. Michael McBride&quot; - &quot;Recent Case: Bank&rsquo;s Have to Prove Legal Right to Foreclose, Before They Foreclose&quot;<br>&quot;Thomas O. Gorman&quot; - &quot;Portfolio Managers Sanctioned for Charging Unauthorized Fees&quot;<br>&quot;Doug Cornelius&quot; - &quot;Compliance and Foreclosures in Massachusetts&quot;<br>&quot;Doug Cornelius&quot; - &quot;Compliance and Foreclosures in Massachusetts&quot;<br>&quot;Gary Larkin&quot; - &quot;Some More Top Issues Lists for 2011&quot;<br>&quot;Francis G.X. Pileggi&quot; - &quot;Federal Court Refuses to Enforce Forum Selection Clause in Bylaws &quot;<br>&quot;Scott A. McKeown&quot; - &quot;Patent Reexamination Pilot Program Update&quot;<br>&quot;Vetstein Law Group, P.C. &quot; - &quot;Apocalypse Now? Will The Massachusetts Ibanez Case Unravel Widespread Irregularities In The Residential Securitized Mortgage Market?&quot;<br>&quot;Deirdre R. Wheatley-Liss&quot; - &quot;New Lease on Life: Organ Donation&quot;<br>&quot;Thomas O. Gorman&quot; - &quot;2 SEC Insider Trading Cases Filed&quot;<br>&quot;Randy J. Maniloff&quot; - &quot;Holy Mau: Florida Federal Court Rejects Continuous Trigger for Chinese Drywall Claims&quot;<br>&quot;Randy J. Maniloff&quot; - &quot;Endurance Coverage: &ldquo;Top Ten Insurance Cases Of The Year&rdquo; Reaches The Decade Mark&quot;<br>&quot;Vetstein Law Group, P.C. &quot; - &quot;Breaking News: Ibanez Foreclosure Ruling Upheld: An Indictment Of The Securitized Mortgage System&quot;<br>&quot;Brinks Hofer Gilson &amp; Lione&quot; - &quot;Federal Circuit Rejects the Use of the 25 Percent &quot;Rule of Thumb&quot; in Calculating Reasonable Royalty for Patent Infringement&quot;<br>&quot;Martin A. Sullivan&quot; - &quot;Tax Triangulation&quot;<br>&quot;David Cay Johnston&quot; - &quot;Reasons, Rule and Riots: Our Societal Panic&quot;<br>&quot;Norman Clark&quot; - &quot;Getting serious about associate profitability&quot;<br>&quot;Thomas O. Gorman&quot; - &quot;Loss Causation and Class Certification&quot;<br>&quot;Martin A. Sullivan&quot; - &quot;Twelve Steps to Tax Reform&quot;<br>&quot;Kevin M. LaCroix&quot; - &quot;Subprime and Credit-Crisis Related Securities Cases: The Latest Status &quot;<br>&quot;Thomas Fox&quot; - &quot;Is Your FCPA Compliance Program a Good Business Model?&quot;<br>&quot;GreenbergTraurig&quot; - &quot;Income Standard in the Netherlands for Highly Skilled Migrants 2011&quot;<br>&quot;Martin A. Sullivan&quot; - &quot;Tax Reformers, Beware! Bipartisan Energy Policy&quot;<br>&quot;Keller and Heckman LLP&quot; - &quot;Employer Compliance Guidance for Whistleblower Provisions Under New Food Safety Modernization Act &quot;<br>&quot;LexisNexis Estate and Elder Law Center Staff&quot; - &quot;Registration Opens for the Medicare and Medicaid Electronic Health Records (EHR) Incentive Programs&quot;<br>&quot;David Brunori&quot; - &quot;The Pension Mess Must be Fixed&quot;<br>&quot;David Cay Johnston&quot; - &quot;On the Dole, Corporate Style&quot;<br>&quot;Christopher Bergin&quot; - &quot;Attack of the Killer Bs, and Other Snappy Acronyms&quot;<br>&quot;Christopher Bergin&quot; - &quot;The Myth of Revenue Neutrality&quot;<br>&quot;Martin A. Sullivan&quot; - &quot;The Fate of Tax Reform Depends on the Tea Party&quot;<br>&quot;Keller and Heckman LLP&quot; - &quot;Employer Compliance Guidance for Whistleblower Provisions Under New Food Safety Modernization Act &quot;<br>&quot;Thomas H. Clarke, Jr.&quot; - &quot;Saccharin is no longer a hazardous waste (really)&quot;<br>&quot;Thomas H. Clarke, Jr.&quot; - &quot;Decline of Western Aspen trees swells population of rodents that carry the deadly sin nombre virus&quot;<br>&quot;Stephen Sather&quot; - &quot;Supreme Court Rules That Debtor Must Have Loan or Lease Payment for Means Test Deduction &quot;<br>&quot;Gary Larkin&quot; - &quot;Triennial, Annual Favorites for Say on Pay Frequency Vote&quot;<br>&quot;Thomas Fox&quot; - &quot;Jonathan Marks&rsquo; 13 Step FCPA Compliance Action Plan&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Chanjet - China Small &amp; Medium Enterprises Management &amp; Operation KPI Data</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: Chanjet provides SME operation and management KPI data based on its nationwide survey conducted among SMEs from multiple industries. For more information, please goto https://datamarket.azure.com/dataset/6bd3a6b3-2fe0-4609-ba11-959190000047</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> SME = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/Chanjet/ChinaSmallAndMediumEnterprises/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> Chanjet() = <br>   <span style="color:navy; font-weight:bold"> let</span> china = SME.ServiceTypes.ChanjetChinaSmallAndMediumEnterprisesContainer()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    china.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> b<span style="color:navy; font-weight:bold"> in</span> china.GeographyInfo<span style="color:navy; font-weight:bold"> do</span> <br>        where (b.EconomicZoneId.Value = 1)<br>        select b<br>    } |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; i.ProvinceNameEnglish i.ProvinceNameChinese)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;Shanghai&quot; - &quot;上海&quot;</span><br>    <span style="color:#008000">//    &quot;Jiangsu&quot;  - &quot;江苏&quot;</span><br>    <span style="color:#008000">//    &quot;Zhejiang&quot; - &quot;浙江&quot;</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Shanghai&quot; - &quot;上海&quot;<br>&quot;Jiangsu&quot; - &quot;江苏&quot;<br>&quot;Zhejiang&quot; - &quot;浙江&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>MetricMash - U.S. Consumer Price Index (1913 to Current)</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: The MetricMash U.S. Consumer Price Index (CPI) dataset provides the changes in the prices paid by consumers for over 375 goods and services in major expenditure groups &ndash; such as food, housing, apparel, transportation, medical
+ care and education cost. For more information, please goto https://datamarket.azure.com/dataset/26058d69-5cad-4a7c-9a14-a21a0c40de86</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> CPI = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/MetricMash/USConsumerPriceIndex/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> MetricMash() = <br>   <span style="color:navy; font-weight:bold"> let</span> us = CPI.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    us.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> b<span style="color:navy; font-weight:bold"> in</span> us.AllUrbanChainedConsumerPriceIndex<span style="color:navy; font-weight:bold"> do</span> <br>        where (b.DateValue &lt;<span style="color:navy; font-weight:bold"> new</span> System.DateTime(2010, 1, 1) )<br>        where (b.DateValue &gt;<span style="color:navy; font-weight:bold"> new</span> System.DateTime(2008, 12, 30) )<br>        select b<br>    } |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; i.DateValue i.Index)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 122.09500M</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 149.17700M</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 117.95400M</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 86.86600M</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 107.73100M</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 80.52600M</span><br>    <span style="color:#008000">//    1/1/2009 12:00:00 AM - 110.22400M</span><br>    <span style="color:#008000">//    ...</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1/1/2009 12:00:00 AM - 122.09500M<br>1/1/2009 12:00:00 AM - 149.17700M<br>1/1/2009 12:00:00 AM - 117.95400M<br>1/1/2009 12:00:00 AM - 86.86600M<br>1/1/2009 12:00:00 AM - 107.73100M<br>1/1/2009 12:00:00 AM - 80.52600M<br>1/1/2009 12:00:00 AM - 110.22400M<br>1/1/2009 12:00:00 AM - 173.11600M<br>1/1/2009 12:00:00 AM - 74.08000M<br>1/1/2009 12:00:00 AM - 128.66300M<br>1/1/2009 12:00:00 AM - 128.81700M<br>1/1/2009 12:00:00 AM - 125.97000M<br>1/1/2009 12:00:00 AM - 127.11200M<br>1/1/2009 12:00:00 AM - 128.99200M<br>1/1/2009 12:00:00 AM - 128.89100M<br>1/1/2009 12:00:00 AM - 130.93000M<br>1/1/2009 12:00:00 AM - 160.63900M<br>1/1/2009 12:00:00 AM - 96.11000M<br>1/1/2009 12:00:00 AM - 143.76000M<br>1/1/2009 12:00:00 AM - 126.88300M<br>1/1/2009 12:00:00 AM - 149.95200M<br>1/1/2009 12:00:00 AM - 121.81600M<br>1/1/2009 12:00:00 AM - 105.61200M<br>1/1/2009 12:00:00 AM - 133.85300M<br>1/1/2009 12:00:00 AM - 110.96100M<br>1/1/2009 12:00:00 AM - 110.65300M<br>1/1/2009 12:00:00 AM - 132.47200M<br>1/1/2009 12:00:00 AM - 115.23600M<br>2/1/2009 12:00:00 AM - 122.59800M<br>2/1/2009 12:00:00 AM - 152.24900M<br>2/1/2009 12:00:00 AM - 118.34800M<br>2/1/2009 12:00:00 AM - 89.60300M<br>2/1/2009 12:00:00 AM - 108.72100M<br>2/1/2009 12:00:00 AM - 80.49100M<br>2/1/2009 12:00:00 AM - 110.17900M<br>2/1/2009 12:00:00 AM - 173.01200M<br>2/1/2009 12:00:00 AM - 74.07200M<br>2/1/2009 12:00:00 AM - 128.37400M<br>2/1/2009 12:00:00 AM - 128.49200M<br>2/1/2009 12:00:00 AM - 125.18300M<br>2/1/2009 12:00:00 AM - 127.33300M<br>2/1/2009 12:00:00 AM - 129.32900M<br>2/1/2009 12:00:00 AM - 128.91600M<br>2/1/2009 12:00:00 AM - 131.21800M<br>2/1/2009 12:00:00 AM - 158.71700M<br>2/1/2009 12:00:00 AM - 96.42300M<br>2/1/2009 12:00:00 AM - 144.68300M<br>2/1/2009 12:00:00 AM - 127.86600M<br>2/1/2009 12:00:00 AM - 150.84900M<br>2/1/2009 12:00:00 AM - 123.28200M<br>2/1/2009 12:00:00 AM - 105.96000M<br>2/1/2009 12:00:00 AM - 134.01200M<br>2/1/2009 12:00:00 AM - 113.13500M<br>2/1/2009 12:00:00 AM - 113.10500M<br>2/1/2009 12:00:00 AM - 132.82600M<br>2/1/2009 12:00:00 AM - 113.78800M<br>3/1/2009 12:00:00 AM - 122.80300M<br>3/1/2009 12:00:00 AM - 150.79500M<br>3/1/2009 12:00:00 AM - 118.80700M<br>3/1/2009 12:00:00 AM - 92.16100M<br>3/1/2009 12:00:00 AM - 109.13100M<br>3/1/2009 12:00:00 AM - 80.40600M<br>3/1/2009 12:00:00 AM - 110.07500M<br>3/1/2009 12:00:00 AM - 173.10200M<br>3/1/2009 12:00:00 AM - 73.94600M<br>3/1/2009 12:00:00 AM - 128.00100M<br>3/1/2009 12:00:00 AM - 128.09400M<br>3/1/2009 12:00:00 AM - 124.40300M<br>3/1/2009 12:00:00 AM - 127.28800M<br>3/1/2009 12:00:00 AM - 132.61400M<br>3/1/2009 12:00:00 AM - 128.89600M<br>3/1/2009 12:00:00 AM - 131.57100M<br>3/1/2009 12:00:00 AM - 155.87300M<br>3/1/2009 12:00:00 AM - 96.75300M<br>3/1/2009 12:00:00 AM - 144.89900M<br>3/1/2009 12:00:00 AM - 127.96900M<br>3/1/2009 12:00:00 AM - 151.10800M<br>3/1/2009 12:00:00 AM - 123.91500M<br>3/1/2009 12:00:00 AM - 106.09300M<br>3/1/2009 12:00:00 AM - 134.06400M<br>3/1/2009 12:00:00 AM - 113.25900M<br>3/1/2009 12:00:00 AM - 113.25000M<br>3/1/2009 12:00:00 AM - 133.00600M<br>3/1/2009 12:00:00 AM - 113.65200M<br>4/1/2009 12:00:00 AM - 123.05300M<br>4/1/2009 12:00:00 AM - 152.38800M<br>4/1/2009 12:00:00 AM - 119.04000M<br>4/1/2009 12:00:00 AM - 92.63600M<br>4/1/2009 12:00:00 AM - 109.89600M<br>4/1/2009 12:00:00 AM - 80.44900M<br>4/1/2009 12:00:00 AM - 110.13700M<br>4/1/2009 12:00:00 AM - 173.17500M<br>4/1/2009 12:00:00 AM - 73.99300M<br>4/1/2009 12:00:00 AM - 127.68100M<br>4/1/2009 12:00:00 AM - 127.77100M<br>4/1/2009 12:00:00 AM - 123.67400M<br>4/1/2009 12:00:00 AM - 127.00200M<br>4/1/2009 12:00:00 AM - 135.61400M<br>4/1/2009 12:00:00 AM - 128.64300M<br>4/1/2009 12:00:00 AM - 131.72800M<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>EDR - Environmental Hazard Rank</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: The EDR Environmental Hazard Ranking System depicts the relative environmental health of any U.S. ZIP code based on an advanced analysis of its environmental issues. For more information, please goto https://datamarket.azure.com/dataset/d8161344-f755-4a86-83e6-db9a89f06efd</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> EHR = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/EDR/EnvironmentalHazardRank&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> EDR() = <br>   <span style="color:navy; font-weight:bold"> let</span> e = EHR.ServiceTypes.EDREnvironmentalHazardRankContainer()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    e.Credentials&lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> h<span style="color:navy; font-weight:bold"> in</span> e.EnvironmentalHazardRankingByUSPostalZipCode<span style="color:navy; font-weight:bold"> do</span> <br>        where (h.State = &quot;WA&quot;)<br>        sortByDescending (h.EnviromentalHazardIndex)<br>        select h<br>    } |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; i.ZipCode i.EnviromentalHazardIndex)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;98001&quot; - 55120853.90000M</span><br>    <span style="color:#008000">//    &quot;98002&quot; - 53938430.83000M</span><br>    <span style="color:#008000">//    &quot;98003&quot; - 31725567.94000M</span><br>    <span style="color:#008000">//    &quot;98004&quot; - 51774234.93000M</span><br>    <span style="color:#008000">//    &quot;98005&quot; - 38690824.03000M</span><br>    <span style="color:#008000">//    &quot;98006&quot; - 16916724.70000M</span><br>    <span style="color:#008000">//    &quot;98007&quot; - 16998583.21000M</span><br>    <span style="color:#008000">//    &quot;98008&quot; - 10245452.63000M</span><br>    <span style="color:#008000">//    ...</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre> - 11721000146.66000M<br>&quot;99352&quot; - 280787612.47000M<br>&quot;98421&quot; - 263478646.41000M<br>&quot;98108&quot; - 233915721.22000M<br>&quot;98032&quot; - 197053184.29000M<br>&quot;98134&quot; - 189212233.25000M<br>&quot;98901&quot; - 135385347.52000M<br>&quot;98201&quot; - 121655015.63000M<br>&quot;99362&quot; - 114542434.74000M<br>&quot;98632&quot; - 104758249.30000M<br>&quot;98055&quot; - 100782289.68000M<br>&quot;98902&quot; - 98742662.93000M<br>&quot;98225&quot; - 98708231.89000M<br>&quot;98221&quot; - 98302749.09000M<br>&quot;98501&quot; - 96130703.62000M<br>&quot;98584&quot; - 95392219.88000M<br>&quot;98402&quot; - 94616216.34000M<br>&quot;98532&quot; - 89771215.45000M<br>&quot;98926&quot; - 89724222.82000M<br>&quot;98223&quot; - 77021434.69000M<br>&quot;98204&quot; - 76743679.56000M<br>&quot;98661&quot; - 75826283.43000M<br>&quot;98837&quot; - 72752923.33000M<br>&quot;98520&quot; - 72639562.87000M<br>&quot;98106&quot; - 72354617.27000M<br>&quot;98312&quot; - 72134498.85000M<br>&quot;99301&quot; - 71669878.21000M<br>&quot;98290&quot; - 71421617.41000M<br>&quot;98531&quot; - 70422350.18000M<br>&quot;98362&quot; - 68982141.99000M<br>&quot;98409&quot; - 67745642.15000M<br>&quot;98109&quot; - 65669655.02000M<br>&quot;98944&quot; - 63750668.68000M<br>&quot;98371&quot; - 62801007.51000M<br>&quot;98119&quot; - 62635274.91000M<br>&quot;98226&quot; - 62201784.04000M<br>&quot;98273&quot; - 60357630.60000M<br>&quot;98110&quot; - 59883436.40000M<br>&quot;98072&quot; - 59183777.60000M<br>&quot;98188&quot; - 58990777.60000M<br>&quot;98168&quot; - 58521899.60000M<br>&quot;98801&quot; - 56606321.41000M<br>&quot;98660&quot; - 55944312.39000M<br>&quot;98499&quot; - 55449750.59000M<br>&quot;98001&quot; - 55120853.90000M<br>&quot;99207&quot; - 55089879.86000M<br>&quot;98366&quot; - 54255616.87000M<br>&quot;98002&quot; - 53938430.83000M<br>&quot;98903&quot; - 53459263.74000M<br>&quot;98272&quot; - 53336669.97000M<br>&quot;98107&quot; - 53316785.65000M<br>&quot;98550&quot; - 52844434.41000M<br>&quot;98671&quot; - 52794212.80000M<br>&quot;98230&quot; - 52644830.12000M<br>&quot;99216&quot; - 52368007.02000M<br>&quot;98103&quot; - 51828863.74000M<br>&quot;98004&quot; - 51774234.93000M<br>&quot;99336&quot; - 51293658.77000M<br>&quot;98148&quot; - 50419253.69000M<br>&quot;98642&quot; - 49477447.60000M<br>&quot;98033&quot; - 48754147.25000M<br>&quot;99166&quot; - 48152779.01000M<br>&quot;98036&quot; - 47884707.35000M<br>&quot;98052&quot; - 47825158.89000M<br>&quot;98424&quot; - 47625836.47000M<br>&quot;98248&quot; - 46702138.95000M<br>&quot;98368&quot; - 45762046.24000M<br>&quot;98277&quot; - 44957009.70000M<br>&quot;98031&quot; - 43253856.28000M<br>&quot;98666&quot; - 42967590.25000M<br>&quot;99212&quot; - 42655121.16000M<br>&quot;98038&quot; - 41921831.82000M<br>&quot;98121&quot; - 41782754.70000M<br>&quot;98118&quot; - 41614406.01000M<br>&quot;98233&quot; - 41542490.42000M<br>&quot;98027&quot; - 41299184.74000M<br>&quot;98270&quot; - 41289540.04000M<br>&quot;98122&quot; - 40897227.64000M<br>&quot;98662&quot; - 40765623.56000M<br>&quot;99344&quot; - 39979632.27000M<br>&quot;98422&quot; - 39782621.52000M<br>&quot;98105&quot; - 39195387.10000M<br>&quot;98005&quot; - 38690824.03000M<br>&quot;98502&quot; - 38626778.71000M<br>&quot;98022&quot; - 37778961.71000M<br>&quot;98115&quot; - 37608330.11000M<br>&quot;98144&quot; - 37466319.20000M<br>&quot;99114&quot; - 37097474.56000M<br>&quot;98294&quot; - 36631385.75000M<br>&quot;99206&quot; - 36578118.66000M<br>&quot;98284&quot; - 36462867.89000M<br>&quot;98126&quot; - 36274330.56000M<br>&quot;98155&quot; - 35731370.03000M<br>&quot;98433&quot; - 35701032.28000M<br>&quot;98278&quot; - 35623812.66000M<br>&quot;98936&quot; - 35556461.15000M<br>&quot;99202&quot; - 35450981.70000M<br>&quot;98314&quot; - 35200308.38000M<br>&quot;98133&quot; - 34950682.92000M<br>&quot;99021&quot; - 34942778.62000M<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>MetricMash - U.S. Unemployment Data</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: The MetricMash U.S. Unemployment dataset provides users the very latest government published metrics going back to 1948. For more information, please goto https://datamarket.azure.com/dataset/662d2b6a-119d-447e-a2b9-84d7a7f83590</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> Unemployment = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/MetricMash/USUnemploymentData/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> MetricMash1() = <br>   <span style="color:navy; font-weight:bold"> let</span> Unemply = Unemployment.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    Unemply.Credentials &lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> Unemply.UnemploymentRates<span style="color:navy; font-weight:bold"> do</span> <br>        where (c.Year = &quot;2009&quot;)<br>        select c<br>    } |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; (i.MonthMMM &#43; &quot;, &quot; &#43; i.Year) i.Value)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 8.200M</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 9.000M</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 14.100M</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 7.800M</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 8.500M</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 6.900M</span><br>    <span style="color:#008000">//    &quot;Jan, 2009&quot; - 7.100M</span><br>    <span style="color:#008000">//    ...</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Jan, 2009&quot; - 8.200M<br>&quot;Jan, 2009&quot; - 9.000M<br>&quot;Jan, 2009&quot; - 14.100M<br>&quot;Jan, 2009&quot; - 7.800M<br>&quot;Jan, 2009&quot; - 8.500M<br>&quot;Jan, 2009&quot; - 6.900M<br>&quot;Jan, 2009&quot; - 7.100M<br>&quot;Jan, 2009&quot; - 7.600M<br>&quot;Jan, 2009&quot; - 6.400M<br>&quot;Jan, 2009&quot; - 12.700M<br>&quot;Jan, 2009&quot; - 15.600M<br>&quot;Jan, 2009&quot; - 10.200M<br>&quot;Jan, 2009&quot; - 9.900M<br>&quot;Jan, 2009&quot; - 20.800M<br>&quot;Jan, 2009&quot; - 24.200M<br>&quot;Jan, 2009&quot; - 17.500M<br>&quot;Jan, 2009&quot; - 18.600M<br>&quot;Jan, 2009&quot; - 21.700M<br>&quot;Jan, 2009&quot; - 15.400M<br>&quot;Jan, 2009&quot; - 36.300M<br>&quot;Jan, 2009&quot; - 44.000M<br>&quot;Jan, 2009&quot; - 29.500M<br>&quot;Jan, 2009&quot; - 7.200M<br>&quot;Jan, 2009&quot; - 7.800M<br>&quot;Jan, 2009&quot; - 6.400M<br>&quot;Jan, 2009&quot; - 6.500M<br>&quot;Jan, 2009&quot; - 7.000M<br>&quot;Jan, 2009&quot; - 5.900M<br>&quot;Jan, 2009&quot; - 11.600M<br>&quot;Jan, 2009&quot; - 14.300M<br>&quot;Jan, 2009&quot; - 9.300M<br>&quot;Jan, 2009&quot; - 12.400M<br>&quot;Jan, 2009&quot; - 14.100M<br>&quot;Jan, 2009&quot; - 10.500M<br>&quot;Jan, 2009&quot; - 6.600M<br>&quot;Jan, 2009&quot; - 7.100M<br>&quot;Jan, 2009&quot; - 5.900M<br>&quot;Jan, 2009&quot; - 6.900M<br>&quot;Jan, 2009&quot; - 7.600M<br>&quot;Jan, 2009&quot; - 6.100M<br>&quot;Jan, 2009&quot; - 21.900M<br>&quot;Jan, 2009&quot; - 20.300M<br>&quot;Jan, 2009&quot; - 8.200M<br>&quot;Jan, 2009&quot; - 6.700M<br>&quot;Jan, 2009&quot; - 6.000M<br>&quot;Jan, 2009&quot; - 5.200M<br>&quot;Jan, 2009&quot; - 26.800M<br>&quot;Jan, 2009&quot; - 23.000M<br>&quot;Jan, 2009&quot; - 9.200M<br>&quot;Jan, 2009&quot; - 6.800M<br>&quot;Jan, 2009&quot; - 6.800M<br>&quot;Jan, 2009&quot; - 4.800M<br>&quot;Jan, 2009&quot; - 16.800M<br>&quot;Jan, 2009&quot; - 17.600M<br>&quot;Jan, 2009&quot; - 7.000M<br>&quot;Jan, 2009&quot; - 6.500M<br>&quot;Jan, 2009&quot; - 5.000M<br>&quot;Jan, 2009&quot; - 1.800M<br>&quot;Jan, 2009&quot; - 0.500M<br>&quot;Jan, 2009&quot; - 4.800M<br>&quot;Jan, 2009&quot; - 0.600M<br>&quot;Jan, 2009&quot; - 5.300M<br>&quot;Jan, 2009&quot; - 5.500M<br>&quot;Jan, 2009&quot; - 17.100M<br>&quot;Jan, 2009&quot; - 12.700M<br>&quot;Jan, 2009&quot; - 15.000M<br>&quot;Jan, 2009&quot; - 5.000M<br>&quot;Jan, 2009&quot; - 12.300M<br>&quot;Jan, 2009&quot; - 8.100M<br>&quot;Jan, 2009&quot; - 3.900M<br>&quot;Jan, 2009&quot; - 6.500M<br>&quot;Jan, 2009&quot; - 8.200M<br>&quot;Jan, 2009&quot; - 8.700M<br>&quot;Jan, 2009&quot; - 7.600M<br>&quot;Jan, 2009&quot; - 34.400M<br>&quot;Jan, 2009&quot; - 8.200M<br>&quot;Jan, 2009&quot; - 7.100M<br>&quot;Jan, 2009&quot; - 5.900M<br>&quot;Jan, 2009&quot; - 7.300M<br>&quot;Jan, 2009&quot; - 5.000M<br>&quot;Jan, 2009&quot; - 14.600M<br>&quot;Jan, 2009&quot; - 4.800M<br>&quot;Jan, 2009&quot; - 4.000M<br>&quot;Feb, 2009&quot; - 8.700M<br>&quot;Feb, 2009&quot; - 9.500M<br>&quot;Feb, 2009&quot; - 15.000M<br>&quot;Feb, 2009&quot; - 8.200M<br>&quot;Feb, 2009&quot; - 9.100M<br>&quot;Feb, 2009&quot; - 7.300M<br>&quot;Feb, 2009&quot; - 7.500M<br>&quot;Feb, 2009&quot; - 8.200M<br>&quot;Feb, 2009&quot; - 6.600M<br>&quot;Feb, 2009&quot; - 13.600M<br>&quot;Feb, 2009&quot; - 16.300M<br>&quot;Feb, 2009&quot; - 11.100M<br>&quot;Feb, 2009&quot; - 11.100M<br>&quot;Feb, 2009&quot; - 21.900M<br>&quot;Feb, 2009&quot; - 25.200M<br>&quot;Feb, 2009&quot; - 18.600M<br>&quot;Feb, 2009&quot; - 19.500M<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Microsoft - Utility Rate Service</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.AzureMarketPlace<br>
+<strong>Description</strong>: The Microsoft Utility Rate Service is a database of electric utilities and rates indexed by location within the United States, gathered from Partner Utilities and/or from publically available information. For more information,
+ please goto https://datamarket.azure.com/dataset/b848b1ed-3f61-40a9-8e43-597e0d352394</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Generate&gt;]<br><br><span style="color:navy; font-weight:bold">type</span> Util = Microsoft.FSharp.Data.TypeProviders.ODataService//api.datamarket.azure.com/Microsoft/UtilityRateService/&quot;&gt;<br><br><span style="color:navy; font-weight:bold">let</span> MSU() = <br>   <span style="color:navy; font-weight:bold"> let</span> rate = Util.GetDataContext()<br>    <span style="color:#008000">//To sign up for a Windows Azure Marketplace account, please go to https://datamarket.azure.com/account/info</span><br>    rate.Credentials &lt;- NetworkCredential (Utils.ADM_USER_ID, Utils.ADM_ACCOUNT_ID)<br><br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> rate.UtilityByPostalCodes<span style="color:navy; font-weight:bold"> do</span> <br>        where (c.PostalCode = &quot;98052&quot;)<br>        select c<br>    } |&gt; Seq.iter (fun i -&gt; printfn &quot;%A - %A&quot; i.Name i.RateSource)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    &quot;Average Price by State (Residential)&quot; - &quot;AreaAverages&quot;</span><br>    <span style="color:#008000">//    &quot;Contoso&quot; - &quot;ThirdParty&quot;</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Average Price by State (Residential)&quot; - &quot;AreaAverages&quot;<br>&quot;Contoso&quot; - &quot;ThirdParty&quot;<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

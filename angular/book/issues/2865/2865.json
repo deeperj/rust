@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "http://fsharp3sample.codeplex.com/wikipage?title=count_Simple\n\nSince the goal of the sample appears to be just count and not distinct, it seems like it should drop the 'unique' and fix up the comment that gives the incorrect sample output.\n\nDistinct is covered here:\n\nhttps://fsharp3sample.codeplex.com/wikipage?title=distinct_Simple\n\nHaving a 'distinct count' sample might have been the original intent, but it wasn't fully changed when the 'distinct' part was removed?",
+    "LastUpdatedDate": "2013-06-08T19:38:25.607-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2013-06-08T19:38:25.607-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "bug in count_Simple sample",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 2865
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using the Set type</strong><strong><br>
+<br>
+Category: </strong>Data Types<br>
+<strong>Description</strong>: Create a set of particular unicode characters using a Microsoft.FSharp.Collections.Set.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleSet1() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = &quot;The quick brown fox jumps over the lazy dog&quot; <br>   <span style="color:navy; font-weight:bold"> let</span> set = <br>        data.ToCharArray()<br>        |&gt; Set.ofSeq<br>   <span style="color:navy; font-weight:bold"> for</span> c<span style="color:navy; font-weight:bold"> in</span> set<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;Char : '%c'&quot; c <br>  <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Char : ' '<br>Char : 'T'<br>Char : 'a'<br>Char : 'b'<br>Char : 'c'<br>Char : 'd'<br>Char : 'e'<br>Char : 'f'<br>Char : 'g'<br>Char : 'h'<br>Char : 'i'<br>Char : 'j'<br>Char : 'k'<br>Char : 'l'<br>Char : 'm'<br>Char : 'n'<br>Char : 'o'<br>Char : 'p'<br>Char : 'q'<br>Char : 'r'<br>Char : 's'<br>Char : 't'<br>Char : 'u'<br>Char : 'v'<br>Char : 'w'<br>Char : 'x'<br>Char : 'y'<br>Char : 'z'<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

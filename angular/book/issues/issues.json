@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 2355,
+    "Title": "Bing Service Developer Account Link is Incorrect"
+  },
+  {
+    "Id": 2648,
+    "Title": "C# extension method page code"
+  },
+  {
+    "Id": 2653,
+    "Title": "SampleProject does not build straight \"out of the box\""
+  },
+  {
+    "Id": 2654,
+    "Title": "TypeProvider.OData.Sample0 : issue with azure marketplace authentication"
+  },
+  {
+    "Id": 2771,
+    "Title": "ResxFile Type Provider missing"
+  },
+  {
+    "Id": 2772,
+    "Title": "Missing files in source code"
+  },
+  {
+    "Id": 2865,
+    "Title": "bug in count_Simple sample"
+  },
+  {
+    "Id": 2868,
+    "Title": "Hadoop Type Provider is not building"
+  },
+  {
+    "Id": 2901,
+    "Title": "Update FSharpGPU.zip to match book code CUDA 4.2.9"
+  },
+  {
+    "Id": 2934,
+    "Title": "Bug in WMI Type provider: exception when instantiating Msvm_VirtualSystemManagementService"
+  },
+  {
+    "Id": 2950,
+    "Title": "Use the real variable names in the transQuotationToCode method of ProvidedTypes.fs"
+  },
+  {
+    "Id": 3012,
+    "Title": "ITypeProvider.GetInvokerExpression signature mismatch"
+  },
+  {
+    "Id": 3053,
+    "Title": "Missing SerDes.fs"
+  },
+  {
+    "Id": 3263,
+    "Title": "Strategy Pattern example in Docs has weird / old syntax"
+  }
+]

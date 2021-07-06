@@ -5,11 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentEmail.Core;
 using FluentEmail.Smtp;
+using FluentEmail.Liquid;
 using System.Net;
 using System.Security;
 using System.Diagnostics;
 using System.Net.Mail;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
 
 
 namespace EmailService
@@ -65,12 +67,13 @@ namespace EmailService
               Port = _emailConfig.Port
           });
           Email.DefaultSender = sender;
+          Email.DefaultRenderer = new LiquidRenderer(Options.Create(new LiquidRendererOptions()));
 
           var email = await Email
               .From(_emailConfig.UserName)
               .To(message.SendTo)
               .Subject(message.Subject)
-              .Body(message.Content)
+              .UsingTemplate(message.Content, new object())
               .SendAsync();
         }
     }

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Having and groupby</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: Use having and groupby clause</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider15() =<br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        groupBy n.Age into g<br>        where (g.Count()&gt;1)<br>        select (g.Key, g.Count())<br>    }<br>    q |&gt; Seq.iter (fun (key, count) -&gt; printfn &quot;key=%A count=%d&quot; key count)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>key=20 count=2<br>key=21 count=2<br>key=22 count=3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

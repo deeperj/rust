@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Discriminated Unions as Trees</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Discriminated unions are excellent for representing tree structures.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Tree&lt;'a&gt; =<br>    | Node of 'a * Tree&lt;'a&gt; * Tree&lt;'a&gt;<br>    | Tip<br><br><span style="color:navy; font-weight:bold">let</span> UnionSample2() =<br>   <span style="color:navy; font-weight:bold"> let</span> tree = Node(4, Node(2, Node(1, Tip, Tip), Node(6, Tip, Tip)),<br>                       Node(6, Node(5, Tip, Tip), Node(7, Tip, Tip)))<br>    <span style="color:#008000">//      4</span><br>    <span style="color:#008000">//  2       6</span><br>    <span style="color:#008000">// 1 3     5 7</span><br>    <span style="color:#008000">// InOrder : Tree&lt;'a&gt; -&gt; list&lt;'a&gt;    </span><br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> InOrder t = <br>       <span style="color:navy; font-weight:bold"> match</span> t<span style="color:navy; font-weight:bold"> with</span> <br>        | Node(x,left,right) -&gt; (InOrder left) @ [x] @ (InOrder right) <br>        | Tip -&gt; [] <br><br>    <span style="color:#008000">// Height : Tree&lt;'a&gt; -&gt; int </span><br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> Height t = <br>       <span style="color:navy; font-weight:bold"> match</span> t<span style="color:navy; font-weight:bold"> with</span> <br>        | Node(x,left,right) -&gt; 1 &#43; (max (Height left) (Height right)) <br>        | Tip -&gt; 0<br>        <br>    printfn &quot;The tree<span style="color:navy; font-weight:bold"> in</span> order = %A&quot; (InOrder tree)<br>    printfn &quot;\nThe height of the tree = %d&quot; (Height tree)<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The tree in order = [1; 2; 6; 4; 5; 6; 7]<br><br>The height of the tree = 3<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

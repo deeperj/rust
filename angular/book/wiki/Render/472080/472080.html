@@ -1,0 +1,137 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Integer Arithmetic</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: This sample shows some basic integer arithmetic</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleArithmetic1() =<br>   <span style="color:navy; font-weight:bold"> let</span> x = 10 &#43; 12 - 3 <br>   <span style="color:navy; font-weight:bold"> let</span> y = x * 2 &#43; 1 <br>   <span style="color:navy; font-weight:bold"> let</span> r1,r2 = x/3, x%3<br>    printfn &quot;x = %d, y = %d, r1 = %d, r2 = %d&quot; x y r1 r2<br>  <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>x = 19, y = 39, r1 = 6, r2 = 1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Floating Point Arithmetic</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: This sample shows some basic floating point arithmetic</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleArithmetic2() =<br>   <span style="color:navy; font-weight:bold"> let</span> x = 10.0 &#43; 12.0 - 3.0 <br>   <span style="color:navy; font-weight:bold"> let</span> y = x * 2.0 &#43; 1.0 <br>   <span style="color:navy; font-weight:bold"> let</span> r1 = x/3.0<br>    printfn &quot;x = %g, y = %g, r1 = %g&quot; x y r1<br><br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>x = 19, y = 39, r1 = 6.33333<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Converting between numeric types</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: This sample shows how to convert between various numeric types</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleArithmetic3() =<br>    <span style="color:#008000">// Manipulating double-precision (64-bit) floating point numbers</span><br>   <span style="color:navy; font-weight:bold"> let</span> pi1 = float 3  &#43; 0.1415   <span style="color:#008000">// 'float' is an overloaded conversion operator</span><br>   <span style="color:navy; font-weight:bold"> let</span> pi2 = double 3 &#43; 0.1415   <span style="color:#008000">// identical - 'double' is a synonym for 'float'</span><br>    printfn &quot;pi1 = %f, pi2 = %f&quot; pi1 pi2<br>  <br>   <span style="color:navy; font-weight:bold"> let</span> i1 = int 3.1415 <br>   <span style="color:navy; font-weight:bold"> let</span> i2 = int64   3.1415 <br>    printfn &quot;i1 = %d, i2 = %d&quot; i1 i2<br>  <br>    <span style="color:#008000">// Manipulating single-precision (32-bit) floating point numbers</span><br>   <span style="color:navy; font-weight:bold"> let</span> f32a = 2.1415f &#43; 1.0f            <span style="color:#008000">// float32 (System.Single)</span><br>   <span style="color:navy; font-weight:bold"> let</span> f32b = 2.1415f &#43; float32 1       <span style="color:#008000">// float32 - identical </span><br>    printfn &quot;f32a = %f, f32b = %G&quot; f32a f32b<br>  <br>    <span style="color:#008000">// Manipulating bytes</span><br>   <span style="color:navy; font-weight:bold"> let</span> byteA = byte (3&#43;4)          <span style="color:#008000">// byte </span><br>   <span style="color:navy; font-weight:bold"> let</span> byteB = 255uy               <span style="color:#008000">// byte </span><br>   <span style="color:navy; font-weight:bold"> let</span> byteC = 0xFFuy              <span style="color:#008000">// byte </span><br>   <span style="color:navy; font-weight:bold"> let</span> byteD = byte 0xFF           <span style="color:#008000">// byte </span><br>    printfn &quot;byteA = %d, byteB = %d&quot; byteA byteB<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>pi1 = 3.141500, pi2 = 3.141500<br>i1 = 3, i2 = 3<br>f32a = 3.141500, f32b = 3.1415<br>byteA = 7, byteB = 255<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic type and printf</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: Basic type and printf</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> TypeAndPrintf() = <br>   <span style="color:navy; font-weight:bold"> let</span> int = 42<br>   <span style="color:navy; font-weight:bold"> let</span> string = &quot;This is a string&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> char = 'c'<br>   <span style="color:navy; font-weight:bold"> let</span> bool = true<br>   <span style="color:navy; font-weight:bold"> let</span> bytearray = &quot;This is a byte string&quot;B<br>   <span style="color:navy; font-weight:bold"> let</span> hexint = 0x34<br>   <span style="color:navy; font-weight:bold"> let</span> octalint = 0o42<br>   <span style="color:navy; font-weight:bold"> let</span> binaryinteger = 0b101010<br>   <span style="color:navy; font-weight:bold"> let</span> signedbyte = 68y<br>   <span style="color:navy; font-weight:bold"> let</span> unsignedbyte = 102uy<br>   <span style="color:navy; font-weight:bold"> let</span> smallint = 16s<br>   <span style="color:navy; font-weight:bold"> let</span> smalluint = 16us<br>   <span style="color:navy; font-weight:bold"> let</span> integer = 345l<br>   <span style="color:navy; font-weight:bold"> let</span> usignedint = 345ul<br>   <span style="color:navy; font-weight:bold"> let</span> nativeint = 765n<br>   <span style="color:navy; font-weight:bold"> let</span> unsignednativeint = 765un<br>   <span style="color:navy; font-weight:bold"> let</span> long = 12345678912345789L<br>   <span style="color:navy; font-weight:bold"> let</span> unsignedlong = 12345678912345UL<br>   <span style="color:navy; font-weight:bold"> let</span> float32 = 42.8F<br>   <span style="color:navy; font-weight:bold"> let</span> float = 42.8<br><br>    printfn &quot;int = %d or %A&quot; int int<br>    printfn &quot;string = %s or %A&quot; string string<br>    printfn &quot;char = %c or %A&quot; char char<br>    printfn &quot;bool = %b or %A&quot; bool bool<br>    printfn &quot;bytearray = %A&quot; bytearray<br>    printfn &quot;hex int = %x or %A&quot; hexint hexint<br>    printfn &quot;HEX INT = %X or %A&quot; hexint hexint<br>    printfn &quot;oct int = %o or %A&quot; octalint octalint<br>    printfn &quot;bin int = %d or %A&quot; binaryinteger binaryinteger<br>    printfn &quot;signed byte = %A&quot; signedbyte<br>    printfn &quot;unsigned byte = %A&quot; unsignedbyte<br>    printfn &quot;small int = %A&quot; smallint<br>    printfn &quot;small uint = %A&quot; smalluint<br>    printfn &quot;int = %i or %A&quot; integer integer<br>    printfn &quot;uint = %i or %A&quot; usignedint usignedint<br>    printfn &quot;native int = %A&quot; nativeint<br>    printfn &quot;unsigned native int = %A&quot; unsignednativeint<br>    printfn &quot;long = %d or %A&quot; long long<br>    printfn &quot;unsigned long = %A&quot; unsignedlong<br>    printfn &quot;float = %f or %A&quot; float32 float32<br>    printfn &quot;double = %f or %A&quot; float float<br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>int = 42 or 42<br>string = This is a string or &quot;This is a string&quot;<br>char = c or 'c'<br>bool = true or true<br>bytearray = [|84uy; 104uy; 105uy; 115uy; 32uy; 105uy; 115uy; 32uy; 97uy; 32uy; 98uy; 121uy;<br>  116uy; 101uy; 32uy; 115uy; 116uy; 114uy; 105uy; 110uy; 103uy|]<br>hex int = 34 or 52<br>HEX INT = 34 or 52<br>oct int = 42 or 34<br>bin int = 42 or 42<br>signed byte = 68y<br>unsigned byte = 102uy<br>small int = 16s<br>small uint = 16us<br>int = 345 or 345<br>uint = 345 or 345u<br>native int = 765n<br>unsigned native int = 765un<br>long = 12345678912345789 or 12345678912345789L<br>unsigned long = 12345678912345UL<br>float = 42.800000 or 42.7999992f<br>double = 42.800000 or 42.8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Bitwise Integer Operations</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: This sample shows how to use the bitwise integer operations</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> Sample4() =<br>    <span style="color:#008000">// Operators over integers:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x1 = 0xAB7F3456 &amp;&amp;&amp; 0xFFFF0000 <br>   <span style="color:navy; font-weight:bold"> let</span> x2 = 0xAB7F3456 ||| 0xFFFF0000 <br>   <span style="color:navy; font-weight:bold"> let</span> x3 = 0x12343456 ^^^ 0xFFFF0000 <br>   <span style="color:navy; font-weight:bold"> let</span> x4 = 0x1234ABCD &lt;&lt;&lt; 1 <br>   <span style="color:navy; font-weight:bold"> let</span> x5 = 0x1234ABCD &gt;&gt;&gt; 16 <br><br>    <span style="color:#008000">// Also over other integral types, e.g. Int64:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x6 = 0x0A0A0A0A012343456L &amp;&amp;&amp; 0x00000000FFFF0000L <br><br>    <span style="color:#008000">// Also over other integral types, e.g. unsigned Int64:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x6u = 0x0A0A0A0A012343456UL &amp;&amp;&amp; 0x0000FFFF00000000UL <br><br>    <span style="color:#008000">// And bytes:</span><br>   <span style="color:navy; font-weight:bold"> let</span> x7 = 0x13uy &amp;&amp;&amp; 0x11uy <br><br>    <span style="color:#008000">// Now print the results:</span><br>    printfn &quot;x1 = 0x%08x&quot; x1;<br>    printfn &quot;x2 = 0x%08x&quot; x2;<br>    printfn &quot;x3 = 0x%08x&quot; x3;<br>    printfn &quot;x4 = 0x%08x&quot; x4;<br>    printfn &quot;x5 = 0x%08x&quot; x5;<br>    printfn &quot;x6 = 0x%016x&quot; x6;<br>    printfn &quot;x6u = 0x%016x&quot; x6u;<br>    printfn &quot;x7 = 0x%02x&quot; (int x7)<br>  <br>  <br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>x1 = 0xab7f0000<br>x2 = 0xffff3456<br>x3 = 0xedcb3456<br>x4 = 0x2469579a<br>x5 = 0x00001234<br>x6 = 0x0000000012340000<br>x6u = 0x0000a0a000000000<br>x7 = 0x11<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

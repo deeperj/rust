@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define C# extension method</strong><strong><br>
+<br>
+Category: </strong>Extension Methods<br>
+<strong>Description</strong>: Define C# extension methods</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt; System.Runtime.CompilerServices.ExtensionAttribute &gt;]<br>[&lt; AutoOpen &gt;]<br>module ExtensionMethodForCSharp =&nbsp;&nbsp; &nbsp; <br>    [&lt; System.Runtime.CompilerServices.ExtensionAttribute &gt;]<br>&nbsp; &nbsp; let IsFSharp(str:string) = str = &quot;F#&quot;<br><br>let ExtensionSample3() =&nbsp;<br>&nbsp; &nbsp; printfn &quot;the method is listed on shown as extension method on C# side&quot;&nbsp;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>the method is listed on shown as extension method on C# side<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

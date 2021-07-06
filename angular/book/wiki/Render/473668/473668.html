@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Union - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Union to create one sequence that contains the unique values from both arrays.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ04() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbersA = [ 0; 2; 4; 5; 6; 8; 9 ]<br>   <span style="color:navy; font-weight:bold"> let</span> numbersB = [ 1; 3; 5; 7; 8 ]<br><br>    numbersA.Union(numbersB) |&gt; Seq.iter(fun n -&gt; printfn &quot;%d&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    0</span><br>    <span style="color:#008000">//    2</span><br>    <span style="color:#008000">//    4</span><br>    <span style="color:#008000">//    5</span><br>    <span style="color:#008000">//    6</span><br>    <span style="color:#008000">//    8</span><br>    <span style="color:#008000">//    9</span><br>    <span style="color:#008000">//    1</span><br>    <span style="color:#008000">//    3</span><br>    <span style="color:#008000">//    7</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>0<br>2<br>4<br>5<br>6<br>8<br>9<br>1<br>3<br>7<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

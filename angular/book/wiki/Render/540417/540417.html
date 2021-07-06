@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query IN case</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample using IN. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider2() =     <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q2 = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Course<span style="color:navy; font-weight:bold"> do</span> <br>        join (for e<span style="color:navy; font-weight:bold"> in</span> db.CourseSelection -&gt; n.CourseID = e.CourseID.Value)<br>        select (n.CourseName, e.StudentID)<br>    }<br>   <span style="color:navy; font-weight:bold"> let</span> names = [|&quot;Lisa&quot;;&quot;Brent&quot;;&quot;Jimmy&quot;|]<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>       <span style="color:navy; font-weight:bold"> if</span> names.Contains (n.Name)<span style="color:navy; font-weight:bold"> then</span> select n <br>        } <br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n.Name) <br>    Assert.AreEqual(q |&gt; Seq.length, 2)   <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>&quot;Lisa&quot;<br>&quot;Brent&quot;<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Thread</strong><strong><br>
+<br>
+Category: </strong>Parallel<br>
+<strong>Description</strong>: This sample spawns threads at background. Please check the thread output at the background Console window.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ParallelSample1() = <br>    <span style="color:#008000">// What will execute on each thread</span><br>   <span style="color:navy; font-weight:bold"> let</span> threadBody() =<br>       <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1 .. 5<span style="color:navy; font-weight:bold"> do</span> <br>            <span style="color:#008000">// Wait 1/10 of a second</span><br>            Thread.Sleep(100)<br>            printfn &quot;[Thread %d] %d...&quot;<br>                Thread.CurrentThread.ManagedThreadId<br>                i<br><br>   <span style="color:navy; font-weight:bold"> let</span> spawnThread() =<br>       <span style="color:navy; font-weight:bold"> let</span> thread =<span style="color:navy; font-weight:bold"> new</span> Thread(threadBody)<br>        thread.Start()<br><br>    printfn &quot;please check the background console window<span style="color:navy; font-weight:bold"> for</span> output&quot;<br><br>    <span style="color:#008000">// Spawn a couple of threads at once</span><br>    spawnThread()<br>    spawnThread()<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>please check the background console window for output<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

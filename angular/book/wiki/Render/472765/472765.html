@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>all - simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses All to determine whether an array contains only odd numbers.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ14() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [1;11;3;19;41;65;19]<br><br>   <span style="color:navy; font-weight:bold"> let</span> onlyOdd =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            all (n % 2 = 1)<br>        }<br>    printfn &quot;The list contains only odd numbers: %A&quot; onlyOdd<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The list contains only odd numbers: true</span><br><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The list contains only odd numbers: true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

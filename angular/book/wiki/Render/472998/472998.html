@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Strategy pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: Strategy pattern shows the underlying algorithm can be changed dynamically by setting the function from outside. For more information, please go to http://en.wikipedia.org/wiki/Strategy_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> quicksort l = <br>    printfn &quot;quick sort&quot;<br><span style="color:navy; font-weight:bold">let</span> shellsort l = <br>    printfn &quot;shell short&quot;<br><span style="color:navy; font-weight:bold">let</span> bubblesort l = <br>    printfn &quot;bubble sort&quot;<br><span style="color:navy; font-weight:bold">type</span> Strategy() = <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> sortFunction = fun _ -&gt; ()<br>   <span style="color:navy; font-weight:bold"> member</span> this.SetStrategy(f) = sortFunction &lt;- f<br>   <span style="color:navy; font-weight:bold"> member</span> this.Execute(n) = sortFunction(n)<br><br><span style="color:navy; font-weight:bold">let</span> stragegy() = <br>   <span style="color:navy; font-weight:bold"> let</span> s = Strategy()<br>    s.SetStrategy(quicksort)<br>    s.Execute([1..6])<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>quick sort<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

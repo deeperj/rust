@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Active pattern</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Active pattern can save mulitple matches. This sample shows how to avoid use nested match statement.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> (|Match|) v i = (v, i)<br>   <span style="color:navy; font-weight:bold"> let</span> tag, num = true, 1<br>   <span style="color:navy; font-weight:bold"> let</span> r =<span style="color:navy; font-weight:bold"> match</span> tag, num<span style="color:navy; font-weight:bold"> with</span> <br>                | true, (Match &quot;ID0&quot; (str, 0) | Match &quot;ID1&quot; (str, 1)) -&gt; sprintf &quot;%s&quot; str<br>                | _ -&gt; &quot;unknown&quot;<br>    printfn &quot;%s&quot; r<br>    Assert.AreEqual(r, &quot;ID0&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>ID1<br>failwith not equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

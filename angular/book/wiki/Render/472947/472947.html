@@ -1,0 +1,27 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Excel Chart</strong><strong><br>
+<br>
+Category: </strong>Office Interop<br>
+<strong>Description</strong>: Creating Excel charts. Please make sure you have Excel 2010 installed on your computer.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> excelChart() = <br>    try<br>       <span style="color:navy; font-weight:bold"> let</span> dataX = [|0.0 .. 0.1 .. 10.|]<br>       <span style="color:navy; font-weight:bold"> let</span> dataY = [|  [|for f<span style="color:navy; font-weight:bold"> in</span> dataX -&gt; cos f|];<br>                        [|for f<span style="color:navy; font-weight:bold"> in</span> dataX -&gt; sin f|] |] <br>        <span style="color:#008000">// Update the excel charting object</span><br>       <span style="color:navy; font-weight:bold"> let</span> xlApp =<span style="color:navy; font-weight:bold"> new</span> Excel.ApplicationClass()<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkBook = xlApp.Workbooks.Add()<br>       <span style="color:navy; font-weight:bold"> let</span> xlWorkSheet = xlWorkBook.Worksheets.[1] :?&gt; Excel.Worksheet<br>       <span style="color:navy; font-weight:bold"> let</span> xlCharts = xlWorkSheet.ChartObjects() :?&gt; Excel.ChartObjects<br>       <span style="color:navy; font-weight:bold"> let</span> xlChart = xlCharts.Add(1., 1., 460., 380.)<br>       <span style="color:navy; font-weight:bold"> let</span> myChart = xlChart.Chart <br>        <span style="color:#008000">// Fill in a excel worksheet with data from dataY[][]</span><br>       <span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1 .. dataY.Length<span style="color:navy; font-weight:bold"> do</span> <br>           <span style="color:navy; font-weight:bold"> for</span> j<span style="color:navy; font-weight:bold"> in</span> 1 .. dataY.[i-1].Length<span style="color:navy; font-weight:bold"> do</span> <br>                xlWorkSheet.Cells.[j, i] &lt;- dataY.[i-1].[j-1]<br>       <span style="color:navy; font-weight:bold"> let</span> xlRange = xlWorkSheet.Cells.CurrentRegion<br>        myChart.SetSourceData(xlRange) <br>        <span style="color:#008000">// Set Plot type and show chart</span><br>        myChart.ChartType &lt;- Excel.XlChartType.xlXYScatterLines<br>        xlApp.Visible &lt;- true<br>   <span style="color:navy; font-weight:bold"> with</span> _ -&gt; printfn &quot;%s&quot; &quot;please check your Excel installation&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

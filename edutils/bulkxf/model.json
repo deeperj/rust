@@ -1,0 +1,18 @@
+{
+  "source": "C:/Users/User/tmp.txt",
+  "rootDestFileName": "tmp - copy.txt",
+  "rootDest": "c:/Users/User",
+  "commands": ["copy"],
+  "undo": [],
+  "redo": [],
+  "supportedCommands":[
+    "copy",
+    "rename",
+    "move",
+    "deleteSrc",
+    "deleteDest",
+    "deleteRootDest",
+    "createByDate",
+    "createByMonthYear"
+  ]
+}

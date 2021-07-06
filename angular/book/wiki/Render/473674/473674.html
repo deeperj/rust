@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>select - Record Types 2</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses select to produce a sequence containing text representations of digits and whether their length is even or odd.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> REcord2 ={ Digit:string; Even:bool}<br><br><span style="color:navy; font-weight:bold">let</span> LINQ10() =<br>   <span style="color:navy; font-weight:bold"> let</span> numbers = [ 5; 4; 1; 3; 9; 8; 6; 7; 2; 0 ]    <br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br>    <br>    query {<br>           <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> numbers<span style="color:navy; font-weight:bold"> do</span> <br>            select {Digit = strings.[n]; Even = (n % 2) = 0}<br>    } |&gt; Seq.iter(fun r -&gt; printfn &quot;The digit %s is %s.&quot; r.Digit (match r.Even<span style="color:navy; font-weight:bold"> with</span> |true-&gt; &quot;even&quot; |_ -&gt;&quot;odd&quot;))<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The digit five is odd.</span><br>    <span style="color:#008000">//    The digit four is even.</span><br>    <span style="color:#008000">//    The digit one is odd.</span><br>    <span style="color:#008000">//    The digit three is odd.</span><br>    <span style="color:#008000">//    The digit nine is odd.</span><br>    <span style="color:#008000">//    The digit eight is even.</span><br>    <span style="color:#008000">//    The digit six is even.</span><br>    <span style="color:#008000">//    The digit seven is odd.</span><br>    <span style="color:#008000">//    The digit two is even.</span><br>    <span style="color:#008000">//    The digit zero is even.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The digit five is odd.<br>The digit four is even.<br>The digit one is odd.<br>The digit three is odd.<br>The digit nine is odd.<br>The digit eight is even.<br>The digit six is even.<br>The digit seven is odd.<br>The digit two is even.<br>The digit zero is even.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

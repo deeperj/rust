@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Lists and Pattern Matching</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of lists and functions that pattern match on them.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = [1;2;3;4]<br>    printfn &quot;data = \n%A&quot; data<br>    printfn &quot;List.head data = %d&quot; (List.head data)<br>    printfn &quot;List.tail data = \n%A&quot; (List.tail data)<br>    printfn &quot;List.length data = %d&quot; (List.length data)<br>   <span style="color:navy; font-weight:bold"> let</span> consume data = <br>       <span style="color:navy; font-weight:bold"> match</span> data<span style="color:navy; font-weight:bold"> with</span> <br>        | 1::rest    -&gt; printfn &quot;matched a 1&quot;;       rest<br>        | 2::3::rest -&gt; printfn &quot;matched a 2<span style="color:navy; font-weight:bold"> and</span> 3&quot;; rest <br>        | [4]        -&gt; printfn &quot;matched a 4&quot;;       []<br>        | _          -&gt; printfn &quot;unexpected!&quot;;         [] <br>   <span style="color:navy; font-weight:bold"> let</span> data = consume data <br>   <span style="color:navy; font-weight:bold"> let</span> data = consume data <br>   <span style="color:navy; font-weight:bold"> let</span> data = consume data <br>    printfn &quot;At<span style="color:navy; font-weight:bold"> end</span> of list? %b&quot; (data = [])<br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data = <br>[1; 2; 3; 4]<br>List.head data = 1<br>List.tail data = <br>[2; 3; 4]<br>List.length data = 4<br>matched a 1<br>matched a 2 and 3<br>matched a 4<br>At end of list? true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

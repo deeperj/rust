@@ -1,0 +1,81 @@
+<div class="wikidoc">
+<p><span style="font-size:9.5pt; color:blue">namespace</span><span style="font-size:9.5pt"> TestSpace</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt">[&lt;AutoOpen&gt;]</span></p>
+<p><span style="font-size:9.5pt; color:blue">module</span><span style="font-size:9.5pt"> TestUtils =
+</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">open</span><span style="font-size:9.5pt"> Microsoft.VisualStudio.TestTools.UnitTesting</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> (==) a b = Assert.AreEqual(a,b)</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> (!=) a b = Assert.AreNotEqual(a,b)</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> (===) a b = Assert.AreSame(a,b)</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> (?&#43;) a = Assert.IsTrue(a)&nbsp;
+</span><span style="font-size:9.5pt; color:green">//&#43; stands for TRUE</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> (?-) b = Assert.IsFalse(b)
+</span><span style="font-size:9.5pt; color:green">//- stands for FALSE</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> agreeTo sourceFunction targetFunction input =
+</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> source = input |&gt; sourceFunction</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> target = input |&gt; targetFunction</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> compareFunction a b =
+</span><span style="font-size:9.5pt; color:blue">if</span><span style="font-size:9.5pt"> a=b
+</span><span style="font-size:9.5pt; color:blue">then</span><span style="font-size:9.5pt"> 0
+</span><span style="font-size:9.5pt; color:blue">else</span><span style="font-size:9.5pt"> -1</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> compareResult = Seq.compareWith compareFunction source target</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">if</span><span style="font-size:9.5pt"> compareResult &lt;&gt; 0
+</span><span style="font-size:9.5pt; color:blue">then</span><span style="font-size:9.5pt"> failwith
+</span><span style="font-size:9.5pt; color:maroon">&quot;sequence not equal&quot;</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt">
+</span><span style="font-size:9.5pt; color:blue">inline</span><span style="font-size:9.5pt"> nullFunction x = x</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt; color:blue">module</span><span style="font-size:9.5pt"> TestFsharp =
+</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">open</span><span style="font-size:9.5pt"> Microsoft.VisualStudio.TestTools.UnitTesting</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">type</span><span style="font-size:9.5pt"> SampleClassType(arg0, arg1) =
+</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">member</span><span style="font-size:9.5pt"> x.Sum = arg0 &#43; arg1</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">member</span><span style="font-size:9.5pt"> x.GetSeq() = [arg0..arg1]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> t = SampleClassType(2, 5)</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> y = t.Sum</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">let</span><span style="font-size:9.5pt"> z = 0</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; [&lt;TestClass&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-size:9.5pt; color:blue">type</span><span style="font-size:9.5pt"> TestCaseUtil() =</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;TestMethod&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;TestCategory(</span><span style="font-size:9.5pt; color:maroon">&quot;TestFsharp&quot;</span><span style="font-size:9.5pt">)&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;Description(</span><span style="font-size:9.5pt; color:maroon">&quot;Assert Not Equal&quot;</span><span style="font-size:9.5pt">)&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">member</span><span style="font-size:9.5pt"> this.AssertNot() =</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 == 5</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ()</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;TestMethod&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;TestCategory(</span><span style="font-size:9.5pt; color:maroon">&quot;TestFsharp&quot;</span><span style="font-size:9.5pt">)&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;Description(</span><span style="font-size:9.5pt; color:maroon">&quot;Assert Equal&quot;</span><span style="font-size:9.5pt">)&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">member</span><span style="font-size:9.5pt"> this.AssertEqual() =</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y==7</span></p>
+<p><span style="font-size:9.5pt">&nbsp;</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;TestMethod&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;TestCategory(</span><span style="font-size:9.5pt; color:maroon">&quot;TestFsharp&quot;</span><span style="font-size:9.5pt">)&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&lt;Description(</span><span style="font-size:9.5pt; color:maroon">&quot;Assert Same Seq&quot;</span><span style="font-size:9.5pt">)&gt;]</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style="font-size:9.5pt; color:blue">member</span><span style="font-size:9.5pt"> this.AssertSeqSame() =
+</span></p>
+<p><span style="font-size:9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; agreeTo (t.GetSeq) (</span><span style="font-size:9.5pt; color:blue">fun</span><span style="font-size:9.5pt"> _
+</span><span style="font-size:9.5pt; color:blue">-&gt;</span><span style="font-size:9.5pt"> [2..5]) ()</span></p>
+</div><div class="ClearBoth"></div>

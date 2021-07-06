@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Singleton pattern</strong><strong><br>
+<br>
+Category: </strong>Design patterns<br>
+<strong>Description</strong>: The key point is the private constructor which makes sure only one instance is created. For more information, please go to http://en.wikipedia.org/wiki/Singleton_pattern</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> A private () =<br>    static<span style="color:navy; font-weight:bold"> let</span> instance = A()<br>    static<span style="color:navy; font-weight:bold"> member</span> Instance = instance<br>   <span style="color:navy; font-weight:bold"> member</span> this.Action() = printfn &quot;action&quot;<br><br><span style="color:navy; font-weight:bold">let</span> DesignPatter1() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = A.Instance;<br>    a.Action()<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>action<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

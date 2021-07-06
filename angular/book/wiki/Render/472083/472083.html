@@ -1,0 +1,111 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Active pattern</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Active pattern can save mulitple matches. This sample shows how to avoid use nested match statement.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample() = <br>   <span style="color:navy; font-weight:bold"> let</span> (|Match|) v i = (v, i)<br>   <span style="color:navy; font-weight:bold"> let</span> tag, num = true, 1<br>   <span style="color:navy; font-weight:bold"> let</span> r =<span style="color:navy; font-weight:bold"> match</span> tag, num<span style="color:navy; font-weight:bold"> with</span> <br>                | true, (Match &quot;ID0&quot; (str, 0) | Match &quot;ID1&quot; (str, 1)) -&gt; sprintf &quot;%s&quot; str<br>                | _ -&gt; &quot;unknown&quot;<br>    printfn &quot;%s&quot; r<br>    Assert.AreEqual(r, &quot;ID0&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>ID1<br>failwith not equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Partial patterns</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Need to partition only part of the input space. In that case, you write a set of partial patterns each of which match some inputs but fail to match other inputs. Active patterns that do not always produce a value are called partial
+ active patterns; they have a return value that is an option type. To define a partial active pattern, you use a wildcard character (_) at the end of the list of patterns inside the banana clips. The following code illustrates the use of a partial active pattern.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> (|Integer|_|) (str: string) =<br>      <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> intvalue = 0<br>      <span style="color:navy; font-weight:bold"> if</span> System.Int32.TryParse(str, &amp;intvalue)<span style="color:navy; font-weight:bold"> then</span> Some(intvalue)<br>      <span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> (|Float|_|) (str: string) =<br>      <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> floatvalue = 0.0<br>      <span style="color:navy; font-weight:bold"> if</span> System.Double.TryParse(str, &amp;floatvalue)<span style="color:navy; font-weight:bold"> then</span> Some(floatvalue)<br>      <span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> parseNumeric str =<br>      <span style="color:navy; font-weight:bold"> match</span> str<span style="color:navy; font-weight:bold"> with</span> <br>         | Integer i -&gt; printfn &quot;%d : Integer&quot; i<br>         | Float f -&gt; printfn &quot;%f : Floating point&quot; f<br>         | _ -&gt; printfn &quot;%s : Not matched.&quot; str<br>    parseNumeric &quot;1.1&quot;<br>    parseNumeric &quot;0&quot;<br>    parseNumeric &quot;0.0&quot;<br>    parseNumeric &quot;10&quot;<br>    parseNumeric &quot;Something else&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1.100000 : Floating point<br>0 : Integer<br>0.000000 : Floating point<br>10 : Integer<br>Something else : Not matched.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Active pattern with arguments</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Active pattern determines the input value format by using an active pattern with arguments.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> ( |Bool|Int|Float|String| ) input =<br>       <span style="color:navy; font-weight:bold"> let</span> sucess, res = Boolean.TryParse input<br>       <span style="color:navy; font-weight:bold"> if</span> sucess<span style="color:navy; font-weight:bold"> then</span> Bool(res)<br>       <span style="color:navy; font-weight:bold"> else</span> <br>           <span style="color:navy; font-weight:bold"> let</span> sucess, res = Int32.TryParse input<br>           <span style="color:navy; font-weight:bold"> if</span> sucess<span style="color:navy; font-weight:bold"> then</span> Int(res)<br>           <span style="color:navy; font-weight:bold"> else</span> <br>               <span style="color:navy; font-weight:bold"> let</span> sucess, res = Double.TryParse input<br>               <span style="color:navy; font-weight:bold"> if</span> sucess<span style="color:navy; font-weight:bold"> then</span> Float(res)<br>               <span style="color:navy; font-weight:bold"> else</span> String(input)<br>   <span style="color:navy; font-weight:bold"> let</span> printInputWithType input =<br>       <span style="color:navy; font-weight:bold"> match</span> input<span style="color:navy; font-weight:bold"> with</span> <br>        | Bool b -&gt; printfn &quot;Boolean: %b&quot; b<br>        | Int i -&gt; printfn &quot;Integer: %i&quot; i<br>        | Float f -&gt; printfn &quot;Floating point: %f&quot; f<br>        | String s -&gt; printfn &quot;String: %s&quot; s<br>    printInputWithType &quot;true&quot;<br>    printInputWithType &quot;12&quot;<br>    printInputWithType &quot;-12.1&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Boolean: true<br>Integer: 12<br>Floating point: -12.100000<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Active pattern: NULL</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Active pattern determines if the input value is null. When sample is executed under debug mode, it throws exception which is expected behavior.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample3() =     <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> inline</span> isNull v = System.Object.ReferenceEquals(v, null)    <br>   <span style="color:navy; font-weight:bold"> let</span> (|Null|_|) value =<span style="color:navy; font-weight:bold"> if</span> isNull value<span style="color:navy; font-weight:bold"> then</span> Some()<span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> check v =<br>       <span style="color:navy; font-weight:bold"> match</span> v<span style="color:navy; font-weight:bold"> with</span> <br>        | Null -&gt; nullArg &quot;v is null&quot;<br>        | _ -&gt; ()<br>    check null<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Exception raised: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.ArgumentNullException: Value cannot be null.<br>Parameter name: v is null<br>   at Microsoft.FSharp.Core.Operators.Raise[T](Exception exn)<br>   at Samples.Others.check@482-1T.Invoke(a v) in C:\MyCode\Samples\SampleProject\SampleProject\Samples.Others.fs:line 484<br>   at Samples.Others.ActivePatternSample3() in C:\MyCode\Samples\SampleProject\SampleProject\Samples.Others.fs:line 486<br>   --- End of inner exception stack trace ---<br>   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)<br>   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)<br>   at Support.Helper.Utils.samples@190-3.Invoke(Unit unitVar0) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 190<br>   at Support.Helper.Utils.getExecutionResult(FSharpOption`1 sampleOption) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 256<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

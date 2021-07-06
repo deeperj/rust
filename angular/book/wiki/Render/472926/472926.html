@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using Structural Equality</strong><strong><br>
+<br>
+Category: </strong>Equality, Comparison and Hashing<br>
+<strong>Description</strong>: F# supports structural comparison and equality of values with the same type. This sample shows the results of some simple structural comparison operations.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ComparisonSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> show a b = <br>        printfn &quot;%A &lt; %A: %b&quot; a b (a &lt; b)<br>        printfn &quot;%A = %A: %b&quot; a b (a = b)<br>        printfn &quot;%A &gt; %A: %b&quot; a b (a &gt; b)<br>    <br>    show 1 2;<br>    show 2 2;<br>    show &quot;1&quot; &quot;2&quot;<br>    show &quot;abb&quot; &quot;abc&quot; <br>    show &quot;aBc&quot; &quot;ABB&quot; <span style="color:#008000">// case-sensitive</span><br>    show None (Some 1);<br>    show None None;<br>    show (Some 0) (Some 1);<br>    show (Some 1) (Some 1);<br>    show [1;2;3] [1;2;2];<br>    show [] [1;2;2]<br>  <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1 &lt; 2: true<br>1 = 2: false<br>1 &gt; 2: false<br>2 &lt; 2: false<br>2 = 2: true<br>2 &gt; 2: false<br>&quot;1&quot; &lt; &quot;2&quot;: true<br>&quot;1&quot; = &quot;2&quot;: false<br>&quot;1&quot; &gt; &quot;2&quot;: false<br>&quot;abb&quot; &lt; &quot;abc&quot;: true<br>&quot;abb&quot; = &quot;abc&quot;: false<br>&quot;abb&quot; &gt; &quot;abc&quot;: false<br>&quot;aBc&quot; &lt; &quot;ABB&quot;: false<br>&quot;aBc&quot; = &quot;ABB&quot;: false<br>&quot;aBc&quot; &gt; &quot;ABB&quot;: true<br> &lt; Some 1: true<br> = Some 1: false<br> &gt; Some 1: false<br> &lt; : false<br> = : true<br> &gt; : false<br>Some 0 &lt; Some 1: true<br>Some 0 = Some 1: false<br>Some 0 &gt; Some 1: false<br>Some 1 &lt; Some 1: false<br>Some 1 = Some 1: true<br>Some 1 &gt; Some 1: false<br>[1; 2; 3] &lt; [1; 2; 2]: false<br>[1; 2; 3] = [1; 2; 2]: false<br>[1; 2; 3] &gt; [1; 2; 2]: true<br>[] &lt; [1; 2; 2]: true<br>[] = [1; 2; 2]: false<br>[] &gt; [1; 2; 2]: false<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

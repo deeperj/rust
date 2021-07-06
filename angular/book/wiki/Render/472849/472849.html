@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic type and printf</strong><strong><br>
+<br>
+Category: </strong>Arithmetic<br>
+<strong>Description</strong>: Basic type and printf</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> TypeAndPrintf() = <br>   <span style="color:navy; font-weight:bold"> let</span> int = 42<br>   <span style="color:navy; font-weight:bold"> let</span> string = &quot;This is a string&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> char = 'c'<br>   <span style="color:navy; font-weight:bold"> let</span> bool = true<br>   <span style="color:navy; font-weight:bold"> let</span> bytearray = &quot;This is a byte string&quot;B<br>   <span style="color:navy; font-weight:bold"> let</span> hexint = 0x34<br>   <span style="color:navy; font-weight:bold"> let</span> octalint = 0o42<br>   <span style="color:navy; font-weight:bold"> let</span> binaryinteger = 0b101010<br>   <span style="color:navy; font-weight:bold"> let</span> signedbyte = 68y<br>   <span style="color:navy; font-weight:bold"> let</span> unsignedbyte = 102uy<br>   <span style="color:navy; font-weight:bold"> let</span> smallint = 16s<br>   <span style="color:navy; font-weight:bold"> let</span> smalluint = 16us<br>   <span style="color:navy; font-weight:bold"> let</span> integer = 345l<br>   <span style="color:navy; font-weight:bold"> let</span> usignedint = 345ul<br>   <span style="color:navy; font-weight:bold"> let</span> nativeint = 765n<br>   <span style="color:navy; font-weight:bold"> let</span> unsignednativeint = 765un<br>   <span style="color:navy; font-weight:bold"> let</span> long = 12345678912345789L<br>   <span style="color:navy; font-weight:bold"> let</span> unsignedlong = 12345678912345UL<br>   <span style="color:navy; font-weight:bold"> let</span> float32 = 42.8F<br>   <span style="color:navy; font-weight:bold"> let</span> float = 42.8<br><br>    printfn &quot;int = %d or %A&quot; int int<br>    printfn &quot;string = %s or %A&quot; string string<br>    printfn &quot;char = %c or %A&quot; char char<br>    printfn &quot;bool = %b or %A&quot; bool bool<br>    printfn &quot;bytearray = %A&quot; bytearray<br>    printfn &quot;hex int = %x or %A&quot; hexint hexint<br>    printfn &quot;HEX INT = %X or %A&quot; hexint hexint<br>    printfn &quot;oct int = %o or %A&quot; octalint octalint<br>    printfn &quot;bin int = %d or %A&quot; binaryinteger binaryinteger<br>    printfn &quot;signed byte = %A&quot; signedbyte<br>    printfn &quot;unsigned byte = %A&quot; unsignedbyte<br>    printfn &quot;small int = %A&quot; smallint<br>    printfn &quot;small uint = %A&quot; smalluint<br>    printfn &quot;int = %i or %A&quot; integer integer<br>    printfn &quot;uint = %i or %A&quot; usignedint usignedint<br>    printfn &quot;native int = %A&quot; nativeint<br>    printfn &quot;unsigned native int = %A&quot; unsignednativeint<br>    printfn &quot;long = %d or %A&quot; long long<br>    printfn &quot;unsigned long = %A&quot; unsignedlong<br>    printfn &quot;float = %f or %A&quot; float32 float32<br>    printfn &quot;double = %f or %A&quot; float float<br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>int = 42 or 42<br>string = This is a string or &quot;This is a string&quot;<br>char = c or 'c'<br>bool = true or true<br>bytearray = [|84uy; 104uy; 105uy; 115uy; 32uy; 105uy; 115uy; 32uy; 97uy; 32uy; 98uy; 121uy;<br>  116uy; 101uy; 32uy; 115uy; 116uy; 114uy; 105uy; 110uy; 103uy|]<br>hex int = 34 or 52<br>HEX INT = 34 or 52<br>oct int = 42 or 34<br>bin int = 42 or 42<br>signed byte = 68y<br>unsigned byte = 102uy<br>small int = 16s<br>small uint = 16us<br>int = 345 or 345<br>uint = 345 or 345u<br>native int = 765n<br>unsigned native int = 765un<br>long = 12345678912345789 or 12345678912345789L<br>unsigned long = 12345678912345UL<br>float = 42.800000 or 42.7999992f<br>double = 42.800000 or 42.8<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

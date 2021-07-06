@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Basic List Construction</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample demonstrates basic list construction</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListConstruction() =<br><br>    <span style="color:#008000">// Create an empty list</span><br>   <span style="color:navy; font-weight:bold"> let</span> emptyL = []<br><br>    <span style="color:#008000">// Create a simple floating-point number list</span><br>   <span style="color:navy; font-weight:bold"> let</span> smallFloatsL = [1.0; 2.0; 3.0; 4.0]<br><br>    <span style="color:#008000">// Create a list using a range expression - same rules as with arrays, step is optional</span><br>   <span style="color:navy; font-weight:bold"> let</span> listRngExp = [0..2..10]<br><br>    <span style="color:#008000">// Create a list using a function based on index</span><br>   <span style="color:navy; font-weight:bold"> let</span> listByInit = List.init 5 (fun i -&gt; i*i*i)<br><br>    <span style="color:#008000">// Create a list using list comprehension</span><br>   <span style="color:navy; font-weight:bold"> let</span> listLC = [<span style="color:navy; font-weight:bold"> for</span> i<span style="color:navy; font-weight:bold"> in</span> 1..5<span style="color:navy; font-weight:bold"> do</span> yield (i * 2) ]<br>       <br>    <span style="color:#008000">// Another example of list comprehension</span><br>   <span style="color:navy; font-weight:bold"> let</span> listLC2 = [<span style="color:navy; font-weight:bold"> for</span> p<span style="color:navy; font-weight:bold"> in</span> [(0,0); (1,1); (2,4); (3,9); (4,16); (5,25); (6, 36)]<span style="color:navy; font-weight:bold"> do</span> <br>                       <span style="color:navy; font-weight:bold"> match</span> p<span style="color:navy; font-weight:bold"> with</span> <br>                        | (a,_) when a%2=0 -&gt; yield p<br>                        | (_,_) -&gt; () ]<br>                        <br>    printfn &quot;emptyL = %A&quot; emptyL<br>    printfn &quot;\nsmallFloatsL = %A&quot; smallFloatsL<br>    printfn &quot;\nlistRngExp = %A&quot; listRngExp<br>    printfn &quot;\nlistByInit = %A&quot; listByInit<br>    printfn &quot;\nlistLC = %A&quot; listLC<br>    printfn &quot;\nlistLC2 = %A&quot; listLC2<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>emptyL = []<br><br>smallFloatsL = [1.0; 2.0; 3.0; 4.0]<br><br>listRngExp = [0; 2; 4; 6; 8; 10]<br><br>listByInit = [0; 1; 8; 27; 64]<br><br>listLC = [2; 4; 6; 8; 10]<br><br>listLC2 = [(0, 0); (2, 4); (4, 16); (6, 36)]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

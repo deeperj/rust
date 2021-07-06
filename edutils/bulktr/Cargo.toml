@@ -1,0 +1,23 @@
+[package]
+name = "bulktr"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.cursive]
+version = "0.11"
+default-features = false
+features = ["pancurses-backend"]
+
+[dependencies.pdcurses-sys]
+version = "0.7"
+features = ["win32"]
+
+default-run = "bulktr"
+
+
+[[bin]]
+name = "bulktr"
+path = "src/filebrowser.rs"
+#cargo run -v --no-default-features --features crossterm-backend --example select

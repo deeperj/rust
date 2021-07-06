@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>List to Tuple</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample convert a list to a tuple</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ListToTuple() = <br>   <span style="color:navy; font-weight:bold"> let</span> listToTuple l =<br>       <span style="color:navy; font-weight:bold"> let</span> l' = List.toArray l<br>       <span style="color:navy; font-weight:bold"> let</span> types = l' |&gt; Array.map (fun o -&gt; o.GetType())<br>       <span style="color:navy; font-weight:bold"> let</span> tupleType = Microsoft.FSharp.Reflection.FSharpType.MakeTupleType types<br>        Microsoft.FSharp.Reflection.FSharpValue.MakeTuple (l' , tupleType)<br>   <span style="color:navy; font-weight:bold"> let</span> r = (listToTuple [1,2,3,4]) |&gt; Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields<br>    r.[0] |&gt; printfn &quot;%A&quot;<br>    <br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(1, 2, 3, 4)<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

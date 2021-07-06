@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Declaring a simple recursive function</strong><strong><br>
+<br>
+Category: </strong>Recursion<br>
+<strong>Description</strong>: Declaring a simple recursive function</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> SampleRec1() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> rec</span> fib n =<span style="color:navy; font-weight:bold"> if</span> n &lt; 2<span style="color:navy; font-weight:bold"> then</span> 1<span style="color:navy; font-weight:bold"> else</span> fib (n-1) &#43; fib (n-2) <br>   <span style="color:navy; font-weight:bold"> for</span> i = 1<span style="color:navy; font-weight:bold"> to</span> 10<span style="color:navy; font-weight:bold"> do</span> <br>        printfn &quot;fib %d = %d&quot; i (fib i)<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>fib 1 = 1<br>fib 2 = 2<br>fib 3 = 3<br>fib 4 = 5<br>fib 5 = 8<br>fib 6 = 13<br>fib 7 = 21<br>fib 8 = 34<br>fib 9 = 55<br>fib 10 = 89<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

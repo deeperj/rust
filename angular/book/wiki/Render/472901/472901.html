@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Tuple to list</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample converts a tuple to a list</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> TupleToList() = <br>   <span style="color:navy; font-weight:bold"> let</span> tupleToList t = <br>       <span style="color:navy; font-weight:bold"> if</span> Microsoft.FSharp.Reflection.FSharpType.IsTuple(t.GetType()) <br>       <span style="color:navy; font-weight:bold"> then</span> Some (Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields t |&gt; Array.toList)<br>       <span style="color:navy; font-weight:bold"> else</span> None<br>   <span style="color:navy; font-weight:bold"> let</span> r = tupleToList (1,2,3,4)<br>   <span style="color:navy; font-weight:bold"> match</span> r<span style="color:navy; font-weight:bold"> with</span> <br>    | Some(x) -&gt; x |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    | None -&gt; printfn &quot;no element&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1<br>2<br>3<br>4<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

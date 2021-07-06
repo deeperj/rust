@@ -1,0 +1,110 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Raising a 'Failure' exception</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: How to raise a simple exception</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample1() : unit =<br>    failwith &quot;Here's how<span style="color:navy; font-weight:bold"> to</span> raise a simple 'Failure' exception&quot;<br>  <br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Exception raised: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.Exception: Here's how to raise a simple 'Failure' exception<br>   at Microsoft.FSharp.Core.Operators.FailWith[T](String message)<br>   at Samples.Beginners.ExceptionSample1() in C:\MyCode\Samples\SampleProject\SampleProject\Samples.Beginners.fs:line 148<br>   --- End of inner exception stack trace ---<br>   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)<br>   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)<br>   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)<br>   at Support.Helper.Utils.samples@190-3.Invoke(Unit unitVar0) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 190<br>   at Support.Helper.Utils.getExecutionResult(FSharpOption`1 sampleOption) in C:\MyCode\Samples\SampleProject\SampleProject\Supportive.Helper.fs:line 256<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Raising and catching a 'Failure' exception</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: How to raise and catch a 'Failure' exception</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample2() =<br>    try <br>        printfn &quot;About<span style="color:navy; font-weight:bold"> to</span> raise a simple 'Failure' exception...&quot;<br>        failwith &quot;Whoa!&quot;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>        Failure msg -&gt; <br>            printfn &quot;Caught a simple 'Failure' exception, msg = '%s'&quot; msg<br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>About to raise a simple 'Failure' exception...<br>Caught a simple 'Failure' exception, msg = 'Whoa!'<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using KeyNotFoundException and exception patterns</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: Raising a 'KeyNotFoundException' exception, and using exception patterns</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample3() =<br>    try <br>        printfn &quot;About<span style="color:navy; font-weight:bold"> to</span> raise an exception...&quot;<br>       <span style="color:navy; font-weight:bold"> match</span> DateTime.Now.DayOfWeek<span style="color:navy; font-weight:bold"> with</span> <br>        | DayOfWeek.Monday -&gt; raise(KeyNotFoundException()) <br>        | _                -&gt; failwith &quot;it's not Monday&quot;<br>   <span style="color:navy; font-weight:bold"> with</span> <br>        | :? KeyNotFoundException -&gt; <br>            printfn &quot;Caught a 'KeyNotFoundException' exception, it must be Monday&quot;<br>        | Failure msg-&gt; <br>            printfn &quot;Caught a 'Failure' exception: %s&quot; msg<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>About to raise an exception...<br>Caught a 'KeyNotFoundException' exception, it must be Monday<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using ArgumentException and exception patterns</strong><strong><br>
+<br>
+Category: </strong>Exceptions<br>
+<strong>Description</strong>: Raising an 'ArgumentException' exception, and filtering for .NET exceptions</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ExceptionSample4() =<br>    try <br>        printfn &quot;About<span style="color:navy; font-weight:bold"> to</span> raise an ArgumentException exception...&quot;<br>       <span style="color:navy; font-weight:bold"> if</span> DateTime.Now.DayOfWeek = DayOfWeek.Tuesday<span style="color:navy; font-weight:bold"> then</span> <br>            raise (new System.ArgumentException(&quot;Not today, it's Tuesday&quot;))<br>       <span style="color:navy; font-weight:bold"> else</span> <br>            raise (new System.ApplicationException(&quot;Hey, it's not Tuesday...&quot;))<br>   <span style="color:navy; font-weight:bold"> with</span> <br>        | :? System.ArgumentException as e -&gt; <br>            printfn &quot;Caught an ArgumentException, e.Message = %s&quot; e.Message<br>        | :? System.ApplicationException as e -&gt; <br>            printfn &quot;Caught an ApplicationException, e.Message = %s&quot; e.Message<br>        | _ -&gt; <br>            printfn &quot;Some other exception was caught&quot;<br>  <br><span style="color:#008000">//--------------------------------------------------------</span><br>  <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>About to raise an ArgumentException exception...<br>Caught an ApplicationException, e.Message = Hey, it's not Tuesday...<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

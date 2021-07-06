@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define extension methods</strong><strong><br>
+<br>
+Category: </strong>Extension Methods<br>
+<strong>Description</strong>: Define extension methods to get version list from string</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> System.String<span style="color:navy; font-weight:bold"> with</span> <br>   <span style="color:navy; font-weight:bold"> member</span> this.Versions =<br>       <span style="color:navy; font-weight:bold"> if</span> System.String.IsNullOrEmpty(this)<span style="color:navy; font-weight:bold"> then</span> <br>            failwith &quot;empty or null string&quot;<br>       <span style="color:navy; font-weight:bold"> else</span> <br>            this.Split([|'.'|], System.StringSplitOptions.RemoveEmptyEntries)<br><br><span style="color:navy; font-weight:bold">let</span> ExtensionSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = &quot;1.2.4&quot;;<br>   <span style="color:navy; font-weight:bold"> let</span> versions = a.Versions<br>    versions |&gt; Seq.iter (fun n -&gt; printfn &quot;%s&quot; n)<br>    Assert.AreEqual(versions.Length, 3)<br>    Assert.AreEqual(versions.[0], &quot;1&quot;)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>1<br>2<br>4<br>both elements are equal<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

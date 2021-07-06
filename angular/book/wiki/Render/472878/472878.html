@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Classes with methods and properties</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Classes can contain methods of general form and properties.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Circle2 (r : float) =    <br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> radius = r<br>   <span style="color:navy; font-weight:bold"> let</span> area = System.Math.PI * r * r<br>    <br>    <span style="color:#008000">// Read/Write property with get and set</span><br>   <span style="color:navy; font-weight:bold"> member</span> c.R<span style="color:navy; font-weight:bold"> with</span> get() = radius<span style="color:navy; font-weight:bold"> and</span> set(inp) = radius &lt;- inp <br>    <span style="color:#008000">// Read only property with get</span><br>   <span style="color:navy; font-weight:bold"> member</span> c.Area<span style="color:navy; font-weight:bold"> with</span> get() = area<br>    <br>   <span style="color:navy; font-weight:bold"> new</span> () = Circle2(1.0)<br>    <br>    new(text: string) = <br>       <span style="color:navy; font-weight:bold"> if</span> text = null<span style="color:navy; font-weight:bold"> then</span> <br>            raise &lt;|<span style="color:navy; font-weight:bold"> new</span> System.Exception(&quot;text&quot;)<br>        <br>       <span style="color:navy; font-weight:bold"> let</span> (successR, r) = System.Double.TryParse(text)<br>       <span style="color:navy; font-weight:bold"> if</span> not successR<span style="color:navy; font-weight:bold"> then</span> <br>            raise &lt;|<span style="color:navy; font-weight:bold"> new</span> System.Exception(&quot;text&quot;)<br>       <span style="color:navy; font-weight:bold"> new</span> Circle2(r: float)<br>    <br>    <span style="color:#008000">// method with signature:    member CalculateCircumference : unit -&gt; float</span><br>   <span style="color:navy; font-weight:bold"> member</span> c.CalculateCircumference() = System.Math.PI * 2.0 * c.R<br><br><span style="color:navy; font-weight:bold">let</span> ClassesSupport2() =<br>   <span style="color:navy; font-weight:bold"> let</span> c1 = Circle2(2.0)<br>    <br>    printfn &quot;c1.Area = %f\tc1.R = %f\n&quot; c1.Area c1.R<br>    c1.R &lt;- 5.0 <br>    printfn &quot;c1.Area = %f\tc1.R = %f\n&quot; c1.Area c1.R<br>    <br>    c1.CalculateCircumference()<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>c1.Area = 12.566371	c1.R = 2.000000<br><br>c1.Area = 12.566371	c1.R = 5.000000<br><br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

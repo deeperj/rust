@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>WsdlService - w3cschools temperature conversion</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: define a WSDL type provider and do temperature conversion from w3cschools web site.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> T3 = Microsoft.FSharp.Data.TypeProviders.WsdlService&lt; &quot;http:<span style="color:#000000">//www.w3schools.com/webservices/tempconvert.asmx?WSDL&quot; &gt;</span><br><br><span style="color:navy; font-weight:bold">let</span> WsdlSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T3.GetHttpTempConvertSoapClient()<br>   <span style="color:navy; font-weight:bold"> let</span> a = db.CelsiusToFahrenheit(&quot;0&quot;)<br>    printfn &quot;%s&quot; a<br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>32<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

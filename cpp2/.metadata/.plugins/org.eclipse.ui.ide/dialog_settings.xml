@@ -9,6 +9,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\User\STM32Cube\Repository\STM32Cube_FW_F3_V1.11.2\Projects\STM32F3-Discovery\Examples\GPIO\LL00\SW4STM32\STM32F3-Discovery"/>
+			<item value="C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\template_test\GPIO_IOTest\SW4STM32\STM32F3-Discovery"/>
+			<item value="C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\STM32F3-Discovery\LLTest\SW4STM32\STM32F3-Discovery"/>
+			<item value="C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\template_test\LL00\SW4STM32\STM32F3-Discovery"/>
+			<item value="C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\f303\template_test\LL00\SW4STM32"/>
 			<item value="C:\Users\User\Dropbox\rtmp\src\cpp\embedded\eworkbench\stm32cortex\clion\test"/>
 			<item value="C:\Users\User\Mbed Programs\serial-test"/>
 		</list>

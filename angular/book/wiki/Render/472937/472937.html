@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define prefix operator</strong><strong><br>
+<br>
+Category: </strong>Defining Operator<br>
+<strong>Description</strong>: Define prefix operator</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> DefineOperator2() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> inline</span> (~&#43;.) x = x&#43;1<br>   <span style="color:navy; font-weight:bold"> let</span> a = 9<br>   <span style="color:navy; font-weight:bold"> let</span> r = (&#43;.a)<br>    printfn &quot;%d&quot; r<br>    Assert.AreEqual(r, 10)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>10<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

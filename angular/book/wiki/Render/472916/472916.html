@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using .filter</strong><strong><br>
+<br>
+Category: </strong>Functions - Arrays, Lists, Seqs<br>
+<strong>Description</strong>: .filter applies a given function to the collection, returning only those elements for which the given predicate returns true.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> AggregateExample4() =<br>   <span style="color:navy; font-weight:bold"> let</span> names = [|&quot;Bob&quot;; &quot;Jim&quot;; &quot;Stephen&quot;; &quot;James&quot;; &quot;Fred&quot;; &quot;Will&quot;; &quot;Brian&quot;; &quot;David&quot;; &quot;Mark&quot;; &quot;Jonathan&quot;|]<br>   <span style="color:navy; font-weight:bold"> let</span> longNames = Array.filter (fun (x: string) -&gt; x.Length &gt; 4) names<br>    <br>    printfn &quot;names = %A\n&quot; names<br>    printfn &quot;longNames = %A&quot; longNames<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>names = [|&quot;Bob&quot;; &quot;Jim&quot;; &quot;Stephen&quot;; &quot;James&quot;; &quot;Fred&quot;; &quot;Will&quot;; &quot;Brian&quot;; &quot;David&quot;; &quot;Mark&quot;;<br>  &quot;Jonathan&quot;|]<br><br>longNames = [|&quot;Stephen&quot;; &quot;James&quot;; &quot;Brian&quot;; &quot;David&quot;; &quot;Jonathan&quot;|]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

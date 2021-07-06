@@ -61,23 +61,18 @@ namespace progressive.Services.Domain.Common
         var (tasks,total,stud)=eml;
         var completion=(total-tasks.Count())/total;
         StringBuilder sb = new StringBuilder();
-        sb.Append($"Dear {stud.OtherNames},{Environment.NewLine}"+Environment.NewLine);
-        sb.Append("As promised, here is your current outstanding summative discussions/portfolios:"+Environment.NewLine);
+        sb.AppendLine($"<p>Dear {stud.OtherNames},</p>");
+        sb.AppendLine("<p>As promised, here is your current outstanding summative discussions/portfolios:</p><ul>");
         foreach(var c in tasks){
-          sb.Append($" - {c.TaskName} [{c.ScreenCastUrl.Trim()}] {Environment.NewLine} ");
+          sb.AppendLine($"<li>{c.TaskName} [<a href='{c.ScreenCastUrl.Trim()}'>screencast/resources</a>] </li>");
         } 
         // Console.WriteLine($"curr dir = {Directory.GetCurrentDirectory()}");
-        sb.Append(Environment.NewLine);
-        sb.Append(String.Format("Percentage(%) Completion = {0:P1}",completion)+Environment.NewLine);
-        sb.Append(Environment.NewLine);
-        sb.Append($"All discussions may be found in the following link [https://huddersfield.brightspace.com/d2l/le/content/135410/viewContent/1002096/View]."+Environment.NewLine);
-        sb.Append(Environment.NewLine);
-        sb.Append($"I have also added links to screen casts and Brightspace resources next to each discussion task."+Environment.NewLine);
-        sb.Append(Environment.NewLine);
-        sb.Append($"Please note that you are required to do all discussions, portfolios and course work to have a good pass in Software Design."+Environment.NewLine);
-        sb.Append(Environment.NewLine);
-        sb.Append("Best wishes,"+Environment.NewLine);
-        sb.Append("John"+Environment.NewLine);
+        sb.AppendLine(String.Format("</ul><p>Percentage(%) Completion = {0:P1}",completion)+"</p>");
+        sb.AppendLine($"<p>All discussions may be found in the following [<a href='https://huddersfield.brightspace.com/d2l/le/content/135410/viewContent/1002096/View'>link</a>].</p>");
+        sb.AppendLine($"<p>I have also added links to screen casts and Brightspace resources next to each discussion task. ");
+        sb.AppendLine($"Please note that you are required to do all discussions, portfolios and course work to have a good pass in Software Design.</p>");
+        sb.AppendLine("<p>Best wishes,</p>");
+        sb.AppendLine("<p>John</p>");
         var recipient = "u"+stud.UniCode+"@unimail.hud.ac.uk";
         var subj = "XFX1061-2021 : Software Design > Weekly Status";
         var message = new Message(

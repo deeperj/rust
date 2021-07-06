@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Simple options</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: Create some optional values, print them and match on them.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> OptionsSample2() =<br><br>   <span style="color:navy; font-weight:bold"> let</span> data = Some(1,3)<br>    printfn &quot;data = %A&quot; data;<br>    printfn &quot;data.IsSome = %b&quot; data.IsSome<br>    printfn &quot;data.IsNone = %b&quot; data.IsNone<br>    printfn &quot;data.Value = %A&quot; data.Value<br><br>   <span style="color:navy; font-weight:bold"> let</span> data2 = None<br>    printfn &quot;data2.IsSome = %b&quot; data2.IsSome<br>    printfn &quot;data2.IsNone = %b&quot; data2.IsNone<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data = Some (1, 3)<br>data.IsSome = true<br>data.IsNone = false<br>data.Value = (1, 3)<br>data2.IsSome = false<br>data2.IsNone = true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

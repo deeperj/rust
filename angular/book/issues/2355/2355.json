@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "readme.htm and SupportiveHelper.fs show incorrect URL for signing up for Bing service developer account (shows https://www.bingmapsportal.com/application/index/1034110).\n \nShould refer user to http://bingmapsportal.com and notify user to create a new account, then create a new app key for the samples application.",
+    "LastUpdatedDate": "2013-02-21T16:36:12.857-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2011-09-15T23:59:54.367-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bing Service Developer Account Link is Incorrect",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 2355
+  },
+  "FileAttachments": [
+    {
+      "FileId": 75,
+      "FileName": "Capture.png",
+      "DownloadUrl": ".\\75"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "here is the right link http://msdn.microsoft.com/en-us/library/gg605201.aspx, i will update the source",
+      "PostedDate": "2011-09-18T14:52:46.037-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:36:12.857-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>exists - Simple</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses Any to determine if any of the words in the array contain the substring 'ei'.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ13() =<br>   <span style="color:navy; font-weight:bold"> let</span> words = [&quot;believe&quot;; &quot;relief&quot;; &quot;receipt&quot;; &quot;field&quot;]<br>   <span style="color:navy; font-weight:bold"> let</span> iAfterE =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> w<span style="color:navy; font-weight:bold"> in</span> words<span style="color:navy; font-weight:bold"> do</span> <br>            exists (w.Contains(&quot;ei&quot;))<br>        }<br>    printfn &quot;There is a word that contains<span style="color:navy; font-weight:bold"> in</span> the list that contains 'ei': %A&quot; iAfterE<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    There is a word that contains in the list that contains 'ei': true</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>There is a word that contains in the list that contains 'ei': true<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

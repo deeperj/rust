@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>define class</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: define a class with multiple constructors</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> Complex(real : float, img  : float) =<br> <span style="color:navy; font-weight:bold"> new</span> (r : float) = Complex (r, 0.0) <br>  new() = Complex(0.0, 0.0)<br> <span style="color:navy; font-weight:bold"> member</span> this.Real = real<br> <span style="color:navy; font-weight:bold"> member</span> this.Img = img<br> <span style="color:navy; font-weight:bold"> member</span> this.Multiply(other : Complex) =<br>    Complex(this.Real*other.Real - this.Img*other.Img,<br>            this.Real*other.Img  &#43; this.Img*other.Real)<br> <span style="color:navy; font-weight:bold"> member</span> this.Add(r : float) =<br>   <span style="color:navy; font-weight:bold"> new</span> Complex(real &#43; r, img)<br> <span style="color:navy; font-weight:bold"> member</span> this.Add(r : float, i : float) =<br>   <span style="color:navy; font-weight:bold"> new</span> Complex(real &#43; r, img &#43; i)<br><span style="color:navy; font-weight:bold">let</span> ClassSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> a = Complex()<br>   <span style="color:navy; font-weight:bold"> let</span> b = Complex(1.2,2.5)<br>   <span style="color:navy; font-weight:bold"> let</span> c = Complex(1.0)<br>    printfn &quot;a=(%f,%f), b=(%f,%f) c=(%f,%f)&quot; a.Real a.Img b.Real b.Img c.Img c.Real<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>a=(0.000000,0.000000), b=(1.200000,2.500000) c=(0.000000,1.000000)<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

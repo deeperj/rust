@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>head - Condition</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample uses First to find the first element in the array that starts with 'o'.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ25() =<br>   <span style="color:navy; font-weight:bold"> let</span> strings = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br><br>   <span style="color:navy; font-weight:bold"> let</span> startsWithO =<br>        query {<br>           <span style="color:navy; font-weight:bold"> for</span> s<span style="color:navy; font-weight:bold"> in</span> strings<span style="color:navy; font-weight:bold"> do</span> <br>            where (s.[0] = 'o')<br>            head<br>        }<br>    printfn &quot;A string starting<span style="color:navy; font-weight:bold"> with</span> 'o': %s&quot; startsWithO<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    A string starting with 'o': one</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>A string starting with 'o': one<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Define units of measure</strong><strong><br>
+<br>
+Category: </strong>Units of Measure<br>
+<strong>Description</strong>: Define and use measure unit. The units of measure is a compile time feature, so it won't go into the binary file.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Measure&gt;]type litre<br>[&lt;Measure&gt;]type pint<br><br><span style="color:navy; font-weight:bold">let</span> MeasureSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> v1 = 2.<br>   <span style="color:navy; font-weight:bold"> let</span> v2 = 1.<br>   <span style="color:navy; font-weight:bold"> let</span> ratio =  1.0 / 1.76056338<br>   <span style="color:navy; font-weight:bold"> let</span> pintToLitre pints =<br>        pints * ratio<br>   <span style="color:navy; font-weight:bold"> let</span> newVol = v1 &#43; (pintToLitre v2)<br>    printfn &quot;converted value is %A&quot; newVol<br> <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>converted value is 2.568<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

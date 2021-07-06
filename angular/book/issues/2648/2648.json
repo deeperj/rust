@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "It seems there's a formatting issue with the code on http://fsharp3sample.codeplex.com/wikipage?title=Define%20C",
+    "LastUpdatedDate": "2013-02-21T16:36:12.43-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "FSharp3Sample",
+    "ReportedDate": "2012-08-15T18:18:32.943-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "C# extension method page code",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 2648
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thank you! it is fixed.",
+      "PostedDate": "2012-08-23T11:17:29.45-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:36:12.43-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

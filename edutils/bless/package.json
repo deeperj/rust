@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@reactive-js/core": "^0.0.50"
+  }
+}

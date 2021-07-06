@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using Tuples</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: This sample shows simple uses of tuples</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> TupleSample1() =<br>   <span style="color:navy; font-weight:bold"> let</span> data = 1,2,3<br>    printfn &quot;data = \n%A&quot; data<br>   <span style="color:navy; font-weight:bold"> let</span> f (a,b,c) = (a&#43;b,b&#43;c,c&#43;a) <br>   <span style="color:navy; font-weight:bold"> let</span> res = f(f(f(data))) <br>    printfn &quot;res = \n%A&quot; res<br>   <span style="color:navy; font-weight:bold"> let</span> r1,r2,r3 = res <br>    printfn &quot;r1 = %d, r2 = %d, r3 = %d&quot; r1 r2 r3<br>   <span style="color:navy; font-weight:bold"> let</span> r4,r5,r6 = f(res) <br>    printfn &quot;r4 = %d, r5 = %d, r6 = %d&quot; r4 r5 r6<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>data = <br>(1, 2, 3)<br>res = <br>(17, 16, 15)<br>r1 = 17, r2 = 16, r3 = 15<br>r4 = 33, r5 = 31, r6 = 32<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

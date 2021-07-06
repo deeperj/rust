@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>TypeProvider query CASE</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.SqlDataConnection<br>
+<strong>Description</strong>: type provider sample: CASE. Use the CreateFSharpSampleDatabase.sql to setup your database tables.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><br><span style="color:navy; font-weight:bold">type</span> T0 = Microsoft.FSharp.Data.TypeProviders.SqlDataConnection&lt; &quot;Data Source=localhost;Initial Catalog=FSharpSample;User ID=sa;Password=FSharpSample1234&quot; &gt;<br><br><span style="color:navy; font-weight:bold">let</span> TypeProvider13() = <br>   <span style="color:navy; font-weight:bold"> let</span> db = T0.GetDataContext();<br>   <span style="color:navy; font-weight:bold"> let</span> q = query {<br>       <span style="color:navy; font-weight:bold"> for</span> n<span style="color:navy; font-weight:bold"> in</span> db.Student<span style="color:navy; font-weight:bold"> do</span> <br>        select (if n.Age.HasValue &amp;&amp; n.Age.Value=1 <span style="color:navy; font-weight:bold"> then</span> (n.StudentID, System.Nullable(n.Age.Value*100), n.Age)<span style="color:navy; font-weight:bold"> else</span> (n.StudentID, n.Age, n.Age))<br>    }<br>    q |&gt; Seq.iter (fun n -&gt; printfn &quot;%A&quot; n)<br>    Assert.AreEqual(q |&gt; Seq.length, 9)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>(1, 21, 21)<br>(2, 22, 22)<br>(3, 20, 20)<br>(4, 22, 22)<br>(5, 22, 22)<br>(6, 20, 20)<br>(7, 21, 21)<br>(8, 23, 23)<br>(9, null, null)<br>both elements are equal<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

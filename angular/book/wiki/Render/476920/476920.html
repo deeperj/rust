@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Aggreate type and LanguagePrimitives</strong><strong><br>
+<br>
+Category: </strong>Units of Measure<br>
+<strong>Description</strong>: Aggreate type and LanguagePrimitives. The LanguagePrimitives is used to make a number (e.g. float) into units of measure.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[&lt;Measure&gt;]type JPY<br>[&lt;Measure&gt;]type CNY<br><span style="color:navy; font-weight:bold">type</span> BankAccount&lt;[&lt;Measure&gt;]'u&gt;() =<br>   <span style="color:navy; font-weight:bold"> let</span><span style="color:navy; font-weight:bold"> mutable</span> balance : float&lt;'u&gt; = 0.0&lt;_&gt;<br>   <span style="color:navy; font-weight:bold"> member</span> acct.HasLotsOfMoney = balance &gt; (LanguagePrimitives.FloatWithMeasure 10000.0) <span style="color:#008000">//10000 units</span><br>   <span style="color:navy; font-weight:bold"> member</span> acct.Deposit(amt) = balance &lt;- balance &#43; amt<br>   <span style="color:navy; font-weight:bold"> member</span> acct.Withdraw(amt) = balance &lt;- balance - amt<br><br><span style="color:navy; font-weight:bold">let</span> MeasureSample5() =<br>   <span style="color:navy; font-weight:bold"> let</span> a = BankAccount&lt;JPY&gt;()<br>    a.Deposit(10.&lt;JPY&gt;)<br><br>   <span style="color:navy; font-weight:bold"> let</span> b = BankAccount&lt;CNY&gt;()<br>    b.Deposit(10.&lt;CNY&gt;)<br><br>    printfn &quot;show how<span style="color:navy; font-weight:bold"> to</span> deposit right currency to right account&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>show how to deposit right currency to right account<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

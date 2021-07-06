@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Using options for data</strong><strong><br>
+<br>
+Category: </strong>Lists, Tuples and Options<br>
+<strong>Description</strong>: Here we return an option from a function indicating the opening hours of a shop, if any.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> OptionsSample3() =<br><br>   <span style="color:navy; font-weight:bold"> let</span> openingHours day = <br>       <span style="color:navy; font-weight:bold"> match</span> day<span style="color:navy; font-weight:bold"> with</span> <br>        | DayOfWeek.Monday <br>        | DayOfWeek.Tuesday <br>        | DayOfWeek.Thursday <br>        | DayOfWeek.Friday    -&gt; Some(9,17)<br>        | DayOfWeek.Wednesday -&gt; Some(9,19) <span style="color:#008000">// extended hours on Wednesday</span><br>        | _ -&gt; None <br><br>   <span style="color:navy; font-weight:bold"> let</span> today = DateTime.Now.DayOfWeek <br><br>   <span style="color:navy; font-weight:bold"> match</span> openingHours today<span style="color:navy; font-weight:bold"> with</span> <br>    | None -&gt; printfn &quot;The shop's not open today&quot;<br>    | Some(s,f) -&gt; printfn &quot;The shop's open today from %02d:00-%d:00&quot; s f<br><br><span style="color:#008000">//--------------------------------------------------------</span><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The shop's open today from 09:00-17:00<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

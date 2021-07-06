@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Read Two Lines, .NET-style</strong><strong><br>
+<br>
+Category: </strong>Input/Output<br>
+<strong>Description</strong>: Line-directed text file input using .NET Stream/StreamReader/StreamWriter abstractions.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LineDirectedInputSample3() = <br><br>    <span style="color:#008000">// Write a test file</span><br>    System.IO.File.WriteAllLines(@&quot;test.txt&quot;, [| &quot;This is a test file.&quot;; <br>                                                 &quot;It is easy<span style="color:navy; font-weight:bold"> to</span> read.&quot; |]);<br>    <span style="color:#008000">// Now read it </span><br>   <span style="color:navy; font-weight:bold"> let</span> lines = System.IO.File.ReadAllLines @&quot;test.txt&quot;  <br>    printfn &quot;%s&quot; (sprintf &quot;%A&quot; lines)<br>     <br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>[|&quot;This is a test file.&quot;; &quot;It is easy to read.&quot;|]<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

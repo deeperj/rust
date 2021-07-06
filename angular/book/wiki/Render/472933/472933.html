@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Records with Members</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: F# allows values to be associated with type names, i.e. the type name can be used as a container for 'members' of that type. These are treated the same way as .NET object model members.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> PointWithMembers = <br>    { x: float; y: float}<br>   <span style="color:navy; font-weight:bold"> member</span> p.VectorFromOrigin = { dx = p.x; dy = p.y }<br>    static<span style="color:navy; font-weight:bold"> member</span> Origin = { x = 0.0; y = 0.0 }<br>    static<span style="color:navy; font-weight:bold"> member</span> (&#43;) ((p:PointWithMembers),(v:VectorWithMembers)) = <br>        { x = p.x &#43; v.dx; y = p.y &#43; v.dy }<br> <br><span style="color:navy; font-weight:bold">and</span> VectorWithMembers = <br>    { dx: float; dy: float}<br>    static<span style="color:navy; font-weight:bold"> member</span> Zero = { dx = 0.0; dy = 0.0 }<br>    static<span style="color:navy; font-weight:bold"> member</span> OneX = { dx = 1.0; dy = 0.0 }<br>    static<span style="color:navy; font-weight:bold"> member</span> OneY = { dx = 0.0; dy = 1.0 }<br>    static<span style="color:navy; font-weight:bold"> member</span> (&#43;) ((v1:VectorWithMembers),(v2:VectorWithMembers)) = <br>        { dx = v1.dx &#43; v2.dx; dy = v1.dy &#43; v2.dy }<br><br><span style="color:navy; font-weight:bold">let</span> MemberSample1() =<br>    printfn &quot;Point.Origin = \n%A&quot; PointWithMembers.Origin;<br>    printfn &quot;Point.Origin &#43; Vector.OneX = \n%A&quot; (PointWithMembers.Origin &#43; VectorWithMembers.OneX);<br>    printfn &quot;Vector.OneX &#43; Vector.OneY = \n%A&quot; (VectorWithMembers.OneX &#43; VectorWithMembers.OneY)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Point.Origin = <br>{x = 0.0;<br> y = 0.0;}<br>Point.Origin &#43; Vector.OneX = <br>{x = 1.0;<br> y = 0.0;}<br>Vector.OneX &#43; Vector.OneY = <br>{dx = 1.0;<br> dy = 1.0;}<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

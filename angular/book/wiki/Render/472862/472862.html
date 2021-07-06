@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Upcast and downcast</strong><strong><br>
+<br>
+Category: </strong>Defining Types and Functions<br>
+<strong>Description</strong>: Use upcast and downcast</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> UpcastDownCastSample1() = <br>   <span style="color:navy; font-weight:bold"> let</span> a = 1<br>   <span style="color:navy; font-weight:bold"> let</span> upcastFunction(x) : obj = upcast x<br>   <span style="color:navy; font-weight:bold"> let</span> downcastFunction(x:obj) : int = downcast x<br>   <span style="color:navy; font-weight:bold"> let</span> objValue = upcastFunction(a)<br>    printfn &quot;name = %A&quot; objValue<br>    printfn &quot;int = %d&quot; (downcastFunction(objValue))<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>name = 1<br>int = 1<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

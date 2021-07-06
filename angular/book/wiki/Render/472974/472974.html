@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Active pattern with arguments</strong><strong><br>
+<br>
+Category: </strong>Active patterns<br>
+<strong>Description</strong>: Active pattern determines the input value format by using an active pattern with arguments.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> ActivePatternSample2() = <br>   <span style="color:navy; font-weight:bold"> let</span> ( |Bool|Int|Float|String| ) input =<br>       <span style="color:navy; font-weight:bold"> let</span> sucess, res = Boolean.TryParse input<br>       <span style="color:navy; font-weight:bold"> if</span> sucess<span style="color:navy; font-weight:bold"> then</span> Bool(res)<br>       <span style="color:navy; font-weight:bold"> else</span> <br>           <span style="color:navy; font-weight:bold"> let</span> sucess, res = Int32.TryParse input<br>           <span style="color:navy; font-weight:bold"> if</span> sucess<span style="color:navy; font-weight:bold"> then</span> Int(res)<br>           <span style="color:navy; font-weight:bold"> else</span> <br>               <span style="color:navy; font-weight:bold"> let</span> sucess, res = Double.TryParse input<br>               <span style="color:navy; font-weight:bold"> if</span> sucess<span style="color:navy; font-weight:bold"> then</span> Float(res)<br>               <span style="color:navy; font-weight:bold"> else</span> String(input)<br>   <span style="color:navy; font-weight:bold"> let</span> printInputWithType input =<br>       <span style="color:navy; font-weight:bold"> match</span> input<span style="color:navy; font-weight:bold"> with</span> <br>        | Bool b -&gt; printfn &quot;Boolean: %b&quot; b<br>        | Int i -&gt; printfn &quot;Integer: %i&quot; i<br>        | Float f -&gt; printfn &quot;Floating point: %f&quot; f<br>        | String s -&gt; printfn &quot;String: %s&quot; s<br>    printInputWithType &quot;true&quot;<br>    printInputWithType &quot;12&quot;<br>    printInputWithType &quot;-12.1&quot;<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Boolean: true<br>Integer: 12<br>Floating point: -12.100000<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

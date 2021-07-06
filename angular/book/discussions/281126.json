@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "704574",
+    "ThreadId": "281126",
+    "Html": "\r\n<p>Hello</p>\r\n<p>How can I use this samples as example for produce another language sample pack?&nbsp;</p>\r\n<p>It is Nemerle language, semantically it&nbsp;closest to F#. Of course, links to&nbsp;<a href=\"http://fsharp3sample.codeplex.com/\">http://fsharp3sample.codeplex.com</a>&nbsp;will be published.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for the great work!</p>\r\n",
+    "PostedDate": "2011-11-28T22:01:31.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830036",
+    "ThreadId": "281126",
+    "Html": "<p>Thank you!</p>\r\n<p>&nbsp;</p>\r\n<p>the license is:</p>\r\n<p><span>Apache License</span><br /><span>Version 2.0, January 2004</span><br /><span>http://www.apache.org/licenses/</span></p>",
+    "PostedDate": "2012-04-29T20:36:26.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

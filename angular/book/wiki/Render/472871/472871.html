@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>Enumerations</strong><strong><br>
+<br>
+Category: </strong>Defining Types<br>
+<strong>Description</strong>: Enums are lightweight types, similar to discriminated unions. Unlike discriminated unions, each data tag must be given a constant value of the same type</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">type</span> FaceCard =<br>    | Jack = 11<br>    | Queen = 12<br>    | King = 13<br>    | Ace = 1<br><br><span style="color:navy; font-weight:bold">let</span> EnumSample() =<br>   <span style="color:navy; font-weight:bold"> let</span> isAce card =<br>       <span style="color:navy; font-weight:bold"> match</span> card<span style="color:navy; font-weight:bold"> with</span> <br>        | FaceCard.Ace -&gt; true<br>        | _ -&gt; false<br>    <br>    printfn &quot;Checking<span style="color:navy; font-weight:bold"> if</span> a Jack is an Ace.....%A&quot; (isAce FaceCard.Jack)<br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>Checking if a Jack is an Ace.....false<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

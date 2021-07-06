@@ -1,0 +1,29 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>where - Indexed</strong><strong><br>
+<br>
+Category: </strong>LINQ<br>
+<strong>Description</strong>: This sample demonstrates an indexed Where clause that returns digits whose name is shorter than their value.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><span style="color:navy; font-weight:bold">let</span> LINQ02() =<br>   <span style="color:navy; font-weight:bold"> let</span> digits = [ &quot;zero&quot;; &quot;one&quot;; &quot;two&quot;; &quot;three&quot;; &quot;four&quot;; &quot;five&quot;; &quot;six&quot;; &quot;seven&quot;; &quot;eight&quot;; &quot;nine&quot; ]<br>    query {<br>       <span style="color:navy; font-weight:bold"> for</span> d<span style="color:navy; font-weight:bold"> in</span> digits<span style="color:navy; font-weight:bold"> do</span> <br>        select d<br>    } <br>    |&gt; Seq.mapi (fun i d -&gt;<span style="color:navy; font-weight:bold"> if</span> d.Length &lt; i<span style="color:navy; font-weight:bold"> then</span> Some(d)<span style="color:navy; font-weight:bold"> else</span> None) <br>    |&gt; Seq.choose id<br>    |&gt; Seq.iter(fun n -&gt; printfn &quot;The word %s is shorter than its value.&quot; n)<br><br>    <span style="color:#008000">//sample output</span><br>    <span style="color:#008000">//    The word five is shorter than its value. </span><br>    <span style="color:#008000">//    The word six is shorter than its value. </span><br>    <span style="color:#008000">//    The word seven is shorter than its value. </span><br>    <span style="color:#008000">//    The word eight is shorter than its value. </span><br>    <span style="color:#008000">//    The word nine is shorter than its value.</span><br><br><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre>The word five is shorter than its value.<br>The word six is shorter than its value.<br>The word seven is shorter than its value.<br>The word eight is shorter than its value.<br>The word nine is shorter than its value.<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>

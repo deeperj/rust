@@ -1,0 +1,30 @@
+<div class="wikidoc">
+<table style="width:100%; border-width:0">
+<tbody>
+<tr>
+<td><strong>WsdlService - Bing Map rounting service</strong><strong><br>
+<br>
+Category: </strong>TypeProviders.Others<br>
+<strong>Description</strong>: Using Bing Map API routing service to calculate the driving distance between two addresses. For more information, please goto http://www.microsoft.com/maps/developers/mapapps.aspx. Please make sure you setup the correct credential.</td>
+</tr>
+<tr>
+<td><strong>Code:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><br><span style="color:navy; font-weight:bold">type</span> G = Microsoft.FSharp.Data.TypeProviders.WsdlService&lt; ServiceUri=@&quot;http://dev.virtualearth.net/webservices/v1/geocodeservice/geocodeservice.svc?wsdl&quot;&gt;<br><br><span style="color:navy; font-weight:bold">type</span> R = Microsoft.FSharp.Data.TypeProviders.WsdlService&lt; ServiceUri=@&quot;http://dev.virtualearth.net/webservices/v1/routeservice/routeservice.svc?wsdl&quot;&gt;<br><br><span style="color:navy; font-weight:bold">type</span> GeoCommon = G.ServiceTypes.dev.virtualearth.net.webservices.v1.common<br><span style="color:navy; font-weight:bold">type</span> Geocode = G.ServiceTypes.dev.virtualearth.net.webservices.v1.geocode<br><span style="color:navy; font-weight:bold">type</span> RouteCommon = R.ServiceTypes.dev.virtualearth.net.webservices.v1.common<br><span style="color:navy; font-weight:bold">type</span> Route = R.ServiceTypes.dev.virtualearth.net.webservices.v1.route<br><br><span style="color:navy; font-weight:bold">let</span> WsdlBingMap() = <br>   <span style="color:navy; font-weight:bold"> let</span> geoClient = G.GetHttpGeocodeServiceClient()<br>   <span style="color:navy; font-weight:bold"> let</span> geoReq =<span style="color:navy; font-weight:bold"> new</span> Geocode.GeocodeRequest()<br>    <span style="color:#008000">//To sign up for a Bing service developer account at http://msdn.microsoft.com/en-us/library/gg605201.aspx</span><br>    geoReq.Credentials &lt;-<span style="color:navy; font-weight:bold"> new</span> GeoCommon.Credentials(ApplicationId = Utils.BING_APP_ID)<br><br>    geoReq.Query &lt;- &quot;One Microsoft Way, Redmond, WA 98052&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> response = geoClient.Geocode(geoReq)<br>   <span style="color:navy; font-weight:bold"> let</span> work = response.Results.[0]<br><br>    geoReq.Query &lt;- &quot;400 Broad St Seattle, WA 98109&quot;<br>   <span style="color:navy; font-weight:bold"> let</span> response2 = geoClient.Geocode(geoReq)<br>   <span style="color:navy; font-weight:bold"> let</span> home = response2.Results.[0]<br>    <br>   <span style="color:navy; font-weight:bold"> let</span> startPoint =<span style="color:navy; font-weight:bold"> new</span> Route.Waypoint()<br>    startPoint.Location &lt;-<span style="color:navy; font-weight:bold"> new</span> RouteCommon.Location(Latitude = work.Locations.[0].Latitude,<br>                                                    Longitude = work.Locations.[0].Longitude)<br>   <span style="color:navy; font-weight:bold"> let</span> endPoint =<span style="color:navy; font-weight:bold"> new</span> Route.Waypoint()<br>    endPoint.Location &lt;-<span style="color:navy; font-weight:bold"> new</span> RouteCommon.Location(Latitude = home.Locations.[0].Latitude,<br>                                                  Longitude = home.Locations.[0].Longitude)<br><br>   <span style="color:navy; font-weight:bold"> let</span> routReq1 =<span style="color:navy; font-weight:bold"> new</span> Route.RouteRequest(Waypoints = [|startPoint; endPoint|])<br>    routReq1.Credentials &lt;-<span style="color:navy; font-weight:bold"> new</span> RouteCommon.Credentials(ApplicationId = Utils.BING_APP_ID)<br>    <br>    printfn &quot;Driving Distance = %A (miles)&quot; (R.GetHttpRouteServiceClient().CalculateRoute(routReq1).Result.Summary.Distance)<br><br>    <span style="color:#008000">// sample output</span><br>    <span style="color:#008000">//    Driving Distance = 22.998 (miles)</span><br></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Execution Result:</strong></td>
+</tr>
+<tr>
+<td style="background-color:#c0c0c0">
+<pre><pre><span>Driving Distance = 22.998 (miles)</span></pre>
+<br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div><div class="ClearBoth"></div>
