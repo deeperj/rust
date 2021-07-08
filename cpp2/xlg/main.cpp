@@ -11,5 +11,5 @@ int main() {
   cin >> x;
   cout << "how  many groups: ";
   cin >> y;
-  xlg(x,y,array,length);
+  xlg(x,y,array,length);//function or sub routine or subprocedure
 }

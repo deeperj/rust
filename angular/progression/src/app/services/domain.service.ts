@@ -12,6 +12,7 @@ import {Subject} from 'rxjs';
 import { Rpag, RPAGType } from '../models/enums';
 import { ModuleTask } from '../models/ModuleTask';
 import { JSDocTagName } from '@angular/compiler/src/output/output_ast';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -207,6 +208,13 @@ export class DomainService {
         return lag;
     }
     return lag;
+  }
+
+  studentLog(student:(Progression & ProgressRecord)):string{
+    //console.log(JSON.stringify(student.attendance));
+    let aLog:string[]=student.attendance.filter(c=>c.comments?c.comments.trim().length>0:false)
+                          .map(c=>moment(c.dueDate).format("dd DD-MMM-yyyy")+c.comments);
+    return aLog.join(" \n");
   }
   
   // ref: http://stackoverflow.com/a/1293163/2343

@@ -11,7 +11,7 @@
     <mat-selection-list #studatt (selectionChange)="onSelectionChange($event, att.studentProgress)">
       <mat-list-option [selected]="prog.completed" [value]="prog.student" *ngFor="let prog of att.studentProgress; let i=index">
       <mat-icon mat-list-icon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
-      <div mat-line>
+      <div mat-line [title]="rootsvc.studentLog(prog)">
         <span style="margin-right: 16px;">[ {{(''+(i+1)).padStart(2,'0')}} ]</span>
         <svg width="15" height="15" style="margin-right: 16px">
           <title>{{ (prog?prog.attendanceScore:'')}}%</title>
