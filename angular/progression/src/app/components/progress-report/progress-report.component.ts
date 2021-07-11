@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomainService } from 'src/app/services/domain.service';
+import { toArray } from 'rxjs/operators';
 
 @Component({
   selector: 'app-progress-report',
@@ -15,7 +16,9 @@ export class ProgressReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.rootsvc.pivotReady.subscribe(data=>{
-      if(data==this.rootsvc.progress.length-1){
+      let len:number=0;
+      this.rootsvc.progress.subscribe(d=>len=d.length);
+      if(data==len-1){
         this.rootsvc.dbg.info("Items loaded");
       }
     });

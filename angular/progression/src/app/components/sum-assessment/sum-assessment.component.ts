@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RPAGType } from 'src/app/models/enums';
 import { ModuleTask } from 'src/app/models/ModuleTask';
 import { Progression } from 'src/app/models/Progression';
-import { Student } from 'src/app/models/Student';
+import { toArray } from 'rxjs/operators';
 import { Progress, ProgressRecord } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
 
@@ -27,7 +27,8 @@ export class SumAssessmentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.assessment=this.rootsvc.progress[this.attRep];
+    console.log(this.rootsvc.progress);
+    this.rootsvc.progress.subscribe(d=>this.assessment=d[this.attRep]);
     if(this.displayedColumns){
       this.initializeData();
     }

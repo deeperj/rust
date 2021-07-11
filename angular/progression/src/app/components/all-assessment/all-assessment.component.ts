@@ -6,18 +6,18 @@ import { Progress, ProgressRecord } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
 
 @Component({
-  selector: 'app-form-assessment',
-  templateUrl: './form-assessment.component.html',
-  styleUrls: ['./form-assessment.component.css']
+  selector: 'app-all-assessment',
+  templateUrl: './all-assessment.component.html',
+  styleUrls: ['./all-assessment.component.css']
 })
-export class FormAssessmentComponent implements OnInit {
+export class AllAssessmentComponent implements OnInit {
 
   @Input() attRep!: number;
   displayPivot: any[] =[];
   formatives: Progression[] = [];
   extraHeaders: string[]=[];
   sumTasks: ModuleTask[]=[];
-  displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','Formative',...['hello','world']];
+  displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','RPAG','Attendance','Formative','Summative'];
   columnsToDisplay!: string[]
   toggle:boolean=false;
   assessment!: Progress;
@@ -101,7 +101,7 @@ export class FormAssessmentComponent implements OnInit {
         this.formatives = data;
         // this.extraHeaders =this.formatives.map(c=>c.task?c.task.taskName.split(' ')[0]:'NotFound')
         //                                   .filter((value, index, self) => self.indexOf(value) === index);
-        this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Formative',...this.extraHeaders];
+        this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','RPAG','Attendance','Formative','Summative'];
         this.assessment.studentProgress.forEach((sprog,ridx)=>{
           sprog.formatives=this.formatives.filter(prog=>prog.studentID===sprog.studentID)
         });
@@ -122,26 +122,20 @@ export class FormAssessmentComponent implements OnInit {
     this.extraHeaders.forEach(v=>{el={...el,...{[v]:'** '}}})
     return this.assessment.studentProgress.map((c,i)=>{
       const formative:number = c.formatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
+      const summative:number = c.summatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       let v1= ({
         SN: i+1,
         StudentUniID:c.student?'U'+c.student.uniCode:'',
         Student: c,
         LastName: c.student?c.student.lastName:'',
         OtherNames: c.student?c.student.otherNames:'',
-        Formative: formative.toFixed(2)
+        RPAG: 0,
+        Attendance: 0,
+        Formative: formative.toFixed(2),
+        Summative: summative.toFixed(2),
       });
-      this.extraHeaders.forEach((hdr,j)=>{
-        //console.log(theDate);
-        const v2:Progression|undefined=c.formatives.find(x=>{
-          // console.log(x.dueDate,theDate);
-          return x.task?.taskName.startsWith(hdr)});
-        let v:number = v2?v2.taskAssessment:-1;
-        const assessment:string=v==-1?"--":v.toFixed(2);
-        el[hdr]=assessment;
-      })
-      return {...v1,...el};
+      return v1;
     });
   }
-
 
 }
