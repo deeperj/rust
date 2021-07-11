@@ -40,7 +40,7 @@
 
 		<!-- Other libs -->
 		<deltaspike.version>1.6.1</deltaspike.version>
-		<apache.shiro.version>1.3.2</apache.shiro.version>
+		<apache.shiro.version>1.6.0</apache.shiro.version>
 		<log4j.version>2.7</log4j.version>
 		<jackson.version>2.8.6</jackson.version>
 	</properties>
