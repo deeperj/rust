@@ -31,6 +31,12 @@ import { AttendanceReportComponent } from './components/attendance-report/attend
 import { FileuploadComponent } from './widgets/fileupload.component';
 import { AssessmentComponent } from './components/assessment/assessment.component';
 import { SumAssessmentComponent } from './components/sum-assessment/sum-assessment.component';
+import { FormAssessmentComponent } from './components/form-assessment/form-assessment.component';
+import { AllAssessmentComponent } from './components/all-assessment/all-assessment.component';
+import { NgxsModule } from '@ngxs/store';
+import { ProgressionState } from './store/progress.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 @NgModule({
   declarations: [
@@ -45,6 +51,8 @@ import { SumAssessmentComponent } from './components/sum-assessment/sum-assessme
     FileuploadComponent,
     AssessmentComponent,
     SumAssessmentComponent,
+    FormAssessmentComponent,
+    AllAssessmentComponent,
     
   ],
   imports: [
@@ -65,6 +73,11 @@ import { SumAssessmentComponent } from './components/sum-assessment/sum-assessme
     MatInputModule,
     MatDialogModule,
     MatCheckboxModule,
+    NgxsModule.forRoot([
+      ProgressionState
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot()
   ],
   providers: [
     DebugService,  

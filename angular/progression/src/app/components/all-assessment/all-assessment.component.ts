@@ -1,24 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RPAGType } from 'src/app/models/enums';
 import { ModuleTask } from 'src/app/models/ModuleTask';
 import { Progression } from 'src/app/models/Progression';
-import { toArray } from 'rxjs/operators';
 import { Progress, ProgressRecord } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
 
 @Component({
-  selector: 'app-sum-assessment',
-  templateUrl: './sum-assessment.component.html',
-  styleUrls: ['./sum-assessment.component.css']
+  selector: 'app-all-assessment',
+  templateUrl: './all-assessment.component.html',
+  styleUrls: ['./all-assessment.component.css']
 })
-export class SumAssessmentComponent implements OnInit {
+export class AllAssessmentComponent implements OnInit {
 
   @Input() attRep!: number;
   displayPivot: any[] =[];
-  summatives: Progression[] = [];
+  formatives: Progression[] = [];
   extraHeaders: string[]=[];
   sumTasks: ModuleTask[]=[];
-  displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','Summative',...['hello','world']];
+  displayedColumns: string[] = ['SN','StudentUniID','LastName','OtherNames','RPAG','Attendance','Formative','Summative'];
   columnsToDisplay!: string[]
   toggle:boolean=false;
   assessment!: Progress;
@@ -27,7 +26,6 @@ export class SumAssessmentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.rootsvc.progress);
     this.rootsvc.progress.subscribe(d=>this.assessment=d[this.attRep]);
     if(this.displayedColumns){
       this.initializeData();
@@ -61,9 +59,9 @@ export class SumAssessmentComponent implements OnInit {
       this.rootsvc.addAssessment(prog).subscribe(data=>
       {
         this.rootsvc.dbg.info("Score "+(data?"has been added!":"was not added!"));
-        this.summatives.push(data);
+        this.formatives.push(data);
         data.task=v1;
-        sprog.summatives.push(data);
+        sprog.formatives.push(data);
         this.updatePivot();
       });
       return;
@@ -71,7 +69,7 @@ export class SumAssessmentComponent implements OnInit {
     const nscore:number=Number.parseFloat(val?val:'-1');
     if(val && nscore!==-1){
       //update
-      const v2:Progression|undefined=sprog.summatives.find(x=>{
+      const v2:Progression|undefined=sprog.formatives.find(x=>{
         return x.task?.taskName.startsWith(hdr)});
       const v3:Progression|undefined=JSON.parse(JSON.stringify(v2));
       if(v2 && v3 && v3.progressionID){
@@ -81,7 +79,7 @@ export class SumAssessmentComponent implements OnInit {
         this.rootsvc.editAssessment(v3.progressionID,v3).subscribe(data=>{
           this.rootsvc.dbg.info("Score update "+(data?"complete!":"was not done!"));
           // console.log(v3);
-          // console.log(sprog.summatives);
+          // console.log(sprog.formatives);
           // console.log(v2);
           this.updatePivot();
           return;
@@ -93,19 +91,19 @@ export class SumAssessmentComponent implements OnInit {
   initializeData()   {
     const modid=this.assessment.groupModule.module.moduleID;
     const grpid=this.assessment.groupModule.group.groupID;
-    this.rootsvc.getSumTasksByModule(modid, RPAGType.Summative)
+    this.rootsvc.getSumTasksByModule(modid, RPAGType.Formative)
     .subscribe( data => {
       this.sumTasks=data;
     //console.log(modid,grpid,this.attRep);
       this.extraHeaders=data.map(c=>c.taskName.split(' ')[0]);
-      this.rootsvc.getSummativesByGroup(modid,grpid,RPAGType.Summative)
+      this.rootsvc.getSummativesByGroup(modid,grpid, RPAGType.Formative)
       .subscribe( data => {
-        this.summatives = data;
-        // this.extraHeaders =this.summatives.map(c=>c.task?c.task.taskName.split(' ')[0]:'NotFound')
+        this.formatives = data;
+        // this.extraHeaders =this.formatives.map(c=>c.task?c.task.taskName.split(' ')[0]:'NotFound')
         //                                   .filter((value, index, self) => self.indexOf(value) === index);
-        this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Summative',...this.extraHeaders];
+        this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','RPAG','Attendance','Formative','Summative'];
         this.assessment.studentProgress.forEach((sprog,ridx)=>{
-          sprog.summatives=this.summatives.filter(prog=>prog.studentID===sprog.studentID)
+          sprog.formatives=this.formatives.filter(prog=>prog.studentID===sprog.studentID)
         });
         this.updatePivot();
         this.columnsToDisplay = this.displayedColumns.slice();
@@ -123,6 +121,7 @@ export class SumAssessmentComponent implements OnInit {
     let el:{[k:string]:string} = {};
     this.extraHeaders.forEach(v=>{el={...el,...{[v]:'** '}}})
     return this.assessment.studentProgress.map((c,i)=>{
+      const formative:number = c.formatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       const summative:number = c.summatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       let v1= ({
         SN: i+1,
@@ -130,18 +129,12 @@ export class SumAssessmentComponent implements OnInit {
         Student: c,
         LastName: c.student?c.student.lastName:'',
         OtherNames: c.student?c.student.otherNames:'',
-        Summative: summative.toFixed(2)
+        RPAG: 0,
+        Attendance: 0,
+        Formative: formative.toFixed(2),
+        Summative: summative.toFixed(2),
       });
-      this.extraHeaders.forEach((hdr,j)=>{
-        //console.log(theDate);
-        const v2:Progression|undefined=c.summatives.find(x=>{
-          // console.log(x.dueDate,theDate);
-          return x.task?.taskName.startsWith(hdr)});
-        let v:number = v2?v2.taskAssessment:-1;
-        const assessment:string=v==-1?"--":v.toFixed(2);
-        el[hdr]=assessment;
-      })
-      return {...v1,...el};
+      return v1;
     });
   }
 

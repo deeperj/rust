@@ -25,7 +25,7 @@ export class AttendanceReportComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.attendance=this.rootsvc.progress[this.attRep];
+    this.rootsvc.progress.subscribe(d=>this.attendance=d[this.attRep]);
     if(this.displayedColumns){
       this.initializeData();
     }

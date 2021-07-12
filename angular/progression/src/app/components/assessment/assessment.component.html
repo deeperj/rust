@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel hideToggle *ngFor="let gmod of rootsvc.progress; let i=index">
+  <mat-expansion-panel hideToggle *ngFor="let gmod of rootsvc.progress |async; let i=index">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Group {{gmod.groupModule.group.groupNumber}}
@@ -18,8 +18,8 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-selection-list #studatt>
-        <app-sum-assessment [attRep]="i">
-        </app-sum-assessment>
+        <app-form-assessment [attRep]="i">
+        </app-form-assessment>
       </mat-selection-list>
       <p>
         <button mat-raised-button color="primary" (click)="rootsvc.refresh()">Refresh Page</button>
@@ -52,8 +52,8 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-selection-list #studatt>
-        <app-sum-assessment [attRep]="i">
-        </app-sum-assessment>
+        <app-all-assessment [attRep]="i">
+        </app-all-assessment>
       </mat-selection-list>
       <p>
         <button mat-raised-button color="primary" (click)="rootsvc.refresh()">Refresh Page</button>

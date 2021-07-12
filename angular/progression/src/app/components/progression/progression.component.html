@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel hideToggle *ngFor="let att of rootsvc.progress; let midx=index">
+  <mat-expansion-panel hideToggle *ngFor="let att of rootsvc.progress | async; let midx=index">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Group {{att.groupNumber}}
@@ -11,11 +11,11 @@
     <mat-selection-list #studatt (selectionChange)="onSelectionChange($event, att.studentProgress)">
       <mat-list-option [selected]="prog.completed" [value]="prog.student" *ngFor="let prog of att.studentProgress; let i=index">
       <mat-icon mat-list-icon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
-      <div mat-line>
+      <div mat-line [title]="rootsvc.studentLog(prog)">
         <span style="margin-right: 16px;">[ {{(''+(i+1)).padStart(2,'0')}} ]</span>
         <svg width="15" height="15" style="margin-right: 16px">
           <title>{{ (prog?prog.attendanceScore:'')}}%</title>
-        <rect width="15" height="15" style="fill:{{rpag(prog?prog.attendanceRpag:RpagG)}}"/>
+        <rect width="15" height="15" style="fill:{{rootsvc.rpag(prog?prog.attendanceRpag:RpagG)}}"/>
         </svg>
         <span style="margin-right: 16px;">[ U{{ (prog.student?prog.student.uniCode:'')}} ]</span> {{studName(prog.student!)}}</div>
         <mat-menu #menu="matMenu">

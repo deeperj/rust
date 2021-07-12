@@ -76,6 +76,7 @@ export enum RPAGType {
     Formative, 
     Summative,
     Enrollment,
+    Inactive,
     None
 }
 

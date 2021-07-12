@@ -62,12 +62,12 @@ namespace progressive.Services.Domain.Assessment
                         .ToListAsync();
       }
        
-      public async Task<IEnumerable<Progression>> GetAsyncProgressByModuleGroup(int modid, int grpid)
+      public async Task<IEnumerable<Progression>> GetAsyncProgressByModuleGroup(int modid, int grpid, RPAGType rtype)
       {
         var gstud=_context.Students.Where(c=>c.GroupID==grpid);
         var modtasks=_context.Tasks
                         .Where(c=>c.ModuleID==modid)
-                        .Where(c=>c.RPAGType==RPAGType.Summative);
+                        .Where(c=>c.RPAGType==rtype);
         return await _context.Progressions
                         .Where(c=> modtasks.Select(c=>c.ModuleTaskID).ToList().Contains(c.ModuleTaskID))
                         .Where(c=> gstud.Select(c=>c.ID).ToList().Contains(c.StudentID))
@@ -75,13 +75,14 @@ namespace progressive.Services.Domain.Assessment
                         .ToListAsync();
       }
    
-      public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid)
+      public async Task<IEnumerable<ModuleTask>> SumTasksByModule(int modid, RPAGType rtype)
       {
         return await _context.Tasks
               .Where(c=>c.ModuleID==modid
-              && c.RPAGType==RPAGType.Summative)
+              && c.RPAGType==rtype)
               .ToListAsync();
       }
+   
    //GroupModuleEmailStatus
       public async Task<EmailStatus> DoStatusEmail(int gmid,string pass)
       {

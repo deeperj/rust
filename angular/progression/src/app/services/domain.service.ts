@@ -9,9 +9,12 @@ import { DebugService } from './debug.service';
 import { Progression } from '../models/Progression';
 import { NewStudent } from '../models/ui/NewStudent';
 import {Subject} from 'rxjs';
-import { Rpag } from '../models/enums';
+import { Rpag, RPAGType } from '../models/enums';
 import { ModuleTask } from '../models/ModuleTask';
-import { JSDocTagName } from '@angular/compiler/src/output/output_ast';
+import * as moment from 'moment';
+import { ProgressionState } from '../store/progress.state';
+import { Store, Select } from '@ngxs/store';
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,31 +34,41 @@ export class DomainService {
   protected httpOptions = {
       headers: new HttpHeaders( { 'Content-Type': 'application/json' })
   };
-  _progress: Progress[]=[];
+
+  @Select(ProgressionState.getProgress) 
+  progress!: Observable<Progress[]>;
+  
   _pivotReady = new Subject();
 
   constructor(
     protected httpClient : HttpClient,
     protected _dbg : DebugService,
-    ) { }
+    protected _store : Store,
+    ) { 
+      //this.progress = this.store.select(state => state.progress.progress);
+    }
 
     public get dbg() {
       return this._dbg;
     }
 
-    public get progress() {
-      return this._progress;
+    public get store() {
+      return this._store;
     }
+
+    // public get progress() {
+    //   return this._progress;
+    // }
+    // public set progress(gmds: Progress[]) {
+    //     if (this._progress.length==0) {
+    //         this._progress=gmds;
+    //     }
+    // }
 
     public get pivotReady() {
       return this._pivotReady;
     }
     
-  public set progress(gmds: Progress[]) {
-      if (this._progress.length==0) {
-          this._progress=gmds;
-      }
-  }
 
   protected httpErrorHandler (error: HttpErrorResponse) {
     // console.log('here',this.attendanceScoreByModuleUrl)
@@ -88,8 +101,8 @@ export class DomainService {
     );
   }
 
-  getSummativesByGroup(modid: number, grpid:number) : Observable<Progression[]> {
-    const finalUrl = this.summativesByGroupUrl + "/" + modid + "/" + grpid;
+  getSummativesByGroup(modid: number, grpid:number, rpag:RPAGType) : Observable<Progression[]> {
+    const finalUrl = this.summativesByGroupUrl + "/" + modid + "/" + grpid + "/" + rpag;
     return this.httpClient.get<Progression[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
@@ -97,8 +110,8 @@ export class DomainService {
     );
   }
 
-  getSumTasksByModule(modid: number) : Observable<ModuleTask[]> {
-    const finalUrl = this.sumTasksByModuleUrl + "/" + modid;
+  getSumTasksByModule(modid: number, rpag:RPAGType) : Observable<ModuleTask[]> {
+    const finalUrl = this.sumTasksByModuleUrl + "/" + modid + "/" + rpag;
     return this.httpClient.get<ModuleTask[]>(finalUrl, this.httpOptions)
     .pipe(
        retry(1),
@@ -177,6 +190,21 @@ export class DomainService {
   studName(stud:Student|null|undefined):string{
     return stud?stud.lastName.concat(' '+stud.otherNames):"";
   }
+  rpag(rpag:Rpag|null){
+    //console.log(rpag);
+    switch(rpag){
+      case Rpag.R:
+        return "red";
+      case Rpag.P:
+        return "purple";
+      case Rpag.A:
+        return "yellow";
+      case Rpag.G:
+        return "green";
+      default:
+        return "black";
+    }
+  }
 
   getRpag(score:number,student:(Progression & ProgressRecord)):Rpag{
     const aLag:number =this.attendanceLag(student);
@@ -207,6 +235,23 @@ export class DomainService {
         return lag;
     }
     return lag;
+  }
+
+  getFormativeScore(scores:Progression[]){
+    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<2);
+    return arr.reduce((a,b)=>a+b)/arr.length;
+  }
+
+  getSummativeScore(scores:Progression[]){
+    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<4);
+    return arr.reduce((a,b)=>a+b)/arr.length;
+  }
+
+  studentLog(student:(Progression & ProgressRecord)):string{
+    //console.log(JSON.stringify(student.attendance));
+    let aLog:string[]=student.attendance.filter(c=>c.comments?c.comments.trim().length>0:false)
+                          .map(c=>moment(c.dueDate).format("dd DD-MMM-yyyy")+c.comments);
+    return aLog.join(" \n");
   }
   
   // ref: http://stackoverflow.com/a/1293163/2343

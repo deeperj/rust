@@ -9,6 +9,7 @@ import { DebugService } from '../../services/debug.service';
 import { NewStudent } from 'src/app/models/ui/NewStudent';
 import { GroupModule } from 'src/app/models/GroupModule';
 import { ModEmailStatus } from 'src/app/models/ui/Progress';
+import { AddProgress } from 'src/app/store/progress.actions';
 
 @Component({
   selector: 'app-progression',
@@ -52,28 +53,33 @@ export class ProgressionComponent implements OnInit {
     this.rootsvc.getAttendanceStudents()
     .subscribe( data => {
       data.map((gmod, i) => {
-        this.rootsvc.progress.push(
-          ({
+        this.rootsvc.store.dispatch(new AddProgress(
+          {
             groupModule: gmod,
             groupNumber:gmod.group.groupNumber,
             moduleName:gmod.module.moduleName,
             studentProgress: gmod.group.students.map(stud=>{
               return ({
-              progressionID: null,
-              moduleTaskID: 1,
-              studentID: stud.id,
-              taskAssessment: 0,
-              completed: false,
-              dueDate: "",
-              comments: "",
-              task: null,
-              student: stud,
-              attendance: [],
-              summatives: [],
-              attendanceScore: null,
-              attendanceCount: 0,
-              attendanceRpag: null
-            }
+                progressionID: null,
+                moduleTaskID: 1,
+                studentID: stud.id,
+                taskAssessment: 0,
+                completed: false,
+                dueDate: "",
+                comments: "",
+                task: null,
+                student: stud,
+                attendance: [],
+                summatives: [],
+                formatives: [],
+                attendanceScore: null,
+                attendanceCount: 0,
+                attendanceRpag: null,
+                formativeScore: null,
+                summativeScore: null,
+                summaryScore: null,
+                summativeRpag: null
+              }
             )},
             )
           })
@@ -81,21 +87,6 @@ export class ProgressionComponent implements OnInit {
         // this.initializeAttendance(gmod);
       });
    });
-  }
-  rpag(rpag:Rpag|null){
-    //console.log(rpag);
-    switch(rpag){
-      case Rpag.R:
-        return "red";
-      case Rpag.P:
-        return "purple";
-      case Rpag.A:
-        return "yellow";
-      case Rpag.G:
-        return "green";
-      default:
-        return "black";
-    }
   }
   studName(stud:Student):string{
     return stud.lastName.concat(' '+stud.otherNames);
@@ -119,7 +110,8 @@ export class ProgressionComponent implements OnInit {
   comment(midx:number, idx:number, type:MisAttendance){
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
-    let stud=this.rootsvc.progress[midx].studentProgress[idx];
+    let stud:any=null;
+    this.rootsvc.progress.subscribe(d=>stud=d[midx].studentProgress[idx]);
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:

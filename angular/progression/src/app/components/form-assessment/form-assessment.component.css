@@ -1,6 +1,6 @@
-/* table {
+table {
   width: 100%;
-} */
+}
 
 /* button {
   margin: 16px 8px;
@@ -9,8 +9,8 @@
 col:first-child {background: #FF0}
 col:nth-child(2n+3) {background: #CCC}
 
-tr:nth-child(even) {background: #CCC}
-tr:nth-child(odd) {background: #FFF}
+/* tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF} */
 
 .container {
   height: 600px;

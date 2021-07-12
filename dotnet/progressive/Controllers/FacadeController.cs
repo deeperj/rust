@@ -121,12 +121,12 @@ namespace progressive.Controllers
             return Ok(progressions);
         }
 
-        // GET: api/Facade/SummativesByGroupModule/id/modid
-        [Route("api/[controller]/SummativesByGroupModule/{id}/{modid}")]
+        // GET: api/Facade/SummativesByGroupModule/id/modid/rtype
+        [Route("api/[controller]/SummativesByGroupModule/{id}/{modid}/{rtype}")]
         // [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<Progression>>> SummativesByGroupModule(int id, int modid)
+        public async Task<ActionResult<IEnumerable<Progression>>> SummativesByGroupModule(int id, int modid,RPAGType rtype)
         {
-            var progressions = await _domain.SummativesByModuleGroup(id,modid);
+            var progressions = await _domain.SummativesByModuleGroup(id,modid,rtype);
 
             if (progressions == null)
             {
@@ -134,12 +134,12 @@ namespace progressive.Controllers
             }
             return Ok(progressions);
         }
-        // GET: api/Facade/SumTasksByModule/id
-        [Route("api/[controller]/SumTasksByModule/{id}")]
+        // GET: api/Facade/SumTasksByModule/id/rtype
+        [Route("api/[controller]/SumTasksByModule/{id}/{rtype}")]
         // [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<ModuleTask>>> SummativesByGroupModule(int id)
+        public async Task<ActionResult<IEnumerable<ModuleTask>>> SummativesByGroupModule(int id, RPAGType rtype)
         {
-            var tasks = await _domain.SumTasksByModule(id);
+            var tasks = await _domain.SumTasksByModule(id, rtype);
 
             if (tasks == null)
             {
