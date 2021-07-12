@@ -78,7 +78,8 @@ export class ProgressionComponent implements OnInit {
                 formativeScore: null,
                 summativeScore: null,
                 summaryScore: null,
-                summativeRpag: null
+                summativeRpag: null,
+                summaryRpag: null,
               }
             )},
             )

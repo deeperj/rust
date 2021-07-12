@@ -1,17 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { RPAGType } from 'src/app/models/enums';
 import { ModuleTask } from 'src/app/models/ModuleTask';
 import { Progression } from 'src/app/models/Progression';
-import { toArray } from 'rxjs/operators';
+import { takeWhile, toArray } from 'rxjs/operators';
 import { Progress, ProgressRecord } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
+import { UpdateProgress } from 'src/app/store/progress.actions';
 
 @Component({
   selector: 'app-sum-assessment',
   templateUrl: './sum-assessment.component.html',
   styleUrls: ['./sum-assessment.component.css']
 })
-export class SumAssessmentComponent implements OnInit {
+export class SumAssessmentComponent implements OnInit, OnDestroy {
 
   @Input() attRep!: number;
   displayPivot: any[] =[];
@@ -22,13 +23,16 @@ export class SumAssessmentComponent implements OnInit {
   columnsToDisplay!: string[]
   toggle:boolean=false;
   assessment!: Progress;
+  alive: boolean = true
+  ngOnDestroy(): void {
+    this.alive = false
+  }
   constructor(
     public rootsvc : DomainService
   ) { }
 
   ngOnInit(): void {
-    console.log(this.rootsvc.progress);
-    this.rootsvc.progress.subscribe(d=>this.assessment=d[this.attRep]);
+    this.rootsvc.progress.pipe(takeWhile(() => this.alive)).subscribe(d=>this.assessment=d[this.attRep]);
     if(this.displayedColumns){
       this.initializeData();
     }
@@ -58,12 +62,12 @@ export class SumAssessmentComponent implements OnInit {
         dueDate: v1.dueDate?v1.dueDate:'',
         comments: '',
       }
-      this.rootsvc.addAssessment(prog).subscribe(data=>
+      this.rootsvc.addAssessment(prog).pipe(takeWhile(() => this.alive)).subscribe(data=>
       {
         this.rootsvc.dbg.info("Score "+(data?"has been added!":"was not added!"));
         this.summatives.push(data);
         data.task=v1;
-        sprog.summatives.push(data);
+        // sprog.summatives.push(data);
         this.updatePivot();
       });
       return;
@@ -71,14 +75,14 @@ export class SumAssessmentComponent implements OnInit {
     const nscore:number=Number.parseFloat(val?val:'-1');
     if(val && nscore!==-1){
       //update
-      const v2:Progression|undefined=sprog.summatives.find(x=>{
+      const v2:Progression|undefined=this.summatives.find(x=>{
         return x.task?.taskName.startsWith(hdr)});
       const v3:Progression|undefined=JSON.parse(JSON.stringify(v2));
       if(v2 && v3 && v3.progressionID){
         v3.taskAssessment=nscore;
         v2.taskAssessment=nscore;
         delete v3.task;
-        this.rootsvc.editAssessment(v3.progressionID,v3).subscribe(data=>{
+        this.rootsvc.editAssessment(v3.progressionID,v3).pipe(takeWhile(() => this.alive)).subscribe(data=>{
           this.rootsvc.dbg.info("Score update "+(data?"complete!":"was not done!"));
           // console.log(v3);
           // console.log(sprog.summatives);
@@ -94,19 +98,19 @@ export class SumAssessmentComponent implements OnInit {
     const modid=this.assessment.groupModule.module.moduleID;
     const grpid=this.assessment.groupModule.group.groupID;
     this.rootsvc.getSumTasksByModule(modid, RPAGType.Summative)
-    .subscribe( data => {
+    .pipe(takeWhile(() => this.alive)).subscribe( data => {
       this.sumTasks=data;
     //console.log(modid,grpid,this.attRep);
       this.extraHeaders=data.map(c=>c.taskName.split(' ')[0]);
       this.rootsvc.getSummativesByGroup(modid,grpid,RPAGType.Summative)
-      .subscribe( data => {
+      .pipe(takeWhile(() => this.alive)).subscribe( data => {
         this.summatives = data;
         // this.extraHeaders =this.summatives.map(c=>c.task?c.task.taskName.split(' ')[0]:'NotFound')
         //                                   .filter((value, index, self) => self.indexOf(value) === index);
         this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Summative',...this.extraHeaders];
-        this.assessment.studentProgress.forEach((sprog,ridx)=>{
-          sprog.summatives=this.summatives.filter(prog=>prog.studentID===sprog.studentID)
-        });
+        // this.assessment.studentProgress.forEach((sprog,ridx)=>{
+        //   sprog.summatives=this.summatives.filter(prog=>prog.studentID===sprog.studentID)
+        // });
         this.updatePivot();
         this.columnsToDisplay = this.displayedColumns.slice();
       } );
@@ -123,6 +127,15 @@ export class SumAssessmentComponent implements OnInit {
     let el:{[k:string]:string} = {};
     this.extraHeaders.forEach(v=>{el={...el,...{[v]:'** '}}})
     return this.assessment.studentProgress.map((c,i)=>{
+      let summatives:Progression[]=this.summatives.filter(prog=>prog.studentID===c.studentID)
+      this.rootsvc.store.dispatch(new UpdateProgress({
+        gmid: this.attRep,
+        studIdx:c.studentID,
+        rpagType:RPAGType.Summative,
+        progressions:summatives,
+        // rootsvc:this.rootsvc,
+        doRpag:true
+      }));
       const summative:number = c.summatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       let v1= ({
         SN: i+1,

@@ -1,16 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { takeWhile } from 'rxjs/operators';
 import { RPAGType } from 'src/app/models/enums';
 import { ModuleTask } from 'src/app/models/ModuleTask';
 import { Progression } from 'src/app/models/Progression';
 import { Progress, ProgressRecord } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
+import { UpdateProgress } from 'src/app/store/progress.actions';
 
 @Component({
   selector: 'app-form-assessment',
   templateUrl: './form-assessment.component.html',
   styleUrls: ['./form-assessment.component.css']
 })
-export class FormAssessmentComponent implements OnInit {
+export class FormAssessmentComponent implements OnInit, OnDestroy {
 
   @Input() attRep!: number;
   displayPivot: any[] =[];
@@ -21,12 +23,16 @@ export class FormAssessmentComponent implements OnInit {
   columnsToDisplay!: string[]
   toggle:boolean=false;
   assessment!: Progress;
+  alive: boolean = true
+  ngOnDestroy(): void {
+    this.alive = false
+  }
   constructor(
     public rootsvc : DomainService
   ) { }
 
   ngOnInit(): void {
-    this.rootsvc.progress.subscribe(d=>this.assessment=d[this.attRep]);
+    this.rootsvc.progress.pipe(takeWhile(() => this.alive)).subscribe(d=>this.assessment=d[this.attRep]);
     if(this.displayedColumns){
       this.initializeData();
     }
@@ -56,12 +62,12 @@ export class FormAssessmentComponent implements OnInit {
         dueDate: v1.dueDate?v1.dueDate:'',
         comments: '',
       }
-      this.rootsvc.addAssessment(prog).subscribe(data=>
+      this.rootsvc.addAssessment(prog).pipe(takeWhile(() => this.alive)).subscribe(data=>
       {
         this.rootsvc.dbg.info("Score "+(data?"has been added!":"was not added!"));
         this.formatives.push(data);
         data.task=v1;
-        sprog.formatives.push(data);
+        // sprog.formatives.push(data);
         this.updatePivot();
       });
       return;
@@ -69,14 +75,14 @@ export class FormAssessmentComponent implements OnInit {
     const nscore:number=Number.parseFloat(val?val:'-1');
     if(val && nscore!==-1){
       //update
-      const v2:Progression|undefined=sprog.formatives.find(x=>{
+      const v2:Progression|undefined=this.formatives.find(x=>{
         return x.task?.taskName.startsWith(hdr)});
       const v3:Progression|undefined=JSON.parse(JSON.stringify(v2));
       if(v2 && v3 && v3.progressionID){
         v3.taskAssessment=nscore;
         v2.taskAssessment=nscore;
         delete v3.task;
-        this.rootsvc.editAssessment(v3.progressionID,v3).subscribe(data=>{
+        this.rootsvc.editAssessment(v3.progressionID,v3).pipe(takeWhile(() => this.alive)).subscribe(data=>{
           this.rootsvc.dbg.info("Score update "+(data?"complete!":"was not done!"));
           // console.log(v3);
           // console.log(sprog.formatives);
@@ -92,19 +98,19 @@ export class FormAssessmentComponent implements OnInit {
     const modid=this.assessment.groupModule.module.moduleID;
     const grpid=this.assessment.groupModule.group.groupID;
     this.rootsvc.getSumTasksByModule(modid, RPAGType.Formative)
-    .subscribe( data => {
+    .pipe(takeWhile(() => this.alive)).subscribe( data => {
       this.sumTasks=data;
     //console.log(modid,grpid,this.attRep);
       this.extraHeaders=data.map(c=>c.taskName.split(' ')[0]);
       this.rootsvc.getSummativesByGroup(modid,grpid, RPAGType.Formative)
-      .subscribe( data => {
+      .pipe(takeWhile(() => this.alive)).subscribe( data => {
         this.formatives = data;
         // this.extraHeaders =this.formatives.map(c=>c.task?c.task.taskName.split(' ')[0]:'NotFound')
         //                                   .filter((value, index, self) => self.indexOf(value) === index);
         this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Formative',...this.extraHeaders];
-        this.assessment.studentProgress.forEach((sprog,ridx)=>{
-          sprog.formatives=this.formatives.filter(prog=>prog.studentID===sprog.studentID)
-        });
+        // this.assessment.studentProgress.forEach((sprog,ridx)=>{
+        //   sprog.formatives=this.formatives.filter(prog=>prog.studentID===sprog.studentID)
+        // });
         this.updatePivot();
         this.columnsToDisplay = this.displayedColumns.slice();
       } );
@@ -121,6 +127,15 @@ export class FormAssessmentComponent implements OnInit {
     let el:{[k:string]:string} = {};
     this.extraHeaders.forEach(v=>{el={...el,...{[v]:'** '}}})
     return this.assessment.studentProgress.map((c,i)=>{
+      let formatives:Progression[]=this.formatives.filter(prog=>prog.studentID===c.studentID);
+      this.rootsvc.store.dispatch(new UpdateProgress({
+        gmid: this.attRep,
+        studIdx:c.studentID,
+        rpagType:RPAGType.Formative,
+        progressions:formatives,
+        // rootsvc:this.rootsvc,
+        doRpag: true
+      }))
       const formative:number = c.formatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       let v1= ({
         SN: i+1,

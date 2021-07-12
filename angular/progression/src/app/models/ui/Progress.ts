@@ -16,6 +16,7 @@ export interface ProgressRecord{
   summativeScore: string|null;
   summaryScore: string|null;
   summativeRpag: Rpag |null;
+  summaryRpag: Rpag |null;
   attendance: Progression[];
   summatives: Progression[];
   formatives: Progression[];

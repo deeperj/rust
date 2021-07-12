@@ -186,7 +186,6 @@ export class DomainService {
     );
   }
 
-
   studName(stud:Student|null|undefined):string{
     return stud?stud.lastName.concat(' '+stud.otherNames):"";
   }
@@ -206,13 +205,7 @@ export class DomainService {
     }
   }
 
-  getRpag(score:number,student:(Progression & ProgressRecord)):Rpag{
-    const aLag:number =this.attendanceLag(student);
-
-    if(aLag>2 && aLag<10)
-      return Rpag.P;
-    else if(aLag>9)
-      return Rpag.R;
+  getRpag(score:number):Rpag{
 
     if(score>=70)
       return Rpag.G;
@@ -223,6 +216,17 @@ export class DomainService {
     else 
       return Rpag.R;
   }
+
+  getAttRpag(score:number,student:(Progression & ProgressRecord)):Rpag{
+    const aLag:number =this.attendanceLag(student);
+
+    if(aLag>2 && aLag<10)
+      return Rpag.P;
+    else if(aLag>9)
+      return Rpag.R;
+    return this.getRpag(score);
+  }
+
 
   attendanceLag(student:(Progression & ProgressRecord)):number{
     //console.log(JSON.stringify(student.attendance));
@@ -237,14 +241,47 @@ export class DomainService {
     return lag;
   }
 
-  getFormativeScore(scores:Progression[]){
-    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<2);
-    return arr.reduce((a,b)=>a+b)/arr.length;
+  getScore(scores:Progression[],depth:number=2){
+    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<depth);
+    return arr.length>0?arr.reduce((a,b)=>a+b)/arr.length:0;
   }
 
-  getSummativeScore(scores:Progression[]){
+  updateFormatives(sprog:(Progression & ProgressRecord)){
+    sprog.formativeScore=this.getScore(sprog.formatives).toFixed(2);
+    sprog.summaryScore=this.getSummaryScore(sprog).toFixed(2);
+    sprog.summaryRpag=this.getSRpag(sprog.summaryScore!);
+  }
+
+  updateAttendance(c:(Progression & ProgressRecord)){
+    c.attendanceScore=c.attendance.length>0?c.attendance.map(x=>x.taskAssessment).reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2):'0'
+    const score=Number.parseFloat(c.attendanceScore?c.attendanceScore:'0')/c.attendanceCount;
+    c.attendanceScore=score.toFixed(2);
+    c.attendance.sort((a,b)=>Date.parse(a.dueDate.toString())-Date.parse(b.dueDate.toString()));
+    c.attendanceRpag=this.getAttRpag(Number.parseFloat(c.attendanceScore), c)
+    c.attendanceCount=c.attendance.length;
+  }
+  
+  updateSummatives(sprog:(Progression & ProgressRecord)){
+    sprog.summativeScore=this.getScore(sprog.summatives,4).toFixed(2);
+    sprog.summaryScore =this.getSummaryScore(sprog).toFixed(2);
+    sprog.summativeRpag=this.getSRpag(sprog.summativeScore!);
+    sprog.summaryRpag =this.getSRpag(sprog.summaryScore!);
+  }
+
+  getAttendanceScore(scores:Progression[]){
     let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<4);
-    return arr.reduce((a,b)=>a+b)/arr.length;
+    return arr.length>0?arr.reduce((a,b)=>a+b)/arr.length:0;
+  }
+
+  getSummaryScore(sprog:(Progression & ProgressRecord)){
+    let sum=Number.parseFloat(sprog.summativeScore?sprog.summativeScore:'0');
+    let form=Number.parseFloat(sprog.formativeScore?sprog.formativeScore:'0');
+    return (sum+form)/2;
+  }
+
+  getSRpag(sprog:string){
+    let sum=Number.parseFloat(sprog?sprog:'0');
+    return this.getRpag(sum);
   }
 
   studentLog(student:(Progression & ProgressRecord)):string{
