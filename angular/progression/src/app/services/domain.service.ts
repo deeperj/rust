@@ -7,13 +7,14 @@ import { ModEmailStatus, Progress, ProgressRecord } from '../models/ui/Progress'
 import { Student } from '../models/Student';
 import { DebugService } from './debug.service';
 import { Progression } from '../models/Progression';
-import { NewStudent } from '../models/ui/NewStudent';
+import { NewStudent, ProgressUpdate } from '../models/ui/NewStudent';
 import {Subject} from 'rxjs';
 import { Rpag, RPAGType } from '../models/enums';
 import { ModuleTask } from '../models/ModuleTask';
 import * as moment from 'moment';
-import { ProgressionState } from '../store/progress.state';
+import { ProgressionState, ProgressionStateModel } from '../store/progress.state';
 import { Store, Select } from '@ngxs/store';
+import produce from 'immer';
 
 
 @Injectable({
@@ -204,86 +205,6 @@ export class DomainService {
         return "black";
     }
   }
-
-  getRpag(score:number):Rpag{
-
-    if(score>=70)
-      return Rpag.G;
-    else if(score <70 && score >=50)
-      return Rpag.A;
-    else if(score <50 && score >=40)
-      return Rpag.P;
-    else 
-      return Rpag.R;
-  }
-
-  getAttRpag(score:number,student:(Progression & ProgressRecord)):Rpag{
-    const aLag:number =this.attendanceLag(student);
-
-    if(aLag>2 && aLag<10)
-      return Rpag.P;
-    else if(aLag>9)
-      return Rpag.R;
-    return this.getRpag(score);
-  }
-
-
-  attendanceLag(student:(Progression & ProgressRecord)):number{
-    //console.log(JSON.stringify(student.attendance));
-    let aLag:Progression[]=student.attendance.reverse();
-    let lag:number=0;
-    for(let i:number=0;i<aLag.length;i++){
-      if(!aLag[i].completed)
-        lag++;
-      else
-        return lag;
-    }
-    return lag;
-  }
-
-  getScore(scores:Progression[],depth:number=2){
-    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<depth);
-    return arr.length>0?arr.reduce((a,b)=>a+b)/arr.length:0;
-  }
-
-  updateFormatives(sprog:(Progression & ProgressRecord)){
-    sprog.formativeScore=this.getScore(sprog.formatives).toFixed(2);
-    sprog.summaryScore=this.getSummaryScore(sprog).toFixed(2);
-    sprog.summaryRpag=this.getSRpag(sprog.summaryScore!);
-  }
-
-  updateAttendance(c:(Progression & ProgressRecord)){
-    c.attendanceScore=c.attendance.length>0?c.attendance.map(x=>x.taskAssessment).reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2):'0'
-    const score=Number.parseFloat(c.attendanceScore?c.attendanceScore:'0')/c.attendanceCount;
-    c.attendanceScore=score.toFixed(2);
-    c.attendance.sort((a,b)=>Date.parse(a.dueDate.toString())-Date.parse(b.dueDate.toString()));
-    c.attendanceRpag=this.getAttRpag(Number.parseFloat(c.attendanceScore), c)
-    c.attendanceCount=c.attendance.length;
-  }
-  
-  updateSummatives(sprog:(Progression & ProgressRecord)){
-    sprog.summativeScore=this.getScore(sprog.summatives,4).toFixed(2);
-    sprog.summaryScore =this.getSummaryScore(sprog).toFixed(2);
-    sprog.summativeRpag=this.getSRpag(sprog.summativeScore!);
-    sprog.summaryRpag =this.getSRpag(sprog.summaryScore!);
-  }
-
-  getAttendanceScore(scores:Progression[]){
-    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<4);
-    return arr.length>0?arr.reduce((a,b)=>a+b)/arr.length:0;
-  }
-
-  getSummaryScore(sprog:(Progression & ProgressRecord)){
-    let sum=Number.parseFloat(sprog.summativeScore?sprog.summativeScore:'0');
-    let form=Number.parseFloat(sprog.formativeScore?sprog.formativeScore:'0');
-    return (sum+form)/2;
-  }
-
-  getSRpag(sprog:string){
-    let sum=Number.parseFloat(sprog?sprog:'0');
-    return this.getRpag(sum);
-  }
-
   studentLog(student:(Progression & ProgressRecord)):string{
     //console.log(JSON.stringify(student.attendance));
     let aLog:string[]=student.attendance.filter(c=>c.comments?c.comments.trim().length>0:false)
@@ -377,4 +298,5 @@ export class DomainService {
     // Return the parsed data.
     return( arrData );
   }
+
 }

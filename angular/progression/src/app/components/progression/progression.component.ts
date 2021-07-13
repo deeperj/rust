@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import * as moment from 'moment';
 import { Progression } from 'src/app/models/Progression';
@@ -10,13 +10,14 @@ import { NewStudent } from 'src/app/models/ui/NewStudent';
 import { GroupModule } from 'src/app/models/GroupModule';
 import { ModEmailStatus } from 'src/app/models/ui/Progress';
 import { AddProgress } from 'src/app/store/progress.actions';
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'app-progression',
   templateUrl: './progression.component.html',
   styleUrls: ['./progression.component.css']
 })
-export class ProgressionComponent implements OnInit {
+export class ProgressionComponent implements OnInit, OnDestroy {
   @ViewChild("menu") menu!: MatMenuTrigger;
   matmp=[
     MisAttendance.Left,
@@ -36,6 +37,10 @@ export class ProgressionComponent implements OnInit {
   selectAll:boolean=false;
   dateSet:boolean=false;
   today:string="";
+  alive: boolean = true
+  ngOnDestroy(): void {
+    this.alive = false
+  }
 
   constructor( 
     private dbg: DebugService, 
@@ -51,7 +56,7 @@ export class ProgressionComponent implements OnInit {
   getAttendance() {
     //throw new Error('Method not implemented.');
     this.rootsvc.getAttendanceStudents()
-    .subscribe( data => {
+    .pipe(takeWhile(() => this.alive)).subscribe( data => {
       data.map((gmod, i) => {
         this.rootsvc.store.dispatch(new AddProgress(
           {
@@ -112,7 +117,7 @@ export class ProgressionComponent implements OnInit {
     //console.log(this.attendance[idx]);
     //this.dbg.info(type.toString());
     let stud:any=null;
-    this.rootsvc.progress.subscribe(d=>stud=d[midx].studentProgress[idx]);
+    this.rootsvc.progress.pipe(takeWhile(() => this.alive)).subscribe(d=>stud=d[midx].studentProgress[idx]);
     stud.completed=true;
     switch(type){
       case MisAttendance.Late:
@@ -168,7 +173,7 @@ export class ProgressionComponent implements OnInit {
         sendToday: true,
         gMID:gm.id
       }
-      this.rootsvc.sendWeeklyReminder(sweekly).subscribe(data=>{
+      this.rootsvc.sendWeeklyReminder(sweekly).pipe(takeWhile(() => this.alive)).subscribe(data=>{
         console.log(data);
         this.rootsvc.dbg.info("Weekly reminder sent");
       })
@@ -185,7 +190,7 @@ export class ProgressionComponent implements OnInit {
       att.student=null;
       delete att.progressionID;
     })
-    this.rootsvc.addAttendance(attProgressions).subscribe(data=>{
+    this.rootsvc.addAttendance(attProgressions).pipe(takeWhile(() => this.alive)).subscribe(data=>{
       this.dbg.info(data.count+" attendance(s) saved!");
       this.selectAll=true;
       this.toggleSelectAll(modAttendance);
@@ -205,7 +210,7 @@ export class ProgressionComponent implements OnInit {
       att.student=null;
       delete att.progressionID;
     })
-    this.rootsvc.editAttendance(attProgressions).subscribe(data=>{
+    this.rootsvc.editAttendance(attProgressions).pipe(takeWhile(() => this.alive)).subscribe(data=>{
       this.dbg.info(data.count+" attendance(s) updated!");
       // window.location.reload(); 
       this.selectAll=true;
@@ -238,7 +243,7 @@ export class ProgressionComponent implements OnInit {
         otherNames: csv[2]
       }))
     });
-    this.rootsvc.uploadStudents(newStuds).subscribe(data=>{
+    this.rootsvc.uploadStudents(newStuds).pipe(takeWhile(() => this.alive)).subscribe(data=>{
       this.dbg.info(data.count + " Students Added!");
       console.log(data.count+ " students added")
     });

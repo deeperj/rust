@@ -72,7 +72,8 @@ export class AttendanceReportComponent implements OnInit, OnDestroy {
     let counter:number=0;
     this.attendance.studentProgress.forEach((attRec,ridx)=>{
       // console.log('counter=',counter,'ridx=',ridx);
-      this.rootsvc.getStudAttendanceByModule(attRec.studentID,modid).pipe(takeWhile(() => this.alive)).subscribe(data=>{
+      this.rootsvc.getStudAttendanceByModule(attRec.studentID,modid)
+          .pipe(takeWhile(() => this.alive)).subscribe(data=>{
         this.rootsvc.store.dispatch(new UpdateProgress({
           gmid: this.attRep,
           studIdx:attRec.studentID,
@@ -97,11 +98,6 @@ export class AttendanceReportComponent implements OnInit, OnDestroy {
     let el:{[k:string]:string} = {};
     this.theDates.forEach(v=>{el={...el,...{[v]:'** '}}})
     return this.attendance.studentProgress.map((c,i)=>{
-      // c.attendanceScore=c.attendance.length>0?c.attendance.map(x=>x.taskAssessment).reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2):'0'
-      // const score=Number.parseFloat(c.attendanceScore?c.attendanceScore:'0')/c.attendanceCount;
-      // c.attendanceScore=score.toFixed(2);
-      // c.attendance.sort((a,b)=>Date.parse(a.dueDate.toString())-Date.parse(b.dueDate.toString()));
-      // c.attendanceRpag=this.rootsvc.getAttRpag(Number.parseFloat(c.attendanceScore), c)
       let v1= ({
         SN: i+1,
         StudentUniID:c.student?'U'+c.student.uniCode:'',

@@ -16,5 +16,5 @@ export interface ProgressUpdate{
     progressions: Progression[];
     rpagType: RPAGType;
     doRpag: boolean;
-    // rootsvc:DomainService
+    // rootsvc:DomainService;
 }
