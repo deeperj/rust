@@ -35,6 +35,7 @@ class Board{
 private:
 	Point2D startpos;
 public:
+  Board(){}
 	BoardSquare squares[BSZ2];
 	Board(Point2D start);
 	void render();// :call displayBoard();
@@ -51,6 +52,7 @@ class PuzzleGame{
     void gameEnding();
 
   public:
+    PuzzleGame();
     void startGame();
     const int find(const int haystack[], int needle, int size);
 };

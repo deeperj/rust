@@ -34,6 +34,9 @@ void Board::render() {
 
 }
 
+PuzzleGame::PuzzleGame(){
+  board = {Point2D(1,1)};
+}
 const int PuzzleGame::find(const int haystack[], int needle, int size){
   for(int i = 0; i < size; i++){
     if(needle==haystack[i]){
@@ -62,3 +65,4 @@ void PuzzleGame::startGame(){
     // :cout << "Congratulations you won !" << endl;
     // end proceudure 
 }
+
