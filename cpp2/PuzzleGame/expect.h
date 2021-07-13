@@ -1,5 +1,4 @@
-#ifndef EXPECT_H
-#define EXPECT_H
+#pragma once
 
 #include <string.h>
 #include <stdlib.h>
@@ -146,5 +145,3 @@ Expectation<T> expect(T actual) {
   Expectation<T> e(actual);
   return e;
 }
-
-#endif

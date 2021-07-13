@@ -1,14 +1,12 @@
-#include "PuzzleGame.hpp"
-//#include "Test.h"
+#include "test.h"
 
 int main()
 {
   cout << "PuzzleGame starting.." << endl;
-  initscr();
-  // Board b;
-  // b.startGame();
-  getch();
-  endwin();
-  //Test t;
-  //t.testall();
+  // initscr();
+  // Board b(Point2D(1,1));
+  // b.render();
+  // getch();
+  // endwin();
+  runtests();
 }

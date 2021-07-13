@@ -1,18 +1,7 @@
 #pragma once
 #include <assert.h>
-//class AsserErr {};
+#include "PuzzleGame.hpp"
 
-class PuzzleGame;
+class AsserErr {};
 
-class Test {
-public:
-	void testall();
-	int TestFind(int);
-	bool TestChoiceValid(int c);
-	bool getOk();
-	Test();
-	~Test();
-private:
-	bool ok;
-	PuzzleGame* game;
-};
+void runtests();
