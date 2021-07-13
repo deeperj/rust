@@ -15,13 +15,6 @@ export class ProgressReportComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.rootsvc.pivotReady.subscribe(data=>{
-      let len:number=0;
-      this.rootsvc.progress.subscribe(d=>len=d.length);
-      if(data==len-1){
-        this.rootsvc.dbg.info("Items loaded");
-      }
-    });
   }
 
 }

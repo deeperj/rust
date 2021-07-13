@@ -108,9 +108,6 @@ export class FormAssessmentComponent implements OnInit, OnDestroy {
         // this.extraHeaders =this.formatives.map(c=>c.task?c.task.taskName.split(' ')[0]:'NotFound')
         //                                   .filter((value, index, self) => self.indexOf(value) === index);
         this.displayedColumns=['SN','StudentUniID','LastName','OtherNames','Formative',...this.extraHeaders];
-        // this.assessment.studentProgress.forEach((sprog,ridx)=>{
-        //   sprog.formatives=this.formatives.filter(prog=>prog.studentID===sprog.studentID)
-        // });
         this.updatePivot();
         this.columnsToDisplay = this.displayedColumns.slice();
       } );
@@ -133,7 +130,6 @@ export class FormAssessmentComponent implements OnInit, OnDestroy {
         studIdx:c.studentID,
         rpagType:RPAGType.Formative,
         progressions:formatives,
-        // rootsvc:this.rootsvc,
         doRpag: true
       }))
       const formative:number = c.formatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length

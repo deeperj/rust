@@ -1,7 +1,6 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Progress, ProgressRecord } from '../models/ui/Progress';
 import { AddProgress, UpdateProgress } from './progress.actions';
-import { produce } from 'immer'
 import { Rpag, RPAGType } from '../models/enums';
 import { Progression } from '../models/Progression';
 import { ProgressUpdate } from '../models/ui/NewStudent';
@@ -37,12 +36,11 @@ export class ProgressionState {
   @Action(UpdateProgress)
   update({getState, patchState }: StateContext<ProgressionStateModel>, { payload }:UpdateProgress  ) {
       const state = getState();
-      const patch = this.publish(state.progress,payload);
+      const patch = this.patch(state.progress,payload);
       patchState({
           progress: patch
       })
   }
-
   
   getRpag(score:number):Rpag{
 
@@ -66,7 +64,6 @@ export class ProgressionState {
     return this.getRpag(score);
   }
 
-
   attendanceLag(student:(Progression & ProgressRecord)):number{
     //console.log(JSON.stringify(student.attendance));
     let aLag:Progression[]=student.attendance.reverse();
@@ -89,15 +86,16 @@ export class ProgressionState {
     sprog.formativeScore=this.getScore(sprog.formatives).toFixed(2);
     sprog.summaryScore=this.getSummaryScore(sprog).toFixed(2);
     sprog.summaryRpag=this.getSRpag(sprog.summaryScore!);
+    // console.log(sprog.formativeScore);
   }
 
   updateAttendance(c:(Progression & ProgressRecord)){
+    c.attendanceCount=c.attendance.length;
     c.attendanceScore=c.attendance.length>0?c.attendance.map(x=>x.taskAssessment).reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2):'0'
     const score=Number.parseFloat(c.attendanceScore?c.attendanceScore:'0')/c.attendanceCount;
     c.attendanceScore=score.toFixed(2);
     c.attendance.sort((a,b)=>Date.parse(a.dueDate.toString())-Date.parse(b.dueDate.toString()));
     c.attendanceRpag=this.getAttRpag(Number.parseFloat(c.attendanceScore), c)
-    c.attendanceCount=c.attendance.length;
   }
   
   updateSummatives(sprog:(Progression & ProgressRecord)){
@@ -105,6 +103,7 @@ export class ProgressionState {
     sprog.summaryScore =this.getSummaryScore(sprog).toFixed(2);
     sprog.summativeRpag=this.getSRpag(sprog.summativeScore!);
     sprog.summaryRpag =this.getSRpag(sprog.summaryScore!);
+
   }
 
   getAttendanceScore(scores:Progression[]){
@@ -124,19 +123,37 @@ export class ProgressionState {
   }
 
   ctr: number = 0
-  publish(state: Progress[], payload:ProgressUpdate){
-    return produce(state,draft=>{
-      let sprog = draft[payload.gmid].studentProgress.find(c=>c.studentID==payload.studIdx);
-      if(sprog){
-        if(payload.rpagType===0){
-          console.log('counting ..',this.ctr++,payload.rpagType);
-          console.dir(payload.progressions);
-          sprog.attendance=produce(payload.progressions,d=>{})
-            // payload.rootsvc.updateAttendance(sprog);
-        } 
-      }
-    })
+  
+  patch(state: Progress[], payload:ProgressUpdate){
+    let clone = state.slice();
+    let sprog = clone[payload.gmid].studentProgress.find(c=>c.studentID==payload.studIdx);
+    if(sprog){
+      switch(payload.rpagType){
+        case RPAGType.Attendance:
+          // console.log('attendance ..',this.ctr++,payload.rpagType);
+          sprog.attendance=payload.progressions
+          this.updateAttendance(sprog);
+          break;
+        case RPAGType.Summative:
+          // console.log('summative ..',this.ctr++,payload.rpagType);
+          sprog.summatives=payload.progressions;
+          this.updateSummatives(sprog);
+          break;
+        case RPAGType.Formative:
+          // console.log('formative ..',this.ctr++,payload.rpagType);
+          sprog.formatives=payload.progressions;
+          this.updateFormatives(sprog);
+          break;
+        default:
+          console.log('RPag type not found');
+          break;
+      } 
+      // if(sprog.formativeScore && sprog.formativeScore.length>0)
+      // console.log("formative score is ",clone[1].studentProgress.find(c=>c.studentID==8)!.formativeScore);
     }
+    return clone;
+  }
+
 
 
 }

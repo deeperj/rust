@@ -39,7 +39,7 @@ public:
 	BoardSquare squares[BSZ2];
 	Board(Point2D start);
 	void render();// :call displayBoard();
-    void swapPiece();
+  void swapPiece();
 };
 
 class PuzzleGame{
