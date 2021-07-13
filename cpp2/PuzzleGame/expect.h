@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <iostream>
+#include <functional>
 
 #define lprintf(...) do { leftPadding(); printf(__VA_ARGS__); } while (0);
 
@@ -15,7 +16,8 @@ const char* PASSED = "vPASSED!";
 const char* FAIL = "xFAILED!";
 const char* LEFTPAD = "  ";
 
-typedef void (*Spec)();
+//typedef void (*Spec)();
+typedef const std::function<void()>& Spec;
 
 int failed = 0;
 int successful = 0;
