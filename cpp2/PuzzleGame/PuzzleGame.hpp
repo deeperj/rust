@@ -20,9 +20,9 @@ public:
 
 class BoardSquare {
 private:
-	int number;
-	int poscode;
-  Point2D bpos;
+    int number;
+    int poscode;
+    Point2D bpos;
 public:
 	BoardSquare(){}
 	BoardSquare(Point2D bp, int v, int p);
@@ -37,10 +37,20 @@ private:
 public:
 	BoardSquare squares[BSZ2];
 	Board(Point2D start);
-	void render();
+	void render();// :call displayBoard();
+    void swapPiece();
 };
 
 class PuzzleGame{
+  private:
+    Board board;
+    int input;
+    void randomizeBoard();
+    //getInputFromUser();  //cin  //getch
+    void checkInput();
+    void gameEnding();
+
   public:
+    void startGame();
     const int find(const int haystack[], int needle, int size);
 };

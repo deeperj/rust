@@ -42,3 +42,23 @@ const int PuzzleGame::find(const int haystack[], int needle, int size){
   }
   return -1;
 }
+
+void PuzzleGame::startGame(){
+    // procedure startGame()
+    // :call randomizeBoard();
+    // :call displayBoard();
+    // declare winner=false;
+    // while(!winner) then
+    // do //post-test loop(iteration)
+    // :call getInputFromUser();
+    // :call isValid=checkInput();
+    // if(!isValid) then
+    //     :cout<<"invalid input" << endl;
+    // :end if
+    // while(!isValid) end
+    // swapPiece()
+    // winner =call gameEnding()
+    // end while
+    // :cout << "Congratulations you won !" << endl;
+    // end proceudure 
+}
