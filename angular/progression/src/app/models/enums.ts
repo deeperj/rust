@@ -77,6 +77,7 @@ export enum RPAGType {
     Summative,
     Enrollment,
     Inactive,
+    Refresh,
     None
 }
 

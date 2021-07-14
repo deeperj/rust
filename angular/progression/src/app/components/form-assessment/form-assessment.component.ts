@@ -130,7 +130,6 @@ export class FormAssessmentComponent implements OnInit, OnDestroy {
         studIdx:c.studentID,
         rpagType:RPAGType.Formative,
         progressions:formatives,
-        doRpag: true
       }))
       const formative:number = c.formatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       let v1= ({

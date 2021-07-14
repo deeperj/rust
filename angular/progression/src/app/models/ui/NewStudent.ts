@@ -15,6 +15,4 @@ export interface ProgressUpdate{
     gmid: number;
     progressions: Progression[];
     rpagType: RPAGType;
-    doRpag: boolean;
-    // rootsvc:DomainService;
 }

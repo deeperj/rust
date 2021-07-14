@@ -16,6 +16,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -73,6 +75,8 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
     MatInputModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
     NgxsModule.forRoot([
       ProgressionState
     ]),

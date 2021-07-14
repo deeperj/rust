@@ -196,7 +196,7 @@ export class DomainService {
       case Rpag.R:
         return "red";
       case Rpag.P:
-        return "purple";
+        return "pink";
       case Rpag.A:
         return "yellow";
       case Rpag.G:

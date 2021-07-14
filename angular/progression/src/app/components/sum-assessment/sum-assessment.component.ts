@@ -6,6 +6,7 @@ import { takeWhile, toArray } from 'rxjs/operators';
 import { Progress, ProgressRecord } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
 import { UpdateProgress } from 'src/app/store/progress.actions';
+import { Actions, ofActionCompleted } from '@ngxs/store';
 
 @Component({
   selector: 'app-sum-assessment',
@@ -28,8 +29,8 @@ export class SumAssessmentComponent implements OnInit, OnDestroy {
     this.alive = false
   }
   constructor(
-    public rootsvc : DomainService
-  ) { }
+    public rootsvc : DomainService) {
+  }
 
   ngOnInit(): void {
     this.rootsvc.progress.pipe(takeWhile(() => this.alive)).subscribe(d=>this.assessment=d[this.attRep]);
@@ -126,15 +127,13 @@ export class SumAssessmentComponent implements OnInit, OnDestroy {
     // console.log(this.rootsvc.groupMods);
     let el:{[k:string]:string} = {};
     this.extraHeaders.forEach(v=>{el={...el,...{[v]:'** '}}})
-    return this.assessment.studentProgress.map((c,i)=>{
+    const result = this.assessment.studentProgress.map((c,i)=>{
       let summatives:Progression[]=this.summatives.filter(prog=>prog.studentID===c.studentID)
       this.rootsvc.store.dispatch(new UpdateProgress({
         gmid: this.attRep,
         studIdx:c.studentID,
         rpagType:RPAGType.Summative,
         progressions:summatives,
-        // rootsvc:this.rootsvc,
-        doRpag:true
       }));
       const summative:number = c.summatives.reduce((acc,curr)=>acc+curr.taskAssessment,0)/this.extraHeaders.length
       let v1= ({
@@ -156,6 +155,9 @@ export class SumAssessmentComponent implements OnInit, OnDestroy {
       })
       return {...v1,...el};
     });
+    console.log('are we done here?');
+    this.rootsvc.pivotReady.next(this.attRep);  
+    return result;
   }
 
 }

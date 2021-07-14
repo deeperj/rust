@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomainService } from 'src/app/services/domain.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
+  show:boolean = true;
+
+  constructor(
+    public rootsvc : DomainService
+  ) { }
+  
 
   ngOnInit(): void {
+    this.rootsvc.pivotReady.subscribe(data=>{
+      let len:number=0;
+      this.rootsvc.progress.subscribe(d=>len=d.length);
+      if(data==len-1){
+        this.show=false;
+      }
+    });
   }
 
 }

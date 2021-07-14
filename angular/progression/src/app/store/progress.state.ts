@@ -78,14 +78,16 @@ export class ProgressionState {
   }
 
   getScore(scores:Progression[],depth:number=2){
-    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<depth);
-    return arr.length>0?arr.reduce((a,b)=>a+b)/arr.length:0;
+    const arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<depth);
+    const val= arr.length>0?arr.reduce((a,b)=>a+b)/(arr.length>2?arr.length:2):0;
+    console.log('getScore',(depth===2?'formative':'summative'),'=',val);
+    return val;
   }
 
   updateFormatives(sprog:(Progression & ProgressRecord)){
     sprog.formativeScore=this.getScore(sprog.formatives).toFixed(2);
-    sprog.summaryScore=this.getSummaryScore(sprog).toFixed(2);
-    sprog.summaryRpag=this.getSRpag(sprog.summaryScore!);
+    // sprog.summaryScore=this.getSummaryScore(sprog).toFixed(2);
+    // sprog.summaryRpag=this.getSRpag(sprog.summaryScore!);
     // console.log(sprog.formativeScore);
   }
 
@@ -100,25 +102,28 @@ export class ProgressionState {
   
   updateSummatives(sprog:(Progression & ProgressRecord)){
     sprog.summativeScore=this.getScore(sprog.summatives,4).toFixed(2);
-    sprog.summaryScore =this.getSummaryScore(sprog).toFixed(2);
     sprog.summativeRpag=this.getSRpag(sprog.summativeScore!);
+    sprog.summaryScore =this.getSummaryScore(sprog).toFixed(2);
     sprog.summaryRpag =this.getSRpag(sprog.summaryScore!);
 
   }
 
   getAttendanceScore(scores:Progression[]){
-    let arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<4);
+    const arr=scores.map(c=>c.taskAssessment).sort((a,b)=>b-a).filter((v,i)=>i<4);
     return arr.length>0?arr.reduce((a,b)=>a+b)/arr.length:0;
   }
 
   getSummaryScore(sprog:(Progression & ProgressRecord)){
-    let sum=Number.parseFloat(sprog.summativeScore?sprog.summativeScore:'0');
-    let form=Number.parseFloat(sprog.formativeScore?sprog.formativeScore:'0');
-    return (sum+form)/2;
+    const sum=Number.parseFloat(sprog.summativeScore?sprog.summativeScore:'0');
+    const form=Number.parseFloat(sprog.formativeScore?sprog.formativeScore:'0');
+    const att=Number.parseFloat(sprog.attendanceScore?sprog.attendanceScore:'0');
+    const val =(sum+form+att)/3;
+    console.log('summaryScore=',val,sum,form,att);
+    return val;
   }
 
   getSRpag(sprog:string){
-    let sum=Number.parseFloat(sprog?sprog:'0');
+    const sum=Number.parseFloat(sprog?sprog:'0');
     return this.getRpag(sum);
   }
 
@@ -130,22 +135,35 @@ export class ProgressionState {
     if(sprog){
       switch(payload.rpagType){
         case RPAGType.Attendance:
-          // console.log('attendance ..',this.ctr++,payload.rpagType);
+          console.log('attendance ..',this.ctr++);
           sprog.attendance=payload.progressions
-          this.updateAttendance(sprog);
+          // this.updateAttendance(sprog);
           break;
         case RPAGType.Summative:
-          // console.log('summative ..',this.ctr++,payload.rpagType);
+          console.log('summative ..',this.ctr++);
           sprog.summatives=payload.progressions;
-          this.updateSummatives(sprog);
+          // this.updateSummatives(sprog);
           break;
         case RPAGType.Formative:
-          // console.log('formative ..',this.ctr++,payload.rpagType);
+          console.log('formative ..',this.ctr++);
           sprog.formatives=payload.progressions;
+          // this.updateFormatives(sprog);
+          break;
+        case RPAGType.Refresh:
+          console.log('refresh ..',this.ctr++);
+          this.updateAttendance(sprog);
           this.updateFormatives(sprog);
+          this.updateSummatives(sprog);
           break;
         default:
-          console.log('RPag type not found');
+          console.log('Attendance =',RPAGType.Attendance); 
+          console.log('Formative =', RPAGType.Attendance);
+          console.log('Summative =',RPAGType.Summative);
+          console.log('Enrollment =',RPAGType.Enrollment);
+          console.log('Inactive =',RPAGType.Inactive);
+          console.log('Refresh =',RPAGType.Refresh);
+          console.log('None =',RPAGType.None);
+          console.log('RPag type =',payload.rpagType,'not implemented');
           break;
       } 
       // if(sprog.formativeScore && sprog.formativeScore.length>0)

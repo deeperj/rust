@@ -7,7 +7,7 @@
       <!-- <mat-checkbox
         *ng-if="element[column]=='--'"
       ></mat-checkbox> -->
-      <button [style.color]="getRpag(column)" mat-flat-button > {{element[column]}}</button>
+      <button [style.background]="getRpag(column,element['RPAGs'],element['ARPAG'],element['SRPAG'])" mat-flat-button > {{element[column]}}</button>
   </td>
   </ng-container>
 

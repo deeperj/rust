@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Rpag, RPAGType } from 'src/app/models/enums';
 import { Progress } from 'src/app/models/ui/Progress';
 import { DomainService } from 'src/app/services/domain.service';
+import { UpdateProgress } from 'src/app/store/progress.actions';
 
 @Component({
   selector: 'app-all-assessment',
@@ -52,25 +54,42 @@ export class AllAssessmentComponent implements OnInit {
     // console.log('this.rootsvc.groupMods=');
     // console.log(this.rootsvc.groupMods);
     return this.assessment.studentProgress.map((c,i)=>{
-      let v1= ({
+        this.rootsvc.store.dispatch(new UpdateProgress({
+          gmid: this.attRep,
+          studIdx:c.studentID,
+          rpagType:RPAGType.Refresh,
+          progressions:[],
+        }));
+        let v1= ({
         SN: i+1,
         StudentUniID:c.student?'U'+c.student.uniCode:'',
         Student: c,
         LastName: c.student?c.student.lastName:'',
         OtherNames: c.student?c.student.otherNames:'',
-        RPAG: 0,
-        Attendance: 0,
+        RPAG: c.summaryScore,
+        RPAGs: c.summaryRpag,
+        Attendance: c.attendanceScore,
         Formative: c.formativeScore,
         Summative: c.summativeScore,
+        SRPAG: c.summativeRpag,
+        ARPAG: c.attendanceRpag,
       });
       return v1;
     });
   }
 
-  getRpag(column:string){
+  getRpag(column:string,value:Rpag,arpag:Rpag, srpag:Rpag){
+
     switch(column){
+      case 'RPAG':
+        return this.rootsvc.rpag(value);
+      case 'Attendance':
+        return this.rootsvc.rpag(arpag);
+      case 'Summative':
+        return this.rootsvc.rpag(srpag);
       default:
-        return "black"
+        // console.log('here-black')
+        return ""
         break;
     }
   }

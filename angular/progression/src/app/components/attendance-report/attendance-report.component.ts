@@ -79,14 +79,11 @@ export class AttendanceReportComponent implements OnInit, OnDestroy {
           studIdx:attRec.studentID,
           rpagType:RPAGType.Attendance,
           progressions:data,
-          // rootsvc:this.rootsvc,
-          doRpag: true
         }))
         counter++;
         if(counter==this.attendance.studentProgress.length){
           // console.log('counter=',counter,'ridx=',ridx,this.attRep);
           this.attendancePivot=this.getData();
-          this.rootsvc.pivotReady.next(this.attRep);  
         }
       });
     });
